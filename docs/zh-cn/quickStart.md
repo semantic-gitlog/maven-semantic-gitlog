@@ -36,8 +36,8 @@
 
 {{description}}
 {{/description}}
-{{#groups}}
 
+{{#groups}}
 ### {{title}}
 
 {{#commits}}
@@ -51,6 +51,7 @@
 {{/groups}}
 {{/sections}}
 {{^sections}}
+暂无内容。
 {{/sections}}
 ```
 

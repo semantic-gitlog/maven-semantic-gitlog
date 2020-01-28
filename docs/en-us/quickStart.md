@@ -36,8 +36,8 @@ contents of `CHANGELOG.tpl.md`:
 
 {{description}}
 {{/description}}
-{{#groups}}
 
+{{#groups}}
 ### {{title}}
 
 {{#commits}}
@@ -51,6 +51,7 @@ No update notes.
 {{/groups}}
 {{/sections}}
 {{^sections}}
+No contents.
 {{/sections}}
 ```
 
