@@ -1,0 +1,7 @@
+{
+    "name": "maven-semantic-gitlog",
+    "version": "1.0.0",
+    "scripts": {
+        "start": "docsify serve docs -p 8066"
+    }
+}
