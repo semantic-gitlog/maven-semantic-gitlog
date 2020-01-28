@@ -15,5 +15,3 @@ Automatically derive and manage version numbers and generate angular-style chang
 [English](/en-us/)
 [中文](/zh-cn/)
 [GitHub](https://github.com/ymind/maven-semantic-gitlog)
-
-
