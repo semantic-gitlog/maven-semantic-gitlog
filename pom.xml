@@ -40,7 +40,7 @@
 
         <checkstyle.skip>false</checkstyle.skip>
         <pmd.skip>false</pmd.skip>
-        <pmdVersion>6.20.0</pmdVersion>
+        <pmdVersion>6.21.0</pmdVersion>
     </properties>
 
     <dependencies>
