@@ -71,10 +71,15 @@ public class GitReleaseSection {
                 String t1 = o1.getTitle();
                 String t2 = o2.getTitle();
 
-                if (t1 == null && t2 == null) return 0;
-                else if (t1 == null) return 1;
-                else if (t2 == null) return -1;
-                else if (t1.compareTo(t2) == 0) return 0;
+                if (t1 == null && t2 == null) {
+                    return 0;
+                } else if (t1 == null) {
+                    return 1;
+                } else if (t2 == null) {
+                    return -1;
+                } else if (t1.compareTo(t2) == 0) {
+                    return 0;
+                }
 
                 int i1 = orderList.indexOf(t1);
                 int i2 = orderList.indexOf(t2);

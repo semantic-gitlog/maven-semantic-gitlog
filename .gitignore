@@ -35,4 +35,4 @@ logs/
 pom.xml.versionsBackup
 
 ### CUSTOM CONFIG ###
-src/main/resources/*-*.local.yml
+.okhttpcache
