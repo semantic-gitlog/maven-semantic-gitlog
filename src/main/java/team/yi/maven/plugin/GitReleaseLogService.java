@@ -7,6 +7,7 @@ import com.google.common.io.Files;
 import com.google.common.io.Resources;
 import de.skuzzle.semantic.Version;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.time.DateUtils;
 import org.apache.maven.plugin.logging.Log;
 import se.bjurr.gitchangelog.api.GitChangelogApi;
 import se.bjurr.gitchangelog.api.exceptions.GitChangelogRepositoryException;
@@ -25,8 +26,9 @@ import java.io.StringReader;
 import java.io.StringWriter;
 import java.io.Writer;
 import java.nio.charset.StandardCharsets;
-import java.sql.Date;
+import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.Stack;
@@ -265,7 +267,16 @@ public class GitReleaseLogService {
         gitReleaseSection.setDescription(null);
         gitReleaseSection.setGroups(contents);
 
-        if (tag.isHasTagTime()) gitReleaseSection.setReleaseDate(Date.valueOf(tag.getTagTime()));
+        if (tag.isHasTagTime()) {
+            try {
+                Date releaseDate = DateUtils.parseDate(tag.getTagTime(), this.settings.getDateFormat());
+
+                gitReleaseSection.setReleaseDate(releaseDate);
+            } catch (ParseException e) {
+                this.log.debug(e);
+            }
+        }
+
         if (tagVersion != null) gitReleaseSection.setVersion(tagVersion);
 
         return gitReleaseSection;
