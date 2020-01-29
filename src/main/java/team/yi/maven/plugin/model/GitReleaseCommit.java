@@ -39,7 +39,7 @@ public class GitReleaseCommit extends Commit implements Serializable {
             commit.getCommitTime(),
             commit.getCommitTimeLong(),
             commit.getMessage(),
-            commit.getHash(),
+            commit.getHashFull(),
             commit.isMerge()
         );
 
