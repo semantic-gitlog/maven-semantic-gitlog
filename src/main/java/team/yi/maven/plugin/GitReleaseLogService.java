@@ -38,6 +38,7 @@ import static com.google.common.base.Preconditions.checkArgument;
 import static com.google.common.base.Preconditions.checkNotNull;
 import static com.google.common.io.Resources.getResource;
 
+@SuppressWarnings("PMD.GodClass")
 public class GitReleaseLogService {
     private final GitChangelogApi builder;
     private final Settings settings;
@@ -210,20 +211,34 @@ public class GitReleaseLogService {
         return gitReleaseLog;
     }
 
+    @SuppressWarnings("PMD.NPathComplexity")
     private GitReleaseSection processTag(Tag tag) {
         Map<String, List<GitReleaseCommit>> groups = new ConcurrentHashMap<>();
         String commitUrlTemplate = this.versioningSettings.getCommitUrlTemplate();
         String issueUrlTemplate = this.versioningSettings.getIssueUrlTemplate();
         List<Commit> commits = tag.getCommits();
+        Version tagVersion = null;
+
+        try {
+            tagVersion = Version.parseVersion(tag.getName());
+        } catch (Exception e) {
+            this.log.debug(e);
+        }
+
+        if (tagVersion == null && this.firstVersion == null) {
+            this.firstVersion = Version.parseVersion("0.1.0");
+        } else if (this.firstVersion == null) {
+            this.firstVersion = tagVersion;
+        } else if (this.lastVersion == null) {
+            this.lastVersion = tagVersion;
+        }
 
         for (Commit item : commits) {
             GitReleaseCommit commit = new GitReleaseCommit(item, commitUrlTemplate, issueUrlTemplate);
 
             if (StringUtils.isEmpty(commit.getCommitDescription())) continue;
 
-            if (this.lastVersion == null) {
-                this.versionCommits.add(commit);
-            }
+            if (this.lastVersion == null) this.versionCommits.add(commit);
 
             String groupTitle = getGroupTitle(commit.getCommitType(), commit.isBreakingChange());
 
@@ -246,22 +261,6 @@ public class GitReleaseLogService {
 
             contents.add(gitReleaseCommitGroup);
         });
-
-        Version tagVersion = null;
-
-        try {
-            tagVersion = Version.parseVersion(tag.getName());
-        } catch (Exception e) {
-            this.log.debug(e);
-        }
-
-        if (tagVersion == null && firstVersion == null) {
-            firstVersion = Version.parseVersion("0.1.0");
-        } else if (firstVersion == null) {
-            firstVersion = tagVersion;
-        } else if (lastVersion == null) {
-            lastVersion = tagVersion;
-        }
 
         GitReleaseSection gitReleaseSection = new GitReleaseSection();
         gitReleaseSection.setDescription(null);
@@ -345,6 +344,8 @@ public class GitReleaseLogService {
                 break;
             } else if (preReleaseTypes.contains(commitType)) {
                 nextVersion = nextVersion.nextPreRelease();
+
+                if (!StringUtils.isEmpty(buildMetaData)) nextVersion = nextVersion.withBuildMetaData(buildMetaData);
 
                 if (this.versioningSettings.getUseCrazyGrowing()) continue;
 
