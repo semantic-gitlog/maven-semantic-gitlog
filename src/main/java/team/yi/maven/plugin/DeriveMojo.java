@@ -17,6 +17,7 @@ import java.util.Date;
 import static com.google.common.base.Strings.isNullOrEmpty;
 import static se.bjurr.gitchangelog.api.GitChangelogApi.gitChangelogApiBuilder;
 
+@SuppressWarnings("PMD.TooManyFields")
 @Mojo(name = "derive", defaultPhase = LifecyclePhase.VALIDATE)
 public class DeriveMojo extends AbstractMojo {
     @Parameter(property = "toRef")
@@ -112,9 +113,13 @@ public class DeriveMojo extends AbstractMojo {
             String derivedVersionMark = gitReleaseLogSettings.getDerivedVersionMark();
 
             if (StringUtils.isEmpty(derivedVersionMark)) {
-                System.out.println(gitReleaseLog.getNewVersion().toString());
+                if (log.isInfoEnabled()) {
+                    log.info(gitReleaseLog.getNewVersion().toString());
+                }
             } else {
-                System.out.println(derivedVersionMark + gitReleaseLog.getNewVersion().toString());
+                if (log.isInfoEnabled()) {
+                    log.info(derivedVersionMark + gitReleaseLog.getNewVersion().toString());
+                }
             }
         } catch (Exception e) {
             log.debug(e);

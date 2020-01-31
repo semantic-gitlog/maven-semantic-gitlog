@@ -146,7 +146,9 @@ public class GitChangelogMojo extends AbstractMojo {
             GitChangelogApi builder = this.createGitChangelogApi();
 
             if (file == null && !isSupplied(mediaWikiUrl)) {
-                log.info("No output set, using file " + DEFAULT_FILE);
+                if (log.isInfoEnabled()) {
+                    log.info("No output set, using file " + DEFAULT_FILE);
+                }
 
                 file = new File(DEFAULT_FILE);
             }
@@ -162,9 +164,11 @@ public class GitChangelogMojo extends AbstractMojo {
                     gitReleaseLogService.saveToFile(file);
                 }
 
-                log.info("#");
-                log.info("# Wrote: " + file);
-                log.info("#");
+                if (log.isInfoEnabled()) {
+                    log.info("#");
+                    log.info("# Wrote: " + file);
+                    log.info("#");
+                }
             }
 
             if (isSupplied(mediaWikiUrl)) {
@@ -173,9 +177,12 @@ public class GitChangelogMojo extends AbstractMojo {
                     mediaWikiPassword,
                     mediaWikiUrl,
                     mediaWikiTitle);
-                log.info("#");
-                log.info("# Created: " + mediaWikiUrl + "/index.php/" + mediaWikiTitle);
-                log.info("#");
+
+                if (log.isInfoEnabled()) {
+                    log.info("#");
+                    log.info("# Created: " + mediaWikiUrl + "/index.php/" + mediaWikiTitle);
+                    log.info("#");
+                }
             }
         } catch (final Exception e) {
             log.debug(e);

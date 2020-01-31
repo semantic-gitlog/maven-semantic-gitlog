@@ -8,22 +8,22 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class GitReleaseSection {
-    private static final List<String> orderList = new ArrayList<>();
+    private static final List<String> ORDER_LIST = new ArrayList<>();
 
     static {
-        orderList.add(GitReleaseCommitGroup.BUG_FIXES);
-        orderList.add(GitReleaseCommitGroup.CODE_REFACTORING);
-        orderList.add(GitReleaseCommitGroup.FEATURES);
-        orderList.add(GitReleaseCommitGroup.PERFORMANCE_IMPROVEMENTS);
-        orderList.add(GitReleaseCommitGroup.DOCUMENTATION);
-        orderList.add(GitReleaseCommitGroup.STYLES);
-        orderList.add(GitReleaseCommitGroup.REVERTS);
-        orderList.add(GitReleaseCommitGroup.BREAKING_CHANGE);
-        orderList.add(GitReleaseCommitGroup.DEPRECATIONS);
-        orderList.add(GitReleaseCommitGroup.TESTS);
-        orderList.add(GitReleaseCommitGroup.BUILD_SYSTEM);
-        orderList.add(GitReleaseCommitGroup.CONTINUOUS_INTEGRATION);
-        orderList.add(GitReleaseCommitGroup.OTHERS);
+        ORDER_LIST.add(GitReleaseCommitGroup.BUG_FIXES);
+        ORDER_LIST.add(GitReleaseCommitGroup.CODE_REFACTORING);
+        ORDER_LIST.add(GitReleaseCommitGroup.FEATURES);
+        ORDER_LIST.add(GitReleaseCommitGroup.PERFORMANCE_IMPROVEMENTS);
+        ORDER_LIST.add(GitReleaseCommitGroup.DOCUMENTATION);
+        ORDER_LIST.add(GitReleaseCommitGroup.STYLES);
+        ORDER_LIST.add(GitReleaseCommitGroup.REVERTS);
+        ORDER_LIST.add(GitReleaseCommitGroup.BREAKING_CHANGE);
+        ORDER_LIST.add(GitReleaseCommitGroup.DEPRECATIONS);
+        ORDER_LIST.add(GitReleaseCommitGroup.TESTS);
+        ORDER_LIST.add(GitReleaseCommitGroup.BUILD_SYSTEM);
+        ORDER_LIST.add(GitReleaseCommitGroup.CONTINUOUS_INTEGRATION);
+        ORDER_LIST.add(GitReleaseCommitGroup.OTHERS);
     }
 
     private Version version;
@@ -81,8 +81,8 @@ public class GitReleaseSection {
                     return 0;
                 }
 
-                int i1 = orderList.indexOf(t1);
-                int i2 = orderList.indexOf(t2);
+                int i1 = ORDER_LIST.indexOf(t1);
+                int i2 = ORDER_LIST.indexOf(t2);
 
                 return Integer.compare(i1, i2);
             })

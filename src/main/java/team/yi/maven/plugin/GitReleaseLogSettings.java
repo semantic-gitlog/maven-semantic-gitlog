@@ -6,9 +6,16 @@ import org.apache.maven.plugins.annotations.Parameter;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class GitReleaseLogSettings {
+    private static final List<String> DEFAULT_MAJOR_TYPES = new ArrayList<>();
+    private static final List<String> DEFAULT_MINOR_TYPES = Collections.singletonList("feat");
+    private static final List<String> DEFAULT_PATCH_TYPES = Arrays.asList("fix", "perf", "revert", "refactor");
+    private static final List<String> DEFAULT_PRE_RELEASE_TYPES = new ArrayList<>();
+    private static final List<String> DEFAULT_BUILD_META_DATA_TYPES = new ArrayList<>();
+
     @Parameter(property = "disabled")
     private Boolean disabled = false;
 
@@ -28,10 +35,10 @@ public class GitReleaseLogSettings {
     private String majorTypes;
 
     @Parameter(property = "minorTypes", defaultValue = "feat")
-    private String minorTypes = "feat";
+    private String minorTypes;
 
     @Parameter(property = "patchTypes", defaultValue = "fix,perf,revert,refactor")
-    private String patchTypes = "fix,perf,revert,refactor";
+    private String patchTypes;
 
     @Parameter(property = "preReleaseTypes")
     private String preReleaseTypes;
@@ -94,7 +101,7 @@ public class GitReleaseLogSettings {
     public List<String> getPreReleaseTypes() {
         String[] items = StringUtils.split(this.preReleaseTypes, ",");
 
-        return items == null || items.length == 0 ? new ArrayList<>() : Arrays.asList(items);
+        return items == null || items.length == 0 ? DEFAULT_PRE_RELEASE_TYPES : Arrays.asList(items);
     }
 
     public void setPreReleaseTypes(String preReleaseTypes) {
@@ -112,7 +119,7 @@ public class GitReleaseLogSettings {
     public List<String> getBuildMetaDataTypes() {
         String[] items = StringUtils.split(this.buildMetaDataTypes, ",");
 
-        return items == null || items.length == 0 ? new ArrayList<>() : Arrays.asList(items);
+        return items == null || items.length == 0 ? DEFAULT_BUILD_META_DATA_TYPES : Arrays.asList(items);
     }
 
     public void setBuildMetaDataTypes(String buildMetaDataTypes) {
@@ -122,7 +129,7 @@ public class GitReleaseLogSettings {
     public List<String> getMajorTypes() {
         String[] items = StringUtils.split(this.majorTypes, ",");
 
-        return items == null || items.length == 0 ? new ArrayList<>() : Arrays.asList(items);
+        return items == null || items.length == 0 ? DEFAULT_MAJOR_TYPES : Arrays.asList(items);
     }
 
     public void setMajorTypes(String majorTypes) {
@@ -132,7 +139,7 @@ public class GitReleaseLogSettings {
     public List<String> getMinorTypes() {
         String[] items = StringUtils.split(this.minorTypes, ",");
 
-        return items == null || items.length == 0 ? new ArrayList<>() : Arrays.asList(items);
+        return items == null || items.length == 0 ? DEFAULT_MINOR_TYPES : Arrays.asList(items);
     }
 
     public void setMinorTypes(String minorTypes) {
@@ -142,7 +149,7 @@ public class GitReleaseLogSettings {
     public List<String> getPatchTypes() {
         String[] items = StringUtils.split(this.patchTypes, ",");
 
-        return items == null || items.length == 0 ? new ArrayList<>() : Arrays.asList(items);
+        return items == null || items.length == 0 ? DEFAULT_PATCH_TYPES : Arrays.asList(items);
     }
 
     public void setPatchTypes(String patchTypes) {

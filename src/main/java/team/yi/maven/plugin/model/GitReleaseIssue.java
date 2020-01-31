@@ -1,5 +1,7 @@
 package team.yi.maven.plugin.model;
 
+import java.util.Objects;
+
 public class GitReleaseIssue {
     private Integer id;
     private String action;
@@ -24,13 +26,17 @@ public class GitReleaseIssue {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (obj instanceof GitReleaseIssue) {
-            GitReleaseIssue issue = (GitReleaseIssue) obj;
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 
-            return this.id.equals(issue.id);
-        }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
 
-        return false;
+        GitReleaseIssue that = (GitReleaseIssue) o;
+
+        return Objects.equals(id, that.id);
     }
 }

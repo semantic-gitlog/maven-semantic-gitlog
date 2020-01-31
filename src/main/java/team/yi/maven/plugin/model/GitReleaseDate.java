@@ -13,6 +13,7 @@ public class GitReleaseDate {
         this(new Date());
     }
 
+    @SuppressWarnings("PMD.ConstructorCallsOverridableMethod")
     public GitReleaseDate(Date date) {
         this.setDate(date);
     }
