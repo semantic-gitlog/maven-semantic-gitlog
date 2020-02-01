@@ -25,10 +25,6 @@ hr {
     padding: 0;
 }
 
-.markdown-section a {
-    font-weight: normal;
-}
-
 .markdown-section {
     margin: 0 auto;
     max-width: 1200px;
