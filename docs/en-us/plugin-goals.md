@@ -10,7 +10,7 @@ Example:
 $ ./mvnw semantic-gitlog:derive
 
 # output:
-[INFO] NEW_VERSION:==0.1.2
+[INFO] NEXT_VERSION:==0.1.2
 ```
 
 ## 2. semantic-gitlog:git-changelog

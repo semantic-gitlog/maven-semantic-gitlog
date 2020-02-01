@@ -47,8 +47,8 @@ git remote set-url origin https://${GITHUB_TOKEN}@github.com/${TRAVIS_REPO_SLUG}
 git fetch
 git checkout master
 
-lastVersion=${TRAVIS_TAG}
-gitCommit="release ${lastVersion}"
+newVersion=${TRAVIS_TAG}
+gitCommit="release ${newVersion}"
 
 if [[ ! -z "${TRAVIS_TAG}" ]]
 then
@@ -56,22 +56,22 @@ then
 else
     echo "not on a tag -> derive version and keep snapshot"
 
-    newVersion=`./mvnw ${MAVEN_CLI_OPTS} --settings "${TRAVIS_BUILD_DIR}/.travis/mvn-settings.xml" -P release-plugin -U semantic-gitlog:derive | grep 'NEW_VERSION:==' | sed 's/.\+NEW_VERSION:==//g'`
-    lastVersion="${newVersion}-SNAPSHOT"
+    nextVersion=`./mvnw ${MAVEN_CLI_OPTS} --settings "${TRAVIS_BUILD_DIR}/.travis/mvn-settings.xml" -P release-plugin -U semantic-gitlog:derive | grep 'NEXT_VERSION:==' | sed 's/.\+NEXT_VERSION:==//g'`
+    newVersion="${nextVersion}-SNAPSHOT"
 
-    gitCommit="bumped version to ${lastVersion}"
+    gitCommit="bumped version to ${newVersion}"
 fi
 
-# Print lastVersion
-echo "lastVersion: ${lastVersion}"
+# Print newVersion
+echo "newVersion: ${newVersion}"
 
-if [[ -z "${lastVersion}" ]]; then
-  echo "missing lastVersion value" >&2
+if [[ -z "${newVersion}" ]]; then
+  echo "missing newVersion value" >&2
   exit 1
 fi
 
 # Run the maven deploy steps
-./mvnw ${MAVEN_CLI_OPTS} --settings "${TRAVIS_BUILD_DIR}/.travis/mvn-settings.xml" -P release-plugin versions:set -D "newVersion=${lastVersion}" 1>/dev/null 2>/dev/null
+./mvnw ${MAVEN_CLI_OPTS} --settings "${TRAVIS_BUILD_DIR}/.travis/mvn-settings.xml" -P release-plugin versions:set -D "newVersion=${newVersion}" 1>/dev/null 2>/dev/null
 ./mvnw ${MAVEN_CLI_OPTS} --settings "${TRAVIS_BUILD_DIR}/.travis/mvn-settings.xml" -P release-plugin -DskipTests=true deploy
 
 # Generate and push CHANGELOG.md

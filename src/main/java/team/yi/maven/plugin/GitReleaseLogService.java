@@ -201,11 +201,11 @@ public class GitReleaseLogService {
 
         if (lastVersion == null) lastVersion = this.lastVersion;
 
-        Version newVersion = this.deriveNewVersion(lastVersion, this.versionCommits);
+        Version nextVersion = this.deriveNextVersion(lastVersion, this.versionCommits);
         GitReleaseLog gitReleaseLog = new GitReleaseLog();
 
         gitReleaseLog.setLastVersion(this.lastVersion);
-        gitReleaseLog.setNewVersion(newVersion);
+        gitReleaseLog.setNextVersion(nextVersion);
         gitReleaseLog.setSections(gitReleaseSections);
 
         return gitReleaseLog;
@@ -282,7 +282,7 @@ public class GitReleaseLogService {
     }
 
     @SuppressWarnings({"PMD.NcssCount", "PMD.NPathComplexity"})
-    private Version deriveNewVersion(Version lastVersion, Stack<GitReleaseCommit> versionCommits) {
+    private Version deriveNextVersion(Version lastVersion, Stack<GitReleaseCommit> versionCommits) {
         Version nextVersion = lastVersion == null
             ? Version.create(0, 1, 0)
             : Version.parseVersion(lastVersion.toString());

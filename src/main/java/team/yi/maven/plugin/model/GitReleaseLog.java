@@ -7,16 +7,16 @@ import java.util.List;
 public class GitReleaseLog {
     public static final int VERSION = 1;
 
-    private Version newVersion;
+    private Version nextVersion;
     private Version lastVersion;
     private List<GitReleaseSection> sections;
 
-    public Version getNewVersion() {
-        return newVersion;
+    public Version getNextVersion() {
+        return nextVersion;
     }
 
-    public void setNewVersion(Version newVersion) {
-        this.newVersion = newVersion;
+    public void setNextVersion(Version nextVersion) {
+        this.nextVersion = nextVersion;
     }
 
     public Version getLastVersion() {

@@ -108,17 +108,17 @@ public class DeriveMojo extends AbstractMojo {
             GitReleaseLog gitReleaseLog = gitReleaseLogService.generate();
 
             if (gitReleaseLog == null) return;
-            if (gitReleaseLog.getNewVersion() == null) return;
+            if (gitReleaseLog.getNextVersion() == null) return;
 
             String derivedVersionMark = gitReleaseLogSettings.getDerivedVersionMark();
 
             if (StringUtils.isEmpty(derivedVersionMark)) {
                 if (log.isInfoEnabled()) {
-                    log.info(gitReleaseLog.getNewVersion().toString());
+                    log.info(gitReleaseLog.getNextVersion().toString());
                 }
             } else {
                 if (log.isInfoEnabled()) {
-                    log.info(derivedVersionMark + gitReleaseLog.getNewVersion().toString());
+                    log.info(derivedVersionMark + gitReleaseLog.getNextVersion().toString());
                 }
             }
         } catch (Exception e) {
