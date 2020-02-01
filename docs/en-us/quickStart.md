@@ -29,15 +29,15 @@ contents of `CHANGELOG.tpl.md`:
 
 ```markdown
 # Changelog
-
 {{#sections}}
-{{#version}}## {{version}}{{/version}}{{^version}}## latest{{/version}}{{#releaseDate}} ({{releaseDate.shortDate}}){{/releaseDate}}{{^releaseDate}} ({{now.shortDate}}){{/releaseDate}}
+
+{{#version}}## {{version}} ({{#releaseDate}}{{releaseDate.shortDate}}{{/releaseDate}}{{^releaseDate}}{{now.shortDate}}{{/releaseDate}}){{/version}}{{^version}}## {{newVersion}} (Unreleased, {{#releaseDate}}{{releaseDate.shortDate}}{{/releaseDate}}{{^releaseDate}}{{now.shortDate}}{{/releaseDate}}){{/version}}
 {{#description}}
 
 {{description}}
 {{/description}}
-
 {{#groups}}
+
 ### {{title}}
 
 {{#commits}}
@@ -48,9 +48,11 @@ contents of `CHANGELOG.tpl.md`:
 {{^groups}}
 
 No update notes.
+
 {{/groups}}
 {{/sections}}
 {{^sections}}
+
 No contents.
 {{/sections}}
 ```

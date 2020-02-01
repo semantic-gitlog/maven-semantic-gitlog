@@ -36,3 +36,4 @@ pom.xml.versionsBackup
 
 ### CUSTOM CONFIG ###
 .okhttpcache
+.travis/gpg.asc

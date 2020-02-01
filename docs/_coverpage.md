@@ -6,6 +6,7 @@
 
 Automatically derive and manage version numbers and generate angular-style change logs.
 
+[![Build Status](https://travis-ci.org/ymind/maven-semantic-gitlog.svg?branch=master)](https://travis-ci.org/ymind/maven-semantic-gitlog)
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/ymind/maven-semantic-gitlog)](https://github.com/ymind/maven-semantic-gitlog/releases)
 [![Maven Central](https://img.shields.io/maven-central/v/team.yi.maven.plugin/maven-semantic-gitlog)](https://search.maven.org/artifact/team.yi.maven.plugin/maven-semantic-gitlog)
 [![Semantic Versioning 2.0.0](https://img.shields.io/badge/Semantic%20Versioning-2.0.0-brightgreen)](https://semver.org/)

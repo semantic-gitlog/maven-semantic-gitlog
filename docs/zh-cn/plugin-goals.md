@@ -6,10 +6,10 @@
 
 例如：
 ```bash
-$ mvn semantic-gitlog:derive | grep NEW_VERSION:== | sed 's/NEW_VERSION:==//g'
+$ ./mvnw semantic-gitlog:derive
 
-# will print:
-0.28.11-alpha.1
+# output:
+[INFO] NEW_VERSION:==0.1.2
 ```
 
 ## 2. semantic-gitlog:git-changelog

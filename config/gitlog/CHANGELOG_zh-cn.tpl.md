@@ -17,11 +17,11 @@
 {{/groups}}
 {{^groups}}
 
-No update notes.
+暂无更新说明。
 
 {{/groups}}
 {{/sections}}
 {{^sections}}
 
-No contents.
+暂无内容。
 {{/sections}}

@@ -9,3 +9,6 @@ tab_width = 4
 
 [{*.sh, mvnw}]
 end_of_line = lf
+
+[{*.yml, *.yaml}]
+indent_size = 2

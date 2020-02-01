@@ -250,6 +250,13 @@
                 </snapshotRepository>
             </distributionManagement>
 
+            <pluginRepositories>
+                <pluginRepository>
+                    <id>sonatype</id>
+                    <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+                </pluginRepository>
+            </pluginRepositories>
+
             <build>
                 <plugins>
                     <plugin>
@@ -275,6 +282,26 @@
                             <serverId>ossrh</serverId>
                             <nexusUrl>https://oss.sonatype.org/</nexusUrl>
                             <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                        </configuration>
+                    </plugin>
+
+                    <plugin>
+                        <groupId>team.yi.maven.plugin</groupId>
+                        <artifactId>maven-semantic-gitlog</artifactId>
+                        <version>0.2.1-SNAPSHOT</version>
+                        <configuration>
+                            <templateFile>${project.basedir}/config/gitlog/CHANGELOG.tpl.md</templateFile>
+
+                            <!--<toRef>dev</toRef>-->
+
+                            <gitReleaseLogSettings>
+                                <useCrazyGrowing>false</useCrazyGrowing>
+
+                                <commitUrlTemplate>${project.scm.url}/commit/:commitId</commitUrlTemplate>
+                                <issueUrlTemplate>${project.scm.url}/issues/:issueId</issueUrlTemplate>
+
+                                <derivedVersionMark>NEW_VERSION:==</derivedVersionMark>
+                            </gitReleaseLogSettings>
                         </configuration>
                     </plugin>
                 </plugins>

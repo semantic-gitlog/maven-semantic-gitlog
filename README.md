@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/ymind/maven-semantic-gitlog.svg?branch=master)](https://travis-ci.org/ymind/maven-semantic-gitlog)
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/ymind/maven-semantic-gitlog)](https://github.com/ymind/maven-semantic-gitlog/releases)
 [![Maven Central](https://img.shields.io/maven-central/v/team.yi.maven.plugin/maven-semantic-gitlog)](https://search.maven.org/artifact/team.yi.maven.plugin/maven-semantic-gitlog)
 [![Semantic Versioning 2.0.0](https://img.shields.io/badge/Semantic%20Versioning-2.0.0-brightgreen)](https://semver.org/)
@@ -31,7 +32,6 @@ The [CHANGELOG.md](https://github.com/ymind/maven-semantic-gitlog/blob/master/CH
         <templateFile>${project.basedir}/config/gitlog/CHANGELOG.tpl.md</templateFile>
 
         <gitReleaseLogSettings>
-            <lastVersion>0.1.0</lastVersion>
             <useCrazyGrowing>true</useCrazyGrowing>
 
             <commitUrlTemplate>https://github.com/${YOUR_ACCOUNT}/${YOUR_PROJECT_NAME}/commit/:commitId</commitUrlTemplate>
@@ -47,15 +47,15 @@ contents of `CHANGELOG.tpl.md`:
 
 ```markdown
 # Changelog
-
 {{#sections}}
-{{#version}}## {{version}}{{/version}}{{^version}}## latest{{/version}}{{#releaseDate}} ({{releaseDate.shortDate}}){{/releaseDate}}{{^releaseDate}} ({{now.shortDate}}){{/releaseDate}}
+
+{{#version}}## {{version}} ({{#releaseDate}}{{releaseDate.shortDate}}{{/releaseDate}}{{^releaseDate}}{{now.shortDate}}{{/releaseDate}}){{/version}}{{^version}}## {{newVersion}} (Unreleased, {{#releaseDate}}{{releaseDate.shortDate}}{{/releaseDate}}{{^releaseDate}}{{now.shortDate}}{{/releaseDate}}){{/version}}
 {{#description}}
 
 {{description}}
 {{/description}}
-
 {{#groups}}
+
 ### {{title}}
 
 {{#commits}}
@@ -66,9 +66,11 @@ contents of `CHANGELOG.tpl.md`:
 {{^groups}}
 
 No update notes.
+
 {{/groups}}
 {{/sections}}
 {{^sections}}
+
 No contents.
 {{/sections}}
 ```

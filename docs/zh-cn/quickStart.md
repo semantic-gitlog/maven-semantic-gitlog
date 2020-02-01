@@ -29,15 +29,15 @@
 
 ```markdown
 # 更新日志
-
 {{#sections}}
-{{#version}}## {{version}}{{/version}}{{^version}}## latest{{/version}}{{#releaseDate}} ({{releaseDate.shortDate}}){{/releaseDate}}{{^releaseDate}} ({{now.shortDate}}){{/releaseDate}}
+
+{{#version}}## {{version}} ({{#releaseDate}}{{releaseDate.shortDate}}{{/releaseDate}}{{^releaseDate}}{{now.shortDate}}{{/releaseDate}}){{/version}}{{^version}}## {{newVersion}} (Unreleased, {{#releaseDate}}{{releaseDate.shortDate}}{{/releaseDate}}{{^releaseDate}}{{now.shortDate}}{{/releaseDate}}){{/version}}
 {{#description}}
 
 {{description}}
 {{/description}}
-
 {{#groups}}
+
 ### {{title}}
 
 {{#commits}}
@@ -48,9 +48,11 @@
 {{^groups}}
 
 暂无更新说明。
+
 {{/groups}}
 {{/sections}}
 {{^sections}}
+
 暂无内容。
 {{/sections}}
 ```
