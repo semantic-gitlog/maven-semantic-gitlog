@@ -13,7 +13,6 @@ import java.util.regex.Pattern;
 
 public class GitReleaseCommit extends Commit implements Serializable {
     public static final Pattern MESSAGE_PATTERN = Pattern.compile("^([\\w!]+)(\\(([\\w-$_]+)\\))?: ([^\\n]+)((\\n{1,2}([^\\n]+))*)$");
-    public static final Pattern MESSAGE_ISSUE_PATTERN = Pattern.compile("\\n?^issue /(\\w+) #(\\d+)$", Pattern.MULTILINE);
     public static final String BREAKING_CHANGE = "BREAKING CHANGE";
     public static final String DEPRECATION = "DEPRECATION";
 
@@ -31,8 +30,9 @@ public class GitReleaseCommit extends Commit implements Serializable {
 
     private String commitUrlTemplate;
     private String issueUrlTemplate;
+    private Pattern quickActionPattern;
 
-    public GitReleaseCommit(Commit commit, String commitUrlTemplate, String issueUrlTemplate) {
+    public GitReleaseCommit(Commit commit, String commitUrlTemplate, String issueUrlTemplate, Pattern quickActionPattern) {
         super(
             commit.getAuthorName(),
             commit.getAuthorEmailAddress(),
@@ -45,6 +45,7 @@ public class GitReleaseCommit extends Commit implements Serializable {
 
         this.commitUrlTemplate = commitUrlTemplate;
         this.issueUrlTemplate = issueUrlTemplate;
+        this.quickActionPattern = quickActionPattern;
 
         this.internalParse(commit);
     }
@@ -113,6 +114,7 @@ public class GitReleaseCommit extends Commit implements Serializable {
         return breakingChange;
     }
 
+    @SuppressWarnings("PMD.NPathComplexity")
     private void internalParse(Commit commit) {
         this.shortHash = commit.getHash().substring(0, 8);
 
@@ -139,11 +141,14 @@ public class GitReleaseCommit extends Commit implements Serializable {
         // fetch issueId
         if (this.issueActions == null) this.issueActions = new HashMap<>();
 
-        Matcher issueMatcher = MESSAGE_ISSUE_PATTERN.matcher(this.commitContents);
+        // fetch issues with action
+        if (this.quickActionPattern == null) return;
+
+        Matcher issueMatcher = this.quickActionPattern.matcher(this.commitContents);
 
         while (issueMatcher.find()) {
-            String issueAction = issueMatcher.group(1);
-            Integer issueId = Integer.valueOf(issueMatcher.group(2));
+            String issueAction = issueMatcher.group("action");
+            Integer issueId = Integer.valueOf(issueMatcher.group("id"));
             String issueUrl = this.issueUrlTemplate == null
                 ? null
                 : this.issueUrlTemplate.replace(":issueId", String.valueOf(issueId));

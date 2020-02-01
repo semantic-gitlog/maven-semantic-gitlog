@@ -30,6 +30,11 @@
         <url>https://github.com/ymind/maven-semantic-gitlog</url>
     </scm>
 
+    <issueManagement>
+        <system>GitHub</system>
+        <url>https://github.com/ymind/maven-semantic-gitlog/issues</url>
+    </issueManagement>
+
     <licenses>
         <license>
             <name>MIT</name>
@@ -252,7 +257,7 @@
 
             <pluginRepositories>
                 <pluginRepository>
-                    <id>sonatype</id>
+                    <id>ossrh</id>
                     <url>https://oss.sonatype.org/content/repositories/snapshots</url>
                 </pluginRepository>
             </pluginRepositories>
@@ -301,6 +306,20 @@
                                 <issueUrlTemplate>${project.scm.url}/issues/:issueId</issueUrlTemplate>
 
                                 <derivedVersionMark>NEXT_VERSION:==</derivedVersionMark>
+
+                                <!--
+                                    gitlab
+                                    https://docs.gitlab.com/ee/user/project/quick_actions.html
+                                    https://regex101.com/r/8FopGS/1
+                                -->
+                                <quickActionPattern>/(?&lt;action&gt;close) ([\w-\/]+)?#(?&lt;id&gt;\d+)</quickActionPattern>
+                                <!--
+                                    github
+                                    https://help.github.com/en/github/managing-your-work-on-github/closing-issues-using-keywords
+                                    https://regex101.com/r/8Ri0cJ/1/
+                                -->
+                                <quickActionPattern>(?&lt;!\/)(?&lt;action&gt;close|closes|closed|fix|fixes|fixed|resolve|resolves|resolved) ([\w-\/]+)?#(?&lt;id&gt;\d+)
+                                </quickActionPattern>
                             </gitReleaseLogSettings>
                         </configuration>
                     </plugin>

@@ -15,6 +15,7 @@
 | `commitUrlTemplate` | An url string contains placeholder `:commitId` to construct commit link. |
 | `issueUrlTemplate` | An url string contains placeholder `:issueId` to construct issue link. |
 | `derivedVersionMark` | The value will output as a prefix with the version number when `semantic-gitlog:derive` execute. Default is `null`. |
+| `quickActionPattern` | A regular expression that detecting quick actions. The pattern MUST contains group name with `action` and `id`. Default is `null`. demo: [GitHub](https://regex101.com/r/8Ri0cJ/1), [Gitlab](https://regex101.com/r/8FopGS/1/) |
 
 > [!TIP]
 > When `majorTypes`, `minorTypes`, `patchTypes`, `preReleaseTypes` and `buildMetaDataTypes` set a value that dose not match any commit, the corresponding version number dose not change.

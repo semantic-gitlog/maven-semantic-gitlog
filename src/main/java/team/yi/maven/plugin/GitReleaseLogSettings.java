@@ -58,6 +58,9 @@ public class GitReleaseLogSettings {
     @Parameter(property = "derivedVersionMark")
     private String derivedVersionMark;
 
+    @Parameter(property = "quickActionPattern")
+    private String quickActionPattern;
+
     public String getDerivedVersionMark() {
         return derivedVersionMark;
     }
@@ -178,5 +181,13 @@ public class GitReleaseLogSettings {
 
     public void setLastVersion(String lastVersion) {
         this.lastVersion = Version.parseVersion(lastVersion);
+    }
+
+    public String getQuickActionPattern() {
+        return quickActionPattern;
+    }
+
+    public void setQuickActionPattern(String quickActionPattern) {
+        this.quickActionPattern = quickActionPattern;
     }
 }

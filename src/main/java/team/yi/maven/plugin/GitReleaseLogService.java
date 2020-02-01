@@ -33,6 +33,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Stack;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.regex.Pattern;
 
 import static com.google.common.base.Preconditions.checkArgument;
 import static com.google.common.base.Preconditions.checkNotNull;
@@ -47,13 +48,18 @@ public class GitReleaseLogService {
     private Version lastVersion;
     private Stack<GitReleaseCommit> versionCommits = new Stack<>();
 
-    private GitReleaseLogSettings versioningSettings;
+    private GitReleaseLogSettings gitReleaseLogSettings;
+    private Pattern quickActionPattern;
 
-    public GitReleaseLogService(GitReleaseLogSettings versioningSettings, GitChangelogApi builder, Log log) {
-        this.versioningSettings = versioningSettings;
+    public GitReleaseLogService(GitReleaseLogSettings gitReleaseLogSettings, GitChangelogApi builder, Log log) {
+        this.gitReleaseLogSettings = gitReleaseLogSettings;
         this.builder = builder;
         this.log = log;
         this.settings = builder.getSettings();
+
+        if (StringUtils.isNotEmpty(this.gitReleaseLogSettings.getQuickActionPattern())) {
+            this.quickActionPattern = Pattern.compile(this.gitReleaseLogSettings.getQuickActionPattern(), Pattern.MULTILINE);
+        }
     }
 
     private static String getGroupTitle(String commitType, boolean breakingChange) {
@@ -187,17 +193,15 @@ public class GitReleaseLogService {
                     if (section.getVersion() != null) {
                         gitReleaseSection = section;
                     }
-                } else {
-                    if (gitReleaseSection.getVersion() == null || !gitReleaseSection.getVersion().equals(section.getVersion())) {
-                        gitReleaseSection = section;
-                    }
+                } else if (!gitReleaseSection.getVersion().equals(section.getVersion())) {
+                    gitReleaseSection = section;
                 }
             }
 
             gitReleaseSections.add(gitReleaseSection);
         }
 
-        Version lastVersion = this.versioningSettings.getLastVersion();
+        Version lastVersion = this.gitReleaseLogSettings.getLastVersion();
 
         if (lastVersion == null) lastVersion = this.lastVersion;
 
@@ -214,8 +218,8 @@ public class GitReleaseLogService {
     @SuppressWarnings("PMD.NPathComplexity")
     private GitReleaseSection processTag(Tag tag) {
         Map<String, List<GitReleaseCommit>> groups = new ConcurrentHashMap<>();
-        String commitUrlTemplate = this.versioningSettings.getCommitUrlTemplate();
-        String issueUrlTemplate = this.versioningSettings.getIssueUrlTemplate();
+        String commitUrlTemplate = this.gitReleaseLogSettings.getCommitUrlTemplate();
+        String issueUrlTemplate = this.gitReleaseLogSettings.getIssueUrlTemplate();
         List<Commit> commits = tag.getCommits();
         Version tagVersion = null;
 
@@ -234,7 +238,7 @@ public class GitReleaseLogService {
         }
 
         for (Commit item : commits) {
-            GitReleaseCommit commit = new GitReleaseCommit(item, commitUrlTemplate, issueUrlTemplate);
+            GitReleaseCommit commit = new GitReleaseCommit(item, commitUrlTemplate, issueUrlTemplate, this.quickActionPattern);
 
             if (StringUtils.isEmpty(commit.getCommitDescription())) continue;
 
@@ -286,17 +290,17 @@ public class GitReleaseLogService {
         Version nextVersion = lastVersion == null
             ? Version.create(0, 1, 0)
             : Version.parseVersion(lastVersion.toString());
-        String preRelease = this.versioningSettings.getPreRelease();
-        String buildMetaData = this.versioningSettings.getBuildMetaData();
+        String preRelease = this.gitReleaseLogSettings.getPreRelease();
+        String buildMetaData = this.gitReleaseLogSettings.getBuildMetaData();
 
         if (!StringUtils.isEmpty(preRelease)) nextVersion = nextVersion.withPreRelease(preRelease);
         if (!StringUtils.isEmpty(buildMetaData)) nextVersion = nextVersion.withBuildMetaData(buildMetaData);
 
-        List<String> majorTypes = this.versioningSettings.getMajorTypes();
-        List<String> minorTypes = this.versioningSettings.getMinorTypes();
-        List<String> patchTypes = this.versioningSettings.getPatchTypes();
-        List<String> preReleaseTypes = this.versioningSettings.getPreReleaseTypes();
-        List<String> buildMetaDataTypes = this.versioningSettings.getBuildMetaDataTypes();
+        List<String> majorTypes = this.gitReleaseLogSettings.getMajorTypes();
+        List<String> minorTypes = this.gitReleaseLogSettings.getMinorTypes();
+        List<String> patchTypes = this.gitReleaseLogSettings.getPatchTypes();
+        List<String> preReleaseTypes = this.gitReleaseLogSettings.getPreReleaseTypes();
+        List<String> buildMetaDataTypes = this.gitReleaseLogSettings.getBuildMetaDataTypes();
 
         this.log.debug("nextVersion: " + nextVersion);
 
@@ -304,8 +308,8 @@ public class GitReleaseLogService {
             preRelease = nextVersion.getPreRelease();
             buildMetaData = nextVersion.getBuildMetaData();
 
-            if (StringUtils.isEmpty(preRelease)) preRelease = this.versioningSettings.getPreRelease();
-            if (StringUtils.isEmpty(buildMetaData)) buildMetaData = this.versioningSettings.getBuildMetaData();
+            if (StringUtils.isEmpty(preRelease)) preRelease = this.gitReleaseLogSettings.getPreRelease();
+            if (StringUtils.isEmpty(buildMetaData)) buildMetaData = this.gitReleaseLogSettings.getBuildMetaData();
 
             GitReleaseCommit commit = versionCommits.pop();
             String commitType = commit.getCommitType();
@@ -321,7 +325,7 @@ public class GitReleaseLogService {
                 if (!StringUtils.isEmpty(preRelease)) nextVersion = nextVersion.withPreRelease(preRelease);
                 if (!StringUtils.isEmpty(buildMetaData)) nextVersion = nextVersion.withBuildMetaData(buildMetaData);
 
-                if (this.versioningSettings.getUseCrazyGrowing()) continue;
+                if (this.gitReleaseLogSettings.getUseCrazyGrowing()) continue;
 
                 break;
             } else if (minorTypes.contains(commitType)) {
@@ -330,7 +334,7 @@ public class GitReleaseLogService {
                 if (!StringUtils.isEmpty(preRelease)) nextVersion = nextVersion.withPreRelease(preRelease);
                 if (!StringUtils.isEmpty(buildMetaData)) nextVersion = nextVersion.withBuildMetaData(buildMetaData);
 
-                if (this.versioningSettings.getUseCrazyGrowing()) continue;
+                if (this.gitReleaseLogSettings.getUseCrazyGrowing()) continue;
 
                 break;
             } else if (patchTypes.contains(commitType)) {
@@ -339,7 +343,7 @@ public class GitReleaseLogService {
                 if (!StringUtils.isEmpty(preRelease)) nextVersion = nextVersion.withPreRelease(preRelease);
                 if (!StringUtils.isEmpty(buildMetaData)) nextVersion = nextVersion.withBuildMetaData(buildMetaData);
 
-                if (this.versioningSettings.getUseCrazyGrowing()) continue;
+                if (this.gitReleaseLogSettings.getUseCrazyGrowing()) continue;
 
                 break;
             } else if (preReleaseTypes.contains(commitType)) {
@@ -347,13 +351,13 @@ public class GitReleaseLogService {
 
                 if (!StringUtils.isEmpty(buildMetaData)) nextVersion = nextVersion.withBuildMetaData(buildMetaData);
 
-                if (this.versioningSettings.getUseCrazyGrowing()) continue;
+                if (this.gitReleaseLogSettings.getUseCrazyGrowing()) continue;
 
                 break;
             } else if (buildMetaDataTypes.contains(commitType)) {
                 nextVersion = nextVersion.nextBuildMetaData();
 
-                if (this.versioningSettings.getUseCrazyGrowing()) continue;
+                if (this.gitReleaseLogSettings.getUseCrazyGrowing()) continue;
 
                 break;
             }
