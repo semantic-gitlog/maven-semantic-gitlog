@@ -15,6 +15,7 @@
 | `commitUrlTemplate` | An url string contains placeholder `:commitId` to construct commit link. |
 | `issueUrlTemplate` | An url string contains placeholder `:issueId` to construct issue link. |
 | `derivedVersionMark` | The value will output as a prefix with the version number when `semantic-gitlog:derive` execute. Default is `null`. |
+| `commitIssuePattern` | A regular expression that detecting commit issue(id). The pattern MUST contains group name with `id`. Default is ` \(#(?<id>\d+)\)$`. demo: [see here](https://regex101.com/r/MAg185/1/) |
 | `quickActionPattern` | A regular expression that detecting quick actions. The pattern MUST contains group name with `action` and `id`. Default is `null`. demo: [GitHub](https://regex101.com/r/8Ri0cJ/1), [Gitlab](https://regex101.com/r/8FopGS/1/) |
 
 > [!TIP]

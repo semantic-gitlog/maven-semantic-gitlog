@@ -1,6 +1,6 @@
 # maven-semantic-gitlog
 
-A simple [semantic Versioning 2.0.0](https://semver.org/) management tool based on [Conventional Commits](https://conventionalcommits.org).
+A simple [Semantic Versioning](https://semver.org/) management tool based on [Conventional Commits](https://conventionalcommits.org).
 It automatically derive and manage version numbers and generate `angular-style` change logs.
 
 As same as [git-changelog-lib](https://github.com/tomasbjerre/git-changelog-lib), we fully configurable with [Mustache](http://mustache.github.io/) template. That can:

@@ -1,6 +1,6 @@
 # maven-semantic-gitlog
 
-一个简单的基于 [Conventional Commits](https://conventionalcommits.org) 的 [semantic Versioning 2.0.0](https://semver.org/) 自动化版本管理工具。
+一个简单的基于 [Conventional Commits](https://conventionalcommits.org) 的 [Semantic Versioning](https://semver.org/) 自动化版本管理工具。
 它可以自动推断和管理版本号并生成 `angular-style` 风格的更新日志。
 
 与 [git-changelog-lib](https://github.com/tomasbjerre/git-changelog-lib) 一样, 我们完全使用 [Mustache](http://mustache.github.io/) 模板引擎。它可以：

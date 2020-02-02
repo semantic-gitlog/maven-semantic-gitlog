@@ -5,9 +5,9 @@ import se.bjurr.gitchangelog.api.model.Commit;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -18,6 +18,8 @@ public class GitReleaseCommit extends Commit implements Serializable {
 
     private static final long serialVersionUID = 3472695555192309191L;
 
+    private final Map<String, List<GitReleaseIssue>> issueActions = new ConcurrentHashMap<>();
+
     private String commitType;
     private String commitScope;
     private String commitDescription;
@@ -26,13 +28,13 @@ public class GitReleaseCommit extends Commit implements Serializable {
     private boolean breakingChange;
     private boolean deprecation;
     private String shortHash;
-    private Map<String, List<GitReleaseIssue>> issueActions;
-
+    private GitReleaseIssue commitIssue;
     private String commitUrlTemplate;
     private String issueUrlTemplate;
+    private Pattern commitIssuePattern;
     private Pattern quickActionPattern;
 
-    public GitReleaseCommit(Commit commit, String commitUrlTemplate, String issueUrlTemplate, Pattern quickActionPattern) {
+    public GitReleaseCommit(Commit commit, String commitUrlTemplate, String issueUrlTemplate, Pattern commitIssuePattern, Pattern quickActionPattern) {
         super(
             commit.getAuthorName(),
             commit.getAuthorEmailAddress(),
@@ -45,6 +47,7 @@ public class GitReleaseCommit extends Commit implements Serializable {
 
         this.commitUrlTemplate = commitUrlTemplate;
         this.issueUrlTemplate = issueUrlTemplate;
+        this.commitIssuePattern = commitIssuePattern;
         this.quickActionPattern = quickActionPattern;
 
         this.internalParse(commit);
@@ -64,34 +67,12 @@ public class GitReleaseCommit extends Commit implements Serializable {
         return this.commitUrlTemplate.replaceAll(":commitId", String.valueOf(this.getHashFull()));
     }
 
-    public String getFirstIssueUrl() {
-        if (StringUtils.isEmpty(this.issueUrlTemplate)) return null;
-
-        return this.issueUrlTemplate.replaceAll(":issueId", String.valueOf(this.getFirstIssueId()));
-    }
-
-    public Integer getFirstIssueId() {
-        GitReleaseIssue issue = this.getFirstIssue();
-
-        return issue == null ? null : issue.getId();
-    }
-
-    public String getFirstIssueAction() {
-        if (this.issueActions == null || this.issueActions.isEmpty()) return null;
-
-        return this.issueActions.entrySet().stream().findFirst().get().getKey();
-    }
-
-    public GitReleaseIssue getFirstIssue() {
-        if (this.issueActions == null || this.issueActions.isEmpty()) return null;
-
-        List<GitReleaseIssue> issues = this.issueActions.get(this.getFirstIssueAction());
-
-        return issues == null || issues.isEmpty() ? null : issues.get(0);
+    public GitReleaseIssue getCommitIssue() {
+        return commitIssue;
     }
 
     public List<GitReleaseIssue> getCloseIssues() {
-        if (this.issueActions == null || this.issueActions.isEmpty()) return null;
+        if (this.issueActions.isEmpty()) return null;
 
         return this.issueActions.getOrDefault("close", null);
     }
@@ -127,7 +108,25 @@ public class GitReleaseCommit extends Commit implements Serializable {
         this.attention = type.endsWith("!");
         this.commitType = StringUtils.stripEnd(type, "!");
         this.commitScope = matcher.group(3);
-        this.commitDescription = StringUtils.strip(matcher.group(4), "\"'");
+        this.commitDescription = StringUtils.strip(matcher.group(4), "\"' \t.");
+
+        // should throw
+        if (StringUtils.isEmpty(this.commitDescription)) return;
+
+        // fetch issueId
+        if (this.commitIssuePattern != null) {
+            Matcher commitIssueMatcher = this.commitIssuePattern.matcher(this.commitDescription);
+
+            if (commitIssueMatcher.find()) {
+                Integer issueId = Integer.valueOf(commitIssueMatcher.group("id"));
+                String issueUrl = this.issueUrlTemplate == null
+                    ? null
+                    : this.issueUrlTemplate.replace(":issueId", String.valueOf(issueId));
+
+                this.commitIssue = new GitReleaseIssue(issueId, null, issueUrl);
+            }
+        }
+
         this.commitContents = StringUtils.trimToNull(matcher.group(5));
 
         if (StringUtils.startsWith(this.commitContents, BREAKING_CHANGE)) {
@@ -138,17 +137,14 @@ public class GitReleaseCommit extends Commit implements Serializable {
 
         if (StringUtils.isEmpty(this.commitContents)) return;
 
-        // fetch issueId
-        if (this.issueActions == null) this.issueActions = new HashMap<>();
-
         // fetch issues with action
         if (this.quickActionPattern == null) return;
 
-        Matcher issueMatcher = this.quickActionPattern.matcher(this.commitContents);
+        Matcher quickActionMatcher = this.quickActionPattern.matcher(this.commitContents);
 
-        while (issueMatcher.find()) {
-            String issueAction = issueMatcher.group("action");
-            Integer issueId = Integer.valueOf(issueMatcher.group("id"));
+        while (quickActionMatcher.find()) {
+            String issueAction = quickActionMatcher.group("action");
+            Integer issueId = Integer.valueOf(quickActionMatcher.group("id"));
             String issueUrl = this.issueUrlTemplate == null
                 ? null
                 : this.issueUrlTemplate.replace(":issueId", String.valueOf(issueId));

@@ -7,7 +7,7 @@
 
 # maven-semantic-gitlog
 
-A simple [semantic Versioning 2.0.0](https://semver.org/) management tool based on [Conventional Commits](https://conventionalcommits.org).
+A simple [Semantic Versioning](https://semver.org/) management tool based on [Conventional Commits](https://conventionalcommits.org).
 It automatically derive and manage version numbers and generate angular-style change logs.
 
 This plugin extended from [git-changelog-lib](https://github.com/tomasbjerre/git-changelog-lib). All of it's features are preserved. 
@@ -59,7 +59,7 @@ contents of `CHANGELOG.tpl.md`:
 ### {{title}}
 
 {{#commits}}
-* {{#commitScope}}**{{commitScope}}**: {{/commitScope}}{{commitDescription}}{{#firstIssueId}} ([#{{firstIssueId}}]({{firstIssueUrl}})){{/firstIssueId}}{{#shortHash}} ([{{shortHash}}]({{commitUrl}})){{/shortHash}}{{#hasCloseIssues}}, closes{{#closeIssues}} [#{{id}}]({{url}}){{/closeIssues}}{{/hasCloseIssues}}
+* {{#commitScope}}**{{commitScope}}**: {{/commitScope}}{{commitDescription}}{{#commitIssue}} ([#{{commitIssue.id}}]({{commitIssue.url}})){{/commitIssue}}{{#shortHash}} ([{{shortHash}}]({{commitUrl}})){{/shortHash}}{{#hasCloseIssues}}, closes{{#closeIssues}} [#{{id}}]({{url}}){{/closeIssues}}{{/hasCloseIssues}}
 {{/commits}}
 
 {{/groups}}
@@ -101,7 +101,7 @@ and then check your `CHANGELOG.md` at root folder of the project.
 | ------ | ----------- |
 | `disabled` | Enable or disable `semantic-gitlog:git-changelog` goal. Default is `false`. |
 | `useCrazyGrowing` | The version number increases every time when matches the commit. Default is `false`. |
-| `lastVersion` | Tag as version by default. This option allows you to manually specify the value of lastVersion. Default is `0.1.0`. |
+| `lastVersion` | `Tag` as version by default. This option allows you to manually specify the value of `lastVersion`. Default is `0.1.0`. |
 | `preRelease` | Set the initial value of `preRelease`. Default is `null`([Understand preRelease](https://github.com/skuzzle/semantic-version#usage)).  |
 | `buildMetaData` | Set the initial value of `buildMetaData`. Default is `null`([Understand buildMetaData](https://github.com/skuzzle/semantic-version#usage)). |
 | `majorTypes` | Increase major version when these commit types are matched. By default only when **BREAKING CHANGE** is discovered. |
@@ -111,6 +111,9 @@ and then check your `CHANGELOG.md` at root folder of the project.
 | `buildMetaDataTypes` | Increase buildMetaData version when these commit types are matched. Default is `null`. |
 | `commitUrlTemplate` | An url string contains placeholder `:commitId` to construct commit link. |
 | `issueUrlTemplate` | An url string contains placeholder `:issueId` to construct issue link. |
+| `derivedVersionMark` | The value will output as a prefix with the version number when `semantic-gitlog:derive` execute. Default is `null`. |
+| `commitIssuePattern` | A regular expression that detecting commit issue(id). The pattern MUST contains group name with `id`. Default is ` \(#(?<id>\d+)\)$`. demo: [see here](https://regex101.com/r/MAg185/1/) |
+| `quickActionPattern` | A regular expression that detecting quick actions. The pattern MUST contains group name with `action` and `id`. Default is `null`. demo: [GitHub](https://regex101.com/r/8Ri0cJ/1), [Gitlab](https://regex101.com/r/8FopGS/1/) |
 
 > When `majorTypes`, `minorTypes`, `patchTypes`, `preReleaseTypes` and `buildMetaDataTypes` set a value that dose not match any commit, the corresponding version number dose not change.
 > It's useful to use with maven profiles.

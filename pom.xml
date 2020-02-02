@@ -11,7 +11,7 @@
   <inceptionYear>2020</inceptionYear>
 
   <name>maven-semantic-gitlog</name>
-  <description>A simple semantic Versioning 2.0.0 management tool based on Conventional Commits.</description>
+  <description>A simple `Semantic Versioning` management tool based on `Conventional Commits`.</description>
   <url>https://github.com/ymind/maven-semantic-gitlog</url>
 
   <developers>

@@ -15,6 +15,7 @@
 | `commitUrlTemplate` | 用于构建提交链接的包含 `:commitId` 占位符的字符串。 |
 | `issueUrlTemplate` | 用于构建议题链接的包含 `:issueId` 占位符的字符串。 |
 | `derivedVersionMark` | 执行 `semantic-gitlog:derive` 时，该值作为前缀与版本号一起输出。默认为 `null`。 |
+| `commitIssuePattern` | 用于匹配提交消息关联的议题的正则表达式。表达式必须包含 `id` 组名。默认为 ` \(#(?<id>\d+)\)$`. 示例: [看这里](https://regex101.com/r/MAg185/1/) |
 | `quickActionPattern` | 用于匹配快捷动作的正则表达式。表达式必须包含 `action` 和 `id` 组名。默认为 `null`。示例：[GitHub](https://regex101.com/r/8Ri0cJ/1), [Gitlab](https://regex101.com/r/8FopGS/1/) |
 
 > [!TIP]

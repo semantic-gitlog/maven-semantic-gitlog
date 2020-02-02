@@ -49,6 +49,7 @@ public class GitReleaseLogService {
     private Stack<GitReleaseCommit> versionCommits = new Stack<>();
 
     private GitReleaseLogSettings gitReleaseLogSettings;
+    private Pattern commitIssuePattern;
     private Pattern quickActionPattern;
 
     public GitReleaseLogService(GitReleaseLogSettings gitReleaseLogSettings, GitChangelogApi builder, Log log) {
@@ -56,6 +57,10 @@ public class GitReleaseLogService {
         this.builder = builder;
         this.log = log;
         this.settings = builder.getSettings();
+
+        if (StringUtils.isNotEmpty(this.gitReleaseLogSettings.getCommitIssuePattern())) {
+            this.commitIssuePattern = Pattern.compile(this.gitReleaseLogSettings.getCommitIssuePattern());
+        }
 
         if (StringUtils.isNotEmpty(this.gitReleaseLogSettings.getQuickActionPattern())) {
             this.quickActionPattern = Pattern.compile(this.gitReleaseLogSettings.getQuickActionPattern(), Pattern.MULTILINE);
@@ -238,7 +243,12 @@ public class GitReleaseLogService {
         }
 
         for (Commit item : commits) {
-            GitReleaseCommit commit = new GitReleaseCommit(item, commitUrlTemplate, issueUrlTemplate, this.quickActionPattern);
+            GitReleaseCommit commit = new GitReleaseCommit(
+                item,
+                commitUrlTemplate,
+                issueUrlTemplate,
+                this.commitIssuePattern,
+                this.quickActionPattern);
 
             if (StringUtils.isEmpty(commit.getCommitDescription())) continue;
 

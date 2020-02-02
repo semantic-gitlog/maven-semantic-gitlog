@@ -9,6 +9,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+@SuppressWarnings("PMD.TooManyFields")
 public class GitReleaseLogSettings {
     private static final List<String> DEFAULT_MAJOR_TYPES = new ArrayList<>();
     private static final List<String> DEFAULT_MINOR_TYPES = Collections.singletonList("feat");
@@ -57,6 +58,9 @@ public class GitReleaseLogSettings {
 
     @Parameter(property = "derivedVersionMark")
     private String derivedVersionMark;
+
+    @Parameter(property = "commitIssuePattern")
+    private String commitIssuePattern;
 
     @Parameter(property = "quickActionPattern")
     private String quickActionPattern;
@@ -181,6 +185,14 @@ public class GitReleaseLogSettings {
 
     public void setLastVersion(String lastVersion) {
         this.lastVersion = Version.parseVersion(lastVersion);
+    }
+
+    public String getCommitIssuePattern() {
+        return StringUtils.isEmpty(commitIssuePattern) ? " \\(#(?<id>\\d+)\\)$" : commitIssuePattern;
+    }
+
+    public void setCommitIssuePattern(String commitIssuePattern) {
+        this.commitIssuePattern = commitIssuePattern;
     }
 
     public String getQuickActionPattern() {

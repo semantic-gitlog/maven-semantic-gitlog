@@ -2,7 +2,7 @@
 
 # maven-semantic-gitlog <small>0.1.0</small>
 
-> A simple semantic Versioning 2.0.0 management tool based on Conventional Commits.
+> A simple Semantic Versioning management tool based on Conventional Commits.
 
 Automatically derive and manage version numbers and generate angular-style change logs.
 
