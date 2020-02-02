@@ -1,189 +1,154 @@
 package team.yi.maven.plugin;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.maven.plugin.AbstractMojo;
+import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugin.logging.Log;
-import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 import se.bjurr.gitchangelog.api.GitChangelogApi;
+import se.bjurr.gitchangelog.api.exceptions.GitChangelogIntegrationException;
+import se.bjurr.gitchangelog.api.exceptions.GitChangelogRepositoryException;
+import team.yi.maven.plugin.config.CustomIssue;
+import team.yi.maven.plugin.config.ReleaseLogSettings;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.util.Date;
 import java.util.List;
 
-import static com.google.common.base.Strings.isNullOrEmpty;
-import static org.apache.maven.plugins.annotations.LifecyclePhase.PROCESS_SOURCES;
 import static se.bjurr.gitchangelog.api.GitChangelogApi.gitChangelogApiBuilder;
 
 @SuppressWarnings("PMD.TooManyFields")
-@Mojo(name = "git-changelog", defaultPhase = PROCESS_SOURCES)
-public class GitChangelogMojo extends AbstractMojo {
-    private static final String DEFAULT_FILE = "CHANGELOG.md";
+public abstract class GitChangelogMojo extends AbstractMojo {
+    protected static final String DEFAULT_FILE = "CHANGELOG.md";
 
     @Parameter(property = "toRef")
-    private String toRef;
+    protected String toRef;
 
     @Parameter(property = "toCommit")
-    private String toCommit;
+    protected String toCommit;
 
     @Parameter(property = "fromRef")
-    private String fromRef;
+    protected String fromRef;
 
     @Parameter(property = "fromCommit")
-    private String fromCommit;
+    protected String fromCommit;
 
     @Parameter(property = "settingsFile")
-    private String settingsFile;
+    protected String settingsFile;
 
     @Parameter(property = "templateFile")
-    private String templateFile;
+    protected String templateFile;
 
     @Parameter(property = "templateContent")
-    private String templateContent;
+    protected String templateContent;
 
     @Parameter(property = "file")
-    private File file;
+    protected File file;
 
     @Parameter(property = "mediaWikiUrl")
-    private String mediaWikiUrl;
+    protected String mediaWikiUrl;
 
     @Parameter(property = "mediaWikiTitle")
-    private String mediaWikiTitle;
+    protected String mediaWikiTitle;
 
     @Parameter(property = "mediaWikiUsername")
-    private String mediaWikiUsername;
+    protected String mediaWikiUsername;
 
     @Parameter(property = "mediaWikiPassword")
-    private String mediaWikiPassword;
+    protected String mediaWikiPassword;
 
     @Parameter(property = "readableTagName")
-    private String readableTagName;
+    protected String readableTagName;
 
     @Parameter(property = "ignoreTagsIfNameMatches")
-    private String ignoreTagsIfNameMatches;
+    protected String ignoreTagsIfNameMatches;
 
     @Parameter(property = "dateFormat")
-    private String dateFormat;
+    protected String dateFormat;
 
     @Parameter(property = "timeZone")
-    private String timeZone;
+    protected String timeZone;
 
     @Parameter(property = "removeIssueFromMessage")
-    private boolean removeIssueFromMessage;
+    protected boolean removeIssueFromMessage;
 
     @Parameter(property = "ignoreCommitsIfMessageMatches")
-    private String ignoreCommitsIfMessageMatches;
+    protected String ignoreCommitsIfMessageMatches;
 
     @Parameter(property = "ignoreCommitsOlderThan")
-    private Date ignoreCommitsOlderThan;
+    protected Date ignoreCommitsOlderThan;
 
     @Parameter(property = "untaggedName")
-    private String untaggedName;
+    protected String untaggedName;
 
     @Parameter(property = "noIssueName")
-    private String noIssueName;
+    protected String noIssueName;
 
     @Parameter(property = "gitHubApi")
-    private String gitHubApi;
+    protected String gitHubApi;
 
     @Parameter(property = "gitHubToken")
-    private String gitHubToken;
+    protected String gitHubToken;
 
     @Parameter(property = "gitHubIssuePattern")
-    private String gitHubIssuePattern;
+    protected String gitHubIssuePattern;
 
     @Parameter(property = "gitLabServer")
-    private String gitLabServer;
+    protected String gitLabServer;
 
     @Parameter(property = "gitLabProjectName")
-    private String gitLabProjectName;
+    protected String gitLabProjectName;
 
     @Parameter(property = "gitLabToken")
-    private String gitLabToken;
+    protected String gitLabToken;
 
     @Parameter(property = "jiraIssuePattern")
-    private String jiraIssuePattern;
+    protected String jiraIssuePattern;
 
     @Parameter(property = "jiraPassword")
-    private String jiraPassword;
+    protected String jiraPassword;
 
     @Parameter(property = "jiraServer")
-    private String jiraServer;
+    protected String jiraServer;
 
     @Parameter(property = "jiraUsername")
-    private String jiraUsername;
+    protected String jiraUsername;
 
     @Parameter(property = "ignoreCommitsWithoutIssue")
-    private Boolean ignoreCommitsWithoutIssue;
+    protected Boolean ignoreCommitsWithoutIssue;
 
     @Parameter(property = "customIssues")
-    private List<CustomIssue> customIssues;
+    protected List<CustomIssue> customIssues;
 
     @Parameter(property = "skip")
-    private Boolean skip;
+    protected Boolean skip;
 
-    @Parameter(property = "gitReleaseLogSettings")
-    private GitReleaseLogSettings gitReleaseLogSettings;
+    @Parameter(property = "releaseLogSettings")
+    private ReleaseLogSettings releaseLogSettings;
 
-    public GitReleaseLogSettings getGitReleaseLogSettings() {
-        if (gitReleaseLogSettings == null) gitReleaseLogSettings = new GitReleaseLogSettings();
+    protected ReleaseLogSettings getReleaseLogSettings() {
+        if (releaseLogSettings == null) releaseLogSettings = new ReleaseLogSettings();
 
-        return gitReleaseLogSettings;
+        return releaseLogSettings;
     }
 
     @Override
-    public void execute() throws MojoFailureException {
-        Log log = this.getLog();
+    public final void execute() throws MojoFailureException {
+        final Log log = this.getLog();
 
-        if (skip != null && skip) {
+        if (this.skip != null && this.skip) {
             log.info("Skipping changelog generation");
 
             return;
         }
 
         try {
-            GitChangelogApi builder = this.createGitChangelogApi();
+            final GitChangelogApi builder = this.createGitChangelogApi();
 
-            if (file == null && !isSupplied(mediaWikiUrl)) {
-                if (log.isInfoEnabled()) {
-                    log.info("No output set, using file " + DEFAULT_FILE);
-                }
-
-                file = new File(DEFAULT_FILE);
-            }
-
-            if (file != null) {
-                GitReleaseLogSettings gitReleaseLogSettings = this.getGitReleaseLogSettings();
-
-                if (gitReleaseLogSettings.getDisabled()) {
-                    builder.toFile(file);
-                } else {
-                    GitReleaseLogService gitReleaseLogService = new GitReleaseLogService(this.gitReleaseLogSettings, builder, log);
-
-                    gitReleaseLogService.saveToFile(file);
-                }
-
-                if (log.isInfoEnabled()) {
-                    log.info("#");
-                    log.info("# Wrote: " + file);
-                    log.info("#");
-                }
-            }
-
-            if (isSupplied(mediaWikiUrl)) {
-                builder.toMediaWiki(
-                    mediaWikiUsername,
-                    mediaWikiPassword,
-                    mediaWikiUrl,
-                    mediaWikiTitle);
-
-                if (log.isInfoEnabled()) {
-                    log.info("#");
-                    log.info("# Created: " + mediaWikiUrl + "/index.php/" + mediaWikiTitle);
-                    log.info("#");
-                }
-            }
+            this.execute(builder);
         } catch (final Exception e) {
             log.debug(e);
 
@@ -191,9 +156,15 @@ public class GitChangelogMojo extends AbstractMojo {
         }
     }
 
+    protected abstract void execute(GitChangelogApi builder) throws MojoExecutionException,
+            MojoFailureException,
+            IOException,
+            GitChangelogRepositoryException,
+            GitChangelogIntegrationException;
+
     @SuppressWarnings("PMD.NPathComplexity")
     private GitChangelogApi createGitChangelogApi() throws MalformedURLException {
-        GitChangelogApi builder = gitChangelogApiBuilder();
+        final GitChangelogApi builder = gitChangelogApiBuilder();
 
         if (isSupplied(settingsFile)) builder.withSettings(new File(settingsFile).toURI().toURL());
         if (isSupplied(toRef)) builder.withToRef(toRef);
@@ -239,7 +210,7 @@ public class GitChangelogMojo extends AbstractMojo {
         return builder;
     }
 
-    private boolean isSupplied(String parameter) {
-        return !isNullOrEmpty(parameter);
+    protected boolean isSupplied(String parameter) {
+        return StringUtils.isNotEmpty(parameter);
     }
 }

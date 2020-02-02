@@ -75,7 +75,7 @@ fi
 ./mvnw ${MAVEN_CLI_OPTS} --settings "${TRAVIS_BUILD_DIR}/.travis/mvn-settings.xml" -P release-plugin -DskipTests=true deploy
 
 # Generate and push CHANGELOG.md
-./mvnw ${MAVEN_CLI_OPTS} --settings "${TRAVIS_BUILD_DIR}/.travis/mvn-settings.xml" -P release-plugin -U semantic-gitlog:git-changelog
+./mvnw ${MAVEN_CLI_OPTS} --settings "${TRAVIS_BUILD_DIR}/.travis/mvn-settings.xml" -P release-plugin -U semantic-gitlog:changelog
 git add ./CHANGELOG.md
 git add ./pom.xml
 git commit -m "[skip ci] ${gitCommit}" && git push origin || true

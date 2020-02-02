@@ -1,27 +1,37 @@
-package team.yi.maven.plugin;
+package team.yi.maven.plugin.config;
 
 import de.skuzzle.semantic.Version;
+import lombok.Data;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.maven.plugins.annotations.Parameter;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+@Data
 @SuppressWarnings("PMD.TooManyFields")
-public class GitReleaseLogSettings {
+public class ReleaseLogSettings implements Serializable {
+    public static final String DEFAULT_MESSAGE_PATTERN = "^([\\w!]+)(\\(([\\w-$_]+)\\))?: ([^\\n]+)((\\n{1,2}([^\\n]+))*)$";
+    public static final String DEFAULT_COMMIT_ISSUE_PATTERN = " \\(#(?<id>\\d+)\\)$";
+    public static final String LONG_DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
+    public static final String SHORT_DATE_FORMAT = "yyyy-MM-dd";
+
+    private static final long serialVersionUID = -3088989076911346697L;
+
     private static final List<String> DEFAULT_MAJOR_TYPES = new ArrayList<>();
     private static final List<String> DEFAULT_MINOR_TYPES = Collections.singletonList("feat");
     private static final List<String> DEFAULT_PATCH_TYPES = Arrays.asList("fix", "perf", "revert", "refactor");
     private static final List<String> DEFAULT_PRE_RELEASE_TYPES = new ArrayList<>();
     private static final List<String> DEFAULT_BUILD_META_DATA_TYPES = new ArrayList<>();
 
-    @Parameter(property = "disabled")
+    @Parameter(property = "disabled", defaultValue = "false")
     private Boolean disabled = false;
 
-    @Parameter(property = "useCrazyGrowing")
-    private Boolean useCrazyGrowing = false;
+    @Parameter(property = "useCrazyGrowing", defaultValue = "true")
+    private Boolean useCrazyGrowing = true;
 
     @Parameter(property = "lastVersion")
     private Version lastVersion;
@@ -65,62 +75,16 @@ public class GitReleaseLogSettings {
     @Parameter(property = "quickActionPattern")
     private String quickActionPattern;
 
-    public String getDerivedVersionMark() {
-        return derivedVersionMark;
-    }
+    @Parameter(property = "longDateFormat", defaultValue = LONG_DATE_FORMAT)
+    private String longDateFormat = LONG_DATE_FORMAT;
 
-    public void setDerivedVersionMark(String derivedVersionMark) {
-        this.derivedVersionMark = derivedVersionMark;
-    }
-
-    public String getRepoBaseUrl() {
-        return repoBaseUrl;
-    }
-
-    public void setRepoBaseUrl(String repoBaseUrl) {
-        this.repoBaseUrl = repoBaseUrl;
-    }
-
-    public String getCommitUrlTemplate() {
-        return commitUrlTemplate;
-    }
-
-    public void setCommitUrlTemplate(String commitUrlTemplate) {
-        this.commitUrlTemplate = commitUrlTemplate;
-    }
-
-    public String getIssueUrlTemplate() {
-        return issueUrlTemplate;
-    }
-
-    public void setIssueUrlTemplate(String issueUrlTemplate) {
-        this.issueUrlTemplate = issueUrlTemplate;
-    }
-
-    public String getPreRelease() {
-        return preRelease;
-    }
-
-    public void setPreRelease(String preRelease) {
-        this.preRelease = preRelease;
-    }
+    @Parameter(property = "shortDateFormat", defaultValue = SHORT_DATE_FORMAT)
+    private String shortDateFormat = SHORT_DATE_FORMAT;
 
     public List<String> getPreReleaseTypes() {
         String[] items = StringUtils.split(this.preReleaseTypes, ",");
 
         return items == null || items.length == 0 ? DEFAULT_PRE_RELEASE_TYPES : Arrays.asList(items);
-    }
-
-    public void setPreReleaseTypes(String preReleaseTypes) {
-        this.preReleaseTypes = preReleaseTypes;
-    }
-
-    public String getBuildMetaData() {
-        return buildMetaData;
-    }
-
-    public void setBuildMetaData(String buildMetaData) {
-        this.buildMetaData = buildMetaData;
     }
 
     public List<String> getBuildMetaDataTypes() {
@@ -129,18 +93,10 @@ public class GitReleaseLogSettings {
         return items == null || items.length == 0 ? DEFAULT_BUILD_META_DATA_TYPES : Arrays.asList(items);
     }
 
-    public void setBuildMetaDataTypes(String buildMetaDataTypes) {
-        this.buildMetaDataTypes = buildMetaDataTypes;
-    }
-
     public List<String> getMajorTypes() {
         String[] items = StringUtils.split(this.majorTypes, ",");
 
         return items == null || items.length == 0 ? DEFAULT_MAJOR_TYPES : Arrays.asList(items);
-    }
-
-    public void setMajorTypes(String majorTypes) {
-        this.majorTypes = majorTypes;
     }
 
     public List<String> getMinorTypes() {
@@ -149,57 +105,13 @@ public class GitReleaseLogSettings {
         return items == null || items.length == 0 ? DEFAULT_MINOR_TYPES : Arrays.asList(items);
     }
 
-    public void setMinorTypes(String minorTypes) {
-        this.minorTypes = minorTypes;
-    }
-
     public List<String> getPatchTypes() {
         String[] items = StringUtils.split(this.patchTypes, ",");
 
         return items == null || items.length == 0 ? DEFAULT_PATCH_TYPES : Arrays.asList(items);
     }
 
-    public void setPatchTypes(String patchTypes) {
-        this.patchTypes = patchTypes;
-    }
-
-    public Boolean getUseCrazyGrowing() {
-        return useCrazyGrowing;
-    }
-
-    public void setUseCrazyGrowing(Boolean useCrazyGrowing) {
-        this.useCrazyGrowing = useCrazyGrowing;
-    }
-
-    public Boolean getDisabled() {
-        return disabled;
-    }
-
-    public void setDisabled(Boolean disabled) {
-        this.disabled = disabled;
-    }
-
-    public Version getLastVersion() {
-        return lastVersion;
-    }
-
-    public void setLastVersion(String lastVersion) {
-        this.lastVersion = Version.parseVersion(lastVersion);
-    }
-
     public String getCommitIssuePattern() {
-        return StringUtils.isEmpty(commitIssuePattern) ? " \\(#(?<id>\\d+)\\)$" : commitIssuePattern;
-    }
-
-    public void setCommitIssuePattern(String commitIssuePattern) {
-        this.commitIssuePattern = commitIssuePattern;
-    }
-
-    public String getQuickActionPattern() {
-        return quickActionPattern;
-    }
-
-    public void setQuickActionPattern(String quickActionPattern) {
-        this.quickActionPattern = quickActionPattern;
+        return StringUtils.defaultIfBlank(this.commitIssuePattern, DEFAULT_COMMIT_ISSUE_PATTERN);
     }
 }

@@ -10,7 +10,7 @@
     <configuration>
         <templateFile>${project.basedir}/config/gitlog/CHANGELOG.tpl.md</templateFile>
 
-        <gitReleaseLogSettings>
+        <releaseLogSettings>
             <lastVersion>0.1.0</lastVersion>
             <useCrazyGrowing>true</useCrazyGrowing>
 
@@ -18,7 +18,7 @@
             <issueUrlTemplate>https://github.com/${YOUR_ACCOUNT}/${YOUR_PROJECT_NAME}/issues/:issueId</issueUrlTemplate>
 
             <derivedVersionMark>NEXT_VERSION:==</derivedVersionMark>
-        </gitReleaseLogSettings>
+        </releaseLogSettings>
     </configuration>
 </plugin>
 ```
@@ -73,7 +73,7 @@ closes issue #12
 ## 4. 运行插件
 
 ```bash
-$ mvn semantic-gitlog:git-changelog
+$ mvn semantic-gitlog:changelog
 ```
 
 然后查看项目根目录下的 `CHANGELOG.md` 文件。

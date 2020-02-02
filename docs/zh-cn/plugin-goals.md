@@ -12,6 +12,6 @@ $ ./mvnw semantic-gitlog:derive
 [INFO] NEXT_VERSION:==0.1.2
 ```
 
-## 2. semantic-gitlog:git-changelog
+## 2. semantic-gitlog:changelog
 
-根据提交记录自动生成新的版本号并生成更新日志。
+根据提交记录生成新的版本号并生成更新日志。

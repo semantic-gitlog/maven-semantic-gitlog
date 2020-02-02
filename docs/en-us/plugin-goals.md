@@ -13,6 +13,6 @@ $ ./mvnw semantic-gitlog:derive
 [INFO] NEXT_VERSION:==0.1.2
 ```
 
-## 2. semantic-gitlog:git-changelog
+## 2. semantic-gitlog:changelog
 
-Automatically generate change logs.
+generate change logs.

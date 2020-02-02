@@ -2,7 +2,7 @@
 
 | option | description |
 | ------ | ----------- |
-| `disabled` | Enable or disable `semantic-gitlog:git-changelog` goal. Default is `false`. |
+| `disabled` | Enable or disable `semantic-gitlog` module. Default is `false`. |
 | `useCrazyGrowing` | The version number increases every time when matches the commit. Default is `false`. |
 | `lastVersion` | `Tag` as version by default. This option allows you to manually specify the value of `lastVersion`. Default is `0.1.0`. |
 | `preRelease` | Set the initial value of `preRelease`. Default is `null`([Understand preRelease](https://github.com/skuzzle/semantic-version#usage)).  |

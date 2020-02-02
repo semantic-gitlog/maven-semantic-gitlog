@@ -70,6 +70,12 @@
       <version>3.6.0</version>
       <scope>provided</scope>
     </dependency>
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.18.10</version>
+      <scope>provided</scope>
+    </dependency>
 
     <!-- https://github.com/tomasbjerre/git-changelog-lib -->
     <dependency>
@@ -299,8 +305,8 @@
 
               <!--<toRef>dev</toRef>-->
 
-              <gitReleaseLogSettings>
-                <useCrazyGrowing>false</useCrazyGrowing>
+              <releaseLogSettings>
+                <useCrazyGrowing>true</useCrazyGrowing>
 
                 <commitUrlTemplate>${project.scm.url}/commit/:commitId</commitUrlTemplate>
                 <issueUrlTemplate>${project.scm.url}/issues/:issueId</issueUrlTemplate>
@@ -319,7 +325,7 @@
                     https://regex101.com/r/8Ri0cJ/1/
                 -->
                 <quickActionPattern>(?&lt;!\/)(?&lt;action&gt;close|closes|closed|fix|fixes|fixed|resolve|resolves|resolved) ([\w-\/]+)?#(?&lt;id&gt;\d+)</quickActionPattern>
-              </gitReleaseLogSettings>
+              </releaseLogSettings>
             </configuration>
           </plugin>
         </plugins>
