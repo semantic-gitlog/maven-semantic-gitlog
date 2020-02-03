@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+@SuppressWarnings("PMD.TooManyFields")
 @Getter
 @Setter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true, callSuper = true)
@@ -20,6 +21,7 @@ public class ReleaseCommit extends Commit implements Serializable {
     private final Map<String, List<ReleaseIssue>> quickActions = new ConcurrentHashMap<>();
     private final List<ReleaseIssue> subjectIssues = new ArrayList<>();
     private final List<ReleaseIssue> bodyIssues = new ArrayList<>();
+    private final List<ReleaseIssue> closeIssues = new ArrayList<>();
 
     private String hash7;
     private String hash8;
@@ -50,10 +52,6 @@ public class ReleaseCommit extends Commit implements Serializable {
     @Override
     public String getHashFull() {
         return super.getHashFull();
-    }
-
-    public List<ReleaseIssue> getCloseIssues() {
-        return this.quickActions.getOrDefault("close", null);
     }
 
     public boolean hasCloseIssues() {

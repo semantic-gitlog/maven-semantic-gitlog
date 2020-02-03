@@ -1,5 +1,6 @@
 package team.yi.maven.plugin.utils;
 
+import org.apache.commons.lang3.RegExUtils;
 import org.apache.commons.lang3.StringUtils;
 import se.bjurr.gitchangelog.api.model.Commit;
 import team.yi.maven.plugin.config.ReleaseLogSettings;
@@ -7,6 +8,7 @@ import team.yi.maven.plugin.model.ReleaseCommit;
 import team.yi.maven.plugin.model.ReleaseIssue;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -24,6 +26,7 @@ public class ReleaseCommitParser {
     private final String issueUrlTemplate;
     private final Pattern commitIssuePattern;
     private final Pattern quickActionPattern;
+    private final List<String> closeIssueActions;
 
     @SuppressWarnings("PMD.NullAssignment")
     public ReleaseCommitParser(ReleaseLogSettings releaseLogSettings) {
@@ -35,6 +38,10 @@ public class ReleaseCommitParser {
 
         this.quickActionPattern = StringUtils.isNotEmpty(releaseLogSettings.getQuickActionPattern())
             ? Pattern.compile(releaseLogSettings.getQuickActionPattern()) : null;
+
+        String[] closeIssueActions = StringUtils.splitPreserveAllTokens(releaseLogSettings.getCloseIssueActions(), ",|;");
+
+        this.closeIssueActions = closeIssueActions == null || closeIssueActions.length == 0 ? null : Arrays.asList(closeIssueActions);
     }
 
     public String createIssueUrl(Integer issueId) {
@@ -118,6 +125,7 @@ public class ReleaseCommitParser {
 
     private void parseQuickActions(ReleaseCommit releaseCommit) {
         final Map<String, List<ReleaseIssue>> quickActions = releaseCommit.getQuickActions();
+        final List<ReleaseIssue> closeIssues = releaseCommit.getCloseIssues();
         final Matcher quickActionMatcher = this.quickActionPattern.matcher(releaseCommit.getCommitBody());
 
         while (quickActionMatcher.find()) {
@@ -136,6 +144,8 @@ public class ReleaseCommitParser {
 
                 quickActions.put(quickAction, issues);
             }
+
+            if (this.closeIssueActions.contains(quickAction)) closeIssues.add(issue);
         }
     }
 
@@ -144,8 +154,9 @@ public class ReleaseCommitParser {
 
         // \(#(?<id>\d+)\)
         // Adds size specs to fake icon (#18160) (#18306)
+        final String subject = releaseCommit.getCommitSubject();
         final List<ReleaseIssue> subjectIssues = releaseCommit.getSubjectIssues();
-        final Matcher commitIssueMatcher = this.commitIssuePattern.matcher(releaseCommit.getCommitSubject());
+        final Matcher commitIssueMatcher = this.commitIssuePattern.matcher(subject);
 
         while (commitIssueMatcher.find()) {
             final Integer issueId = Integer.valueOf(commitIssueMatcher.group("id"));
@@ -156,5 +167,7 @@ public class ReleaseCommitParser {
 
             subjectIssues.add(commitIssue);
         }
+
+        releaseCommit.setCommitSubject(StringUtils.trim(RegExUtils.removeAll(subject, this.commitIssuePattern)));
     }
 }

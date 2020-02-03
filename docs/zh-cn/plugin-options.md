@@ -17,6 +17,9 @@
 | `derivedVersionMark` | 执行 `semantic-gitlog:derive` 时，该值作为前缀与版本号一起输出。默认为 `null`。 |
 | `commitIssuePattern` | 用于匹配提交消息关联的议题的正则表达式。表达式必须包含 `id` 组名。默认为 ` \(#(?<id>\d+)\)$`. 示例: [看这里](https://regex101.com/r/MAg185/1/) |
 | `quickActionPattern` | 用于匹配快捷动作的正则表达式。表达式必须包含 `action` 和 `id` 组名。默认为 `null`。示例：[GitHub](https://regex101.com/r/8Ri0cJ/1), [Gitlab](https://regex101.com/r/8FopGS/1/) |
+| `longDateFormat` | 长日期格式。默认为 `yyyy-MM-dd HH:mm:ss`。 |
+| `shortDateFormat` | 短日期格式。默认为 `yyyy-MM-dd`。 |
+| `closeIssueActions` | 用于匹配已关闭议题的快捷动作类型。默认为 `close,closes,closed,fix,fixes,fixed,resolve,resolves,resolved`。 |
 
 > [!TIP]
 > 当 `majorTypes`、`minorTypes`、`patchTypes`、`preReleaseTypes`和`buildMetaDataTypes` 配置了无法匹配的值， 那么对应的版本号将不会有任何变更。

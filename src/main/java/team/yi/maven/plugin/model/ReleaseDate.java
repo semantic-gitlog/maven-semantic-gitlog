@@ -23,8 +23,8 @@ public class ReleaseDate implements Serializable {
     public ReleaseDate(Date date, String longDateFormat, String shortDateFormat) {
         this.date = date;
 
-        final String longDatePattern = StringUtils.defaultIfEmpty(longDateFormat, ReleaseLogSettings.LONG_DATE_FORMAT);
-        final String shortDatePattern = StringUtils.defaultIfEmpty(shortDateFormat, ReleaseLogSettings.SHORT_DATE_FORMAT);
+        final String longDatePattern = StringUtils.defaultIfEmpty(longDateFormat, ReleaseLogSettings.DEFAULT_LONG_DATE_FORMAT);
+        final String shortDatePattern = StringUtils.defaultIfEmpty(shortDateFormat, ReleaseLogSettings.DEFAULT_SHORT_DATE_FORMAT);
 
         this.longDate = DateFormatUtils.format(this.date, longDatePattern);
         this.shortDate = DateFormatUtils.format(this.date, shortDatePattern);

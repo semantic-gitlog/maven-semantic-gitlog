@@ -18,8 +18,9 @@ public class ReleaseLogSettings implements Serializable {
     public static final String DEFAULT_MESSAGE_PATTERN = "^((?<type>[\\w]+)(?<attention>!)?)"
         + "(\\((?<package>(\\w+\\/)*)(?<scope>[\\w-$_]+)\\))?: (?<subject>[^\\r\\n]+)([\\r\\n]{2}(?<body>.+))?$";
     public static final String DEFAULT_COMMIT_ISSUE_PATTERN = "\\(#(?<id>\\d+)\\)";
-    public static final String LONG_DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
-    public static final String SHORT_DATE_FORMAT = "yyyy-MM-dd";
+    public static final String DEFAULT_LONG_DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
+    public static final String DEFAULT_SHORT_DATE_FORMAT = "yyyy-MM-dd";
+    public static final String DEFAULT_CLOSE_ISSUE_ACTIONS = "close,closes,closed,fix,fixes,fixed,resolve,resolves,resolved";
 
     private static final long serialVersionUID = -3088989076911346697L;
 
@@ -77,11 +78,14 @@ public class ReleaseLogSettings implements Serializable {
     @Parameter(property = "quickActionPattern")
     private String quickActionPattern;
 
-    @Parameter(property = "longDateFormat", defaultValue = LONG_DATE_FORMAT)
-    private String longDateFormat = LONG_DATE_FORMAT;
+    @Parameter(property = "longDateFormat", defaultValue = DEFAULT_LONG_DATE_FORMAT)
+    private String longDateFormat = DEFAULT_LONG_DATE_FORMAT;
 
-    @Parameter(property = "shortDateFormat", defaultValue = SHORT_DATE_FORMAT)
-    private String shortDateFormat = SHORT_DATE_FORMAT;
+    @Parameter(property = "shortDateFormat", defaultValue = DEFAULT_SHORT_DATE_FORMAT)
+    private String shortDateFormat = DEFAULT_SHORT_DATE_FORMAT;
+
+    @Parameter(property = "closeIssueActions", defaultValue = DEFAULT_CLOSE_ISSUE_ACTIONS)
+    private String closeIssueActions = DEFAULT_CLOSE_ISSUE_ACTIONS;
 
     public List<String> getPreReleaseTypes() {
         String[] items = StringUtils.split(this.preReleaseTypes, ",");
