@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 @UtilityClass
-public class ReleaseCommitGroups {
+public class ReleaseSections {
     public static final Map<String, String> TITLES = new ConcurrentHashMap<>();
     public static final List<String> DEFAULT_ORDER_LIST = new ArrayList<>();
 

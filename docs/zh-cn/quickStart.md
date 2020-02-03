@@ -29,43 +29,67 @@
 
 ```markdown
 # 更新日志
-{{#sections}}
+{{#tags}}
 
 {{#version}}## {{version}} ({{#releaseDate}}{{releaseDate.shortDate}}{{/releaseDate}}{{^releaseDate}}{{now.shortDate}}{{/releaseDate}}){{/version}}{{^version}}## {{nextVersion}} (Unreleased, {{#releaseDate}}{{releaseDate.shortDate}}{{/releaseDate}}{{^releaseDate}}{{now.shortDate}}{{/releaseDate}}){{/version}}
 {{#description}}
 
 {{description}}
 {{/description}}
-{{#groups}}
+{{#sections}}
 
 ### {{title}}
 
 {{#commits}}
-* {{#commitScope}}**{{commitScope}}**: {{/commitScope}}{{commitDescription}}{{#commitIssue}} ([#{{commitIssue.id}}]({{commitIssue.url}})){{/commitIssue}}{{#shortHash}} ([{{shortHash}}]({{commitUrl}})){{/shortHash}}{{#hasCloseIssues}}, closes{{#closeIssues}} [#{{id}}]({{url}}){{/closeIssues}}{{/hasCloseIssues}}
+* {{#commitScope}}**{{commitPackage}}{{commitScope}}**: {{/commitScope}}{{commitSubject}}{{#commitIssue}} ([#{{commitIssue.id}}]({{commitIssue.url}})){{/commitIssue}}{{#hash8}} ([{{hash8}}]({{commitUrl}})){{/hash8}}{{#hasCloseIssues}}, closes{{#closeIssues}} [#{{id}}]({{url}}){{/closeIssues}}{{/hasCloseIssues}}
 {{/commits}}
 
-{{/groups}}
-{{^groups}}
-
-暂无更新说明。
-
-{{/groups}}
 {{/sections}}
 {{^sections}}
 
-暂无内容。
+暂无更新说明。
+
 {{/sections}}
+{{/tags}}
+{{^tags}}
+
+暂无内容。
+{{/tags}}
 ```
 
 ## 3. 推送约定式提交（Conventional Commits）
 
-```cc
-fix: correct minor typos in code
+典型示例：
 
-see the issue for details on the typos fixed
+````cc
+fix!(material/icon/testing): adds size specs to fake icon (#18160) (#18306)
 
-closes issue #12
+Currently we clear all overlay containers when we create a new one as a way to avoid duplicate content coming in from the server. 
+Our current approach is a little too aggressive, because it can pick up containers from different apps #16888. 
+These changes add an extra attribute to the container so that we can determine which platform it's coming from.
+
+Fixes #16851.
+
+(cherry picked from commit 29eec77)
+-------------------------
+BREAKING CHANGE: MAT_CHECKBOX_CLICK_ACTION is deprecated, use MAT_CHECKBOX_DEFAULT_OPTIONS
+DEPRECATED: MAT_CHECKBOX_CLICK_ACTION is deprecated, use MAT_CHECKBOX_DEFAULT_OPTIONS
+
+BREAKING CHANGE:
+
+We no longer directly have a direct depedency on `tslib`. Instead it is now listed a `peerDependency`.
+
+Users not using the CLI will need to manually install `tslib` via;
 ```
+yarn add tslib
+```
+or
+```
+npm install tslib --save
+```
+
+Reference: TOOL-836
+````
 
 > [!TIP]
 > 了解更多： [Conventional Commits](https://conventionalcommits.org).

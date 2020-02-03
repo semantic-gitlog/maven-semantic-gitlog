@@ -1,30 +1,27 @@
 Prism.languages.cc = {
-    'number': /#\d+/,
     'bold': {
-        pattern: /^([a-z!]+?)(\([\w-$]+\))?: .+/i,
+        pattern: /^(([\w]+)!?)(\(((\w+\/)*)([\w-$_]+)\))?: ([^\n]+)/i,
         inside: {
             'constant': {
-                pattern: /^([a-z]+)!?/i,
+                pattern: /^(([\w]+)!?)/i,
                 inside: {
                     important: /!/,
                 }
             },
-            'attr-value': /\([\w-$]+\)/i,
+            'attr-value': /\(((\w+\/)*)([\w-$_]+)\)/i,
+            'number': /#\d+/,
         }
     },
     'comment': {
-        pattern: /[\r\n]{1,2}.+/,
+        pattern: /([\r\n]{2})((.+([\r\n]{0,2}))*)?/i,
         inside: {
-            'comment': /((closes issue)|(issue \/close)) .+/,
+            'number': /(#\d+)|([a-f0-9]{7,})/i,
             'prolog': {
                 pattern: /[\r\n]{1,2}.+/,
                 inside: {
-                    'bold': /BREAKING CHANGE|DEPRECATION/,
-                    'italic': {
-                        pattern: /([a-z]+)!?(\([\w-$]+\))?: .+/i,
-                    }
+                    'bold': /(BREAKING CHANGE|DEPRECATED):/
                 }
-            }
+            },
         }
     },
 };

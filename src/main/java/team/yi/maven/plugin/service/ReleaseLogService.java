@@ -17,11 +17,11 @@ import se.bjurr.gitchangelog.api.model.Tag;
 import se.bjurr.gitchangelog.internal.settings.Settings;
 import team.yi.maven.plugin.config.ReleaseLogSettings;
 import team.yi.maven.plugin.model.ReleaseCommit;
-import team.yi.maven.plugin.model.ReleaseCommitGroup;
-import team.yi.maven.plugin.model.ReleaseCommitGroups;
 import team.yi.maven.plugin.model.ReleaseDate;
 import team.yi.maven.plugin.model.ReleaseLog;
 import team.yi.maven.plugin.model.ReleaseSection;
+import team.yi.maven.plugin.model.ReleaseSections;
+import team.yi.maven.plugin.model.ReleaseTag;
 import team.yi.maven.plugin.utils.ReleaseCommitParser;
 
 import java.io.File;
@@ -104,7 +104,8 @@ public class ReleaseLogService {
         try (StringReader reader = new StringReader(templateContent)) {
             final MustacheFactory mf = new DefaultMustacheFactory();
             final Mustache mustache = mf.compile(reader, this.builderSettings.getTemplatePath());
-            final Object[] scopes = {this.generate(), this.builderSettings.getExtendedVariables()};
+            final boolean useIntegrationIfConfigured = shouldUseIntegrationIfConfigured(templateContent);
+            final Object[] scopes = {this.generate(useIntegrationIfConfigured), this.builderSettings.getExtendedVariables()};
 
             mustache.execute(writer, scopes).flush();
         } catch (final IOException e) {
@@ -132,106 +133,101 @@ public class ReleaseLogService {
 
         this.versionCommits.clear();
 
-        final List<ReleaseSection> releaseSections = new ArrayList<>();
+        final List<ReleaseTag> releaseTags = new ArrayList<>();
         final List<Tag> tags = changelog.getTags();
-        ReleaseSection releaseSection = null;
+        ReleaseTag releaseTag = null;
 
         for (Tag tag : tags) {
-            final ReleaseSection section = this.processTag(tag);
+            final ReleaseTag section = this.processTag(tag);
 
-            if (releaseSection == null) {
-                releaseSection = section;
-            } else {
-                if (releaseSection.getVersion() == null) {
-                    if (section.getVersion() != null) {
-                        releaseSection = section;
-                    }
-                } else if (!releaseSection.getVersion().equals(section.getVersion())) {
-                    releaseSection = section;
-                }
+            if (releaseTag == null
+                || releaseTag.getVersion() == null
+                || section.getVersion() == null
+                || Version.compare(releaseTag.getVersion(), section.getVersion()) != 0) {
+                releaseTag = section;
             }
 
-            releaseSections.add(releaseSection);
+            releaseTags.add(releaseTag);
         }
 
-        Version lastVersion = this.releaseLogSettings.getLastVersion();
+        Version lastVersion = this.lastVersion;
 
-        if (lastVersion == null) lastVersion = this.lastVersion;
+        if (lastVersion == null) lastVersion = this.releaseLogSettings.getLastVersion();
 
         final Version nextVersion = this.deriveNextVersion(lastVersion, this.versionCommits);
 
-        return new ReleaseLog(nextVersion, this.lastVersion, releaseSections);
+        return new ReleaseLog(nextVersion, this.lastVersion, releaseTags);
     }
 
     @SuppressWarnings("PMD.NPathComplexity")
-    private ReleaseSection processTag(Tag tag) {
-        final Map<String, List<ReleaseCommit>> groups = new ConcurrentHashMap<>();
-        final List<Commit> commits = tag.getCommits();
-        Version tagVersion = null;
+    private ReleaseTag processTag(Tag tag) {
+        Version tagVersion = Version.isValidVersion(tag.getName())
+            ? Version.parseVersion(tag.getName(), true)
+            : null;
 
-        try {
-            tagVersion = Version.parseVersion(tag.getName());
-        } catch (Exception e) {
-            this.log.debug(e);
-        }
+        if (this.firstVersion == null) this.firstVersion = tagVersion;
+        if (this.lastVersion == null) this.lastVersion = tagVersion;
 
-        if (tagVersion == null && this.firstVersion == null) {
-            this.firstVersion = Version.parseVersion("0.1.0");
-        } else if (this.firstVersion == null) {
-            this.firstVersion = tagVersion;
-        } else if (this.lastVersion == null) {
-            this.lastVersion = tagVersion;
-        }
+        ReleaseDate releaseDate = this.getReleaseDate(tag);
+        List<ReleaseSection> groups = this.getGroups(tag);
 
-        for (Commit item : commits) {
+        return new ReleaseTag(tagVersion, releaseDate, null, groups);
+    }
+
+    private List<ReleaseSection> getGroups(Tag tag) {
+        final Map<String, List<ReleaseCommit>> map = new ConcurrentHashMap<>();
+
+        for (Commit item : tag.getCommits()) {
             final ReleaseCommit commit = this.commitParser.parse(item);
 
-            if (StringUtils.isEmpty(commit.getCommitDescription())) continue;
+            if (StringUtils.isEmpty(commit.getCommitSubject())) continue;
 
             if (this.lastVersion == null) this.versionCommits.add(commit);
 
-            final String groupTitle = ReleaseCommitGroups.fromCommitType(commit.getCommitType(), commit.isBreakingChange());
+            final String groupTitle = ReleaseSections.fromCommitType(commit.getCommitType(), commit.isBreakingChange());
 
-            if (groups.containsKey(groupTitle)) {
-                groups.get(groupTitle).add(commit);
+            if (map.containsKey(groupTitle)) {
+                map.get(groupTitle).add(commit);
             } else {
                 final List<ReleaseCommit> releaseCommits = new ArrayList<>();
                 releaseCommits.add(commit);
 
-                groups.put(groupTitle, releaseCommits);
+                map.put(groupTitle, releaseCommits);
             }
         }
 
-        final List<ReleaseCommitGroup> contents = new ArrayList<>();
+        final List<ReleaseSection> commitGroups = new ArrayList<>();
 
-        groups.forEach((key, value) -> {
-            final ReleaseCommitGroup releaseCommitGroup = new ReleaseCommitGroup(key, value);
+        map.forEach((key, value) -> {
+            final ReleaseSection releaseSection = new ReleaseSection(key, value);
 
-            contents.add(releaseCommitGroup);
+            commitGroups.add(releaseSection);
         });
 
-        ReleaseDate releaseDate = null;
+        return commitGroups;
+    }
 
+    private ReleaseDate getReleaseDate(Tag tag) {
         if (tag.isHasTagTime()) {
             try {
                 final Date tagTime = DateUtils.parseDate(tag.getTagTime(), this.builderSettings.getDateFormat());
                 final String longDateFormat = this.releaseLogSettings.getLongDateFormat();
                 final String shortDateFormat = this.releaseLogSettings.getShortDateFormat();
 
-                releaseDate = new ReleaseDate(tagTime, longDateFormat, shortDateFormat);
+                return new ReleaseDate(tagTime, longDateFormat, shortDateFormat);
             } catch (ParseException e) {
                 this.log.debug(e);
             }
         }
 
-        return new ReleaseSection(tagVersion, releaseDate, null, contents);
+        return null;
     }
 
     @SuppressWarnings({"PMD.NcssCount", "PMD.NPathComplexity"})
     private Version deriveNextVersion(Version lastVersion, Stack<ReleaseCommit> versionCommits) {
         Version nextVersion = lastVersion == null
             ? Version.create(0, 1, 0)
-            : Version.parseVersion(lastVersion.toString());
+            : Version.parseVersion(lastVersion.toString(), true);
         String preRelease = this.releaseLogSettings.getPreRelease();
         String buildMetaData = this.releaseLogSettings.getBuildMetaData();
 

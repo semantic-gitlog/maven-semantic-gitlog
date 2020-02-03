@@ -13,10 +13,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ReleaseCommitParser {
-    private static final Pattern DEFAULT_MESSAGE_PATTERN = Pattern.compile(ReleaseLogSettings.DEFAULT_MESSAGE_PATTERN);
+    private static final Pattern DEFAULT_MESSAGE_PATTERN = Pattern.compile(ReleaseLogSettings.DEFAULT_MESSAGE_PATTERN, Pattern.DOTALL);
     private static final Pattern DEFAULT_COMMIT_ISSUE_PATTERN = Pattern.compile(ReleaseLogSettings.DEFAULT_COMMIT_ISSUE_PATTERN);
-    private static final String BREAKING_CHANGE_PATTERN = "BREAKING CHANGE";
-    private static final String DEPRECATION_PATTERN = "DEPRECATION";
+    private static final String BREAKING_CHANGE_PATTERN = "BREAKING CHANGE: ";
+    private static final String DEPRECATED_PATTERN = "DEPRECATED: ";
     private static final String ISSUE_ID_PLACEHOLDER = ":issueId";
     private static final String COMMIT_ID_PLACEHOLDER = ":commitId";
 
@@ -34,7 +34,7 @@ public class ReleaseCommitParser {
             ? Pattern.compile(releaseLogSettings.getCommitIssuePattern()) : DEFAULT_COMMIT_ISSUE_PATTERN;
 
         this.quickActionPattern = StringUtils.isNotEmpty(releaseLogSettings.getQuickActionPattern())
-            ? Pattern.compile(releaseLogSettings.getQuickActionPattern(), Pattern.MULTILINE) : null;
+            ? Pattern.compile(releaseLogSettings.getQuickActionPattern()) : null;
     }
 
     public String createIssueUrl(Integer issueId) {
@@ -51,72 +51,110 @@ public class ReleaseCommitParser {
 
     public ReleaseCommit parse(Commit commit) {
         final ReleaseCommit releaseCommit = new ReleaseCommit(commit);
-        releaseCommit.setShortHash(commit.getHashFull().substring(0, 8));
+        releaseCommit.setHash7(commit.getHashFull().substring(0, 7));
+        releaseCommit.setHash8(commit.getHashFull().substring(0, 8));
         releaseCommit.setCommitUrl(this.createCommitUrl(commit.getHashFull()));
 
         final Matcher messageMatcher = DEFAULT_MESSAGE_PATTERN.matcher(commit.getMessage());
 
         if (!messageMatcher.find()) return releaseCommit;
 
-        final String type = messageMatcher.group(1);
+        // https://github.com/angular/components/blob/master/CONTRIBUTING.md
+        // ^((?<type>[\w]+)(?<attention>!)?)(\((?<package>(\w+\/)*)(?<scope>[\w-$_]+)\))?:
+        // (?<subject>[^\n]+)([\r\n]{2})(?<body>(.+([\r\n]{0,2}))*)?$
 
-        releaseCommit.setAttention(type.endsWith("!"));
-        releaseCommit.setCommitType(StringUtils.stripEnd(type, "!"));
-        releaseCommit.setCommitScope(messageMatcher.group(3));
-        releaseCommit.setCommitDescription(StringUtils.strip(messageMatcher.group(4), "\"' \t."));
-        releaseCommit.setCommitContents(StringUtils.trimToNull(messageMatcher.group(5)));
+        releaseCommit.setCommitType(messageMatcher.group("type"));
+        releaseCommit.setAttention("!".equals(messageMatcher.group("attention")));
+        releaseCommit.setCommitPackage(messageMatcher.group("package"));
+        releaseCommit.setCommitScope(messageMatcher.group("scope"));
+        releaseCommit.setCommitSubject(StringUtils.strip(messageMatcher.group("subject"), "\"' \t."));
+        releaseCommit.setCommitBody(StringUtils.trimToNull(messageMatcher.group("body")));
 
-        if (StringUtils.startsWith(releaseCommit.getCommitContents(), BREAKING_CHANGE_PATTERN)) {
-            releaseCommit.setBreakingChange(true);
-        } else if (StringUtils.startsWith(releaseCommit.getCommitContents(), DEPRECATION_PATTERN)) {
-            releaseCommit.setDeprecation(true);
-        }
-
-        if (StringUtils.isEmpty(releaseCommit.getCommitDescription())) return releaseCommit;
-
-        this.parseCommitIssue(releaseCommit);
-        this.parseQuickAction(releaseCommit);
+        this.parseSubject(releaseCommit);
+        this.parseBody(releaseCommit);
+        this.parseFooter(releaseCommit);
 
         return releaseCommit;
     }
 
-    private void parseCommitIssue(ReleaseCommit releaseCommit) {
-        if (this.commitIssuePattern == null) return;
+    private void parseFooter(ReleaseCommit releaseCommit) {
+        if (StringUtils.isEmpty(releaseCommit.getCommitBody())) return;
 
-        final Matcher commitIssueMatcher = this.commitIssuePattern.matcher(releaseCommit.getCommitDescription());
+        String[] lines = StringUtils.split(releaseCommit.getCommitBody(), "\r\n");
 
-        if (!commitIssueMatcher.find()) return;
+        for (String line : lines) {
+            if (!releaseCommit.isBreakingChange() && StringUtils.startsWith(line, BREAKING_CHANGE_PATTERN)) {
+                releaseCommit.setBreakingChange(true);
+            }
 
-        final Integer issueId = Integer.valueOf(commitIssueMatcher.group("id"));
-        final String issueUrl = this.createIssueUrl(issueId);
-        final ReleaseIssue commitIssue = new ReleaseIssue(issueId, issueUrl);
-
-        releaseCommit.setCommitIssue(commitIssue);
+            if (!releaseCommit.isDeprecated() && StringUtils.startsWith(line, DEPRECATED_PATTERN)) {
+                releaseCommit.setDeprecated(true);
+            }
+        }
     }
 
-    private void parseQuickAction(ReleaseCommit releaseCommit) {
+    private void parseBody(ReleaseCommit releaseCommit) {
         if (this.quickActionPattern == null) return;
-        if (StringUtils.isEmpty(releaseCommit.getCommitContents())) return;
+        if (StringUtils.isEmpty(releaseCommit.getCommitBody())) return;
 
-        final Map<String, List<ReleaseIssue>> issueActions = releaseCommit.getIssueActions();
-        final Matcher quickActionMatcher = this.quickActionPattern.matcher(releaseCommit.getCommitContents());
+        this.parseBodyIssues(releaseCommit);
+        this.parseQuickActions(releaseCommit);
+    }
+
+    private void parseBodyIssues(ReleaseCommit releaseCommit) {
+        final List<ReleaseIssue> bodyIssues = releaseCommit.getBodyIssues();
+        final Matcher commitIssueMatcher = this.commitIssuePattern.matcher(releaseCommit.getCommitBody());
+
+        while (commitIssueMatcher.find()) {
+            final Integer issueId = Integer.valueOf(commitIssueMatcher.group("id"));
+            final String issueUrl = this.createIssueUrl(issueId);
+            final ReleaseIssue commitIssue = new ReleaseIssue(issueId, issueUrl);
+
+            if (releaseCommit.getCommitIssue() == null) releaseCommit.setCommitIssue(commitIssue);
+
+            bodyIssues.add(commitIssue);
+        }
+    }
+
+    private void parseQuickActions(ReleaseCommit releaseCommit) {
+        final Map<String, List<ReleaseIssue>> quickActions = releaseCommit.getQuickActions();
+        final Matcher quickActionMatcher = this.quickActionPattern.matcher(releaseCommit.getCommitBody());
 
         while (quickActionMatcher.find()) {
             final Integer issueId = Integer.valueOf(quickActionMatcher.group("id"));
             final String issueUrl = this.createIssueUrl(issueId);
-            final String issueAction = quickActionMatcher.group("action");
-            final ReleaseIssue issue = new ReleaseIssue(issueId, issueUrl, issueAction);
+            final String quickAction = quickActionMatcher.group("action");
+            final ReleaseIssue issue = new ReleaseIssue(issueId, issueUrl, quickAction);
 
-            if (issueActions.containsKey(issueAction)) {
-                final List<ReleaseIssue> issues = issueActions.get(issueAction);
+            if (quickActions.containsKey(quickAction)) {
+                final List<ReleaseIssue> issues = quickActions.get(quickAction);
 
                 if (!issues.contains(issue)) issues.add(issue);
             } else {
                 final List<ReleaseIssue> issues = new ArrayList<>();
                 issues.add(issue);
 
-                issueActions.put(issueAction, issues);
+                quickActions.put(quickAction, issues);
             }
+        }
+    }
+
+    private void parseSubject(ReleaseCommit releaseCommit) {
+        if (this.commitIssuePattern == null) return;
+
+        // \(#(?<id>\d+)\)
+        // Adds size specs to fake icon (#18160) (#18306)
+        final List<ReleaseIssue> subjectIssues = releaseCommit.getSubjectIssues();
+        final Matcher commitIssueMatcher = this.commitIssuePattern.matcher(releaseCommit.getCommitSubject());
+
+        while (commitIssueMatcher.find()) {
+            final Integer issueId = Integer.valueOf(commitIssueMatcher.group("id"));
+            final String issueUrl = this.createIssueUrl(issueId);
+            final ReleaseIssue commitIssue = new ReleaseIssue(issueId, issueUrl);
+
+            if (releaseCommit.getCommitIssue() == null) releaseCommit.setCommitIssue(commitIssue);
+
+            subjectIssues.add(commitIssue);
         }
     }
 }

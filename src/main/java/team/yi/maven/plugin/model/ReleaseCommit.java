@@ -6,6 +6,7 @@ import lombok.Setter;
 import se.bjurr.gitchangelog.api.model.Commit;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -16,19 +17,21 @@ import java.util.concurrent.ConcurrentHashMap;
 public class ReleaseCommit extends Commit implements Serializable {
     private static final long serialVersionUID = 8295825971812538595L;
 
-    private final Map<String, List<ReleaseIssue>> issueActions = new ConcurrentHashMap<>();
+    private final Map<String, List<ReleaseIssue>> quickActions = new ConcurrentHashMap<>();
+    private final List<ReleaseIssue> subjectIssues = new ArrayList<>();
+    private final List<ReleaseIssue> bodyIssues = new ArrayList<>();
 
-    private String shortHash;
+    private String hash7;
+    private String hash8;
     private String commitUrl;
-
     private String commitType;
+    private String commitPackage;
     private String commitScope;
-    private String commitDescription;
-    private String commitContents;
+    private String commitSubject;
+    private String commitBody;
     private boolean attention;
     private boolean breakingChange;
-    private boolean deprecation;
-
+    private boolean deprecated;
     private ReleaseIssue commitIssue;
 
     public ReleaseCommit(Commit commit) {
@@ -50,7 +53,7 @@ public class ReleaseCommit extends Commit implements Serializable {
     }
 
     public List<ReleaseIssue> getCloseIssues() {
-        return this.issueActions.getOrDefault("close", null);
+        return this.quickActions.getOrDefault("close", null);
     }
 
     public boolean hasCloseIssues() {

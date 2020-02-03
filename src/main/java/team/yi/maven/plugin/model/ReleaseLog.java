@@ -14,5 +14,5 @@ public class ReleaseLog implements Serializable {
 
     private Version nextVersion;
     private Version lastVersion;
-    private List<ReleaseSection> sections;
+    private List<ReleaseTag> tags;
 }

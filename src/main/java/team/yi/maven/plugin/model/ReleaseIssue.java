@@ -12,16 +12,16 @@ public class ReleaseIssue implements Serializable {
 
     @EqualsAndHashCode.Include
     private final Integer id;
-    private final String action;
     private final String url;
+    private final String action;
 
     public ReleaseIssue(Integer issueId, String url) {
         this(issueId, url, null);
     }
 
-    public ReleaseIssue(Integer issueId, String url, String issueAction) {
+    public ReleaseIssue(Integer issueId, String url, String action) {
         this.id = issueId;
-        this.action = issueAction;
         this.url = url;
+        this.action = action;
     }
 }
