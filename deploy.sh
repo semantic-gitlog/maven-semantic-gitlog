@@ -48,7 +48,7 @@ git fetch
 git checkout master
 
 newVersion=${TRAVIS_TAG}
-gitCommit="release ${newVersion}"
+gitCommit="release: ${newVersion}"
 
 if [[ ! -z "${TRAVIS_TAG}" ]]
 then

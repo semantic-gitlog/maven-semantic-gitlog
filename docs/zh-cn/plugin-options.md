@@ -12,6 +12,7 @@
 | `patchTypes` | 当匹配到这些提交类型时增加修订版本号（patch）。默认为 `fix,perf,revert,refactor`。 |
 | `preReleaseTypes` | 当匹配到这些提交类型时增加预发布版本号（preRelease）。默认为 `null`。 |
 | `buildMetaDataTypes` | 当匹配到这些提交类型时增加构建（元数据）版本号（buildMetaData）。默认为 `null`。 |
+| `hiddenTypes` | 这些提交类型将在更新日志中隐藏。默认为 `release`。 |
 | `commitUrlTemplate` | 用于构建提交链接的包含 `:commitId` 占位符的字符串。 |
 | `issueUrlTemplate` | 用于构建议题链接的包含 `:issueId` 占位符的字符串。 |
 | `derivedVersionMark` | 执行 `semantic-gitlog:derive` 时，该值作为前缀与版本号一起输出。默认为 `null`。 |

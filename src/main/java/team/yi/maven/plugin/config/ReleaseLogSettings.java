@@ -32,6 +32,7 @@ public class ReleaseLogSettings implements Serializable {
     private static final List<String> DEFAULT_PATCH_TYPES = Arrays.asList("fix", "perf", "revert", "refactor");
     private static final List<String> DEFAULT_PRE_RELEASE_TYPES = new ArrayList<>();
     private static final List<String> DEFAULT_BUILD_META_DATA_TYPES = new ArrayList<>();
+    private static final List<String> DEFAULT_HIDDEN_TYPES = Collections.singletonList("release");
 
     @Parameter(property = "disabled", defaultValue = "false")
     private Boolean disabled = false;
@@ -62,6 +63,9 @@ public class ReleaseLogSettings implements Serializable {
 
     @Parameter(property = "buildMetaDataTypes")
     private String buildMetaDataTypes;
+
+    @Parameter(property = "hiddenTypes", defaultValue = "release")
+    private String hiddenTypes;
 
     @Parameter(property = "repoBaseUrl")
     private String repoBaseUrl;
@@ -122,6 +126,12 @@ public class ReleaseLogSettings implements Serializable {
         String[] items = StringUtils.split(this.patchTypes, ",");
 
         return items == null || items.length == 0 ? DEFAULT_PATCH_TYPES : Arrays.asList(items);
+    }
+
+    public List<String> getHiddenTypes() {
+        String[] items = StringUtils.split(this.hiddenTypes, ",");
+
+        return items == null || items.length == 0 ? DEFAULT_HIDDEN_TYPES : Arrays.asList(items);
     }
 
     public String getCommitIssuePattern() {

@@ -171,6 +171,8 @@ public class ReleaseLogService {
 
             if (lastVersion == null) this.versionCommits.add(commit);
 
+            if (this.releaseLogSettings.getHiddenTypes().contains(commit.getCommitType())) continue;
+
             final String groupTitle = ReleaseSections.fromCommitType(commit.getCommitType(), commit.isBreakingChange());
 
             if (map.containsKey(groupTitle)) {

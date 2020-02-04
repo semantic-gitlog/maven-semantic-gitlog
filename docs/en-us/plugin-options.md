@@ -12,6 +12,7 @@
 | `patchTypes` | Increase patch version when these commit types are matched. Default is `fix,perf,revert,refactor`. |
 | `preReleaseTypes` | Increase preRelease version when these commit types are matched. Default is `null`. |
 | `buildMetaDataTypes` | Increase buildMetaData version when these commit types are matched. Default is `null`. |
+| `hiddenTypes` | These commit types are hidden in the changelog. Default is `release`. |
 | `commitUrlTemplate` | An url string contains placeholder `:commitId` to construct commit link. |
 | `issueUrlTemplate` | An url string contains placeholder `:issueId` to construct issue link. |
 | `derivedVersionMark` | The value will output as a prefix with the version number when `semantic-gitlog:derive` execute. Default is `null`. |
