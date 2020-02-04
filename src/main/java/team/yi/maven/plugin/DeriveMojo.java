@@ -5,16 +5,15 @@ import org.apache.maven.plugin.logging.Log;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 import se.bjurr.gitchangelog.api.GitChangelogApi;
+import se.bjurr.gitchangelog.api.exceptions.GitChangelogRepositoryException;
 import team.yi.maven.plugin.config.ReleaseLogSettings;
 import team.yi.maven.plugin.model.ReleaseLog;
 import team.yi.maven.plugin.service.ReleaseLogService;
 
-import java.io.IOException;
-
 @Mojo(name = "derive", defaultPhase = LifecyclePhase.VALIDATE)
 public class DeriveMojo extends GitChangelogMojo {
     @Override
-    public void execute(GitChangelogApi builder) throws IOException {
+    public void execute(GitChangelogApi builder) throws GitChangelogRepositoryException {
         final Log log = this.getLog();
         final ReleaseLogSettings releaseLogSettings = this.getReleaseLogSettings();
 

@@ -1,4 +1,4 @@
-# Changelog
+# 更新日志
 
 ## 0.3.0 (Unreleased, 2020-02-04)
 
@@ -17,7 +17,7 @@
 
 - **git-changelog**: add `commitIssuePattern` configuration ([edd55e47](https://github.com/ymind/maven-semantic-gitlog/commit/edd55e47eba382f91e3d79dbb0ff3a6b9cfea905))
 - **git-changelog**: add `quickActionPattern` configuration ([3d957eda](https://github.com/ymind/maven-semantic-gitlog/commit/3d957edab53e1f50d95cac6d3b0b19b0719efcf6))
-- **mojo**: adds size specs to fake icon ([#18160](https://github.com/ymind/maven-semantic-gitlog/issues/18160)) ([#18306](https://github.com/ymind/maven-semantic-gitlog/issues/18306)) ([8671b566](https://github.com/ymind/maven-semantic-gitlog/commit/8671b5665f1e12a758be474d0f68b5c22fdf8371))
+- **mojo**: add `closeIssueActions` configuration ([8671b566](https://github.com/ymind/maven-semantic-gitlog/commit/8671b5665f1e12a758be474d0f68b5c22fdf8371))
 - **mojo**: compatible with new `angular-style` commit message format ([1b4efac7](https://github.com/ymind/maven-semantic-gitlog/commit/1b4efac7649ec56f345da1c7735ed40707e4761b))
 
 

@@ -3,9 +3,8 @@ package team.yi.maven.plugin.service;
 import com.github.mustachejava.DefaultMustacheFactory;
 import com.github.mustachejava.Mustache;
 import com.github.mustachejava.MustacheFactory;
-import com.google.common.io.Files;
-import com.google.common.io.Resources;
 import de.skuzzle.semantic.Version;
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.time.DateUtils;
 import org.apache.maven.plugin.logging.Log;
@@ -15,6 +14,7 @@ import se.bjurr.gitchangelog.api.model.Changelog;
 import se.bjurr.gitchangelog.api.model.Commit;
 import se.bjurr.gitchangelog.api.model.Tag;
 import se.bjurr.gitchangelog.internal.settings.Settings;
+import team.yi.maven.plugin.config.FileSet;
 import team.yi.maven.plugin.config.ReleaseLogSettings;
 import team.yi.maven.plugin.model.ReleaseCommit;
 import team.yi.maven.plugin.model.ReleaseDate;
@@ -23,24 +23,24 @@ import team.yi.maven.plugin.model.ReleaseSection;
 import team.yi.maven.plugin.model.ReleaseSections;
 import team.yi.maven.plugin.model.ReleaseTag;
 import team.yi.maven.plugin.utils.ReleaseCommitParser;
+import team.yi.maven.plugin.utils.VersionManager;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.IOException;
 import java.io.StringReader;
 import java.io.StringWriter;
 import java.io.Writer;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.Stack;
 import java.util.concurrent.ConcurrentHashMap;
-
-import static com.google.common.base.Preconditions.checkArgument;
-import static com.google.common.base.Preconditions.checkNotNull;
-import static com.google.common.io.Resources.getResource;
 
 public class ReleaseLogService {
     private final ReleaseLogSettings releaseLogSettings;
@@ -49,9 +49,7 @@ public class ReleaseLogService {
     private final Settings builderSettings;
     private final Log log;
     private final Stack<ReleaseCommit> versionCommits = new Stack<>();
-
-    private Version firstVersion;
-    private Version lastVersion;
+    private final VersionManager versionManager;
 
     public ReleaseLogService(ReleaseLogSettings releaseLogSettings, GitChangelogApi builder, Log log) {
         this.releaseLogSettings = releaseLogSettings;
@@ -60,74 +58,66 @@ public class ReleaseLogService {
         this.log = log;
 
         this.builderSettings = this.builder.getSettings();
+        this.versionManager = new VersionManager(this.releaseLogSettings, log);
     }
 
-    private static boolean shouldUseIntegrationIfConfigured(final String templateContent) {
-        return templateContent.contains("{{type}}") //
-            || templateContent.contains("{{link}}") //
-            || templateContent.contains("{{title}}") //
-            || templateContent.replaceAll("\\r?\\n", " ").matches(".*\\{\\{#?labels}}.*");
-    }
+    public void saveToFiles(Set<FileSet> fileSets) throws IOException, GitChangelogRepositoryException {
+        if (fileSets == null || fileSets.isEmpty()) return;
 
-    private String getTemplateContent() throws IOException {
-        checkArgument(this.builderSettings.getTemplatePath() != null, "You must specify a template!");
+        for (FileSet fileSet : fileSets) {
+            File target = fileSet.getTarget();
+            File template = fileSet.getTemplate();
 
-        String templateContent;
-
-        try {
-            templateContent = Resources.toString(getResource(this.builderSettings.getTemplatePath()), StandardCharsets.UTF_8);
-        } catch (final Exception e) {
-            final File file = new File(this.builderSettings.getTemplatePath());
-
-            templateContent = Files.toString(file, StandardCharsets.UTF_8);
+            this.saveToFile(target, template);
         }
-
-        return checkNotNull(templateContent, "No template!");
     }
 
-    public void saveToFile(File file) throws IOException, GitChangelogRepositoryException {
-        Files.createParentDirs(file);
-        Files.write(render().getBytes(StandardCharsets.UTF_8), file);
+    public void saveToFile(final File target, final File template) throws IOException, GitChangelogRepositoryException {
+        FileUtils.forceMkdir(target.getParentFile());
+
+        try (BufferedWriter writer = Files.newBufferedWriter(target.toPath(), StandardCharsets.UTF_8)) {
+            if (this.log.isInfoEnabled()) {
+                this.log.info("#");
+            }
+
+            render(writer, template);
+
+            if (this.log.isInfoEnabled()) {
+                this.log.info("#    template: " + template.getPath());
+                this.log.info("#      target: " + target.getPath());
+                this.log.info("#");
+            }
+        }
     }
 
-    public String render() throws GitChangelogRepositoryException, IOException {
+    public String render(final File template) throws GitChangelogRepositoryException, IOException {
         final Writer writer = new StringWriter();
 
-        render(writer);
+        render(writer, template);
 
         return writer.toString();
     }
 
-    public void render(final Writer writer) throws GitChangelogRepositoryException, IOException {
-        final String templateContent = this.getTemplateContent();
+    public void render(final Writer writer, final File template) throws GitChangelogRepositoryException, IOException {
+        final String templateContent = FileUtils.readFileToString(template, StandardCharsets.UTF_8);
 
         try (StringReader reader = new StringReader(templateContent)) {
             final MustacheFactory mf = new DefaultMustacheFactory();
-            final Mustache mustache = mf.compile(reader, this.builderSettings.getTemplatePath());
-            final boolean useIntegrationIfConfigured = shouldUseIntegrationIfConfigured(templateContent);
-            final Object[] scopes = {this.generate(useIntegrationIfConfigured), this.builderSettings.getExtendedVariables()};
+            final Mustache mustache = mf.compile(reader, template.getAbsolutePath());
+            final ReleaseLog releaseLog = this.generate();
+            final Object[] scopes = {releaseLog, this.builderSettings.getExtendedVariables()};
 
             mustache.execute(writer, scopes).flush();
+
+            this.log.info("# nextVersion: " + releaseLog.getNextVersion());
+            this.log.info("# lastVersion: " + releaseLog.getLastVersion());
         } catch (final IOException e) {
             throw new GitChangelogRepositoryException(e.getMessage(), e);
         }
     }
 
-    public ReleaseLog generate() throws IOException {
-        final String templateContent = this.getTemplateContent();
-        final boolean useIntegrationIfConfigured = shouldUseIntegrationIfConfigured(templateContent);
-
-        return this.generate(useIntegrationIfConfigured);
-    }
-
-    public ReleaseLog generate(boolean useIntegrationIfConfigured) {
-        Changelog changelog;
-
-        try {
-            changelog = builder.getChangelog(useIntegrationIfConfigured);
-        } catch (GitChangelogRepositoryException e) {
-            return null;
-        }
+    public ReleaseLog generate() throws GitChangelogRepositoryException {
+        Changelog changelog = builder.getChangelog(false);
 
         if (changelog == null) return null;
 
@@ -136,9 +126,16 @@ public class ReleaseLogService {
         final List<ReleaseTag> releaseTags = new ArrayList<>();
         final List<Tag> tags = changelog.getTags();
         ReleaseTag releaseTag = null;
+        Version lastVersion = null;
 
         for (Tag tag : tags) {
-            final ReleaseTag section = this.processTag(tag);
+            Version tagVersion = Version.isValidVersion(tag.getName())
+                ? Version.parseVersion(tag.getName(), true)
+                : null;
+
+            if (lastVersion == null) lastVersion = tagVersion;
+
+            final ReleaseTag section = this.processTag(tag, tagVersion, lastVersion);
 
             if (releaseTag == null
                 || releaseTag.getVersion() == null
@@ -150,31 +147,21 @@ public class ReleaseLogService {
             releaseTags.add(releaseTag);
         }
 
-        Version lastVersion = this.lastVersion;
-
         if (lastVersion == null) lastVersion = this.releaseLogSettings.getLastVersion();
 
-        final Version nextVersion = this.deriveNextVersion(lastVersion, this.versionCommits);
+        final Version nextVersion = this.versionManager.deriveNextVersion(lastVersion, this.versionCommits);
 
-        return new ReleaseLog(nextVersion, this.lastVersion, releaseTags);
+        return new ReleaseLog(nextVersion, lastVersion, releaseTags);
     }
 
-    @SuppressWarnings("PMD.NPathComplexity")
-    private ReleaseTag processTag(Tag tag) {
-        Version tagVersion = Version.isValidVersion(tag.getName())
-            ? Version.parseVersion(tag.getName(), true)
-            : null;
-
-        if (this.firstVersion == null) this.firstVersion = tagVersion;
-        if (this.lastVersion == null) this.lastVersion = tagVersion;
-
+    private ReleaseTag processTag(final Tag tag, final Version tagVersion, final Version lastVersion) {
         ReleaseDate releaseDate = this.getReleaseDate(tag);
-        List<ReleaseSection> groups = this.getGroups(tag);
+        List<ReleaseSection> groups = this.getGroups(tag, lastVersion);
 
         return new ReleaseTag(tagVersion, releaseDate, null, groups);
     }
 
-    private List<ReleaseSection> getGroups(Tag tag) {
+    private List<ReleaseSection> getGroups(final Tag tag, final Version lastVersion) {
         final Map<String, List<ReleaseCommit>> map = new ConcurrentHashMap<>();
 
         for (Commit item : tag.getCommits()) {
@@ -182,7 +169,7 @@ public class ReleaseLogService {
 
             if (StringUtils.isEmpty(commit.getCommitSubject())) continue;
 
-            if (this.lastVersion == null) this.versionCommits.add(commit);
+            if (lastVersion == null) this.versionCommits.add(commit);
 
             final String groupTitle = ReleaseSections.fromCommitType(commit.getCommitType(), commit.isBreakingChange());
 
@@ -221,82 +208,5 @@ public class ReleaseLogService {
         }
 
         return null;
-    }
-
-    @SuppressWarnings({"PMD.NcssCount", "PMD.NPathComplexity"})
-    private Version deriveNextVersion(Version lastVersion, Stack<ReleaseCommit> versionCommits) {
-        Version nextVersion = lastVersion == null
-            ? Version.create(0, 1, 0)
-            : Version.parseVersion(lastVersion.toString(), true);
-        String preRelease = this.releaseLogSettings.getPreRelease();
-        String buildMetaData = this.releaseLogSettings.getBuildMetaData();
-
-        if (!StringUtils.isEmpty(preRelease)) nextVersion = nextVersion.withPreRelease(preRelease);
-        if (!StringUtils.isEmpty(buildMetaData)) nextVersion = nextVersion.withBuildMetaData(buildMetaData);
-
-        final List<String> majorTypes = this.releaseLogSettings.getMajorTypes();
-        final List<String> minorTypes = this.releaseLogSettings.getMinorTypes();
-        final List<String> patchTypes = this.releaseLogSettings.getPatchTypes();
-        final List<String> preReleaseTypes = this.releaseLogSettings.getPreReleaseTypes();
-        final List<String> buildMetaDataTypes = this.releaseLogSettings.getBuildMetaDataTypes();
-
-        this.log.debug("nextVersion: " + nextVersion);
-
-        while (!versionCommits.isEmpty()) {
-            preRelease = nextVersion.getPreRelease();
-            buildMetaData = nextVersion.getBuildMetaData();
-
-            if (StringUtils.isEmpty(preRelease)) preRelease = this.releaseLogSettings.getPreRelease();
-            if (StringUtils.isEmpty(buildMetaData)) buildMetaData = this.releaseLogSettings.getBuildMetaData();
-
-            final ReleaseCommit commit = versionCommits.pop();
-            final String commitType = commit.getCommitType();
-
-            this.log.debug("preRelease: " + preRelease);
-            this.log.debug("buildMetaData: " + buildMetaData);
-            this.log.debug("commitType: " + commitType);
-            this.log.debug("nextVersion: " + nextVersion);
-
-            if (commit.isBreakingChange() || majorTypes.contains(commitType)) {
-                nextVersion = nextVersion.nextMajor();
-
-                if (!StringUtils.isEmpty(preRelease)) nextVersion = nextVersion.withPreRelease(preRelease);
-                if (!StringUtils.isEmpty(buildMetaData)) nextVersion = nextVersion.withBuildMetaData(buildMetaData);
-            } else if (minorTypes.contains(commitType)) {
-                nextVersion = nextVersion.nextMinor();
-
-                if (!StringUtils.isEmpty(preRelease)) nextVersion = nextVersion.withPreRelease(preRelease);
-                if (!StringUtils.isEmpty(buildMetaData)) nextVersion = nextVersion.withBuildMetaData(buildMetaData);
-
-                if (this.releaseLogSettings.getUseCrazyGrowing()) continue;
-
-                break;
-            } else if (patchTypes.contains(commitType)) {
-                nextVersion = nextVersion.nextPatch();
-
-                if (!StringUtils.isEmpty(preRelease)) nextVersion = nextVersion.withPreRelease(preRelease);
-                if (!StringUtils.isEmpty(buildMetaData)) nextVersion = nextVersion.withBuildMetaData(buildMetaData);
-
-                if (this.releaseLogSettings.getUseCrazyGrowing()) continue;
-
-                break;
-            } else if (preReleaseTypes.contains(commitType)) {
-                nextVersion = nextVersion.nextPreRelease();
-
-                if (!StringUtils.isEmpty(buildMetaData)) nextVersion = nextVersion.withBuildMetaData(buildMetaData);
-
-                if (this.releaseLogSettings.getUseCrazyGrowing()) continue;
-
-                break;
-            } else if (buildMetaDataTypes.contains(commitType)) {
-                nextVersion = nextVersion.nextBuildMetaData();
-
-                if (this.releaseLogSettings.getUseCrazyGrowing()) continue;
-
-                break;
-            }
-        }
-
-        return nextVersion;
     }
 }

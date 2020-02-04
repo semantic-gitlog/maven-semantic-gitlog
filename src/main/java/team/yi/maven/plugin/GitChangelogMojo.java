@@ -22,8 +22,6 @@ import static se.bjurr.gitchangelog.api.GitChangelogApi.gitChangelogApiBuilder;
 
 @SuppressWarnings("PMD.TooManyFields")
 public abstract class GitChangelogMojo extends AbstractMojo {
-    protected static final String DEFAULT_FILE = "CHANGELOG.md";
-
     @Parameter(property = "toRef")
     protected String toRef;
 
@@ -38,27 +36,6 @@ public abstract class GitChangelogMojo extends AbstractMojo {
 
     @Parameter(property = "settingsFile")
     protected String settingsFile;
-
-    @Parameter(property = "templateFile")
-    protected String templateFile;
-
-    @Parameter(property = "templateContent")
-    protected String templateContent;
-
-    @Parameter(property = "file")
-    protected File file;
-
-    @Parameter(property = "mediaWikiUrl")
-    protected String mediaWikiUrl;
-
-    @Parameter(property = "mediaWikiTitle")
-    protected String mediaWikiTitle;
-
-    @Parameter(property = "mediaWikiUsername")
-    protected String mediaWikiUsername;
-
-    @Parameter(property = "mediaWikiPassword")
-    protected String mediaWikiPassword;
 
     @Parameter(property = "readableTagName")
     protected String readableTagName;
@@ -157,10 +134,10 @@ public abstract class GitChangelogMojo extends AbstractMojo {
     }
 
     protected abstract void execute(GitChangelogApi builder) throws MojoExecutionException,
-            MojoFailureException,
-            IOException,
-            GitChangelogRepositoryException,
-            GitChangelogIntegrationException;
+        MojoFailureException,
+        IOException,
+        GitChangelogRepositoryException,
+        GitChangelogIntegrationException;
 
     @SuppressWarnings("PMD.NPathComplexity")
     private GitChangelogApi createGitChangelogApi() throws MalformedURLException {
@@ -168,8 +145,6 @@ public abstract class GitChangelogMojo extends AbstractMojo {
 
         if (isSupplied(settingsFile)) builder.withSettings(new File(settingsFile).toURI().toURL());
         if (isSupplied(toRef)) builder.withToRef(toRef);
-        if (isSupplied(templateFile)) builder.withTemplatePath(templateFile);
-        if (isSupplied(templateContent)) builder.withTemplateContent(templateContent);
         if (isSupplied(fromCommit)) builder.withFromCommit(fromCommit);
         if (isSupplied(fromRef)) builder.withFromRef(fromRef);
         if (isSupplied(toCommit)) builder.withToCommit(toCommit);

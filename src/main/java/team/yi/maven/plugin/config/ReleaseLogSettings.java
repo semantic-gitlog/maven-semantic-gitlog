@@ -21,6 +21,8 @@ public class ReleaseLogSettings implements Serializable {
     public static final String DEFAULT_LONG_DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
     public static final String DEFAULT_SHORT_DATE_FORMAT = "yyyy-MM-dd";
     public static final String DEFAULT_CLOSE_ISSUE_ACTIONS = "close,closes,closed,fix,fixes,fixed,resolve,resolves,resolved";
+    public static final String DEFAULT_TEMPLATE_FILE = "config/gitlog/CHANGELOG.tpl.md";
+    public static final String DEFAULT_TARGET_FILE = "CHANGELOG.md";
 
     private static final long serialVersionUID = -3088989076911346697L;
 
