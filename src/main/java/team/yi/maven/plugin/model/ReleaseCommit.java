@@ -54,9 +54,19 @@ public class ReleaseCommit extends Commit implements Serializable {
         return super.getHashFull();
     }
 
-    public boolean hasCloseIssues() {
-        final List<ReleaseIssue> closeIssues = this.getCloseIssues();
+    public boolean hasQuickActions() {
+        return !this.quickActions.isEmpty();
+    }
 
-        return closeIssues != null && !closeIssues.isEmpty();
+    public boolean hasSubjectIssues() {
+        return !this.subjectIssues.isEmpty();
+    }
+
+    public boolean hasBodyIssues() {
+        return !this.bodyIssues.isEmpty();
+    }
+
+    public boolean hasCloseIssues() {
+        return !this.closeIssues.isEmpty();
     }
 }
