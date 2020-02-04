@@ -66,7 +66,7 @@ public class ReleaseCommitParser {
 
         if (!messageMatcher.find()) return releaseCommit;
 
-        // https://github.com/angular/components/blob/master/CONTRIBUTING.md
+        // https://github.com/angular/angular/blob/master/CONTRIBUTING.md
         // ^((?<type>[\w]+)(?<attention>!)?)(\((?<package>(\w+\/)*)(?<scope>[\w-$_]+)\))?:
         // (?<subject>[^\n]+)([\r\n]{2})(?<body>(.+([\r\n]{0,2}))*)?$
 

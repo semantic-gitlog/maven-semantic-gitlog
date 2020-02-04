@@ -8,7 +8,7 @@
 # maven-semantic-gitlog
 
 A simple [Semantic Versioning](https://semver.org/) management tool based on [Conventional Commits](https://conventionalcommits.org).
-It automatically derive and manage version numbers and generate angular-style change logs.
+It automatically derive and manage version numbers and generate [angular-style](https://github.com/angular/angular/blob/master/CONTRIBUTING.md) change logs.
 
 This plugin extended from [git-changelog-lib](https://github.com/tomasbjerre/git-changelog-lib). All of it's features are preserved. 
 As same as `git-changelog-lib`, we fully configurable with [Mustache](http://mustache.github.io/) template. That can:
