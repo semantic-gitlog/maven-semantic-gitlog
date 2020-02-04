@@ -17,7 +17,7 @@ import java.util.List;
 public class ReleaseLogSettings implements Serializable {
     // https://regex101.com/r/nXpkHS/2/
     public static final String DEFAULT_MESSAGE_PATTERN = "^((?<type>[\\w]+)(?<attention>!)?)"
-        + "(\\((?<package>(\\w+\\/)*)(?<scope>[\\w-$_]+)\\))?: (?<subject>[^\\r\\n]+)([\\r\\n]{2}(?<body>.+))?$";
+        + "(\\((?<package>([\\w-$_@]+\\/)*)(?<scope>[\\w-$_@]+)\\))?: (?<subject>[^\\r\\n]+)([\\r\\n]{2}(?<body>.+))?$";
     public static final String DEFAULT_COMMIT_ISSUE_PATTERN = "\\(#(?<id>\\d+)\\)";
     public static final String DEFAULT_LONG_DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
     public static final String DEFAULT_SHORT_DATE_FORMAT = "yyyy-MM-dd";
