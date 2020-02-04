@@ -1,5 +1,6 @@
 package team.yi.maven.plugin;
 
+import com.google.gson.Gson;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.maven.plugin.logging.Log;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
@@ -16,6 +17,13 @@ public class DeriveMojo extends GitChangelogMojo {
     public void execute(GitChangelogApi builder) throws GitChangelogRepositoryException {
         final Log log = this.getLog();
         final ReleaseLogSettings releaseLogSettings = this.getReleaseLogSettings();
+
+        if (log.isDebugEnabled()) {
+            Gson gson = new Gson();
+            String json = gson.toJson(releaseLogSettings);
+
+            log.debug(json);
+        }
 
         if (releaseLogSettings == null || releaseLogSettings.getDisabled()) {
             log.warn("derive is disabled.");

@@ -56,8 +56,12 @@ then
 else
     echo "not on a tag -> derive version and keep snapshot"
 
-    nextVersion=`./mvnw ${MAVEN_CLI_OPTS} --settings "${TRAVIS_BUILD_DIR}/.travis/mvn-settings.xml" -P release-plugin -U semantic-gitlog:derive | grep 'NEXT_VERSION:==' | sed 's/.\+NEXT_VERSION:==//g'`
-    newVersion="${nextVersion}-SNAPSHOT"
+    nextVersion=`./mvnw ${MAVEN_CLI_OPTS} \
+        --settings "${TRAVIS_BUILD_DIR}/.travis/mvn-settings.xml" \
+        -P release-plugin \
+        -D gitlog.toRef=refs/heads/master \
+        -D gitlog.preRelease=SNAPSHOT \
+        -U semantic-gitlog:derive | grep 'NEXT_VERSION:==' | sed 's/.\+NEXT_VERSION:==//g'`
 
     gitCommit="bumped version to ${newVersion}"
 fi

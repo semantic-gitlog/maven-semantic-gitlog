@@ -19,19 +19,19 @@ import static org.apache.maven.plugins.annotations.LifecyclePhase.PROCESS_SOURCE
 
 @Mojo(name = "changelog", defaultPhase = PROCESS_SOURCES)
 public class ChangelogMojo extends GitChangelogMojo {
-    @Parameter(property = "fileSets")
+    @Parameter(property = "gitlog.fileSets")
     protected Set<FileSet> fileSets;
 
-    @Parameter(property = "mediaWikiUrl")
+    @Parameter(property = "gitlog.mediaWikiUrl")
     protected String mediaWikiUrl;
 
-    @Parameter(property = "mediaWikiTitle")
+    @Parameter(property = "gitlog.mediaWikiTitle")
     protected String mediaWikiTitle;
 
-    @Parameter(property = "mediaWikiUsername")
+    @Parameter(property = "gitlog.mediaWikiUsername")
     protected String mediaWikiUsername;
 
-    @Parameter(property = "mediaWikiPassword")
+    @Parameter(property = "gitlog.mediaWikiPassword")
     protected String mediaWikiPassword;
 
     @Override

@@ -22,88 +22,88 @@ import static se.bjurr.gitchangelog.api.GitChangelogApi.gitChangelogApiBuilder;
 
 @SuppressWarnings("PMD.TooManyFields")
 public abstract class GitChangelogMojo extends AbstractMojo {
-    @Parameter(property = "toRef")
+    @Parameter(property = "gitlog.toRef")
     protected String toRef;
 
-    @Parameter(property = "toCommit")
+    @Parameter(property = "gitlog.toCommit")
     protected String toCommit;
 
-    @Parameter(property = "fromRef")
+    @Parameter(property = "gitlog.fromRef")
     protected String fromRef;
 
-    @Parameter(property = "fromCommit")
+    @Parameter(property = "gitlog.fromCommit")
     protected String fromCommit;
 
-    @Parameter(property = "settingsFile")
+    @Parameter(property = "gitlog.settingsFile")
     protected String settingsFile;
 
-    @Parameter(property = "readableTagName")
+    @Parameter(property = "gitlog.readableTagName")
     protected String readableTagName;
 
-    @Parameter(property = "ignoreTagsIfNameMatches")
+    @Parameter(property = "gitlog.ignoreTagsIfNameMatches")
     protected String ignoreTagsIfNameMatches;
 
-    @Parameter(property = "dateFormat")
+    @Parameter(property = "gitlog.dateFormat")
     protected String dateFormat;
 
-    @Parameter(property = "timeZone")
+    @Parameter(property = "gitlog.timeZone")
     protected String timeZone;
 
-    @Parameter(property = "removeIssueFromMessage")
+    @Parameter(property = "gitlog.removeIssueFromMessage")
     protected boolean removeIssueFromMessage;
 
-    @Parameter(property = "ignoreCommitsIfMessageMatches")
+    @Parameter(property = "gitlog.ignoreCommitsIfMessageMatches")
     protected String ignoreCommitsIfMessageMatches;
 
-    @Parameter(property = "ignoreCommitsOlderThan")
+    @Parameter(property = "gitlog.ignoreCommitsOlderThan")
     protected Date ignoreCommitsOlderThan;
 
-    @Parameter(property = "untaggedName")
+    @Parameter(property = "gitlog.untaggedName")
     protected String untaggedName;
 
-    @Parameter(property = "noIssueName")
+    @Parameter(property = "gitlog.noIssueName")
     protected String noIssueName;
 
-    @Parameter(property = "gitHubApi")
+    @Parameter(property = "gitlog.gitHubApi")
     protected String gitHubApi;
 
-    @Parameter(property = "gitHubToken")
+    @Parameter(property = "gitlog.gitHubToken")
     protected String gitHubToken;
 
-    @Parameter(property = "gitHubIssuePattern")
+    @Parameter(property = "gitlog.gitHubIssuePattern")
     protected String gitHubIssuePattern;
 
-    @Parameter(property = "gitLabServer")
+    @Parameter(property = "gitlog.gitLabServer")
     protected String gitLabServer;
 
-    @Parameter(property = "gitLabProjectName")
+    @Parameter(property = "gitlog.gitLabProjectName")
     protected String gitLabProjectName;
 
-    @Parameter(property = "gitLabToken")
+    @Parameter(property = "gitlog.gitLabToken")
     protected String gitLabToken;
 
-    @Parameter(property = "jiraIssuePattern")
+    @Parameter(property = "gitlog.jiraIssuePattern")
     protected String jiraIssuePattern;
 
-    @Parameter(property = "jiraPassword")
+    @Parameter(property = "gitlog.jiraPassword")
     protected String jiraPassword;
 
-    @Parameter(property = "jiraServer")
+    @Parameter(property = "gitlog.jiraServer")
     protected String jiraServer;
 
-    @Parameter(property = "jiraUsername")
+    @Parameter(property = "gitlog.jiraUsername")
     protected String jiraUsername;
 
-    @Parameter(property = "ignoreCommitsWithoutIssue")
+    @Parameter(property = "gitlog.ignoreCommitsWithoutIssue")
     protected Boolean ignoreCommitsWithoutIssue;
 
-    @Parameter(property = "customIssues")
+    @Parameter(property = "gitlog.customIssues")
     protected List<CustomIssue> customIssues;
 
-    @Parameter(property = "skip")
+    @Parameter(property = "gitlog.skip")
     protected Boolean skip;
 
-    @Parameter(property = "releaseLogSettings")
+    @Parameter
     private ReleaseLogSettings releaseLogSettings;
 
     protected ReleaseLogSettings getReleaseLogSettings() {

@@ -242,6 +242,11 @@
     <profile>
       <id>release-plugin</id>
 
+      <properties>
+        <gitlog.toRef>dev</gitlog.toRef>
+        <gitlog.preRelease>SNAPSHOT</gitlog.preRelease>
+      </properties>
+
       <distributionManagement>
         <repository>
           <id>ossrh</id>
@@ -306,8 +311,6 @@
                 </fileSet>
               </fileSets>
 
-              <!--<toRef>dev</toRef>-->
-
               <releaseLogSettings>
                 <strategy>strict</strategy>
 
@@ -315,6 +318,8 @@
                 <issueUrlTemplate>${project.scm.url}/issues/:issueId</issueUrlTemplate>
 
                 <derivedVersionMark>NEXT_VERSION:==</derivedVersionMark>
+
+                <preRelease>${gitlog.preRelease}</preRelease>
 
                 <!--
                     gitlab

@@ -1,6 +1,7 @@
 package team.yi.maven.plugin.utils;
 
 import de.skuzzle.semantic.Version;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.maven.plugin.logging.Log;
 import team.yi.maven.plugin.config.ReleaseLogSettings;
 import team.yi.maven.plugin.model.ReleaseCommit;
@@ -18,6 +19,8 @@ public class VersionManager {
     private final List<String> buildMetaDataTypes;
 
     private final ReleaseStrategy strategy;
+    private final String preRelease;
+    private final String buildMetaData;
 
     public VersionManager(final ReleaseLogSettings releaseLogSettings, final Log log) {
         this.log = log;
@@ -27,6 +30,8 @@ public class VersionManager {
         this.patchTypes = releaseLogSettings.getPatchTypes();
         this.preReleaseTypes = releaseLogSettings.getPreReleaseTypes();
         this.buildMetaDataTypes = releaseLogSettings.getBuildMetaDataTypes();
+        this.preRelease = releaseLogSettings.getPreRelease();
+        this.buildMetaData = releaseLogSettings.getBuildMetaData();
 
         this.strategy = releaseLogSettings.getStrategy();
     }
@@ -44,17 +49,22 @@ public class VersionManager {
             final ReleaseCommit commit = versionCommits.pop();
             final String commitType = commit.getCommitType();
 
+            nextVersion = this.ensureSuffix(nextVersion);
+
             if (this.log != null && this.log.isDebugEnabled()) {
-                this.log.debug("commitType: " + commitType);
-                this.log.debug("nextVersion: " + nextVersion);
+                this.log.debug("#");
+                this.log.debug("#  messageTitle: " + commit.getMessageTitle());
+                this.log.debug("#    commitType: " + commitType);
+                this.log.debug("#   nextVersion: " + nextVersion);
+                this.log.debug("#    preRelease: " + preRelease);
+                this.log.debug("# buildMetaData: " + buildMetaData);
+                this.log.debug("#");
             }
 
             if (commit.isBreakingChange() || this.majorTypes.contains(commitType)) {
                 nextVersion = nextVersion.nextMajor();
 
-                if (this.strategy == ReleaseStrategy.strict) continue;
-
-                break;
+                if (this.strategy != ReleaseStrategy.strict) break;
             } else if (this.minorTypes.contains(commitType)) {
                 if (minorUp) {
                     if (this.strategy == ReleaseStrategy.strict) {
@@ -94,6 +104,18 @@ public class VersionManager {
             }
         }
 
-        return nextVersion;
+        return this.ensureSuffix(nextVersion);
+    }
+
+    public Version ensureSuffix(final Version nextVersion) {
+        Version version = nextVersion;
+
+        final String preRelease = StringUtils.defaultIfEmpty(version.getPreRelease(), this.preRelease);
+        final String buildMetaData = StringUtils.defaultIfEmpty(version.getBuildMetaData(), this.buildMetaData);
+
+        if (StringUtils.isNotEmpty(preRelease)) version = version.withPreRelease(preRelease);
+        if (StringUtils.isNotEmpty(buildMetaData)) version = version.withBuildMetaData(buildMetaData);
+
+        return version;
     }
 }
