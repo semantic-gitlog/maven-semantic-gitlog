@@ -3,7 +3,7 @@
 | option | description |
 | ------ | ----------- |
 | `disabled` | 打开或关闭 `semantic-gitlog` 模块。默认为 `false`。 |
-| `useCrazyGrowing` | 疯狂增长模式，当遇到任何匹配的提交时均会增加版本号。默认为 `true`。 |
+| `strategy` | 发布策略。可选值：`strict`、`slow`.。默认为 `strict`。 |
 | `lastVersion` | 默认尝试将 `Tag` 转换为版本号。该选项允许您手工指定 `lastVersion` 的值。默认为 `0.1.0`。 |
 | `preRelease` | 设置 `preRelease` 的初始值。默认为 `null`([Understand preRelease](https://github.com/skuzzle/semantic-version#usage))。  |
 | `buildMetaData` | 设置 `buildMetaData` 的初始值。默认为 `null`([Understand buildMetaData](https://github.com/skuzzle/semantic-version#usage))。 |

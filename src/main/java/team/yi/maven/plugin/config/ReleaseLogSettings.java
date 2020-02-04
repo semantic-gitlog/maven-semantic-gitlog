@@ -4,6 +4,7 @@ import de.skuzzle.semantic.Version;
 import lombok.Data;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.maven.plugins.annotations.Parameter;
+import team.yi.maven.plugin.model.ReleaseStrategy;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -35,8 +36,8 @@ public class ReleaseLogSettings implements Serializable {
     @Parameter(property = "disabled", defaultValue = "false")
     private Boolean disabled = false;
 
-    @Parameter(property = "useCrazyGrowing", defaultValue = "true")
-    private Boolean useCrazyGrowing = true;
+    @Parameter(property = "strategy", defaultValue = "strict")
+    private ReleaseStrategy strategy = ReleaseStrategy.strict;
 
     @Parameter(property = "lastVersion")
     private Version lastVersion;
@@ -88,6 +89,10 @@ public class ReleaseLogSettings implements Serializable {
 
     @Parameter(property = "closeIssueActions", defaultValue = DEFAULT_CLOSE_ISSUE_ACTIONS)
     private String closeIssueActions = DEFAULT_CLOSE_ISSUE_ACTIONS;
+
+    public ReleaseStrategy getStrategy() {
+        return this.strategy == null ? ReleaseStrategy.strict : strategy;
+    }
 
     public List<String> getPreReleaseTypes() {
         String[] items = StringUtils.split(this.preReleaseTypes, ",");

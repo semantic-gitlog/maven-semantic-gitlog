@@ -1,10 +1,10 @@
 package team.yi.maven.plugin.utils;
 
 import de.skuzzle.semantic.Version;
-import org.apache.commons.lang3.BooleanUtils;
 import org.apache.maven.plugin.logging.Log;
 import team.yi.maven.plugin.config.ReleaseLogSettings;
 import team.yi.maven.plugin.model.ReleaseCommit;
+import team.yi.maven.plugin.model.ReleaseStrategy;
 
 import java.util.List;
 import java.util.Stack;
@@ -17,7 +17,7 @@ public class VersionManager {
     private final List<String> preReleaseTypes;
     private final List<String> buildMetaDataTypes;
 
-    private boolean useCrazyGrowing;
+    private final ReleaseStrategy strategy;
 
     public VersionManager(final ReleaseLogSettings releaseLogSettings, final Log log) {
         this.log = log;
@@ -28,7 +28,7 @@ public class VersionManager {
         this.preReleaseTypes = releaseLogSettings.getPreReleaseTypes();
         this.buildMetaDataTypes = releaseLogSettings.getBuildMetaDataTypes();
 
-        this.useCrazyGrowing = BooleanUtils.toBooleanDefaultIfNull(releaseLogSettings.getUseCrazyGrowing(), true);
+        this.strategy = releaseLogSettings.getStrategy();
     }
 
     public Version deriveNextVersion(final Version lastVersion, final Stack<ReleaseCommit> versionCommits) {
@@ -52,12 +52,12 @@ public class VersionManager {
             if (commit.isBreakingChange() || this.majorTypes.contains(commitType)) {
                 nextVersion = nextVersion.nextMajor();
 
-                if (this.useCrazyGrowing) continue;
+                if (this.strategy == ReleaseStrategy.strict) continue;
 
                 break;
             } else if (this.minorTypes.contains(commitType)) {
                 if (minorUp) {
-                    if (this.useCrazyGrowing) {
+                    if (this.strategy == ReleaseStrategy.strict) {
                         nextVersion = nextVersion.nextMinor();
                     }
                 } else {
@@ -66,7 +66,7 @@ public class VersionManager {
                 }
             } else if (this.patchTypes.contains(commitType)) {
                 if (patchUp) {
-                    if (this.useCrazyGrowing) {
+                    if (this.strategy == ReleaseStrategy.strict) {
                         nextVersion = nextVersion.nextPatch();
                     }
                 } else {
@@ -75,7 +75,7 @@ public class VersionManager {
                 }
             } else if (this.preReleaseTypes.contains(commitType)) {
                 if (preReleaseUp) {
-                    if (this.useCrazyGrowing) {
+                    if (this.strategy == ReleaseStrategy.strict) {
                         nextVersion = nextVersion.nextPreRelease();
                     }
                 } else {
@@ -84,7 +84,7 @@ public class VersionManager {
                 }
             } else if (this.buildMetaDataTypes.contains(commitType)) {
                 if (buildMetaDataUp) {
-                    if (this.useCrazyGrowing) {
+                    if (this.strategy == ReleaseStrategy.strict) {
                         nextVersion = nextVersion.nextBuildMetaData();
                     }
                 } else {

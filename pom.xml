@@ -309,7 +309,7 @@
               <!--<toRef>dev</toRef>-->
 
               <releaseLogSettings>
-                <useCrazyGrowing>true</useCrazyGrowing>
+                <strategy>strict</strategy>
 
                 <commitUrlTemplate>${project.scm.url}/commit/:commitId</commitUrlTemplate>
                 <issueUrlTemplate>${project.scm.url}/issues/:issueId</issueUrlTemplate>

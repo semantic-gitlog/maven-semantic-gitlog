@@ -12,7 +12,7 @@
 
         <releaseLogSettings>
             <lastVersion>0.1.0</lastVersion>
-            <useCrazyGrowing>true</useCrazyGrowing>
+            <strategy>strict</strategy>
 
             <commitUrlTemplate>https://github.com/${YOUR_ACCOUNT}/${YOUR_PROJECT_NAME}/commit/:commitId</commitUrlTemplate>
             <issueUrlTemplate>https://github.com/${YOUR_ACCOUNT}/${YOUR_PROJECT_NAME}/issues/:issueId</issueUrlTemplate>
