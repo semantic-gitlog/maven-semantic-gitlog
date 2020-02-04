@@ -6,7 +6,7 @@
 
   <groupId>team.yi.maven.plugin</groupId>
   <artifactId>maven-semantic-gitlog</artifactId>
-  <version>0.8.1-SNAPSHOT</version>
+  <version>0.9.0-SNAPSHOT</version>
   <packaging>maven-plugin</packaging>
   <inceptionYear>2020</inceptionYear>
 
@@ -303,16 +303,16 @@
           <plugin>
             <groupId>team.yi.maven.plugin</groupId>
             <artifactId>maven-semantic-gitlog</artifactId>
-            <version>0.8.1-SNAPSHOT</version>
+            <version>0.9.0-SNAPSHOT</version>
             <configuration>
               <fileSets>
                 <fileSet>
-                  <template>${project.basedir}/config/gitlog/CHANGELOG.tpl.md</template>
                   <target>${project.basedir}/CHANGELOG.md</target>
+                  <template>${project.basedir}/config/gitlog/CHANGELOG.tpl.md</template>
                 </fileSet>
                 <fileSet>
-                  <template>${project.basedir}/config/gitlog/CHANGELOG_zh-cn.tpl.md</template>
                   <target>${project.basedir}/CHANGELOG_zh-cn.md</target>
+                  <template>${project.basedir}/config/gitlog/CHANGELOG_zh-cn.tpl.md</template>
                 </fileSet>
               </fileSets>
 

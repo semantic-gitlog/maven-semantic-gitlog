@@ -14,6 +14,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import static org.apache.maven.plugins.annotations.LifecyclePhase.PROCESS_SOURCES;
 
@@ -34,6 +35,15 @@ public class ChangelogMojo extends GitChangelogMojo {
     @Parameter(property = "gitlog.mediaWikiPassword")
     protected String mediaWikiPassword;
 
+    public Set<FileSet> getFileSets() {
+        if (this.fileSets == null || this.fileSets.isEmpty()) return fileSets;
+
+        return this.fileSets.stream()
+            .filter(x -> x.getTemplate() != null)
+            .filter(x -> x.getTarget() != null)
+            .collect(Collectors.toSet());
+    }
+
     @Override
     public void execute(GitChangelogApi builder) throws IOException, GitChangelogRepositoryException, GitChangelogIntegrationException {
         final Log log = this.getLog();
@@ -43,9 +53,11 @@ public class ChangelogMojo extends GitChangelogMojo {
     }
 
     private void saveToFile(Log log, GitChangelogApi builder) throws IOException, GitChangelogRepositoryException {
-        if (this.fileSets == null) this.fileSets = new HashSet<>();
+        Set<FileSet> fileSets = this.getFileSets();
 
-        if (this.fileSets.isEmpty() && !this.isSupplied(this.mediaWikiUrl)) {
+        if (fileSets == null) fileSets = new HashSet<>();
+
+        if (fileSets.isEmpty() && !this.isSupplied(this.mediaWikiUrl)) {
             if (log.isInfoEnabled()) {
                 log.info("No output set, using file " + ReleaseLogSettings.DEFAULT_TARGET_FILE);
             }
@@ -53,15 +65,15 @@ public class ChangelogMojo extends GitChangelogMojo {
             File template = new File(ReleaseLogSettings.DEFAULT_TEMPLATE_FILE);
             File target = new File(ReleaseLogSettings.DEFAULT_TARGET_FILE);
 
-            this.fileSets.add(new FileSet(template, target));
+            fileSets.add(new FileSet(template, target));
         }
 
-        if (this.fileSets.isEmpty()) return;
+        if (fileSets.isEmpty()) return;
 
         final ReleaseLogSettings releaseLogSettings = this.getReleaseLogSettings();
 
         if (releaseLogSettings.getDisabled()) {
-            for (FileSet fileSet : this.fileSets) {
+            for (FileSet fileSet : fileSets) {
                 File target = fileSet.getTarget();
                 File template = fileSet.getTemplate();
 
@@ -78,7 +90,7 @@ public class ChangelogMojo extends GitChangelogMojo {
         } else {
             final ReleaseLogService releaseLogService = new ReleaseLogService(releaseLogSettings, builder, log);
 
-            releaseLogService.saveToFiles(this.fileSets);
+            releaseLogService.saveToFiles(fileSets);
         }
     }
 

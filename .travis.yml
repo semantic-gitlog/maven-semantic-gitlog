@@ -21,7 +21,11 @@ before_install:
 - chmod +x ./deploy.sh
 script:
 - ./mvnw ${MAVEN_CLI_OPTS} clean install
-- ./mvnw ${MAVEN_CLI_OPTS} --settings "${TRAVIS_BUILD_DIR}/.travis/mvn-settings.xml" -P release-plugin -U -D gitlog.toRef=refs/heads/dev -D gitlog.preRelease=SNAPSHOT semantic-gitlog:derive
+- ./mvnw ${MAVEN_CLI_OPTS} --settings "${TRAVIS_BUILD_DIR}/.travis/mvn-settings.xml"
+  -P release-plugin
+  -D gitlog.toRef=refs/heads/${TRAVIS_BRANCH}
+  -D gitlog.preRelease=SNAPSHOT
+  semantic-gitlog:derive -U
 before_deploy:
 - openssl aes-256-cbc -K $encrypted_93173be662cc_key -iv $encrypted_93173be662cc_iv
   -in .travis/gpg.asc.enc -out .travis/gpg.asc -d

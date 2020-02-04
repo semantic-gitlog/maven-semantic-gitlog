@@ -1,6 +1,7 @@
 #!/bin/bash
 # expects variables to be set:
 # - MAVEN_CLI_OPTS
+# - TRAVIS_BRANCH
 # - OSSRH_USERNAME
 # - OSSRH_PASSWORD
 # - GPG_KEY_NAME
@@ -16,7 +17,6 @@ if [[ -z "${MAVEN_CLI_OPTS}" ]]; then
   exit 1
 fi
 
-# Check the variables are set
 if [[ -z "${OSSRH_USERNAME}" ]]; then
   echo "missing environment value: OSSRH_USERNAME" >&2
   exit 1
@@ -45,7 +45,7 @@ git config user.name "Travis CI"
 git config user.email "travis.ci@yi.team"
 git remote set-url origin https://${GITHUB_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git
 git fetch
-git checkout master
+git checkout ${TRAVIS_BRANCH}
 
 newVersion=${TRAVIS_TAG}
 gitCommit="release: ${newVersion}"
@@ -56,12 +56,11 @@ then
 else
     echo "not on a tag -> derive version and keep snapshot"
 
-    nextVersion=`./mvnw ${MAVEN_CLI_OPTS} \
+    newVersion=`./mvnw ${MAVEN_CLI_OPTS} \
         --settings "${TRAVIS_BUILD_DIR}/.travis/mvn-settings.xml" \
         -P release-plugin \
-        -D gitlog.toRef=refs/heads/master \
-        -D gitlog.preRelease=SNAPSHOT \
-        -U semantic-gitlog:derive | grep 'NEXT_VERSION:==' | sed 's/.\+NEXT_VERSION:==//g'`
+        -D gitlog.preRelease='SNAPSHOT' \
+        semantic-gitlog:derive -U | grep 'NEXT_VERSION:==' | sed 's/.\+NEXT_VERSION:==//g'`
 
     gitCommit="bumped version to ${newVersion}"
 fi
@@ -75,11 +74,19 @@ if [[ -z "${newVersion}" ]]; then
 fi
 
 # Run the maven deploy steps
-./mvnw ${MAVEN_CLI_OPTS} --settings "${TRAVIS_BUILD_DIR}/.travis/mvn-settings.xml" -P release-plugin versions:set -D "newVersion=${newVersion}" 1>/dev/null 2>/dev/null
-./mvnw ${MAVEN_CLI_OPTS} --settings "${TRAVIS_BUILD_DIR}/.travis/mvn-settings.xml" -P release-plugin -DskipTests=true deploy
+./mvnw ${MAVEN_CLI_OPTS} --settings "${TRAVIS_BUILD_DIR}/.travis/mvn-settings.xml" \
+    -P release-plugin \
+    -D "newVersion=${newVersion}" \
+    versions:set 1>/dev/null 2>/dev/null
+./mvnw ${MAVEN_CLI_OPTS} --settings "${TRAVIS_BUILD_DIR}/.travis/mvn-settings.xml" \
+    -P release-plugin \
+    -D skipTests=true \
+    deploy
 
 # Generate and push CHANGELOG.md
-./mvnw ${MAVEN_CLI_OPTS} --settings "${TRAVIS_BUILD_DIR}/.travis/mvn-settings.xml" -P release-plugin -U semantic-gitlog:changelog
+./mvnw ${MAVEN_CLI_OPTS} --settings "${TRAVIS_BUILD_DIR}/.travis/mvn-settings.xml" \
+    -P release-plugin \
+    semantic-gitlog:changelog -U
 git add ./CHANGELOG.md
 git add ./CHANGELOG_*.md
 git add ./pom.xml

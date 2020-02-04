@@ -18,6 +18,8 @@
         <gpg.executable>gpg</gpg.executable>
         <gpg.keyname>${env.GPG_KEY_NAME}</gpg.keyname>
         <gpg.passphrase>${env.GPG_PASSPHRASE}</gpg.passphrase>
+        <gitlog.toRef>master</gitlog.toRef>
+        <gitlog.preRelease/>
       </properties>
     </profile>
   </profiles>
