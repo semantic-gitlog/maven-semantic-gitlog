@@ -35,6 +35,11 @@
     <url>https://github.com/ymind/maven-semantic-gitlog/issues</url>
   </issueManagement>
 
+  <ciManagement>
+    <system>Travis-CI</system>
+    <url>https://travis-ci.org/ymind/maven-semantic-gitlog</url>
+  </ciManagement>
+
   <licenses>
     <license>
       <name>MIT</name>
