@@ -1,6 +1,6 @@
 ![logo](_media/yiteam_logo.svg)
 
-# maven-semantic-gitlog <small>0.1.0</small>
+# maven-semantic-gitlog
 
 > A simple Semantic Versioning management tool based on Conventional Commits.
 
