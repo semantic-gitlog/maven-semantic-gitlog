@@ -51,7 +51,7 @@ public class ReleaseLogService {
     private final Stack<ReleaseCommit> versionCommits = new Stack<>();
     private final VersionManager versionManager;
 
-    public ReleaseLogService(ReleaseLogSettings releaseLogSettings, GitChangelogApi builder, Log log) {
+    public ReleaseLogService(final ReleaseLogSettings releaseLogSettings, final GitChangelogApi builder, final Log log) {
         this.releaseLogSettings = releaseLogSettings;
         this.commitParser = new ReleaseCommitParser(releaseLogSettings);
         this.builder = builder;
@@ -61,7 +61,7 @@ public class ReleaseLogService {
         this.versionManager = new VersionManager(this.releaseLogSettings, log);
     }
 
-    public void saveToFiles(Set<FileSet> fileSets) throws IOException, GitChangelogRepositoryException {
+    public void saveToFiles(final Set<FileSet> fileSets) throws IOException, GitChangelogRepositoryException {
         if (fileSets == null || fileSets.isEmpty()) return;
 
         for (FileSet fileSet : fileSets) {
@@ -196,7 +196,7 @@ public class ReleaseLogService {
         return commitGroups;
     }
 
-    private ReleaseDate getReleaseDate(Tag tag) {
+    private ReleaseDate getReleaseDate(final Tag tag) {
         if (tag.isHasTagTime()) {
             try {
                 final Date tagTime = DateUtils.parseDate(tag.getTagTime(), this.builderSettings.getDateFormat());

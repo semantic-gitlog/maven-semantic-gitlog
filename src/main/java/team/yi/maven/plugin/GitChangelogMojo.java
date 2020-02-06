@@ -133,7 +133,7 @@ public abstract class GitChangelogMojo extends AbstractMojo {
         }
     }
 
-    protected abstract void execute(GitChangelogApi builder) throws MojoExecutionException,
+    protected abstract void execute(final GitChangelogApi builder) throws MojoExecutionException,
         MojoFailureException,
         IOException,
         GitChangelogRepositoryException,
@@ -185,7 +185,7 @@ public abstract class GitChangelogMojo extends AbstractMojo {
         return builder;
     }
 
-    protected boolean isSupplied(String parameter) {
+    protected boolean isSupplied(final String parameter) {
         return StringUtils.isNotEmpty(parameter);
     }
 }

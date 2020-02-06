@@ -36,7 +36,7 @@ public class ReleaseCommit extends Commit implements Serializable {
     private boolean deprecated;
     private ReleaseIssue commitIssue;
 
-    public ReleaseCommit(Commit commit) {
+    public ReleaseCommit(final Commit commit) {
         super(
             commit.getAuthorName(),
             commit.getAuthorEmailAddress(),

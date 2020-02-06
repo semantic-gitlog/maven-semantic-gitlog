@@ -45,14 +45,21 @@ public class ChangelogMojo extends GitChangelogMojo {
     }
 
     @Override
-    public void execute(GitChangelogApi builder) throws IOException, GitChangelogRepositoryException, GitChangelogIntegrationException {
+    public void execute(final GitChangelogApi builder)
+        throws IOException,
+        GitChangelogRepositoryException,
+        GitChangelogIntegrationException {
+
         final Log log = this.getLog();
 
         this.saveToFile(log, builder);
         this.saveToMediaWiki(log, builder);
     }
 
-    private void saveToFile(Log log, GitChangelogApi builder) throws IOException, GitChangelogRepositoryException {
+    private void saveToFile(final Log log, final GitChangelogApi builder)
+        throws IOException,
+        GitChangelogRepositoryException {
+
         Set<FileSet> fileSets = this.getFileSets();
 
         if (fileSets == null) fileSets = new HashSet<>();
@@ -94,7 +101,10 @@ public class ChangelogMojo extends GitChangelogMojo {
         }
     }
 
-    private void saveToMediaWiki(Log log, GitChangelogApi builder) throws GitChangelogRepositoryException, GitChangelogIntegrationException {
+    private void saveToMediaWiki(final Log log, final GitChangelogApi builder)
+        throws GitChangelogRepositoryException,
+        GitChangelogIntegrationException {
+
         if (!isSupplied(mediaWikiUrl)) return;
 
         builder.toMediaWiki(mediaWikiUsername, mediaWikiPassword, mediaWikiUrl, mediaWikiTitle);

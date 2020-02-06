@@ -14,7 +14,7 @@ import team.yi.maven.plugin.service.ReleaseLogService;
 @Mojo(name = "derive", defaultPhase = LifecyclePhase.VALIDATE)
 public class DeriveMojo extends GitChangelogMojo {
     @Override
-    public void execute(GitChangelogApi builder) throws GitChangelogRepositoryException {
+    public void execute(final GitChangelogApi builder) throws GitChangelogRepositoryException {
         final Log log = this.getLog();
         final ReleaseLogSettings releaseLogSettings = this.getReleaseLogSettings();
 

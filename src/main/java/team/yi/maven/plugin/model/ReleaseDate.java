@@ -20,7 +20,7 @@ public class ReleaseDate implements Serializable {
         this(new Date(), null, null);
     }
 
-    public ReleaseDate(Date date, String longDateFormat, String shortDateFormat) {
+    public ReleaseDate(final Date date, final String longDateFormat, final String shortDateFormat) {
         this.date = date;
 
         final String longDatePattern = StringUtils.defaultIfEmpty(longDateFormat, ReleaseLogSettings.DEFAULT_LONG_DATE_FORMAT);

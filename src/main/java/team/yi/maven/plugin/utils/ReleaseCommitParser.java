@@ -29,7 +29,7 @@ public class ReleaseCommitParser {
     private final List<String> closeIssueActions;
 
     @SuppressWarnings("PMD.NullAssignment")
-    public ReleaseCommitParser(ReleaseLogSettings releaseLogSettings) {
+    public ReleaseCommitParser(final ReleaseLogSettings releaseLogSettings) {
         this.commitUrlTemplate = releaseLogSettings.getCommitUrlTemplate();
         this.issueUrlTemplate = releaseLogSettings.getIssueUrlTemplate();
 
@@ -44,19 +44,19 @@ public class ReleaseCommitParser {
         this.closeIssueActions = closeIssueActions == null || closeIssueActions.length == 0 ? null : Arrays.asList(closeIssueActions);
     }
 
-    public String createIssueUrl(Integer issueId) {
+    public String createIssueUrl(final Integer issueId) {
         if (StringUtils.isEmpty(this.issueUrlTemplate)) return null;
 
         return this.issueUrlTemplate.replaceAll(ISSUE_ID_PLACEHOLDER, String.valueOf(issueId));
     }
 
-    public String createCommitUrl(String commitId) {
+    public String createCommitUrl(final String commitId) {
         if (StringUtils.isEmpty(this.commitUrlTemplate)) return null;
 
         return this.commitUrlTemplate.replaceAll(COMMIT_ID_PLACEHOLDER, commitId);
     }
 
-    public ReleaseCommit parse(Commit commit) {
+    public ReleaseCommit parse(final Commit commit) {
         final ReleaseCommit releaseCommit = new ReleaseCommit(commit);
         releaseCommit.setHash7(commit.getHashFull().substring(0, 7));
         releaseCommit.setHash8(commit.getHashFull().substring(0, 8));
@@ -84,7 +84,7 @@ public class ReleaseCommitParser {
         return releaseCommit;
     }
 
-    private void parseFooter(ReleaseCommit releaseCommit) {
+    private void parseFooter(final ReleaseCommit releaseCommit) {
         if (StringUtils.isEmpty(releaseCommit.getCommitBody())) return;
 
         String[] lines = StringUtils.split(releaseCommit.getCommitBody(), "\r\n");
@@ -100,7 +100,7 @@ public class ReleaseCommitParser {
         }
     }
 
-    private void parseBody(ReleaseCommit releaseCommit) {
+    private void parseBody(final ReleaseCommit releaseCommit) {
         if (this.quickActionPattern == null) return;
         if (StringUtils.isEmpty(releaseCommit.getCommitBody())) return;
 
@@ -108,7 +108,7 @@ public class ReleaseCommitParser {
         this.parseQuickActions(releaseCommit);
     }
 
-    private void parseBodyIssues(ReleaseCommit releaseCommit) {
+    private void parseBodyIssues(final ReleaseCommit releaseCommit) {
         final List<ReleaseIssue> bodyIssues = releaseCommit.getBodyIssues();
         final Matcher commitIssueMatcher = this.commitIssuePattern.matcher(releaseCommit.getCommitBody());
 
@@ -123,7 +123,7 @@ public class ReleaseCommitParser {
         }
     }
 
-    private void parseQuickActions(ReleaseCommit releaseCommit) {
+    private void parseQuickActions(final ReleaseCommit releaseCommit) {
         final Map<String, List<ReleaseIssue>> quickActions = releaseCommit.getQuickActions();
         final List<ReleaseIssue> closeIssues = releaseCommit.getCloseIssues();
         final Matcher quickActionMatcher = this.quickActionPattern.matcher(releaseCommit.getCommitBody());
@@ -149,7 +149,7 @@ public class ReleaseCommitParser {
         }
     }
 
-    private void parseSubject(ReleaseCommit releaseCommit) {
+    private void parseSubject(final ReleaseCommit releaseCommit) {
         if (this.commitIssuePattern == null) return;
 
         // \(#(?<id>\d+)\)

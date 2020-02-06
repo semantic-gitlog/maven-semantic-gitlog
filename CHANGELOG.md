@@ -1,9 +1,10 @@
 # Changelog
 
-## 0.9.0 (Unreleased, 2020-02-04)
+## 0.9.1 (Unreleased, 2020-02-05)
 
 ### Bug Fixes
 
+- **mojo**: goal `changelog` failed when &quot;fileSets&quot; is empty or invalid ([66dacea8](https://github.com/ymind/maven-semantic-gitlog/commit/66dacea82f976b1c9d9b6e8bb73903a33c95e242))
 - **service**: Fix commits outside the Tag scope ([3e73ed67](https://github.com/ymind/maven-semantic-gitlog/commit/3e73ed67d73d781474eddf50bfe2a170ba35ce9b))
 
 
@@ -45,12 +46,7 @@
 - **travis**: fix ci ([e6d39850](https://github.com/ymind/maven-semantic-gitlog/commit/e6d39850936933f5f08f253ae314fa0e78ae749c))
 - **travis**: add push-back file `CHANGELOG_*.md` ([3eaf171f](https://github.com/ymind/maven-semantic-gitlog/commit/3eaf171f44e52eb174ba17ea1fb8bb99853adfb8))
 - **travis**: add travis CI configuration ([0116a713](https://github.com/ymind/maven-semantic-gitlog/commit/0116a713f015f6a05532f11cca17467137dcda81))
-- fix ci ([06857216](https://github.com/ymind/maven-semantic-gitlog/commit/0685721645fae186c35c1ca02d3622f5742a3720))
-- fix ci ([b7808fa6](https://github.com/ymind/maven-semantic-gitlog/commit/b7808fa6e92ef40bf09ac48dad96b31472835867))
-- fix ci ([d6c263f2](https://github.com/ymind/maven-semantic-gitlog/commit/d6c263f2e6565241fcfc7a2b30c4bb80ff4f7ce2))
-- fix ci ([6a7a98b4](https://github.com/ymind/maven-semantic-gitlog/commit/6a7a98b4e997d1fc5f9e101c250ea32072592f4f))
-- fix ci ([215487e0](https://github.com/ymind/maven-semantic-gitlog/commit/215487e085122c3f254cf703b461cae5a255c8cb))
-- fix ci ([23425a07](https://github.com/ymind/maven-semantic-gitlog/commit/23425a0729e71ce49ed74cd70883647bc2b101d4))
+- update ci ([4da86c49](https://github.com/ymind/maven-semantic-gitlog/commit/4da86c49d931f14e2e7d1b0ced0a08ba85e190c7))
 
 
 ### Others

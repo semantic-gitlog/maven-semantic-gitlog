@@ -56,13 +56,13 @@ public class ReleaseSections {
         DEFAULT_ORDER_LIST.add(OTHERS);
     }
 
-    public static String fromCommitType(String commitType, boolean breakingChange) {
+    public static String fromCommitType(final String commitType, final boolean breakingChange) {
         if (breakingChange) return BREAKING_CHANGE;
 
         return fromCommitType(commitType);
     }
 
-    public static String fromCommitType(String commitType) {
+    public static String fromCommitType(final String commitType) {
         /*
             feat        Features
             fix         Bug Fixes

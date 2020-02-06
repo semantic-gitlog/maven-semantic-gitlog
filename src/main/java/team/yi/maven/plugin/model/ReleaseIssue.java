@@ -15,11 +15,11 @@ public class ReleaseIssue implements Serializable {
     private final String url;
     private final String action;
 
-    public ReleaseIssue(Integer issueId, String url) {
+    public ReleaseIssue(final Integer issueId, final String url) {
         this(issueId, url, null);
     }
 
-    public ReleaseIssue(Integer issueId, String url, String action) {
+    public ReleaseIssue(final Integer issueId, final String url, final String action) {
         this.id = issueId;
         this.url = url;
         this.action = action;
