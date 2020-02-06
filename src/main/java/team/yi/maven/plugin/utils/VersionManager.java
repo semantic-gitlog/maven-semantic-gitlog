@@ -20,6 +20,7 @@ public class VersionManager {
     private final ReleaseStrategy strategy;
     private final String preRelease;
     private final String buildMetaData;
+    private final boolean forceNextVersion;
 
     public VersionManager(final ReleaseLogSettings releaseLogSettings, final Log log) {
         this.log = log;
@@ -31,8 +32,8 @@ public class VersionManager {
         this.buildMetaDataTypes = releaseLogSettings.getBuildMetaDataTypes();
         this.preRelease = releaseLogSettings.getPreRelease();
         this.buildMetaData = releaseLogSettings.getBuildMetaData();
-
         this.strategy = releaseLogSettings.getStrategy();
+        this.forceNextVersion = releaseLogSettings.getForceNextVersion();
     }
 
     public static Version ensureNextVersion(final Version nextVersion, final Version lastVersion) {
@@ -72,6 +73,7 @@ public class VersionManager {
         boolean patchUp = false;
         boolean preReleaseUp = false;
         boolean buildMetaDataUp = false;
+        boolean isIncrease = this.strategy == ReleaseStrategy.strict;
 
         while (!versionCommits.isEmpty()) {
             final ReleaseCommit commit = versionCommits.pop();
@@ -92,10 +94,10 @@ public class VersionManager {
             if (commit.isBreakingChange() || this.majorTypes.contains(commitType)) {
                 nextVersion = nextVersion.nextMajor();
 
-                if (this.strategy != ReleaseStrategy.strict) break;
+                if (!isIncrease) break;
             } else if (this.minorTypes.contains(commitType)) {
                 if (minorUp) {
-                    if (this.strategy == ReleaseStrategy.strict) {
+                    if (isIncrease) {
                         nextVersion = nextVersion.nextMinor();
                     }
                 } else {
@@ -104,7 +106,7 @@ public class VersionManager {
                 }
             } else if (this.patchTypes.contains(commitType)) {
                 if (patchUp) {
-                    if (this.strategy == ReleaseStrategy.strict) {
+                    if (isIncrease) {
                         nextVersion = nextVersion.nextPatch();
                     }
                 } else {
@@ -113,7 +115,7 @@ public class VersionManager {
                 }
             } else if (this.preReleaseTypes.contains(commitType)) {
                 if (preReleaseUp) {
-                    if (this.strategy == ReleaseStrategy.strict) {
+                    if (isIncrease) {
                         nextVersion = nextVersion.nextPreRelease();
                     }
                 } else {
@@ -122,7 +124,7 @@ public class VersionManager {
                 }
             } else if (this.buildMetaDataTypes.contains(commitType)) {
                 if (buildMetaDataUp) {
-                    if (this.strategy == ReleaseStrategy.strict) {
+                    if (isIncrease) {
                         nextVersion = nextVersion.nextBuildMetaData();
                     }
                 } else {
@@ -134,7 +136,7 @@ public class VersionManager {
 
         Version version = this.ensureSuffix(nextVersion);
 
-        return ensureNextVersion(version, lastVersion);
+        return this.strategy == ReleaseStrategy.strict || this.forceNextVersion ? ensureNextVersion(version, lastVersion) : version;
     }
 
     public Version ensureSuffix(final Version nextVersion) {

@@ -249,6 +249,8 @@
 
       <properties>
         <gitlog.toRef>dev</gitlog.toRef>
+        <gitlog.releaseStrategy>strict</gitlog.releaseStrategy>
+        <gitlog.forceNextVersion>true</gitlog.forceNextVersion>
         <gitlog.preRelease>SNAPSHOT</gitlog.preRelease>
       </properties>
 
@@ -291,7 +293,8 @@
               </fileSets>
 
               <releaseLogSettings>
-                <strategy>strict</strategy>
+                <strategy>${gitlog.releaseStrategy}</strategy>
+                <forceNextVersion>${gitlog.forceNextVersion}</forceNextVersion>
 
                 <commitUrlTemplate>${project.scm.url}/commit/:commitId</commitUrlTemplate>
                 <issueUrlTemplate>${project.scm.url}/issues/:issueId</issueUrlTemplate>

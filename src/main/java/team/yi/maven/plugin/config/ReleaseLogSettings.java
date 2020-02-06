@@ -29,7 +29,7 @@ public class ReleaseLogSettings implements Serializable {
 
     private static final List<String> DEFAULT_MAJOR_TYPES = new ArrayList<>();
     private static final List<String> DEFAULT_MINOR_TYPES = Collections.singletonList("feat");
-    private static final List<String> DEFAULT_PATCH_TYPES = Arrays.asList("fix", "perf", "revert", "refactor");
+    private static final List<String> DEFAULT_PATCH_TYPES = Arrays.asList("fix", "perf", "revert", "refactor", "chore");
     private static final List<String> DEFAULT_PRE_RELEASE_TYPES = new ArrayList<>();
     private static final List<String> DEFAULT_BUILD_META_DATA_TYPES = new ArrayList<>();
     private static final List<String> DEFAULT_HIDDEN_TYPES = Collections.singletonList("release");
@@ -39,6 +39,9 @@ public class ReleaseLogSettings implements Serializable {
 
     @Parameter(property = "strategy", defaultValue = "strict")
     private ReleaseStrategy strategy = ReleaseStrategy.strict;
+
+    @Parameter(property = "forceNextVersion", defaultValue = "true")
+    private Boolean forceNextVersion = true;
 
     @Parameter(property = "lastVersion")
     private Version lastVersion;
@@ -55,7 +58,7 @@ public class ReleaseLogSettings implements Serializable {
     @Parameter(property = "minorTypes", defaultValue = "feat")
     private String minorTypes;
 
-    @Parameter(property = "patchTypes", defaultValue = "fix,perf,revert,refactor")
+    @Parameter(property = "patchTypes", defaultValue = "fix,perf,revert,refactor,chore")
     private String patchTypes;
 
     @Parameter(property = "preReleaseTypes")
