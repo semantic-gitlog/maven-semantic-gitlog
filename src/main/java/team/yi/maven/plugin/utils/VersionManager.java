@@ -17,7 +17,6 @@ public class VersionManager {
     private final List<String> patchTypes;
     private final List<String> preReleaseTypes;
     private final List<String> buildMetaDataTypes;
-
     private final ReleaseStrategy strategy;
     private final String preRelease;
     private final String buildMetaData;
@@ -34,6 +33,35 @@ public class VersionManager {
         this.buildMetaData = releaseLogSettings.getBuildMetaData();
 
         this.strategy = releaseLogSettings.getStrategy();
+    }
+
+    public static Version ensureNextVersion(final Version nextVersion, final Version lastVersion) {
+        if (nextVersion == null || lastVersion == null) return null;
+
+        Version version = nextVersion;
+        int compareValue = Version.compareWithBuildMetaData(nextVersion, lastVersion);
+
+        // nextVersion > lastVersion
+        if (compareValue <= 0) {
+            if (lastVersion.hasBuildMetaData()) {
+                version = lastVersion.nextBuildMetaData();
+            } else if (lastVersion.isPreRelease()) {
+                version = lastVersion.nextPreRelease();
+            } else if (lastVersion.getPatch() > 0) {
+                version = lastVersion.nextPatch();
+            } else if (lastVersion.getMinor() > 0) {
+                version = lastVersion.nextMinor();
+            } else if (lastVersion.getMajor() > 0) {
+                version = lastVersion.nextMajor();
+            } else {
+                version = lastVersion.nextPatch();
+            }
+        }
+
+        if (nextVersion.hasBuildMetaData()) version = version.withBuildMetaData(nextVersion.getBuildMetaData());
+        if (nextVersion.isPreRelease()) version = version.withPreRelease(nextVersion.getPreRelease());
+
+        return version;
     }
 
     public Version deriveNextVersion(final Version lastVersion, final Stack<ReleaseCommit> versionCommits) {
@@ -104,7 +132,9 @@ public class VersionManager {
             }
         }
 
-        return this.ensureSuffix(nextVersion);
+        Version version = this.ensureSuffix(nextVersion);
+
+        return ensureNextVersion(version, lastVersion);
     }
 
     public Version ensureSuffix(final Version nextVersion) {
