@@ -1,6 +1,6 @@
 # 更新日志
 
-## 0.9.1 (Unreleased, 2020-02-05)
+## 0.9.2 (2020-02-06)
 
 ### Bug Fixes
 
@@ -12,6 +12,7 @@
 
 - **git-changelog**: change field name `newVersion` to `nextVersion` ([2b80de94](https://github.com/ymind/maven-semantic-gitlog/commit/2b80de941ef1bc245a47f9a1c0920b106b847936))
 - **mojo**: replace `useCrazyGrowing` configuration with `ReleaseStrategy` ([5fd40d4e](https://github.com/ymind/maven-semantic-gitlog/commit/5fd40d4eaa57dd9ec5bb36e5e25691e9e1874275))
+- code optimize ([886b4f9b](https://github.com/ymind/maven-semantic-gitlog/commit/886b4f9b66e1757fb7a14eca1ca9a66dac86ec06))
 - update DEFAULT_MESSAGE_PATTERN ([1c752fdd](https://github.com/ymind/maven-semantic-gitlog/commit/1c752fdd0dc3015a37121e03d0f02789df91f8c2))
 - add `hasQuickActions`, `hasSubjectIssues` and `hasBodyIssues` ([29fb7e11](https://github.com/ymind/maven-semantic-gitlog/commit/29fb7e119b054fe7a748fca48b6b2556bf4a5de3))
 - refactor project ([bc1609f3](https://github.com/ymind/maven-semantic-gitlog/commit/bc1609f3755c8613e02fddb57a1d674ded373d47))
@@ -46,6 +47,7 @@
 - **travis**: fix ci ([e6d39850](https://github.com/ymind/maven-semantic-gitlog/commit/e6d39850936933f5f08f253ae314fa0e78ae749c))
 - **travis**: add push-back file `CHANGELOG_*.md` ([3eaf171f](https://github.com/ymind/maven-semantic-gitlog/commit/3eaf171f44e52eb174ba17ea1fb8bb99853adfb8))
 - **travis**: add travis CI configuration ([0116a713](https://github.com/ymind/maven-semantic-gitlog/commit/0116a713f015f6a05532f11cca17467137dcda81))
+- update ci ([0ee985bc](https://github.com/ymind/maven-semantic-gitlog/commit/0ee985bcc22a3ee3f165b4a48b41e7f41b3e0430))
 - update ci ([4da86c49](https://github.com/ymind/maven-semantic-gitlog/commit/4da86c49d931f14e2e7d1b0ced0a08ba85e190c7))
 
 
