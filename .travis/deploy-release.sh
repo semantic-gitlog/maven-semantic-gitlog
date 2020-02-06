@@ -56,6 +56,7 @@ fi
 
 # Generate and push CHANGELOG.md - fully
 git reset --hard
+git remote set-url origin https://${GITHUB_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git
 git remote set-branches --add origin 'master'
 git fetch
 git checkout master
