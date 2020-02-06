@@ -1,10 +1,10 @@
 # Changelog
 
-## 0.9.2 (2020-02-06)
+## 0.9.2 (Unreleased, 2020-02-06)
 
 ### Bug Fixes
 
-- **mojo**: goal `changelog` failed when &quot;fileSets&quot; is empty or invalid ([66dacea8](https://github.com/ymind/maven-semantic-gitlog/commit/66dacea82f976b1c9d9b6e8bb73903a33c95e242))
+- **mojo**: goal `changelog` failed when &quot;fileSets&quot; is empty or invalid ([d8524b78](https://github.com/ymind/maven-semantic-gitlog/commit/d8524b78ab1ee1a44581a6a809233caa06960311))
 - **service**: Fix commits outside the Tag scope ([3e73ed67](https://github.com/ymind/maven-semantic-gitlog/commit/3e73ed67d73d781474eddf50bfe2a170ba35ce9b))
 
 
@@ -12,9 +12,9 @@
 
 - **git-changelog**: change field name `newVersion` to `nextVersion` ([2b80de94](https://github.com/ymind/maven-semantic-gitlog/commit/2b80de941ef1bc245a47f9a1c0920b106b847936))
 - **mojo**: replace `useCrazyGrowing` configuration with `ReleaseStrategy` ([5fd40d4e](https://github.com/ymind/maven-semantic-gitlog/commit/5fd40d4eaa57dd9ec5bb36e5e25691e9e1874275))
-- code optimize ([886b4f9b](https://github.com/ymind/maven-semantic-gitlog/commit/886b4f9b66e1757fb7a14eca1ca9a66dac86ec06))
-- update DEFAULT_MESSAGE_PATTERN ([1c752fdd](https://github.com/ymind/maven-semantic-gitlog/commit/1c752fdd0dc3015a37121e03d0f02789df91f8c2))
-- add `hasQuickActions`, `hasSubjectIssues` and `hasBodyIssues` ([29fb7e11](https://github.com/ymind/maven-semantic-gitlog/commit/29fb7e119b054fe7a748fca48b6b2556bf4a5de3))
+- code optimize ([db48c20a](https://github.com/ymind/maven-semantic-gitlog/commit/db48c20abca14fce4d5610b0252b519a93214647))
+- update `DEFAULT_MESSAGE_PATTERN` ([1d37706f](https://github.com/ymind/maven-semantic-gitlog/commit/1d37706fb04541ef7a2738c23861f158a36ce6cc))
+- add `hasQuickActions`, `hasSubjectIssues` and `hasBodyIssues` ([5925f369](https://github.com/ymind/maven-semantic-gitlog/commit/5925f369d1e90cc3a0be8eba663eaa7c0e988d24))
 - refactor project ([bc1609f3](https://github.com/ymind/maven-semantic-gitlog/commit/bc1609f3755c8613e02fddb57a1d674ded373d47))
 
 
@@ -22,7 +22,7 @@
 
 - **git-changelog**: add `commitIssuePattern` configuration ([edd55e47](https://github.com/ymind/maven-semantic-gitlog/commit/edd55e47eba382f91e3d79dbb0ff3a6b9cfea905))
 - **git-changelog**: add `quickActionPattern` configuration ([3d957eda](https://github.com/ymind/maven-semantic-gitlog/commit/3d957edab53e1f50d95cac6d3b0b19b0719efcf6))
-- **mojo**: add `hiddenTypes` configuration ([f221744a](https://github.com/ymind/maven-semantic-gitlog/commit/f221744aba00072be3fb432c86aea921e6cea3db))
+- **mojo**: add `hiddenTypes` configuration ([bae9f5af](https://github.com/ymind/maven-semantic-gitlog/commit/bae9f5afaba467f599e5c8a8f4d103853c00dc8a))
 - **mojo**: add `preRelease` and `buildMetaData` configuration ([bb1da529](https://github.com/ymind/maven-semantic-gitlog/commit/bb1da529c03b0dd572669b127aa4ca056851245a))
 - **mojo**: add multi-template filesets support ([24ff4b29](https://github.com/ymind/maven-semantic-gitlog/commit/24ff4b29d63e9fa78f5677bc067fbc9a6d5d485c))
 - **mojo**: add `closeIssueActions` configuration ([8671b566](https://github.com/ymind/maven-semantic-gitlog/commit/8671b5665f1e12a758be474d0f68b5c22fdf8371))
@@ -43,12 +43,11 @@
 
 ### Continuous Integration
 
-- **travis**: add `ciManagement` info ([521054dd](https://github.com/ymind/maven-semantic-gitlog/commit/521054dd7980f25c3b737e7055f7b322d4507bbc))
 - **travis**: fix ci ([e6d39850](https://github.com/ymind/maven-semantic-gitlog/commit/e6d39850936933f5f08f253ae314fa0e78ae749c))
 - **travis**: add push-back file `CHANGELOG_*.md` ([3eaf171f](https://github.com/ymind/maven-semantic-gitlog/commit/3eaf171f44e52eb174ba17ea1fb8bb99853adfb8))
 - **travis**: add travis CI configuration ([0116a713](https://github.com/ymind/maven-semantic-gitlog/commit/0116a713f015f6a05532f11cca17467137dcda81))
-- update ci ([0ee985bc](https://github.com/ymind/maven-semantic-gitlog/commit/0ee985bcc22a3ee3f165b4a48b41e7f41b3e0430))
-- update ci ([4da86c49](https://github.com/ymind/maven-semantic-gitlog/commit/4da86c49d931f14e2e7d1b0ced0a08ba85e190c7))
+- update ci ([88cf4838](https://github.com/ymind/maven-semantic-gitlog/commit/88cf483884819310ceeb12560852fcf2b15c8905))
+- add `ciManagement` info ([111ce4fe](https://github.com/ymind/maven-semantic-gitlog/commit/111ce4fe4e0de7464aefe070c9a20c04ae72e83f))
 
 
 ### Others
