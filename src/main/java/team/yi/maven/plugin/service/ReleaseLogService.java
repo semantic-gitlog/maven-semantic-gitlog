@@ -22,7 +22,7 @@ import team.yi.maven.plugin.model.ReleaseLog;
 import team.yi.maven.plugin.model.ReleaseSection;
 import team.yi.maven.plugin.model.ReleaseSections;
 import team.yi.maven.plugin.model.ReleaseTag;
-import team.yi.maven.plugin.utils.ReleaseCommitParser;
+import team.yi.maven.plugin.parser.CommitParser;
 import team.yi.maven.plugin.utils.VersionManager;
 
 import java.io.BufferedWriter;
@@ -44,7 +44,6 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class ReleaseLogService {
     private final ReleaseLogSettings releaseLogSettings;
-    private final ReleaseCommitParser commitParser;
     private final GitChangelogApi builder;
     private final Settings builderSettings;
     private final Log log;
@@ -53,7 +52,6 @@ public class ReleaseLogService {
 
     public ReleaseLogService(final ReleaseLogSettings releaseLogSettings, final GitChangelogApi builder, final Log log) {
         this.releaseLogSettings = releaseLogSettings;
-        this.commitParser = new ReleaseCommitParser(releaseLogSettings);
         this.builder = builder;
         this.log = log;
 
@@ -64,9 +62,9 @@ public class ReleaseLogService {
     public void saveToFiles(final Set<FileSet> fileSets) throws IOException, GitChangelogRepositoryException {
         if (fileSets == null || fileSets.isEmpty()) return;
 
-        for (FileSet fileSet : fileSets) {
-            File target = fileSet.getTarget();
-            File template = fileSet.getTemplate();
+        for (final FileSet fileSet : fileSets) {
+            final File target = fileSet.getTarget();
+            final File template = fileSet.getTemplate();
 
             this.saveToFile(target, template);
         }
@@ -117,7 +115,7 @@ public class ReleaseLogService {
     }
 
     public ReleaseLog generate() throws GitChangelogRepositoryException {
-        Changelog changelog = builder.getChangelog(false);
+        final Changelog changelog = builder.getChangelog(false);
 
         if (changelog == null) return null;
 
@@ -128,8 +126,8 @@ public class ReleaseLogService {
         ReleaseTag releaseTag = null;
         Version lastVersion = null;
 
-        for (Tag tag : tags) {
-            Version tagVersion = Version.isValidVersion(tag.getName())
+        for (final Tag tag : tags) {
+            final Version tagVersion = Version.isValidVersion(tag.getName())
                 ? Version.parseVersion(tag.getName(), true)
                 : null;
 
@@ -155,8 +153,8 @@ public class ReleaseLogService {
     }
 
     private ReleaseTag processTag(final Tag tag, final Version tagVersion, final Version lastVersion) {
-        ReleaseDate releaseDate = this.getReleaseDate(tag);
-        List<ReleaseSection> groups = this.getGroups(tag, lastVersion);
+        final ReleaseDate releaseDate = this.getReleaseDate(tag);
+        final List<ReleaseSection> groups = this.getGroups(tag, lastVersion);
 
         return new ReleaseTag(tagVersion, releaseDate, null, groups);
     }
@@ -164,10 +162,18 @@ public class ReleaseLogService {
     private List<ReleaseSection> getGroups(final Tag tag, final Version lastVersion) {
         final Map<String, List<ReleaseCommit>> map = new ConcurrentHashMap<>();
 
-        for (Commit item : tag.getCommits()) {
-            final ReleaseCommit commit = this.commitParser.parse(item);
+        for (final Commit item : tag.getCommits()) {
+            ReleaseCommit commit = null;
 
-            if (StringUtils.isEmpty(commit.getCommitSubject())) continue;
+            try {
+                final CommitParser commitParser = new CommitParser(this.releaseLogSettings, item);
+
+                commit = commitParser.parse();
+            } catch (Exception e) {
+                this.log.debug(e.getMessage(), e);
+            }
+
+            if (commit == null || StringUtils.isEmpty(commit.getCommitSubject())) continue;
 
             if (lastVersion == null) this.versionCommits.add(commit);
 

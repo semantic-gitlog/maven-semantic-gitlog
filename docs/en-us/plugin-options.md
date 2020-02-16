@@ -14,11 +14,10 @@
 | `preReleaseTypes` | Increase preRelease version when these commit types are matched. Default is `null`. |
 | `buildMetaDataTypes` | Increase buildMetaData version when these commit types are matched. Default is `null`. |
 | `hiddenTypes` | These commit types are hidden in the changelog. Default is `release`. |
-| `commitUrlTemplate` | An url string contains placeholder `:commitId` to construct commit link. |
 | `issueUrlTemplate` | An url string contains placeholder `:issueId` to construct issue link. |
+| `commitUrlTemplate` | An url string contains placeholder `:commitId` to construct commit link. |
+| `mentionUrlTemplate` | An url string contains placeholder `:username` to construct mention link. |
 | `derivedVersionMark` | The value will output as a prefix with the version number when `semantic-gitlog:derive` execute. Default is `null`. |
-| `commitIssuePattern` | A regular expression that detecting commit issue(id). The pattern MUST contains group name with `id`. Default is ` \(#(?<id>\d+)\)$`. demo: [see here](https://regex101.com/r/MAg185/1/) |
-| `quickActionPattern` | A regular expression that detecting quick actions. The pattern MUST contains group name with `action` and `id`. Default is `null`. demo: [GitHub](https://regex101.com/r/8Ri0cJ/1), [Gitlab](https://regex101.com/r/8FopGS/1/) |
 | `longDateFormat` | The long date format pattern. Default is `yyyy-MM-dd HH:mm:ss`. |
 | `shortDateFormat` | The short date format pattern. Default is `yyyy-MM-dd`. |
 | `closeIssueActions` | A string list that detecting close quick actions. Default is `close,closes,closed,fix,fixes,fixed,resolve,resolves,resolved`. |

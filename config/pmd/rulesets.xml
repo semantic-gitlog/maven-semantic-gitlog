@@ -4,25 +4,17 @@
          xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
          name="All Java Rules"
          xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 https://pmd.sourceforge.io/ruleset_2_0_0.xsd">
-  <description>Rule for Emtcore.</description>
+  <description>PMD rules.</description>
 
 
-  <rule ref="category/java/bestpractices.xml">
-    <exclude name="UnusedImports"/>
-    <exclude name="AvoidUsingHardCodedIP"/>
-  </rule>
+  <rule ref="category/java/bestpractices.xml"/>
 
 
   <rule ref="category/java/codestyle.xml">
-    <exclude name="MethodArgumentCouldBeFinal"/>
-    <exclude name="LocalVariableCouldBeFinal"/>
-    <exclude name="ShortVariable"/>
     <exclude name="ControlStatementBraces"/>
-    <exclude name="GenericsNaming"/>
     <exclude name="OnlyOneReturn"/>
     <exclude name="ClassNamingConventions"/>
     <exclude name="AtLeastOneConstructor"/>
-    <exclude name="UseDiamondOperator"/>
   </rule>
   <rule ref="category/java/codestyle.xml/LongVariable">
     <properties>
@@ -37,6 +29,11 @@
   <rule ref="category/java/codestyle.xml/ShortMethodName">
     <properties>
       <property name="minimum" value="2"/>
+    </properties>
+  </rule>
+  <rule ref="category/java/codestyle.xml/ShortVariable">
+    <properties>
+      <property name="minimum" value="1"/>
     </properties>
   </rule>
   <rule ref="category/java/codestyle.xml/FieldNamingConventions">
@@ -66,6 +63,11 @@
   <rule ref="category/java/design.xml/ExcessiveImports">
     <properties>
       <property name="minimum" value="50.0"/>
+    </properties>
+  </rule>
+  <rule ref="category/java/design.xml/AvoidDeeplyNestedIfStmts">
+    <properties>
+      <property name="problemDepth" value="5"/>
     </properties>
   </rule>
 

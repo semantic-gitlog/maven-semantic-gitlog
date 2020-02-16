@@ -19,8 +19,8 @@ public class DeriveMojo extends GitChangelogMojo {
         final ReleaseLogSettings releaseLogSettings = this.getReleaseLogSettings();
 
         if (log.isDebugEnabled()) {
-            Gson gson = new Gson();
-            String json = gson.toJson(releaseLogSettings);
+            final Gson gson = new Gson();
+            final String json = gson.toJson(releaseLogSettings);
 
             log.debug(json);
         }

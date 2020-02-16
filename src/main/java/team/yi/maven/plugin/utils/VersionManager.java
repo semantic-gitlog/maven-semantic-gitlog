@@ -40,7 +40,7 @@ public class VersionManager {
         if (nextVersion == null || lastVersion == null) return null;
 
         Version version = nextVersion;
-        int compareValue = Version.compareWithBuildMetaData(nextVersion, lastVersion);
+        final int compareValue = Version.compareWithBuildMetaData(nextVersion, lastVersion);
 
         // nextVersion > lastVersion
         if (compareValue <= 0) {
@@ -65,6 +65,7 @@ public class VersionManager {
         return version;
     }
 
+    @SuppressWarnings("PMD.NPathComplexity")
     public Version deriveNextVersion(final Version lastVersion, final Stack<ReleaseCommit> versionCommits) {
         Version nextVersion = lastVersion == null
             ? Version.create(0, 1, 0)
@@ -73,7 +74,7 @@ public class VersionManager {
         boolean patchUp = false;
         boolean preReleaseUp = false;
         boolean buildMetaDataUp = false;
-        boolean isIncrease = this.strategy == ReleaseStrategy.strict;
+        final boolean isIncrease = this.strategy == ReleaseStrategy.strict;
 
         while (!versionCommits.isEmpty()) {
             final ReleaseCommit commit = versionCommits.pop();
@@ -134,7 +135,7 @@ public class VersionManager {
             }
         }
 
-        Version version = this.ensureSuffix(nextVersion);
+        final Version version = this.ensureSuffix(nextVersion);
 
         return this.strategy == ReleaseStrategy.strict || this.forceNextVersion ? ensureNextVersion(version, lastVersion) : version;
     }

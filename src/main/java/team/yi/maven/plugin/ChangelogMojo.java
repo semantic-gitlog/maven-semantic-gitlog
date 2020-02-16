@@ -69,8 +69,8 @@ public class ChangelogMojo extends GitChangelogMojo {
                 log.info("No output set, using file " + ReleaseLogSettings.DEFAULT_TARGET_FILE);
             }
 
-            File template = new File(ReleaseLogSettings.DEFAULT_TEMPLATE_FILE);
-            File target = new File(ReleaseLogSettings.DEFAULT_TARGET_FILE);
+            final File template = new File(ReleaseLogSettings.DEFAULT_TEMPLATE_FILE);
+            final File target = new File(ReleaseLogSettings.DEFAULT_TARGET_FILE);
 
             fileSets.add(new FileSet(template, target));
         }
@@ -80,9 +80,9 @@ public class ChangelogMojo extends GitChangelogMojo {
         final ReleaseLogSettings releaseLogSettings = this.getReleaseLogSettings();
 
         if (releaseLogSettings.getDisabled()) {
-            for (FileSet fileSet : fileSets) {
-                File target = fileSet.getTarget();
-                File template = fileSet.getTemplate();
+            for (final FileSet fileSet : fileSets) {
+                final File target = fileSet.getTarget();
+                final File template = fileSet.getTemplate();
 
                 builder.withTemplatePath(template.getPath());
                 builder.toFile(target);

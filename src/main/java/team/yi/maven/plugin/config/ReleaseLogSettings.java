@@ -11,14 +11,17 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Locale;
 
 @Data
 @SuppressWarnings("PMD.TooManyFields")
 public class ReleaseLogSettings implements Serializable {
-    // https://regex101.com/r/nXpkHS/2/
-    public static final String DEFAULT_MESSAGE_PATTERN = "^((?<type>[\\w]+)(?<attention>!)?)"
-        + "(\\((?<package>([\\w-$_@]+\\/)*)(?<scope>[\\w-$_@]+)\\))?: (?<subject>[^\\r\\n]+)([\\r\\n]{2}(?<body>.+))?$";
-    public static final String DEFAULT_COMMIT_ISSUE_PATTERN = "\\(#(?<id>\\d+)\\)";
+    public static final String BREAKING_CHANGE_PATTERN = "BREAKING CHANGE: ";
+    public static final String DEPRECATED_PATTERN = "DEPRECATED: ";
+    public static final String ISSUE_ID_PLACEHOLDER = ":issueId";
+    public static final String COMMIT_ID_PLACEHOLDER = ":commitId";
+    public static final String MENTION_USERNAME_PLACEHOLDER = ":username";
+
     public static final String DEFAULT_LONG_DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
     public static final String DEFAULT_SHORT_DATE_FORMAT = "yyyy-MM-dd";
     public static final String DEFAULT_CLOSE_ISSUE_ACTIONS = "close,closes,closed,fix,fixes,fixed,resolve,resolves,resolved";
@@ -73,20 +76,20 @@ public class ReleaseLogSettings implements Serializable {
     @Parameter(property = "repoBaseUrl")
     private String repoBaseUrl;
 
-    @Parameter(property = "commitUrlTemplate")
-    private String commitUrlTemplate;
+    @Parameter(property = "repoName")
+    private String repoName;
 
     @Parameter(property = "issueUrlTemplate")
     private String issueUrlTemplate;
 
+    @Parameter(property = "commitUrlTemplate")
+    private String commitUrlTemplate;
+
+    @Parameter(property = "mentionUrlTemplate")
+    private String mentionUrlTemplate;
+
     @Parameter(property = "derivedVersionMark")
     private String derivedVersionMark;
-
-    @Parameter(property = "commitIssuePattern")
-    private String commitIssuePattern;
-
-    @Parameter(property = "quickActionPattern")
-    private String quickActionPattern;
 
     @Parameter(property = "longDateFormat", defaultValue = DEFAULT_LONG_DATE_FORMAT)
     private String longDateFormat = DEFAULT_LONG_DATE_FORMAT;
@@ -101,43 +104,64 @@ public class ReleaseLogSettings implements Serializable {
         return this.strategy == null ? ReleaseStrategy.strict : strategy;
     }
 
+    public List<String> getCloseIssueActions() {
+        final String data = StringUtils.defaultIfBlank(this.closeIssueActions, DEFAULT_CLOSE_ISSUE_ACTIONS);
+        final String[] items = StringUtils.splitPreserveAllTokens(data.toLowerCase(Locale.getDefault()), ",|;");
+
+        return items == null || items.length == 0 ? DEFAULT_PRE_RELEASE_TYPES : Arrays.asList(items);
+    }
+
     public List<String> getPreReleaseTypes() {
-        String[] items = StringUtils.split(this.preReleaseTypes, ",");
+        final String[] items = StringUtils.split(this.preReleaseTypes, ",");
 
         return items == null || items.length == 0 ? DEFAULT_PRE_RELEASE_TYPES : Arrays.asList(items);
     }
 
     public List<String> getBuildMetaDataTypes() {
-        String[] items = StringUtils.split(this.buildMetaDataTypes, ",");
+        final String[] items = StringUtils.split(this.buildMetaDataTypes, ",");
 
         return items == null || items.length == 0 ? DEFAULT_BUILD_META_DATA_TYPES : Arrays.asList(items);
     }
 
     public List<String> getMajorTypes() {
-        String[] items = StringUtils.split(this.majorTypes, ",");
+        final String[] items = StringUtils.split(this.majorTypes, ",");
 
         return items == null || items.length == 0 ? DEFAULT_MAJOR_TYPES : Arrays.asList(items);
     }
 
     public List<String> getMinorTypes() {
-        String[] items = StringUtils.split(this.minorTypes, ",");
+        final String[] items = StringUtils.split(this.minorTypes, ",");
 
         return items == null || items.length == 0 ? DEFAULT_MINOR_TYPES : Arrays.asList(items);
     }
 
     public List<String> getPatchTypes() {
-        String[] items = StringUtils.split(this.patchTypes, ",");
+        final String[] items = StringUtils.split(this.patchTypes, ",");
 
         return items == null || items.length == 0 ? DEFAULT_PATCH_TYPES : Arrays.asList(items);
     }
 
     public List<String> getHiddenTypes() {
-        String[] items = StringUtils.split(this.hiddenTypes, ",");
+        final String[] items = StringUtils.split(this.hiddenTypes, ",");
 
         return items == null || items.length == 0 ? DEFAULT_HIDDEN_TYPES : Arrays.asList(items);
     }
 
-    public String getCommitIssuePattern() {
-        return StringUtils.defaultIfBlank(this.commitIssuePattern, DEFAULT_COMMIT_ISSUE_PATTERN);
+    public String createIssueUrl(final Integer issueId) {
+        if (StringUtils.isEmpty(this.issueUrlTemplate)) return null;
+
+        return this.issueUrlTemplate.replaceAll(ISSUE_ID_PLACEHOLDER, String.valueOf(issueId));
+    }
+
+    public String createCommitUrl(final String commitId) {
+        if (StringUtils.isEmpty(this.commitUrlTemplate)) return null;
+
+        return this.commitUrlTemplate.replaceAll(COMMIT_ID_PLACEHOLDER, commitId);
+    }
+
+    public String createMentionUrl(final String username) {
+        if (StringUtils.isEmpty(this.mentionUrlTemplate)) return null;
+
+        return this.mentionUrlTemplate.replaceAll(MENTION_USERNAME_PLACEHOLDER, username);
     }
 }
