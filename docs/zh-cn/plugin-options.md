@@ -22,6 +22,7 @@
 | `longDateFormat` | 长日期格式。默认为 `yyyy-MM-dd HH:mm:ss`。 |
 | `shortDateFormat` | 短日期格式。默认为 `yyyy-MM-dd`。 |
 | `closeIssueActions` | 用于匹配已关闭议题的快捷动作类型。默认为 `close,closes,closed,fix,fixes,fixed,resolve,resolves,resolved`。 |
+| `commitLocales` | 包含本地化提交消息的文件集。默认为 `null`。 |
 
 > [!TIP]
 > 当 `majorTypes`、`minorTypes`、`patchTypes`、`preReleaseTypes`和`buildMetaDataTypes` 配置了无法匹配的值， 那么对应的版本号将不会有任何变更。

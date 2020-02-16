@@ -17,6 +17,7 @@ import se.bjurr.gitchangelog.internal.settings.Settings;
 import team.yi.maven.plugin.config.FileSet;
 import team.yi.maven.plugin.config.ReleaseLogSettings;
 import team.yi.maven.plugin.model.ReleaseCommit;
+import team.yi.maven.plugin.model.ReleaseCommitLocale;
 import team.yi.maven.plugin.model.ReleaseDate;
 import team.yi.maven.plugin.model.ReleaseLog;
 import team.yi.maven.plugin.model.ReleaseSection;
@@ -49,6 +50,7 @@ public class ReleaseLogService {
     private final Log log;
     private final Stack<ReleaseCommit> versionCommits = new Stack<>();
     private final VersionManager versionManager;
+    private final CommitLocaleService localeService;
 
     public ReleaseLogService(final ReleaseLogSettings releaseLogSettings, final GitChangelogApi builder, final Log log) {
         this.releaseLogSettings = releaseLogSettings;
@@ -57,6 +59,11 @@ public class ReleaseLogService {
 
         this.builderSettings = this.builder.getSettings();
         this.versionManager = new VersionManager(this.releaseLogSettings, log);
+        this.localeService = new CommitLocaleService(this.releaseLogSettings, log);
+    }
+
+    public void loadLocales() {
+        this.localeService.load();
     }
 
     public void saveToFiles(final Set<FileSet> fileSets) throws IOException, GitChangelogRepositoryException {
@@ -174,6 +181,10 @@ public class ReleaseLogService {
             }
 
             if (commit == null || StringUtils.isEmpty(commit.getCommitSubject())) continue;
+
+            final List<ReleaseCommitLocale> commitLocales = this.localeService.get(commit.getHashFull());
+
+            commit.getLocales().addAll(commitLocales);
 
             if (lastVersion == null) this.versionCommits.add(commit);
 

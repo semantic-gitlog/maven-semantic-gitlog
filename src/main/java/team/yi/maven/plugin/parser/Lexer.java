@@ -39,6 +39,7 @@ public abstract class Lexer {
         this(file, StandardCharsets.UTF_8);
     }
 
+    @SuppressWarnings("PMD.ConstructorCallsOverridableMethod")
     protected Lexer(final File file, final Charset charset) throws IOException {
         this.contents = FileUtils.readFileToString(file, charset).trim();
         this.length = this.contents.length();
@@ -46,7 +47,8 @@ public abstract class Lexer {
         this.reset();
     }
 
-    protected Lexer(final String contents) throws IOException {
+    @SuppressWarnings("PMD.ConstructorCallsOverridableMethod")
+    protected Lexer(final String contents) {
         this.contents = contents;
         this.length = this.contents.length();
 
@@ -64,7 +66,7 @@ public abstract class Lexer {
         this.currentMode = this.lexerModes.pop();
     }
 
-    protected final void reset() {
+    protected void reset() {
         this.lexerModes = new Stack<>();
         this.currentMode = text;
         this.lexerModes.push(this.currentMode);

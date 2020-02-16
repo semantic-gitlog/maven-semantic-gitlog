@@ -22,6 +22,7 @@
 | `longDateFormat` | The long date format pattern. Default is `yyyy-MM-dd HH:mm:ss`. |
 | `shortDateFormat` | The short date format pattern. Default is `yyyy-MM-dd`. |
 | `closeIssueActions` | A string list that detecting close quick actions. Default is `close,closes,closed,fix,fixes,fixed,resolve,resolves,resolved`. |
+| `commitLocales` | A file set with localized commit messages. Default is `null`. |
 
 > [!TIP]
 > When `majorTypes`, `minorTypes`, `patchTypes`, `preReleaseTypes` and `buildMetaDataTypes` set a value that dose not match any commit, the corresponding version number dose not change.

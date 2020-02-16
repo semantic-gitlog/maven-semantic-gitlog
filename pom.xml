@@ -273,7 +273,7 @@
       <id>release-plugin</id>
 
       <properties>
-        <gitlog.toRef>dev-lexer</gitlog.toRef>
+        <gitlog.toRef>dev</gitlog.toRef>
         <gitlog.releaseStrategy>strict</gitlog.releaseStrategy>
         <gitlog.forceNextVersion>true</gitlog.forceNextVersion>
         <gitlog.preRelease>SNAPSHOT</gitlog.preRelease>
@@ -331,6 +331,10 @@
                 <derivedVersionMark>NEXT_VERSION:==</derivedVersionMark>
 
                 <preRelease>${gitlog.preRelease}</preRelease>
+
+                <commitLocales>
+                  <zh-cn>${project.basedir}/config/gitlog/commit-locales.zh-cn.md</zh-cn>
+                </commitLocales>
               </releaseLogSettings>
             </configuration>
           </plugin>

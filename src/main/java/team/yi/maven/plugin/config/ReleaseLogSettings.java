@@ -6,12 +6,14 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.maven.plugins.annotations.Parameter;
 import team.yi.maven.plugin.model.ReleaseStrategy;
 
+import java.io.File;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 @Data
 @SuppressWarnings("PMD.TooManyFields")
@@ -102,6 +104,9 @@ public class ReleaseLogSettings implements Serializable {
 
     @Parameter(property = "closeIssueActions", defaultValue = DEFAULT_CLOSE_ISSUE_ACTIONS)
     private String closeIssueActions = DEFAULT_CLOSE_ISSUE_ACTIONS;
+
+    @Parameter(property = "commitLocales")
+    private Map<String, File> commitLocales;
 
     public ReleaseStrategy getStrategy() {
         return this.strategy == null ? ReleaseStrategy.strict : strategy;

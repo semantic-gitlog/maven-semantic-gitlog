@@ -67,6 +67,7 @@ public class VersionManager {
         return version;
     }
 
+    @SuppressWarnings({"PMD.NcssCount", "PMD.NPathComplexity"})
     public Version deriveNextVersion(final Version lastVersion, final Stack<ReleaseCommit> versionCommits) {
         Version nextVersion = lastVersion == null
             ? Version.create(0, 1, 0)

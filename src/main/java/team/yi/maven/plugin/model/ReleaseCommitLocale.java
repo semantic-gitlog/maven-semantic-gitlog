@@ -11,6 +11,8 @@ public class ReleaseCommitLocale implements Serializable {
     private static final long serialVersionUID = 1614994575461203609L;
 
     @EqualsAndHashCode.Include
+    private String commitHash;
+    @EqualsAndHashCode.Include
     private String lang;
     private String subject;
 }

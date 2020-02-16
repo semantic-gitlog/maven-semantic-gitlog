@@ -162,7 +162,7 @@ public class CommitParser {
                 case eof:
                     if (StringUtils.isEmpty(lang)) break;
 
-                    final ReleaseCommitLocale locale = new ReleaseCommitLocale(lang, subject);
+                    final ReleaseCommitLocale locale = new ReleaseCommitLocale(this.commit.getHashFull(), lang, subject);
 
                     this.releaseCommit.getLocales().add(locale);
 

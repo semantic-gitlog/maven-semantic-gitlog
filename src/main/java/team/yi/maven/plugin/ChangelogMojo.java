@@ -96,7 +96,7 @@ public class ChangelogMojo extends GitChangelogMojo {
             }
         } else {
             final ReleaseLogService releaseLogService = new ReleaseLogService(releaseLogSettings, builder, log);
-
+            releaseLogService.loadLocales();
             releaseLogService.saveToFiles(fileSets);
         }
     }

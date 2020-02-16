@@ -34,6 +34,8 @@ public enum TokenKind {
     subject,
     subjectEnd,
 
+    commitHash,
+
     // ` #123` `(#123)`
     issueStart,
     issueEnd,
