@@ -41,7 +41,7 @@
 ### {{title}}
 
 {{#commits}}
-- {{#commitScope}}**{{commitPackage}}{{commitScope}}**: {{/commitScope}}{{commitSubject}}{{#subjectIssues}} ([#{{id}}]({{url}})){{/subjectIssues}} ([{{hash8}}]({{commitUrl}})){{#hasCloseIssues}}, closes{{#closeIssues}} [#{{id}}]({{url}}){{/closeIssues}}{{/hasCloseIssues}}
+- {{#commitScope}}**{{commitPackage}}{{commitScope}}**: {{/commitScope}}{{#localeMap}}{{zh-cn.subject}}{{/localeMap}}{{^localeMap}}{{commitSubject}}{{/localeMap}}{{#subjectIssues}} ([#{{id}}]({{url}})){{/subjectIssues}} ([{{hash8}}]({{commitUrl}})){{#hasCloseIssues}}, closes{{#closeIssues}} [#{{id}}]({{url}}){{/closeIssues}}{{/hasCloseIssues}}
 {{/commits}}
 
 {{/sections}}

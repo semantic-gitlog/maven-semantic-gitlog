@@ -3,6 +3,7 @@
 | option | description |
 | ------ | ----------- |
 | `disabled` | 打开或关闭 `semantic-gitlog` 模块。默认为 `false`。 |
+| `isPreRelease` | 打开 `development-phase`，使得中断性变更仅递增次版本号。默认为 `false`。 |
 | `strategy` | 发布策略。可选值：`strict`、`slow`。默认为 `strict`。 |
 | `forceNextVersion` | 当版本号未增长时强制递增 `nextVersion`。默认为 `true`。 |
 | `lastVersion` | 默认尝试将 `Tag` 转换为版本号。该选项允许您手工指定 `lastVersion` 的值。默认为 `0.1.0`。 |

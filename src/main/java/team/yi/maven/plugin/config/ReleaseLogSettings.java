@@ -40,6 +40,9 @@ public class ReleaseLogSettings implements Serializable {
     @Parameter(property = "disabled", defaultValue = "false")
     private Boolean disabled = false;
 
+    @Parameter(property = "isPreRelease", defaultValue = "false")
+    private Boolean isPreRelease = false;
+
     @Parameter(property = "strategy", defaultValue = "strict")
     private ReleaseStrategy strategy = ReleaseStrategy.strict;
 

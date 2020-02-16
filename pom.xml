@@ -318,6 +318,7 @@
               </fileSets>
 
               <releaseLogSettings>
+                <isPreRelease>true</isPreRelease>
                 <strategy>${gitlog.releaseStrategy}</strategy>
                 <forceNextVersion>${gitlog.forceNextVersion}</forceNextVersion>
 

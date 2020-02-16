@@ -21,6 +21,7 @@ public class VersionManager {
     private final String preRelease;
     private final String buildMetaData;
     private final boolean forceNextVersion;
+    private final Boolean isPreRelease;
 
     public VersionManager(final ReleaseLogSettings releaseLogSettings, final Log log) {
         this.log = log;
@@ -34,6 +35,7 @@ public class VersionManager {
         this.buildMetaData = releaseLogSettings.getBuildMetaData();
         this.strategy = releaseLogSettings.getStrategy();
         this.forceNextVersion = releaseLogSettings.getForceNextVersion();
+        this.isPreRelease = releaseLogSettings.getIsPreRelease();
     }
 
     public static Version ensureNextVersion(final Version nextVersion, final Version lastVersion) {
@@ -65,7 +67,6 @@ public class VersionManager {
         return version;
     }
 
-    @SuppressWarnings("PMD.NPathComplexity")
     public Version deriveNextVersion(final Version lastVersion, final Stack<ReleaseCommit> versionCommits) {
         Version nextVersion = lastVersion == null
             ? Version.create(0, 1, 0)
@@ -92,7 +93,16 @@ public class VersionManager {
                 this.log.debug("#");
             }
 
-            if (commit.isBreakingChange() || this.majorTypes.contains(commitType)) {
+            if (commit.isBreakingChange()) {
+                if (this.isPreRelease) {
+                    nextVersion = nextVersion.nextMinor();
+                    minorUp = true;
+                } else {
+                    nextVersion = nextVersion.nextMajor();
+                }
+
+                if (!isIncrease) break;
+            } else if (this.majorTypes.contains(commitType)) {
                 nextVersion = nextVersion.nextMajor();
 
                 if (!isIncrease) break;

@@ -3,6 +3,7 @@
 | option | description |
 | ------ | ----------- |
 | `disabled` | Enable or disable `semantic-gitlog` module. Default is `false`. |
+| `isPreRelease` | Enable `development-phase`, breaking changes only increases the minor version number. Default is `false`. |
 | `strategy` | Release strategy. Optional values: `strict`, `slow`. Default is `strict`. |
 | `forceNextVersion` | Allow force increase `nextVersion` when the version dose not grow. Default is `true`. |
 | `lastVersion` | `Tag` as version by default. This option allows you to manually specify the value of `lastVersion`. Default is `0.1.0`. |
