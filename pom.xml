@@ -14,12 +14,17 @@
   <description>A simple `Semantic Versioning` management tool based on `Conventional Commits`.</description>
   <url>https://github.com/ymind/maven-semantic-gitlog</url>
 
+  <organization>
+    <name>Yi.Team</name>
+    <url>https://yi.team/</url>
+  </organization>
+
   <developers>
     <developer>
       <name>ymind</name>
       <email>ymind@yi.team</email>
       <url>https://yi.team/</url>
-      <organization>yiteam</organization>
+      <organization>Yi.Team</organization>
       <organizationUrl>https://yi.team/</organizationUrl>
     </developer>
   </developers>
