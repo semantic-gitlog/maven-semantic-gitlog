@@ -1,0 +1,1960 @@
+{
+  "nextVersion": {
+    "major": 0,
+    "minor": 16,
+    "patch": 2,
+    "preReleaseParts": [],
+    "buildMetaDataParts": [],
+    "preRelease": null,
+    "buildMetaData": null,
+    "hash": 2
+  },
+  "lastVersion": {
+    "major": 0,
+    "minor": 16,
+    "patch": 1,
+    "preReleaseParts": [],
+    "buildMetaDataParts": [],
+    "preRelease": null,
+    "buildMetaData": null,
+    "hash": 938929
+  },
+  "tags": [
+    {
+      "version": {
+        "major": 0,
+        "minor": 16,
+        "patch": 1,
+        "preReleaseParts": [],
+        "buildMetaDataParts": [],
+        "preRelease": null,
+        "buildMetaData": null,
+        "hash": 938929
+      },
+      "releaseDate": {
+        "date": "Feb 27, 2020 6:40:30 AM",
+        "longDate": "2020-02-27 06:40:30",
+        "shortDate": "2020-02-27"
+      },
+      "description": null,
+      "sections": [
+        {
+          "title": "Bug Fixes",
+          "commits": [
+            {
+              "quickActions": {},
+              "closeIssues": [],
+              "subjectIssues": [],
+              "bodyIssues": [],
+              "mentions": [],
+              "locales": [
+                {
+                  "commitHash": "ef908f95f9d41917b9b7d4bf4b15698ae4a1e952",
+                  "lang": "zh-cn",
+                  "commitType": null,
+                  "subject": "修复插件配置"
+                }
+              ],
+              "defaultLang": "en",
+              "hash7": "ef908f9",
+              "hash8": "ef908f95",
+              "commitUrl": "https://github.com/ymind/maven-semantic-gitlog/commit/ef908f95f9d41917b9b7d4bf4b15698ae4a1e952",
+              "commitType": "fix",
+              "commitPackage": null,
+              "commitScope": "mojo",
+              "commitSubject": "fix mojo settings",
+              "commitBody": null,
+              "attention": false,
+              "breakingChange": false,
+              "deprecated": false,
+              "authorEmailAddress": "ymind@yi.team",
+              "authorName": "ymind",
+              "commitTime": "2020-02-27 06:35:49",
+              "commitTimeLong": 1582785349000,
+              "hash": "ef908f95f9d4191",
+              "hashFull": "ef908f95f9d41917b9b7d4bf4b15698ae4a1e952",
+              "merge": false,
+              "message": "fix(mojo): fix mojo settings\n\n------------\n# Locales\n- **[zh-cn]** 修复插件配置"
+            }
+          ]
+        },
+        {
+          "title": "Chores",
+          "commits": [
+            {
+              "quickActions": {},
+              "closeIssues": [],
+              "subjectIssues": [],
+              "bodyIssues": [],
+              "mentions": [],
+              "locales": [
+                {
+                  "commitHash": "0caae3b3b3da0d8fbb1bfd3a3b5ee9149468976f",
+                  "lang": "zh-cn",
+                  "commitType": null,
+                  "subject": "更新 `lombok` 至 `1.18.12`"
+                },
+                {
+                  "commitHash": "0caae3b3",
+                  "lang": "en",
+                  "commitType": "chore",
+                  "subject": "bump `lombok` to `1.18.12`"
+                }
+              ],
+              "defaultLang": "en",
+              "hash7": "0caae3b",
+              "hash8": "0caae3b3",
+              "commitUrl": "https://github.com/ymind/maven-semantic-gitlog/commit/0caae3b3b3da0d8fbb1bfd3a3b5ee9149468976f",
+              "commitType": "chore",
+              "commitPackage": null,
+              "commitScope": "deps",
+              "commitSubject": "bump `lombok` to `1.18.12`",
+              "commitBody": null,
+              "attention": false,
+              "breakingChange": false,
+              "deprecated": false,
+              "authorEmailAddress": "ymind@yi.team",
+              "authorName": "ymind",
+              "commitTime": "2020-02-16 11:50:46",
+              "commitTimeLong": 1581853846000,
+              "hash": "0caae3b3b3da0d8",
+              "hashFull": "0caae3b3b3da0d8fbb1bfd3a3b5ee9149468976f",
+              "merge": false,
+              "message": "chore(deps): bump `lombok` to `1.18.12`\n\n------------\n# Locales\n- **[zh-cn]** 更新 `lombok` 至 `1.18.12`"
+            }
+          ]
+        },
+        {
+          "title": "Continuous Integration",
+          "commits": [
+            {
+              "quickActions": {},
+              "closeIssues": [],
+              "subjectIssues": [],
+              "bodyIssues": [],
+              "mentions": [],
+              "locales": [
+                {
+                  "commitHash": "c3a30910d13977960b4e24172ee1cd5c9fdf78dc",
+                  "lang": "zh-cn",
+                  "commitType": null,
+                  "subject": "添加 `CHANGELOG.json` 文件回推"
+                }
+              ],
+              "defaultLang": "en",
+              "hash7": "c3a3091",
+              "hash8": "c3a30910",
+              "commitUrl": "https://github.com/ymind/maven-semantic-gitlog/commit/c3a30910d13977960b4e24172ee1cd5c9fdf78dc",
+              "commitType": "ci",
+              "commitPackage": null,
+              "commitScope": "travis",
+              "commitSubject": "add push-back file `CHANGELOG.json`",
+              "commitBody": null,
+              "attention": false,
+              "breakingChange": false,
+              "deprecated": false,
+              "authorEmailAddress": "ymind@yi.team",
+              "authorName": "ymind",
+              "commitTime": "2020-02-27 06:35:38",
+              "commitTimeLong": 1582785338000,
+              "hash": "c3a30910d139779",
+              "hashFull": "c3a30910d13977960b4e24172ee1cd5c9fdf78dc",
+              "merge": false,
+              "message": "ci(travis): add push-back file `CHANGELOG.json`\n\n------------\n# Locales\n- **[zh-cn]** 添加 `CHANGELOG.json` 文件回推"
+            }
+          ]
+        },
+        {
+          "title": "Documentation",
+          "commits": [
+            {
+              "quickActions": {},
+              "closeIssues": [],
+              "subjectIssues": [],
+              "bodyIssues": [],
+              "mentions": [],
+              "locales": [
+                {
+                  "commitHash": "6c8107da5d7c2ab6ec4a13e4d5e0165287ca360c",
+                  "lang": "zh-cn",
+                  "commitType": null,
+                  "subject": "添加 `organization` 信息"
+                }
+              ],
+              "defaultLang": "en",
+              "hash7": "6c8107d",
+              "hash8": "6c8107da",
+              "commitUrl": "https://github.com/ymind/maven-semantic-gitlog/commit/6c8107da5d7c2ab6ec4a13e4d5e0165287ca360c",
+              "commitType": "docs",
+              "commitPackage": null,
+              "commitScope": null,
+              "commitSubject": "add `organization` information",
+              "commitBody": null,
+              "attention": false,
+              "breakingChange": false,
+              "deprecated": false,
+              "authorEmailAddress": "ymind@yi.team",
+              "authorName": "ymind",
+              "commitTime": "2020-02-16 04:16:08",
+              "commitTimeLong": 1581826568000,
+              "hash": "6c8107da5d7c2ab",
+              "hashFull": "6c8107da5d7c2ab6ec4a13e4d5e0165287ca360c",
+              "merge": false,
+              "message": "docs: add `organization` information\n\n------------\n# Locales\n- **[zh-cn]** 添加 `organization` 信息"
+            }
+          ]
+        },
+        {
+          "title": "Features",
+          "commits": [
+            {
+              "quickActions": {},
+              "closeIssues": [],
+              "subjectIssues": [],
+              "bodyIssues": [],
+              "mentions": [],
+              "locales": [
+                {
+                  "commitHash": "83796445681c0c0d22b2c21c22a757301efef470",
+                  "lang": "zh-cn",
+                  "commitType": null,
+                  "subject": "支持从本地化配置文件覆盖提交类型"
+                }
+              ],
+              "defaultLang": "en",
+              "hash7": "8379644",
+              "hash8": "83796445",
+              "commitUrl": "https://github.com/ymind/maven-semantic-gitlog/commit/83796445681c0c0d22b2c21c22a757301efef470",
+              "commitType": "feat",
+              "commitPackage": null,
+              "commitScope": null,
+              "commitSubject": "support `commitType override` from locale profiles",
+              "commitBody": null,
+              "attention": false,
+              "breakingChange": false,
+              "deprecated": false,
+              "authorEmailAddress": "ymind@yi.team",
+              "authorName": "ymind",
+              "commitTime": "2020-02-27 06:33:56",
+              "commitTimeLong": 1582785236000,
+              "hash": "83796445681c0c0",
+              "hashFull": "83796445681c0c0d22b2c21c22a757301efef470",
+              "merge": false,
+              "message": "feat: support `commitType override` from locale profiles\n\n------------\n# Locales\n- **[zh-cn]** 支持从本地化配置文件覆盖提交类型"
+            },
+            {
+              "quickActions": {},
+              "closeIssues": [],
+              "subjectIssues": [],
+              "bodyIssues": [],
+              "mentions": [],
+              "locales": [
+                {
+                  "commitHash": "37ffa02133cb474bdb3023b87663364eedce6154",
+                  "lang": "zh-cn",
+                  "commitType": null,
+                  "subject": "添加 `commitLocales` 配置项，支持提交消息的本地化"
+                }
+              ],
+              "defaultLang": "en",
+              "hash7": "37ffa02",
+              "hash8": "37ffa021",
+              "commitUrl": "https://github.com/ymind/maven-semantic-gitlog/commit/37ffa02133cb474bdb3023b87663364eedce6154",
+              "commitType": "feat",
+              "commitPackage": null,
+              "commitScope": "mojo",
+              "commitSubject": "add `commitLocales` configuration, support for localization of commit messages",
+              "commitBody": "locale profile format:\n```md\n- [db48c20a] message\n- [bae9f5af] demo message\n```",
+              "attention": false,
+              "breakingChange": false,
+              "deprecated": false,
+              "authorEmailAddress": "ymind@yi.team",
+              "authorName": "ymind",
+              "commitTime": "2020-02-16 10:51:05",
+              "commitTimeLong": 1581850265000,
+              "hash": "37ffa02133cb474",
+              "hashFull": "37ffa02133cb474bdb3023b87663364eedce6154",
+              "merge": false,
+              "message": "feat(mojo): add `commitLocales` configuration, support for localization of commit messages\n\nlocale profile format:\n```md\n- [db48c20a] message\n- [bae9f5af] demo message\n```\n\n------------\n# Locales\n- **[zh-cn]** 添加 `commitLocales` 配置项，支持提交消息的本地化"
+            },
+            {
+              "quickActions": {},
+              "closeIssues": [],
+              "subjectIssues": [],
+              "bodyIssues": [],
+              "mentions": [],
+              "locales": [
+                {
+                  "commitHash": "24b145ff0a1c78fa1297fe0f8b933b762fe084d1",
+                  "lang": "zh-cn",
+                  "commitType": null,
+                  "subject": "添加 `isPreRelease` 配置项"
+                }
+              ],
+              "defaultLang": "en",
+              "hash7": "24b145f",
+              "hash8": "24b145ff",
+              "commitUrl": "https://github.com/ymind/maven-semantic-gitlog/commit/24b145ff0a1c78fa1297fe0f8b933b762fe084d1",
+              "commitType": "feat",
+              "commitPackage": null,
+              "commitScope": "mojo",
+              "commitSubject": "add `isPreRelease` configuration",
+              "commitBody": "This option allow you enable or disable the `Pre-release Mode`. In `Pre-release Mode` breaking changes only increases the minor version number. Default is `false`.",
+              "attention": false,
+              "breakingChange": false,
+              "deprecated": false,
+              "authorEmailAddress": "ymind@yi.team",
+              "authorName": "ymind",
+              "commitTime": "2020-02-16 04:28:36",
+              "commitTimeLong": 1581827316000,
+              "hash": "24b145ff0a1c78f",
+              "hashFull": "24b145ff0a1c78fa1297fe0f8b933b762fe084d1",
+              "merge": false,
+              "message": "feat(mojo): add `isPreRelease` configuration\n\nThis option allow you enable or disable the `Pre-release Mode`. In `Pre-release Mode` breaking changes only increases the minor version number. Default is `false`.\n\n------------\n# Locales\n- **[zh-cn]** 添加 `isPreRelease` 配置项"
+            }
+          ]
+        },
+        {
+          "title": "BREAKING CHANGES",
+          "commits": [
+            {
+              "quickActions": {},
+              "closeIssues": [],
+              "subjectIssues": [],
+              "bodyIssues": [],
+              "mentions": [],
+              "locales": [
+                {
+                  "commitHash": "5a912bf0b52692bc7301713dafabd71e2e7698f1",
+                  "lang": "zh-cn",
+                  "commitType": null,
+                  "subject": "重构提交消息解析器"
+                }
+              ],
+              "defaultLang": "en",
+              "hash7": "5a912bf",
+              "hash8": "5a912bf0",
+              "commitUrl": "https://github.com/ymind/maven-semantic-gitlog/commit/5a912bf0b52692bc7301713dafabd71e2e7698f1",
+              "commitType": "refactor",
+              "commitPackage": null,
+              "commitScope": "parser",
+              "commitSubject": "refactor commit message parser",
+              "commitBody": "BREAKING CHANGE: regex-based parser already removed.",
+              "attention": false,
+              "breakingChange": true,
+              "deprecated": false,
+              "authorEmailAddress": "ymind@yi.team",
+              "authorName": "ymind",
+              "commitTime": "2020-02-16 04:26:50",
+              "commitTimeLong": 1581827210000,
+              "hash": "5a912bf0b52692b",
+              "hashFull": "5a912bf0b52692bc7301713dafabd71e2e7698f1",
+              "merge": false,
+              "message": "refactor(parser): refactor commit message parser\n\nBREAKING CHANGE: regex-based parser already removed.\n\n------------\n# Locales\n- **[zh-cn]** 重构提交消息解析器"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "version": {
+        "major": 0,
+        "minor": 12,
+        "patch": 0,
+        "preReleaseParts": [],
+        "buildMetaDataParts": [],
+        "preRelease": null,
+        "buildMetaData": null,
+        "hash": 935054
+      },
+      "releaseDate": {
+        "date": "Feb 6, 2020 12:57:38 PM",
+        "longDate": "2020-02-06 12:57:38",
+        "shortDate": "2020-02-06"
+      },
+      "description": null,
+      "sections": [
+        {
+          "title": "Bug Fixes",
+          "commits": [
+            {
+              "quickActions": {},
+              "closeIssues": [],
+              "subjectIssues": [],
+              "bodyIssues": [],
+              "mentions": [],
+              "locales": [
+                {
+                  "commitHash": "d8524b78",
+                  "lang": "zh-cn",
+                  "commitType": null,
+                  "subject": "修复当 `fileSets` 为空或无效时 `changelog` 目标执行失败的问题"
+                }
+              ],
+              "defaultLang": "en",
+              "hash7": "d8524b7",
+              "hash8": "d8524b78",
+              "commitUrl": "https://github.com/ymind/maven-semantic-gitlog/commit/d8524b78ab1ee1a44581a6a809233caa06960311",
+              "commitType": "fix",
+              "commitPackage": null,
+              "commitScope": "mojo",
+              "commitSubject": "goal `changelog` failed when \"fileSets\" is empty or invalid",
+              "commitBody": null,
+              "attention": false,
+              "breakingChange": false,
+              "deprecated": false,
+              "authorEmailAddress": "ymind@yi.team",
+              "authorName": "ymind",
+              "commitTime": "2020-02-06 04:04:14",
+              "commitTimeLong": 1580961854000,
+              "hash": "d8524b78ab1ee1a",
+              "hashFull": "d8524b78ab1ee1a44581a6a809233caa06960311",
+              "merge": false,
+              "message": "fix(mojo): goal `changelog` failed when \"fileSets\" is empty or invalid"
+            },
+            {
+              "quickActions": {},
+              "closeIssues": [],
+              "subjectIssues": [],
+              "bodyIssues": [],
+              "mentions": [],
+              "locales": [
+                {
+                  "commitHash": "3e73ed67",
+                  "lang": "zh-cn",
+                  "commitType": null,
+                  "subject": "修复标记范围外的提交"
+                }
+              ],
+              "defaultLang": "en",
+              "hash7": "3e73ed6",
+              "hash8": "3e73ed67",
+              "commitUrl": "https://github.com/ymind/maven-semantic-gitlog/commit/3e73ed67d73d781474eddf50bfe2a170ba35ce9b",
+              "commitType": "fix",
+              "commitPackage": null,
+              "commitScope": "service",
+              "commitSubject": "Fix commits outside the Tag scope",
+              "commitBody": null,
+              "attention": false,
+              "breakingChange": false,
+              "deprecated": false,
+              "authorEmailAddress": "ymind@yi.team",
+              "authorName": "ymind",
+              "commitTime": "2020-01-31 08:33:09",
+              "commitTimeLong": 1580459589000,
+              "hash": "3e73ed67d73d781",
+              "hashFull": "3e73ed67d73d781474eddf50bfe2a170ba35ce9b",
+              "merge": false,
+              "message": "fix(service): Fix commits outside the Tag scope"
+            }
+          ]
+        },
+        {
+          "title": "Chores",
+          "commits": [
+            {
+              "quickActions": {},
+              "closeIssues": [],
+              "subjectIssues": [],
+              "bodyIssues": [],
+              "mentions": [],
+              "locales": [
+                {
+                  "commitHash": "6c87eabd",
+                  "lang": "zh-cn",
+                  "commitType": null,
+                  "subject": "修复 PMD 问题事项"
+                }
+              ],
+              "defaultLang": "en",
+              "hash7": "6c87eab",
+              "hash8": "6c87eabd",
+              "commitUrl": "https://github.com/ymind/maven-semantic-gitlog/commit/6c87eabd7745045ac08f7a529f304bdc5d2c54cc",
+              "commitType": "chore",
+              "commitPackage": null,
+              "commitScope": null,
+              "commitSubject": "fix PMD issues",
+              "commitBody": null,
+              "attention": false,
+              "breakingChange": false,
+              "deprecated": false,
+              "authorEmailAddress": "ymind@yi.team",
+              "authorName": "ymind",
+              "commitTime": "2020-01-31 08:27:55",
+              "commitTimeLong": 1580459275000,
+              "hash": "6c87eabd7745045",
+              "hashFull": "6c87eabd7745045ac08f7a529f304bdc5d2c54cc",
+              "merge": false,
+              "message": "chore: fix PMD issues"
+            }
+          ]
+        },
+        {
+          "title": "Continuous Integration",
+          "commits": [
+            {
+              "quickActions": {},
+              "closeIssues": [],
+              "subjectIssues": [],
+              "bodyIssues": [],
+              "mentions": [],
+              "locales": [
+                {
+                  "commitHash": "0b8cc345",
+                  "lang": "zh-cn",
+                  "commitType": null,
+                  "subject": "更新 CI"
+                }
+              ],
+              "defaultLang": "en",
+              "hash7": "0b8cc34",
+              "hash8": "0b8cc345",
+              "commitUrl": "https://github.com/ymind/maven-semantic-gitlog/commit/0b8cc345aed9454846f445206aa3fe564151b9f9",
+              "commitType": "ci",
+              "commitPackage": null,
+              "commitScope": null,
+              "commitSubject": "update ci",
+              "commitBody": null,
+              "attention": false,
+              "breakingChange": false,
+              "deprecated": false,
+              "authorEmailAddress": "ymind@yi.team",
+              "authorName": "ymind",
+              "commitTime": "2020-02-06 11:50:50",
+              "commitTimeLong": 1580989850000,
+              "hash": "0b8cc345aed9454",
+              "hashFull": "0b8cc345aed9454846f445206aa3fe564151b9f9",
+              "merge": false,
+              "message": "ci: update ci"
+            },
+            {
+              "quickActions": {},
+              "closeIssues": [],
+              "subjectIssues": [],
+              "bodyIssues": [],
+              "mentions": [],
+              "locales": [
+                {
+                  "commitHash": "88cf4838",
+                  "lang": "zh-cn",
+                  "commitType": null,
+                  "subject": "更新 CI"
+                }
+              ],
+              "defaultLang": "en",
+              "hash7": "88cf483",
+              "hash8": "88cf4838",
+              "commitUrl": "https://github.com/ymind/maven-semantic-gitlog/commit/88cf483884819310ceeb12560852fcf2b15c8905",
+              "commitType": "ci",
+              "commitPackage": null,
+              "commitScope": null,
+              "commitSubject": "update ci",
+              "commitBody": null,
+              "attention": false,
+              "breakingChange": false,
+              "deprecated": false,
+              "authorEmailAddress": "ymind@yi.team",
+              "authorName": "ymind",
+              "commitTime": "2020-02-06 04:20:08",
+              "commitTimeLong": 1580962808000,
+              "hash": "88cf48388481931",
+              "hashFull": "88cf483884819310ceeb12560852fcf2b15c8905",
+              "merge": false,
+              "message": "ci: update ci"
+            },
+            {
+              "quickActions": {},
+              "closeIssues": [],
+              "subjectIssues": [],
+              "bodyIssues": [],
+              "mentions": [],
+              "locales": [
+                {
+                  "commitHash": "111ce4fe",
+                  "lang": "zh-cn",
+                  "commitType": null,
+                  "subject": "添加 `ciManagement` 信息"
+                }
+              ],
+              "defaultLang": "en",
+              "hash7": "111ce4f",
+              "hash8": "111ce4fe",
+              "commitUrl": "https://github.com/ymind/maven-semantic-gitlog/commit/111ce4fe4e0de7464aefe070c9a20c04ae72e83f",
+              "commitType": "ci",
+              "commitPackage": null,
+              "commitScope": null,
+              "commitSubject": "add `ciManagement` info",
+              "commitBody": null,
+              "attention": false,
+              "breakingChange": false,
+              "deprecated": false,
+              "authorEmailAddress": "ymind@yi.team",
+              "authorName": "ymind",
+              "commitTime": "2020-02-06 03:55:30",
+              "commitTimeLong": 1580961330000,
+              "hash": "111ce4fe4e0de74",
+              "hashFull": "111ce4fe4e0de7464aefe070c9a20c04ae72e83f",
+              "merge": false,
+              "message": "ci: add `ciManagement` info"
+            },
+            {
+              "quickActions": {},
+              "closeIssues": [],
+              "subjectIssues": [],
+              "bodyIssues": [],
+              "mentions": [],
+              "locales": [
+                {
+                  "commitHash": "e6d39850",
+                  "lang": "zh-cn",
+                  "commitType": null,
+                  "subject": "修正 CI"
+                }
+              ],
+              "defaultLang": "en",
+              "hash7": "e6d3985",
+              "hash8": "e6d39850",
+              "commitUrl": "https://github.com/ymind/maven-semantic-gitlog/commit/e6d39850936933f5f08f253ae314fa0e78ae749c",
+              "commitType": "ci",
+              "commitPackage": null,
+              "commitScope": "travis",
+              "commitSubject": "fix ci",
+              "commitBody": null,
+              "attention": false,
+              "breakingChange": false,
+              "deprecated": false,
+              "authorEmailAddress": "ymind@yi.team",
+              "authorName": "ymind",
+              "commitTime": "2020-02-04 05:45:45",
+              "commitTimeLong": 1580795145000,
+              "hash": "e6d39850936933f",
+              "hashFull": "e6d39850936933f5f08f253ae314fa0e78ae749c",
+              "merge": false,
+              "message": "ci(travis): fix ci"
+            },
+            {
+              "quickActions": {},
+              "closeIssues": [],
+              "subjectIssues": [],
+              "bodyIssues": [],
+              "mentions": [],
+              "locales": [
+                {
+                  "commitHash": "3eaf171f",
+                  "lang": "zh-cn",
+                  "commitType": null,
+                  "subject": "添加 `CHANGELOG_*.md` 文件回推"
+                }
+              ],
+              "defaultLang": "en",
+              "hash7": "3eaf171",
+              "hash8": "3eaf171f",
+              "commitUrl": "https://github.com/ymind/maven-semantic-gitlog/commit/3eaf171f44e52eb174ba17ea1fb8bb99853adfb8",
+              "commitType": "ci",
+              "commitPackage": null,
+              "commitScope": "travis",
+              "commitSubject": "add push-back file `CHANGELOG_*.md`",
+              "commitBody": null,
+              "attention": false,
+              "breakingChange": false,
+              "deprecated": false,
+              "authorEmailAddress": "ymind@yi.team",
+              "authorName": "ymind",
+              "commitTime": "2020-02-04 05:39:18",
+              "commitTimeLong": 1580794758000,
+              "hash": "3eaf171f44e52eb",
+              "hashFull": "3eaf171f44e52eb174ba17ea1fb8bb99853adfb8",
+              "merge": false,
+              "message": "ci(travis): add push-back file `CHANGELOG_*.md`"
+            },
+            {
+              "quickActions": {},
+              "closeIssues": [],
+              "subjectIssues": [],
+              "bodyIssues": [],
+              "mentions": [],
+              "locales": [
+                {
+                  "commitHash": "0116a713",
+                  "lang": "zh-cn",
+                  "commitType": null,
+                  "subject": "添加 `travis` 配置"
+                }
+              ],
+              "defaultLang": "en",
+              "hash7": "0116a71",
+              "hash8": "0116a713",
+              "commitUrl": "https://github.com/ymind/maven-semantic-gitlog/commit/0116a713f015f6a05532f11cca17467137dcda81",
+              "commitType": "ci",
+              "commitPackage": null,
+              "commitScope": "travis",
+              "commitSubject": "add travis CI configuration",
+              "commitBody": null,
+              "attention": false,
+              "breakingChange": false,
+              "deprecated": false,
+              "authorEmailAddress": "ymind@yi.team",
+              "authorName": "ymind",
+              "commitTime": "2020-02-01 05:36:52",
+              "commitTimeLong": 1580535412000,
+              "hash": "0116a713f015f6a",
+              "hashFull": "0116a713f015f6a05532f11cca17467137dcda81",
+              "merge": false,
+              "message": "ci(travis): add travis CI configuration"
+            }
+          ]
+        },
+        {
+          "title": "Documentation",
+          "commits": [
+            {
+              "quickActions": {},
+              "closeIssues": [],
+              "subjectIssues": [],
+              "bodyIssues": [],
+              "mentions": [],
+              "locales": [
+                {
+                  "commitHash": "32953c83",
+                  "lang": "zh-cn",
+                  "commitType": null,
+                  "subject": "添加 favicon"
+                }
+              ],
+              "defaultLang": "en",
+              "hash7": "32953c8",
+              "hash8": "32953c83",
+              "commitUrl": "https://github.com/ymind/maven-semantic-gitlog/commit/32953c8327ed12f99d04a3e64acf57d0095d4bc0",
+              "commitType": "docs",
+              "commitPackage": null,
+              "commitScope": "docs",
+              "commitSubject": "add favicon",
+              "commitBody": null,
+              "attention": false,
+              "breakingChange": false,
+              "deprecated": false,
+              "authorEmailAddress": "ymind@yi.team",
+              "authorName": "ymind",
+              "commitTime": "2020-02-04 08:56:26",
+              "commitTimeLong": 1580806586000,
+              "hash": "32953c8327ed12f",
+              "hashFull": "32953c8327ed12f99d04a3e64acf57d0095d4bc0",
+              "merge": false,
+              "message": "docs(docs): add favicon"
+            },
+            {
+              "quickActions": {},
+              "closeIssues": [],
+              "subjectIssues": [],
+              "bodyIssues": [],
+              "mentions": [],
+              "locales": [
+                {
+                  "commitHash": "34f7d437",
+                  "lang": "zh-cn",
+                  "commitType": null,
+                  "subject": "更新文档"
+                }
+              ],
+              "defaultLang": "en",
+              "hash7": "34f7d43",
+              "hash8": "34f7d437",
+              "commitUrl": "https://github.com/ymind/maven-semantic-gitlog/commit/34f7d4379fc69e0d3ba0dfc7d065a8e4c859d7d8",
+              "commitType": "docs",
+              "commitPackage": null,
+              "commitScope": "docs",
+              "commitSubject": "update docs",
+              "commitBody": null,
+              "attention": false,
+              "breakingChange": false,
+              "deprecated": false,
+              "authorEmailAddress": "ymind@yi.team",
+              "authorName": "ymind",
+              "commitTime": "2020-02-04 04:10:16",
+              "commitTimeLong": 1580789416000,
+              "hash": "34f7d4379fc69e0",
+              "hashFull": "34f7d4379fc69e0d3ba0dfc7d065a8e4c859d7d8",
+              "merge": false,
+              "message": "docs(docs): update docs"
+            },
+            {
+              "quickActions": {},
+              "closeIssues": [],
+              "subjectIssues": [],
+              "bodyIssues": [],
+              "mentions": [],
+              "locales": [
+                {
+                  "commitHash": "83e42818",
+                  "lang": "zh-cn",
+                  "commitType": null,
+                  "subject": "更新 `Conventional Commits` 徽标"
+                }
+              ],
+              "defaultLang": "en",
+              "hash7": "83e4281",
+              "hash8": "83e42818",
+              "commitUrl": "https://github.com/ymind/maven-semantic-gitlog/commit/83e42818c8a3693214884787144bce0e99f988d2",
+              "commitType": "docs",
+              "commitPackage": null,
+              "commitScope": "docs",
+              "commitSubject": "update `Conventional Commits` badge",
+              "commitBody": null,
+              "attention": false,
+              "breakingChange": false,
+              "deprecated": false,
+              "authorEmailAddress": "ymind@yi.team",
+              "authorName": "ymind",
+              "commitTime": "2020-02-01 10:53:38",
+              "commitTimeLong": 1580554418000,
+              "hash": "83e42818c8a3693",
+              "hashFull": "83e42818c8a3693214884787144bce0e99f988d2",
+              "merge": false,
+              "message": "docs(docs): update `Conventional Commits` badge"
+            }
+          ]
+        },
+        {
+          "title": "Features",
+          "commits": [
+            {
+              "quickActions": {},
+              "closeIssues": [],
+              "subjectIssues": [],
+              "bodyIssues": [],
+              "mentions": [],
+              "locales": [
+                {
+                  "commitHash": "4ef660df",
+                  "lang": "zh-cn",
+                  "commitType": null,
+                  "subject": "添加 `forceNextVersion` 配置项"
+                }
+              ],
+              "defaultLang": "en",
+              "hash7": "4ef660d",
+              "hash8": "4ef660df",
+              "commitUrl": "https://github.com/ymind/maven-semantic-gitlog/commit/4ef660df87a484458ed92c1f31eab5a4abfd4408",
+              "commitType": "feat",
+              "commitPackage": null,
+              "commitScope": "mojo",
+              "commitSubject": "add `forceNextVersion` configuration",
+              "commitBody": null,
+              "attention": false,
+              "breakingChange": false,
+              "deprecated": false,
+              "authorEmailAddress": "ymind@yi.team",
+              "authorName": "ymind",
+              "commitTime": "2020-02-06 12:57:38",
+              "commitTimeLong": 1580993858000,
+              "hash": "4ef660df87a4844",
+              "hashFull": "4ef660df87a484458ed92c1f31eab5a4abfd4408",
+              "merge": false,
+              "message": "feat(mojo): add `forceNextVersion` configuration"
+            },
+            {
+              "quickActions": {},
+              "closeIssues": [],
+              "subjectIssues": [],
+              "bodyIssues": [],
+              "mentions": [],
+              "locales": [
+                {
+                  "commitHash": "3a27b663",
+                  "lang": "zh-cn",
+                  "commitType": null,
+                  "subject": "当版本不增长时，从早期版本自动递增"
+                }
+              ],
+              "defaultLang": "en",
+              "hash7": "3a27b66",
+              "hash8": "3a27b663",
+              "commitUrl": "https://github.com/ymind/maven-semantic-gitlog/commit/3a27b663dc20658afcf02eca8957b0290d50d0ee",
+              "commitType": "feat",
+              "commitPackage": null,
+              "commitScope": "mojo",
+              "commitSubject": "automatically increments from the previous version when the version does not grow",
+              "commitBody": "---\n**:cn: [zh-cn] feat(mojo): 当版本不增长时，从早期版本自动递增**\n\n---\n**:hk: [zh-hk] feat(mojo): 當版本不增長時，從早期版本自動遞增**",
+              "attention": false,
+              "breakingChange": false,
+              "deprecated": false,
+              "authorEmailAddress": "ymind@yi.team",
+              "authorName": "ymind",
+              "commitTime": "2020-02-06 08:24:43",
+              "commitTimeLong": 1580977483000,
+              "hash": "3a27b663dc20658",
+              "hashFull": "3a27b663dc20658afcf02eca8957b0290d50d0ee",
+              "merge": false,
+              "message": "feat(mojo): automatically increments from the previous version when the version does not grow\n\n---\n**:cn: [zh-cn] feat(mojo): 当版本不增长时，从早期版本自动递增**\n\n---\n**:hk: [zh-hk] feat(mojo): 當版本不增長時，從早期版本自動遞增**"
+            },
+            {
+              "quickActions": {},
+              "closeIssues": [],
+              "subjectIssues": [],
+              "bodyIssues": [],
+              "mentions": [],
+              "locales": [
+                {
+                  "commitHash": "f478ce35",
+                  "lang": "zh-cn",
+                  "commitType": null,
+                  "subject": "为 `ReleaseLog.tags` 字段添加排序支持"
+                }
+              ],
+              "defaultLang": "en",
+              "hash7": "f478ce3",
+              "hash8": "f478ce35",
+              "commitUrl": "https://github.com/ymind/maven-semantic-gitlog/commit/f478ce3509f4cddbfb3494e6c4ca2175d1aadcea",
+              "commitType": "feat",
+              "commitPackage": null,
+              "commitScope": "mojo",
+              "commitSubject": "sorted `ReleaseLog.tags`",
+              "commitBody": null,
+              "attention": false,
+              "breakingChange": false,
+              "deprecated": false,
+              "authorEmailAddress": "ymind@yi.team",
+              "authorName": "ymind",
+              "commitTime": "2020-02-06 07:27:47",
+              "commitTimeLong": 1580974067000,
+              "hash": "f478ce3509f4cdd",
+              "hashFull": "f478ce3509f4cddbfb3494e6c4ca2175d1aadcea",
+              "merge": false,
+              "message": "feat(mojo): sorted `ReleaseLog.tags`"
+            },
+            {
+              "quickActions": {},
+              "closeIssues": [],
+              "subjectIssues": [],
+              "bodyIssues": [],
+              "mentions": [],
+              "locales": [
+                {
+                  "commitHash": "bae9f5af",
+                  "lang": "zh-cn",
+                  "commitType": null,
+                  "subject": "添加 `hiddenTypes` 配置项"
+                }
+              ],
+              "defaultLang": "en",
+              "hash7": "bae9f5a",
+              "hash8": "bae9f5af",
+              "commitUrl": "https://github.com/ymind/maven-semantic-gitlog/commit/bae9f5afaba467f599e5c8a8f4d103853c00dc8a",
+              "commitType": "feat",
+              "commitPackage": null,
+              "commitScope": "mojo",
+              "commitSubject": "add `hiddenTypes` configuration",
+              "commitBody": null,
+              "attention": false,
+              "breakingChange": false,
+              "deprecated": false,
+              "authorEmailAddress": "ymind@yi.team",
+              "authorName": "ymind",
+              "commitTime": "2020-02-06 03:59:12",
+              "commitTimeLong": 1580961552000,
+              "hash": "bae9f5afaba467f",
+              "hashFull": "bae9f5afaba467f599e5c8a8f4d103853c00dc8a",
+              "merge": false,
+              "message": "feat(mojo): add `hiddenTypes` configuration"
+            },
+            {
+              "quickActions": {},
+              "closeIssues": [],
+              "subjectIssues": [],
+              "bodyIssues": [],
+              "mentions": [],
+              "locales": [
+                {
+                  "commitHash": "bb1da529",
+                  "lang": "zh-cn",
+                  "commitType": null,
+                  "subject": "添加 `preRelease` 和 `buildMetaData` 配置项"
+                }
+              ],
+              "defaultLang": "en",
+              "hash7": "bb1da52",
+              "hash8": "bb1da529",
+              "commitUrl": "https://github.com/ymind/maven-semantic-gitlog/commit/bb1da529c03b0dd572669b127aa4ca056851245a",
+              "commitType": "feat",
+              "commitPackage": null,
+              "commitScope": "mojo",
+              "commitSubject": "add `preRelease` and `buildMetaData` configuration",
+              "commitBody": null,
+              "attention": false,
+              "breakingChange": false,
+              "deprecated": false,
+              "authorEmailAddress": "ymind@yi.team",
+              "authorName": "ymind",
+              "commitTime": "2020-02-04 14:59:57",
+              "commitTimeLong": 1580828397000,
+              "hash": "bb1da529c03b0dd",
+              "hashFull": "bb1da529c03b0dd572669b127aa4ca056851245a",
+              "merge": false,
+              "message": "feat(mojo): add `preRelease` and `buildMetaData` configuration"
+            },
+            {
+              "quickActions": {},
+              "closeIssues": [],
+              "subjectIssues": [],
+              "bodyIssues": [],
+              "mentions": [],
+              "locales": [
+                {
+                  "commitHash": "24ff4b29",
+                  "lang": "zh-cn",
+                  "commitType": null,
+                  "subject": "添加多模板支持"
+                }
+              ],
+              "defaultLang": "en",
+              "hash7": "24ff4b2",
+              "hash8": "24ff4b29",
+              "commitUrl": "https://github.com/ymind/maven-semantic-gitlog/commit/24ff4b29d63e9fa78f5677bc067fbc9a6d5d485c",
+              "commitType": "feat",
+              "commitPackage": null,
+              "commitScope": "mojo",
+              "commitSubject": "add multi-template filesets support",
+              "commitBody": null,
+              "attention": false,
+              "breakingChange": false,
+              "deprecated": false,
+              "authorEmailAddress": "ymind@yi.team",
+              "authorName": "ymind",
+              "commitTime": "2020-02-04 02:59:15",
+              "commitTimeLong": 1580785155000,
+              "hash": "24ff4b29d63e9fa",
+              "hashFull": "24ff4b29d63e9fa78f5677bc067fbc9a6d5d485c",
+              "merge": false,
+              "message": "feat(mojo): add multi-template filesets support"
+            },
+            {
+              "quickActions": {},
+              "closeIssues": [],
+              "subjectIssues": [],
+              "bodyIssues": [],
+              "mentions": [],
+              "locales": [
+                {
+                  "commitHash": "8671b566",
+                  "lang": "zh-cn",
+                  "commitType": null,
+                  "subject": "添加 `closeIssueActions` 配置项"
+                }
+              ],
+              "defaultLang": "en",
+              "hash7": "8671b56",
+              "hash8": "8671b566",
+              "commitUrl": "https://github.com/ymind/maven-semantic-gitlog/commit/8671b5665f1e12a758be474d0f68b5c22fdf8371",
+              "commitType": "feat",
+              "commitPackage": null,
+              "commitScope": "mojo",
+              "commitSubject": "add `closeIssueActions` configuration",
+              "commitBody": null,
+              "attention": false,
+              "breakingChange": false,
+              "deprecated": false,
+              "authorEmailAddress": "ymind@yi.team",
+              "authorName": "ymind",
+              "commitTime": "2020-02-03 14:22:37",
+              "commitTimeLong": 1580739757000,
+              "hash": "8671b5665f1e12a",
+              "hashFull": "8671b5665f1e12a758be474d0f68b5c22fdf8371",
+              "merge": false,
+              "message": "feat(mojo): add `closeIssueActions` configuration"
+            },
+            {
+              "quickActions": {},
+              "closeIssues": [],
+              "subjectIssues": [],
+              "bodyIssues": [],
+              "mentions": [],
+              "locales": [
+                {
+                  "commitHash": "1b4efac7",
+                  "lang": "zh-cn",
+                  "commitType": null,
+                  "subject": "兼容 `angular-style` 的最新格式"
+                }
+              ],
+              "defaultLang": "en",
+              "hash7": "1b4efac",
+              "hash8": "1b4efac7",
+              "commitUrl": "https://github.com/ymind/maven-semantic-gitlog/commit/1b4efac7649ec56f345da1c7735ed40707e4761b",
+              "commitType": "feat",
+              "commitPackage": null,
+              "commitScope": "mojo",
+              "commitSubject": "compatible with new `angular-style` commit message format",
+              "commitBody": "more info: https://github.com/angular/components/blob/master/CONTRIBUTING.md",
+              "attention": false,
+              "breakingChange": false,
+              "deprecated": false,
+              "authorEmailAddress": "ymind@yi.team",
+              "authorName": "ymind",
+              "commitTime": "2020-02-03 10:28:09",
+              "commitTimeLong": 1580725689000,
+              "hash": "1b4efac7649ec56",
+              "hashFull": "1b4efac7649ec56f345da1c7735ed40707e4761b",
+              "merge": false,
+              "message": "feat(mojo): compatible with new `angular-style` commit message format\n\nmore info: https://github.com/angular/components/blob/master/CONTRIBUTING.md"
+            },
+            {
+              "quickActions": {},
+              "closeIssues": [],
+              "subjectIssues": [],
+              "bodyIssues": [],
+              "mentions": [],
+              "locales": [
+                {
+                  "commitHash": "edd55e47",
+                  "lang": "zh-cn",
+                  "commitType": null,
+                  "subject": "添加 `commitIssuePattern` 配置项"
+                }
+              ],
+              "defaultLang": "en",
+              "hash7": "edd55e4",
+              "hash8": "edd55e47",
+              "commitUrl": "https://github.com/ymind/maven-semantic-gitlog/commit/edd55e47eba382f91e3d79dbb0ff3a6b9cfea905",
+              "commitType": "feat",
+              "commitPackage": null,
+              "commitScope": "git-changelog",
+              "commitSubject": "add `commitIssuePattern` configuration",
+              "commitBody": "Removed:\n- GitReleaseCommit.getFirstIssue()\n- GitReleaseCommit.getFirstIssueId()\n- GitReleaseCommit.getFirstIssueUrl()\n- GitReleaseCommit.getFirstIssueAction()",
+              "attention": false,
+              "breakingChange": false,
+              "deprecated": false,
+              "authorEmailAddress": "ymind@yi.team",
+              "authorName": "ymind",
+              "commitTime": "2020-02-02 06:32:15",
+              "commitTimeLong": 1580625135000,
+              "hash": "edd55e47eba382f",
+              "hashFull": "edd55e47eba382f91e3d79dbb0ff3a6b9cfea905",
+              "merge": false,
+              "message": "feat(git-changelog): add `commitIssuePattern` configuration\n\nRemoved:\n- GitReleaseCommit.getFirstIssue()\n- GitReleaseCommit.getFirstIssueId()\n- GitReleaseCommit.getFirstIssueUrl()\n- GitReleaseCommit.getFirstIssueAction()"
+            },
+            {
+              "quickActions": {},
+              "closeIssues": [],
+              "subjectIssues": [],
+              "bodyIssues": [],
+              "mentions": [],
+              "locales": [
+                {
+                  "commitHash": "3d957eda",
+                  "lang": "zh-cn",
+                  "commitType": null,
+                  "subject": "添加 `quickActionPattern` 配置项"
+                }
+              ],
+              "defaultLang": "en",
+              "hash7": "3d957ed",
+              "hash8": "3d957eda",
+              "commitUrl": "https://github.com/ymind/maven-semantic-gitlog/commit/3d957edab53e1f50d95cac6d3b0b19b0719efcf6",
+              "commitType": "feat",
+              "commitPackage": null,
+              "commitScope": "git-changelog",
+              "commitSubject": "add `quickActionPattern` configuration",
+              "commitBody": "see more:\n- github:\n  - https://help.github.com/en/github/managing-your-work-on-github/closing-issues-using-keywords\n  - https://regex101.com/r/8Ri0cJ/1/\n- gitlab:\n  - https://docs.gitlab.com/ee/user/project/quick_actions.html\n  - https://regex101.com/r/8FopGS/1/",
+              "attention": false,
+              "breakingChange": false,
+              "deprecated": false,
+              "authorEmailAddress": "ymind@yi.team",
+              "authorName": "ymind",
+              "commitTime": "2020-02-01 15:56:59",
+              "commitTimeLong": 1580572619000,
+              "hash": "3d957edab53e1f5",
+              "hashFull": "3d957edab53e1f50d95cac6d3b0b19b0719efcf6",
+              "merge": false,
+              "message": "feat(git-changelog): add `quickActionPattern` configuration\n\nsee more:\n- github:\n  - https://help.github.com/en/github/managing-your-work-on-github/closing-issues-using-keywords\n  - https://regex101.com/r/8Ri0cJ/1/\n- gitlab:\n  - https://docs.gitlab.com/ee/user/project/quick_actions.html\n  - https://regex101.com/r/8FopGS/1/"
+            }
+          ]
+        },
+        {
+          "title": "Code Refactoring",
+          "commits": [
+            {
+              "quickActions": {},
+              "closeIssues": [],
+              "subjectIssues": [],
+              "bodyIssues": [],
+              "mentions": [],
+              "locales": [
+                {
+                  "commitHash": "db48c20a",
+                  "lang": "zh-cn",
+                  "commitType": null,
+                  "subject": "代码优化"
+                }
+              ],
+              "defaultLang": "en",
+              "hash7": "db48c20",
+              "hash8": "db48c20a",
+              "commitUrl": "https://github.com/ymind/maven-semantic-gitlog/commit/db48c20abca14fce4d5610b0252b519a93214647",
+              "commitType": "refactor",
+              "commitPackage": null,
+              "commitScope": null,
+              "commitSubject": "code optimize",
+              "commitBody": null,
+              "attention": false,
+              "breakingChange": false,
+              "deprecated": false,
+              "authorEmailAddress": "ymind@yi.team",
+              "authorName": "ymind",
+              "commitTime": "2020-02-06 04:19:53",
+              "commitTimeLong": 1580962793000,
+              "hash": "db48c20abca14fc",
+              "hashFull": "db48c20abca14fce4d5610b0252b519a93214647",
+              "merge": false,
+              "message": "refactor: code optimize"
+            },
+            {
+              "quickActions": {},
+              "closeIssues": [],
+              "subjectIssues": [],
+              "bodyIssues": [],
+              "mentions": [],
+              "locales": [
+                {
+                  "commitHash": "1d37706f",
+                  "lang": "zh-cn",
+                  "commitType": null,
+                  "subject": "更新 `DEFAULT_MESSAGE_PATTERN`"
+                }
+              ],
+              "defaultLang": "en",
+              "hash7": "1d37706",
+              "hash8": "1d37706f",
+              "commitUrl": "https://github.com/ymind/maven-semantic-gitlog/commit/1d37706fb04541ef7a2738c23861f158a36ce6cc",
+              "commitType": "refactor",
+              "commitPackage": null,
+              "commitScope": null,
+              "commitSubject": "update `DEFAULT_MESSAGE_PATTERN`",
+              "commitBody": null,
+              "attention": false,
+              "breakingChange": false,
+              "deprecated": false,
+              "authorEmailAddress": "ymind@yi.team",
+              "authorName": "ymind",
+              "commitTime": "2020-02-06 03:59:11",
+              "commitTimeLong": 1580961551000,
+              "hash": "1d37706fb04541e",
+              "hashFull": "1d37706fb04541ef7a2738c23861f158a36ce6cc",
+              "merge": false,
+              "message": "refactor: update `DEFAULT_MESSAGE_PATTERN`"
+            },
+            {
+              "quickActions": {},
+              "closeIssues": [],
+              "subjectIssues": [],
+              "bodyIssues": [],
+              "mentions": [],
+              "locales": [
+                {
+                  "commitHash": "5925f369",
+                  "lang": "zh-cn",
+                  "commitType": null,
+                  "subject": "添加 `hasQuickActions`、`hasSubjectIssues` 和 `hasBodyIssues`"
+                }
+              ],
+              "defaultLang": "en",
+              "hash7": "5925f36",
+              "hash8": "5925f369",
+              "commitUrl": "https://github.com/ymind/maven-semantic-gitlog/commit/5925f369d1e90cc3a0be8eba663eaa7c0e988d24",
+              "commitType": "refactor",
+              "commitPackage": null,
+              "commitScope": null,
+              "commitSubject": "add `hasQuickActions`, `hasSubjectIssues` and `hasBodyIssues`",
+              "commitBody": null,
+              "attention": false,
+              "breakingChange": false,
+              "deprecated": false,
+              "authorEmailAddress": "ymind@yi.team",
+              "authorName": "ymind",
+              "commitTime": "2020-02-06 03:55:32",
+              "commitTimeLong": 1580961332000,
+              "hash": "5925f369d1e90cc",
+              "hashFull": "5925f369d1e90cc3a0be8eba663eaa7c0e988d24",
+              "merge": false,
+              "message": "refactor: add `hasQuickActions`, `hasSubjectIssues` and `hasBodyIssues`"
+            },
+            {
+              "quickActions": {},
+              "closeIssues": [],
+              "subjectIssues": [],
+              "bodyIssues": [],
+              "mentions": [],
+              "locales": [
+                {
+                  "commitHash": "5fd40d4e",
+                  "lang": "zh-cn",
+                  "commitType": null,
+                  "subject": "将配置项 `useCrazyGrowing` 重命名为 `ReleaseStrategy`"
+                }
+              ],
+              "defaultLang": "en",
+              "hash7": "5fd40d4",
+              "hash8": "5fd40d4e",
+              "commitUrl": "https://github.com/ymind/maven-semantic-gitlog/commit/5fd40d4eaa57dd9ec5bb36e5e25691e9e1874275",
+              "commitType": "refactor",
+              "commitPackage": null,
+              "commitScope": "mojo",
+              "commitSubject": "replace `useCrazyGrowing` configuration with `ReleaseStrategy`",
+              "commitBody": null,
+              "attention": false,
+              "breakingChange": false,
+              "deprecated": false,
+              "authorEmailAddress": "ymind@yi.team",
+              "authorName": "ymind",
+              "commitTime": "2020-02-04 03:59:22",
+              "commitTimeLong": 1580788762000,
+              "hash": "5fd40d4eaa57dd9",
+              "hashFull": "5fd40d4eaa57dd9ec5bb36e5e25691e9e1874275",
+              "merge": false,
+              "message": "refactor(mojo): replace `useCrazyGrowing` configuration with `ReleaseStrategy`"
+            },
+            {
+              "quickActions": {},
+              "closeIssues": [],
+              "subjectIssues": [],
+              "bodyIssues": [],
+              "mentions": [],
+              "locales": [
+                {
+                  "commitHash": "bc1609f3",
+                  "lang": "zh-cn",
+                  "commitType": null,
+                  "subject": "项目重构"
+                }
+              ],
+              "defaultLang": "en",
+              "hash7": "bc1609f",
+              "hash8": "bc1609f3",
+              "commitUrl": "https://github.com/ymind/maven-semantic-gitlog/commit/bc1609f3755c8613e02fddb57a1d674ded373d47",
+              "commitType": "refactor",
+              "commitPackage": null,
+              "commitScope": null,
+              "commitSubject": "refactor project",
+              "commitBody": null,
+              "attention": false,
+              "breakingChange": false,
+              "deprecated": false,
+              "authorEmailAddress": "ymind@yi.team",
+              "authorName": "ymind",
+              "commitTime": "2020-02-02 16:20:11",
+              "commitTimeLong": 1580660411000,
+              "hash": "bc1609f3755c861",
+              "hashFull": "bc1609f3755c8613e02fddb57a1d674ded373d47",
+              "merge": false,
+              "message": "refactor: refactor project"
+            },
+            {
+              "quickActions": {},
+              "closeIssues": [],
+              "subjectIssues": [],
+              "bodyIssues": [],
+              "mentions": [],
+              "locales": [
+                {
+                  "commitHash": "2b80de94",
+                  "lang": "zh-cn",
+                  "commitType": null,
+                  "subject": "将字段 `newVersion` 重命名为 `nextVersion`"
+                }
+              ],
+              "defaultLang": "en",
+              "hash7": "2b80de9",
+              "hash8": "2b80de94",
+              "commitUrl": "https://github.com/ymind/maven-semantic-gitlog/commit/2b80de941ef1bc245a47f9a1c0920b106b847936",
+              "commitType": "refactor",
+              "commitPackage": null,
+              "commitScope": "git-changelog",
+              "commitSubject": "change field name `newVersion` to `nextVersion`",
+              "commitBody": null,
+              "attention": false,
+              "breakingChange": false,
+              "deprecated": false,
+              "authorEmailAddress": "ymind@yi.team",
+              "authorName": "ymind",
+              "commitTime": "2020-02-01 11:27:54",
+              "commitTimeLong": 1580556474000,
+              "hash": "2b80de941ef1bc2",
+              "hashFull": "2b80de941ef1bc245a47f9a1c0920b106b847936",
+              "merge": false,
+              "message": "refactor(git-changelog): change field name `newVersion` to `nextVersion`"
+            }
+          ]
+        },
+        {
+          "title": "Styles",
+          "commits": [
+            {
+              "quickActions": {},
+              "closeIssues": [],
+              "subjectIssues": [],
+              "bodyIssues": [],
+              "mentions": [],
+              "locales": [
+                {
+                  "commitHash": "6750c9ef",
+                  "lang": "zh-cn",
+                  "commitType": null,
+                  "subject": "调整 `.xml` 和 `.json` 的缩进"
+                }
+              ],
+              "defaultLang": "en",
+              "hash7": "6750c9e",
+              "hash8": "6750c9ef",
+              "commitUrl": "https://github.com/ymind/maven-semantic-gitlog/commit/6750c9ef5cec141c61defe3d63570b8b4a824de5",
+              "commitType": "style",
+              "commitPackage": null,
+              "commitScope": null,
+              "commitSubject": "adjust the indent size of `.xml` and `.json` files",
+              "commitBody": null,
+              "attention": false,
+              "breakingChange": false,
+              "deprecated": false,
+              "authorEmailAddress": "ymind@yi.team",
+              "authorName": "ymind",
+              "commitTime": "2020-02-02 05:29:49",
+              "commitTimeLong": 1580621389000,
+              "hash": "6750c9ef5cec141",
+              "hashFull": "6750c9ef5cec141c61defe3d63570b8b4a824de5",
+              "merge": false,
+              "message": "style: adjust the indent size of `.xml` and `.json` files"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "version": {
+        "major": 0,
+        "minor": 2,
+        "patch": 0,
+        "preReleaseParts": [],
+        "buildMetaDataParts": [],
+        "preRelease": null,
+        "buildMetaData": null,
+        "hash": 925444
+      },
+      "releaseDate": {
+        "date": "Jan 29, 2020 5:21:37 AM",
+        "longDate": "2020-01-29 05:21:37",
+        "shortDate": "2020-01-29"
+      },
+      "description": null,
+      "sections": [
+        {
+          "title": "Bug Fixes",
+          "commits": [
+            {
+              "quickActions": {},
+              "closeIssues": [],
+              "subjectIssues": [],
+              "bodyIssues": [],
+              "mentions": [],
+              "locales": [
+                {
+                  "commitHash": "545aa511",
+                  "lang": "zh-cn",
+                  "commitType": null,
+                  "subject": "修复 `releaseDate` 数据类型"
+                }
+              ],
+              "defaultLang": "en",
+              "hash7": "545aa51",
+              "hash8": "545aa511",
+              "commitUrl": "https://github.com/ymind/maven-semantic-gitlog/commit/545aa511aefb5bbd02b78b73fa37a6f69cf6d1e7",
+              "commitType": "fix",
+              "commitPackage": null,
+              "commitScope": "git-changelog",
+              "commitSubject": "fix releaseDate data type error",
+              "commitBody": null,
+              "attention": false,
+              "breakingChange": false,
+              "deprecated": false,
+              "authorEmailAddress": "ymind@yi.team",
+              "authorName": "ymind",
+              "commitTime": "2020-01-29 03:53:54",
+              "commitTimeLong": 1580270034000,
+              "hash": "545aa511aefb5bb",
+              "hashFull": "545aa511aefb5bbd02b78b73fa37a6f69cf6d1e7",
+              "merge": false,
+              "message": "fix(git-changelog): fix releaseDate data type error"
+            },
+            {
+              "quickActions": {},
+              "closeIssues": [],
+              "subjectIssues": [],
+              "bodyIssues": [],
+              "mentions": [],
+              "locales": [
+                {
+                  "commitHash": "f765dbb9",
+                  "lang": "zh-cn",
+                  "commitType": null,
+                  "subject": "修正提交记录的 `fullHash` 属性"
+                }
+              ],
+              "defaultLang": "en",
+              "hash7": "f765dbb",
+              "hash8": "f765dbb9",
+              "commitUrl": "https://github.com/ymind/maven-semantic-gitlog/commit/f765dbb9aeb77eb731e5b787e13bb471ad0abbdf",
+              "commitType": "fix",
+              "commitPackage": null,
+              "commitScope": "gitReleaseCommit",
+              "commitSubject": "fix commit fullHash property",
+              "commitBody": null,
+              "attention": false,
+              "breakingChange": false,
+              "deprecated": false,
+              "authorEmailAddress": "ymind@yi.team",
+              "authorName": "ymind",
+              "commitTime": "2020-01-29 02:49:41",
+              "commitTimeLong": 1580266181000,
+              "hash": "f765dbb9aeb77eb",
+              "hashFull": "f765dbb9aeb77eb731e5b787e13bb471ad0abbdf",
+              "merge": false,
+              "message": "fix(gitReleaseCommit): fix commit fullHash property"
+            }
+          ]
+        },
+        {
+          "title": "Chores",
+          "commits": [
+            {
+              "quickActions": {},
+              "closeIssues": [],
+              "subjectIssues": [],
+              "bodyIssues": [],
+              "mentions": [],
+              "locales": [
+                {
+                  "commitHash": "3eb99c35",
+                  "lang": "zh-cn",
+                  "commitType": null,
+                  "subject": "更新 `pom.xml`"
+                }
+              ],
+              "defaultLang": "en",
+              "hash7": "3eb99c3",
+              "hash8": "3eb99c35",
+              "commitUrl": "https://github.com/ymind/maven-semantic-gitlog/commit/3eb99c357e7c2736771a1081aa29f38e62f89885",
+              "commitType": "chore",
+              "commitPackage": null,
+              "commitScope": null,
+              "commitSubject": "update pom.xml",
+              "commitBody": null,
+              "attention": false,
+              "breakingChange": false,
+              "deprecated": false,
+              "authorEmailAddress": "ymind@yi.team",
+              "authorName": "ymind",
+              "commitTime": "2020-01-29 05:10:13",
+              "commitTimeLong": 1580274613000,
+              "hash": "3eb99c357e7c273",
+              "hashFull": "3eb99c357e7c2736771a1081aa29f38e62f89885",
+              "merge": false,
+              "message": "chore: update pom.xml"
+            }
+          ]
+        },
+        {
+          "title": "Documentation",
+          "commits": [
+            {
+              "quickActions": {},
+              "closeIssues": [],
+              "subjectIssues": [],
+              "bodyIssues": [],
+              "mentions": [],
+              "locales": [
+                {
+                  "commitHash": "fcfe57ae",
+                  "lang": "zh-cn",
+                  "commitType": null,
+                  "subject": "添加更新日志页"
+                }
+              ],
+              "defaultLang": "en",
+              "hash7": "fcfe57a",
+              "hash8": "fcfe57ae",
+              "commitUrl": "https://github.com/ymind/maven-semantic-gitlog/commit/fcfe57ae6ba5f79ef132446c55460af582940895",
+              "commitType": "docs",
+              "commitPackage": null,
+              "commitScope": "docs",
+              "commitSubject": "add changelog page",
+              "commitBody": null,
+              "attention": false,
+              "breakingChange": false,
+              "deprecated": false,
+              "authorEmailAddress": "ymind@yi.team",
+              "authorName": "ymind",
+              "commitTime": "2020-01-28 16:04:44",
+              "commitTimeLong": 1580227484000,
+              "hash": "fcfe57ae6ba5f79",
+              "hashFull": "fcfe57ae6ba5f79ef132446c55460af582940895",
+              "merge": false,
+              "message": "docs(docs): add changelog page"
+            },
+            {
+              "quickActions": {},
+              "closeIssues": [],
+              "subjectIssues": [],
+              "bodyIssues": [],
+              "mentions": [],
+              "locales": [
+                {
+                  "commitHash": "92909a16",
+                  "lang": "zh-cn",
+                  "commitType": null,
+                  "subject": "更新 `README.md`"
+                }
+              ],
+              "defaultLang": "en",
+              "hash7": "92909a1",
+              "hash8": "92909a16",
+              "commitUrl": "https://github.com/ymind/maven-semantic-gitlog/commit/92909a164b611c242721b2ad0643f5549aabd32e",
+              "commitType": "docs",
+              "commitPackage": null,
+              "commitScope": "docs",
+              "commitSubject": "update README.md",
+              "commitBody": null,
+              "attention": false,
+              "breakingChange": false,
+              "deprecated": false,
+              "authorEmailAddress": "ymind@yi.team",
+              "authorName": "ymind",
+              "commitTime": "2020-01-28 13:19:57",
+              "commitTimeLong": 1580217597000,
+              "hash": "92909a164b611c2",
+              "hashFull": "92909a164b611c242721b2ad0643f5549aabd32e",
+              "merge": false,
+              "message": "docs(docs): update README.md"
+            },
+            {
+              "quickActions": {},
+              "closeIssues": [],
+              "subjectIssues": [],
+              "bodyIssues": [],
+              "mentions": [],
+              "locales": [
+                {
+                  "commitHash": "630a1a33",
+                  "lang": "zh-cn",
+                  "commitType": null,
+                  "subject": "添加或更新徽标"
+                }
+              ],
+              "defaultLang": "en",
+              "hash7": "630a1a3",
+              "hash8": "630a1a33",
+              "commitUrl": "https://github.com/ymind/maven-semantic-gitlog/commit/630a1a33adc4e76370502f0d842a2c50beeb3234",
+              "commitType": "docs",
+              "commitPackage": null,
+              "commitScope": "docs",
+              "commitSubject": "add or update badges",
+              "commitBody": null,
+              "attention": false,
+              "breakingChange": false,
+              "deprecated": false,
+              "authorEmailAddress": "ymind@yi.team",
+              "authorName": "ymind",
+              "commitTime": "2020-01-28 13:18:47",
+              "commitTimeLong": 1580217527000,
+              "hash": "630a1a33adc4e76",
+              "hashFull": "630a1a33adc4e76370502f0d842a2c50beeb3234",
+              "merge": false,
+              "message": "docs(docs): add or update badges"
+            }
+          ]
+        },
+        {
+          "title": "Styles",
+          "commits": [
+            {
+              "quickActions": {},
+              "closeIssues": [],
+              "subjectIssues": [],
+              "bodyIssues": [],
+              "mentions": [],
+              "locales": [
+                {
+                  "commitHash": "a131dcf6",
+                  "lang": "zh-cn",
+                  "commitType": null,
+                  "subject": "更新 `checkstyle.xml`"
+                }
+              ],
+              "defaultLang": "en",
+              "hash7": "a131dcf",
+              "hash8": "a131dcf6",
+              "commitUrl": "https://github.com/ymind/maven-semantic-gitlog/commit/a131dcf6e3b92af8048e5c7d2dc2546b86633ce2",
+              "commitType": "style",
+              "commitPackage": null,
+              "commitScope": "checkstyle",
+              "commitSubject": "update checkstyle.xml",
+              "commitBody": null,
+              "attention": false,
+              "breakingChange": false,
+              "deprecated": false,
+              "authorEmailAddress": "ymind@yi.team",
+              "authorName": "ymind",
+              "commitTime": "2020-01-29 02:50:34",
+              "commitTimeLong": 1580266234000,
+              "hash": "a131dcf6e3b92af",
+              "hashFull": "a131dcf6e3b92af8048e5c7d2dc2546b86633ce2",
+              "merge": false,
+              "message": "style(checkstyle): update checkstyle.xml"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "version": {
+        "major": 0,
+        "minor": 1,
+        "patch": 0,
+        "preReleaseParts": [],
+        "buildMetaDataParts": [],
+        "preRelease": null,
+        "buildMetaData": null,
+        "hash": 924483
+      },
+      "releaseDate": {
+        "date": "Jan 28, 2020 12:24:32 PM",
+        "longDate": "2020-01-28 12:24:32",
+        "shortDate": "2020-01-28"
+      },
+      "description": null,
+      "sections": [
+        {
+          "title": "Chores",
+          "commits": [
+            {
+              "quickActions": {},
+              "closeIssues": [],
+              "subjectIssues": [],
+              "bodyIssues": [],
+              "mentions": [],
+              "locales": [
+                {
+                  "commitHash": "2a69b52d",
+                  "lang": "zh-cn",
+                  "commitType": null,
+                  "subject": "更新 `pmd` 版本"
+                }
+              ],
+              "defaultLang": "en",
+              "hash7": "2a69b52",
+              "hash8": "2a69b52d",
+              "commitUrl": "https://github.com/ymind/maven-semantic-gitlog/commit/2a69b52d9052b60c4a515063bcb2c39d6a4f9511",
+              "commitType": "chore",
+              "commitPackage": null,
+              "commitScope": "deps",
+              "commitSubject": "bump pmdVersion from 6.20.0 to 6.21.0",
+              "commitBody": "Bumps `pmdVersion` from 6.20.0 to 6.21.0.\n\nUpdates `pmd-core` from 6.20.0 to 6.21.0\n- [Release notes](https://github.com/pmd/pmd/releases)\n- [Commits](https://github.com/pmd/pmd/compare/pmd_releases/6.20.0...pmd_releases/6.21.0)\n\nUpdates `pmd-java` from 6.20.0 to 6.21.0\n- [Release notes](https://github.com/pmd/pmd/releases)\n- [Commits](https://github.com/pmd/pmd/compare/pmd_releases/6.20.0...pmd_releases/6.21.0)\n\nUpdates `pmd-javascript` from 6.20.0 to 6.21.0\n- [Release notes](https://github.com/pmd/pmd/releases)\n- [Commits](https://github.com/pmd/pmd/compare/pmd_releases/6.20.0...pmd_releases/6.21.0)\n\nUpdates `pmd-jsp` from 6.20.0 to 6.21.0\n- [Release notes](https://github.com/pmd/pmd/releases)\n- [Commits](https://github.com/pmd/pmd/compare/pmd_releases/6.20.0...pmd_releases/6.21.0)\n\nSigned-off-by: dependabot-preview[bot] \u003csupport@dependabot.com\u003e",
+              "attention": false,
+              "breakingChange": false,
+              "deprecated": false,
+              "authorEmailAddress": "27856297+dependabot-preview[bot]@users.noreply.github.com",
+              "authorName": "dependabot-preview[bot]",
+              "commitTime": "2020-01-28 11:29:03",
+              "commitTimeLong": 1580210943000,
+              "hash": "2a69b52d9052b60",
+              "hashFull": "2a69b52d9052b60c4a515063bcb2c39d6a4f9511",
+              "merge": false,
+              "message": "chore(deps): bump pmdVersion from 6.20.0 to 6.21.0\n\nBumps `pmdVersion` from 6.20.0 to 6.21.0.\n\nUpdates `pmd-core` from 6.20.0 to 6.21.0\n- [Release notes](https://github.com/pmd/pmd/releases)\n- [Commits](https://github.com/pmd/pmd/compare/pmd_releases/6.20.0...pmd_releases/6.21.0)\n\nUpdates `pmd-java` from 6.20.0 to 6.21.0\n- [Release notes](https://github.com/pmd/pmd/releases)\n- [Commits](https://github.com/pmd/pmd/compare/pmd_releases/6.20.0...pmd_releases/6.21.0)\n\nUpdates `pmd-javascript` from 6.20.0 to 6.21.0\n- [Release notes](https://github.com/pmd/pmd/releases)\n- [Commits](https://github.com/pmd/pmd/compare/pmd_releases/6.20.0...pmd_releases/6.21.0)\n\nUpdates `pmd-jsp` from 6.20.0 to 6.21.0\n- [Release notes](https://github.com/pmd/pmd/releases)\n- [Commits](https://github.com/pmd/pmd/compare/pmd_releases/6.20.0...pmd_releases/6.21.0)\n\nSigned-off-by: dependabot-preview[bot] \u003csupport@dependabot.com\u003e"
+            },
+            {
+              "quickActions": {},
+              "closeIssues": [],
+              "subjectIssues": [],
+              "bodyIssues": [],
+              "mentions": [],
+              "locales": [
+                {
+                  "commitHash": "a6bc1482",
+                  "lang": "zh-cn",
+                  "commitType": null,
+                  "subject": "更新 `checkstyle` 版本"
+                }
+              ],
+              "defaultLang": "en",
+              "hash7": "a6bc148",
+              "hash8": "a6bc1482",
+              "commitUrl": "https://github.com/ymind/maven-semantic-gitlog/commit/a6bc148222fe161f8a5315f4378c97964df6057d",
+              "commitType": "chore",
+              "commitPackage": null,
+              "commitScope": "deps",
+              "commitSubject": "bump checkstyle from 8.27 to 8.29",
+              "commitBody": "Bumps [checkstyle](https://github.com/checkstyle/checkstyle) from 8.27 to 8.29.\n- [Release notes](https://github.com/checkstyle/checkstyle/releases)\n- [Commits](https://github.com/checkstyle/checkstyle/compare/checkstyle-8.27...checkstyle-8.29)\n\nSigned-off-by: dependabot-preview[bot] \u003csupport@dependabot.com\u003e",
+              "attention": false,
+              "breakingChange": false,
+              "deprecated": false,
+              "authorEmailAddress": "27856297+dependabot-preview[bot]@users.noreply.github.com",
+              "authorName": "dependabot-preview[bot]",
+              "commitTime": "2020-01-28 11:28:41",
+              "commitTimeLong": 1580210921000,
+              "hash": "a6bc148222fe161",
+              "hashFull": "a6bc148222fe161f8a5315f4378c97964df6057d",
+              "merge": false,
+              "message": "chore(deps): bump checkstyle from 8.27 to 8.29\n\nBumps [checkstyle](https://github.com/checkstyle/checkstyle) from 8.27 to 8.29.\n- [Release notes](https://github.com/checkstyle/checkstyle/releases)\n- [Commits](https://github.com/checkstyle/checkstyle/compare/checkstyle-8.27...checkstyle-8.29)\n\nSigned-off-by: dependabot-preview[bot] \u003csupport@dependabot.com\u003e"
+            },
+            {
+              "quickActions": {},
+              "closeIssues": [],
+              "subjectIssues": [],
+              "bodyIssues": [],
+              "mentions": [],
+              "locales": [
+                {
+                  "commitHash": "b3f41bd4",
+                  "lang": "zh-cn",
+                  "commitType": null,
+                  "subject": "添加 `CHANGELOG.md`"
+                }
+              ],
+              "defaultLang": "en",
+              "hash7": "b3f41bd",
+              "hash8": "b3f41bd4",
+              "commitUrl": "https://github.com/ymind/maven-semantic-gitlog/commit/b3f41bd49b6b7d02a2ae33f7a8833524e072d590",
+              "commitType": "chore",
+              "commitPackage": null,
+              "commitScope": null,
+              "commitSubject": "add `CHANGELOG.md`",
+              "commitBody": null,
+              "attention": false,
+              "breakingChange": false,
+              "deprecated": false,
+              "authorEmailAddress": "ymind@yi.team",
+              "authorName": "ymind",
+              "commitTime": "2020-01-28 11:24:16",
+              "commitTimeLong": 1580210656000,
+              "hash": "b3f41bd49b6b7d0",
+              "hashFull": "b3f41bd49b6b7d02a2ae33f7a8833524e072d590",
+              "merge": false,
+              "message": "chore: add `CHANGELOG.md`"
+            }
+          ]
+        },
+        {
+          "title": "Documentation",
+          "commits": [
+            {
+              "quickActions": {},
+              "closeIssues": [],
+              "subjectIssues": [],
+              "bodyIssues": [],
+              "mentions": [],
+              "locales": [
+                {
+                  "commitHash": "1978d19b",
+                  "lang": "zh-cn",
+                  "commitType": null,
+                  "subject": "添加文档"
+                }
+              ],
+              "defaultLang": "en",
+              "hash7": "1978d19",
+              "hash8": "1978d19b",
+              "commitUrl": "https://github.com/ymind/maven-semantic-gitlog/commit/1978d19b1c381784153787fa6a0f5673bdab8336",
+              "commitType": "docs",
+              "commitPackage": null,
+              "commitScope": "docs",
+              "commitSubject": "add docs",
+              "commitBody": null,
+              "attention": false,
+              "breakingChange": false,
+              "deprecated": false,
+              "authorEmailAddress": "ymind@yi.team",
+              "authorName": "ymind",
+              "commitTime": "2020-01-28 11:13:56",
+              "commitTimeLong": 1580210036000,
+              "hash": "1978d19b1c38178",
+              "hashFull": "1978d19b1c381784153787fa6a0f5673bdab8336",
+              "merge": false,
+              "message": "docs(docs): add docs"
+            }
+          ]
+        },
+        {
+          "title": "Features",
+          "commits": [
+            {
+              "quickActions": {},
+              "closeIssues": [],
+              "subjectIssues": [],
+              "bodyIssues": [],
+              "mentions": [],
+              "locales": [
+                {
+                  "commitHash": "4367c63d",
+                  "lang": "zh-cn",
+                  "commitType": null,
+                  "subject": "添加 `semantic-gitlog:derive` 目标"
+                }
+              ],
+              "defaultLang": "en",
+              "hash7": "4367c63",
+              "hash8": "4367c63d",
+              "commitUrl": "https://github.com/ymind/maven-semantic-gitlog/commit/4367c63de29e56fa40044341ac0273a622a4b6b8",
+              "commitType": "feat",
+              "commitPackage": null,
+              "commitScope": "derive",
+              "commitSubject": "add `semantic-gitlog:derive` goal",
+              "commitBody": null,
+              "attention": false,
+              "breakingChange": false,
+              "deprecated": false,
+              "authorEmailAddress": "ymind@yi.team",
+              "authorName": "ymind",
+              "commitTime": "2020-01-28 11:13:37",
+              "commitTimeLong": 1580210017000,
+              "hash": "4367c63de29e56f",
+              "hashFull": "4367c63de29e56fa40044341ac0273a622a4b6b8",
+              "merge": false,
+              "message": "feat(derive): add `semantic-gitlog:derive` goal"
+            },
+            {
+              "quickActions": {},
+              "closeIssues": [],
+              "subjectIssues": [],
+              "bodyIssues": [],
+              "mentions": [],
+              "locales": [
+                {
+                  "commitHash": "8d964149",
+                  "lang": "zh-cn",
+                  "commitType": null,
+                  "subject": "实现主要功能"
+                }
+              ],
+              "defaultLang": "en",
+              "hash7": "8d96414",
+              "hash8": "8d964149",
+              "commitUrl": "https://github.com/ymind/maven-semantic-gitlog/commit/8d9641496af9c52ef39540c32980e3732c878ca7",
+              "commitType": "feat",
+              "commitPackage": null,
+              "commitScope": "git-changelog",
+              "commitSubject": "implement main features and challenges",
+              "commitBody": null,
+              "attention": false,
+              "breakingChange": false,
+              "deprecated": false,
+              "authorEmailAddress": "ymind@yi.team",
+              "authorName": "ymind",
+              "commitTime": "2020-01-28 11:08:20",
+              "commitTimeLong": 1580209700000,
+              "hash": "8d9641496af9c52",
+              "hashFull": "8d9641496af9c52ef39540c32980e3732c878ca7",
+              "merge": false,
+              "message": "feat(git-changelog): implement main features and challenges"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

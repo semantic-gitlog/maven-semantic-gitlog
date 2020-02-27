@@ -1,12 +1,17 @@
 # Changelog
 
-## 0.16.0 (Unreleased, 2020-02-27)
+## 0.16.1 (2020-02-27)
+
+### Bug Fixes
+
+- **mojo**: fix mojo settings ([ef908f95](https://github.com/ymind/maven-semantic-gitlog/commit/ef908f95f9d41917b9b7d4bf4b15698ae4a1e952))
+
 
 ### Features
 
 - **mojo**: add `commitLocales` configuration, support for localization of commit messages ([37ffa021](https://github.com/ymind/maven-semantic-gitlog/commit/37ffa02133cb474bdb3023b87663364eedce6154))
 - **mojo**: add `isPreRelease` configuration ([24b145ff](https://github.com/ymind/maven-semantic-gitlog/commit/24b145ff0a1c78fa1297fe0f8b933b762fe084d1))
-- support `commitType override` from locale profiles ([da45f7f1](https://github.com/ymind/maven-semantic-gitlog/commit/da45f7f1e0a93181cae363d8a0d43829e84071b6))
+- support `commitType override` from locale profiles ([83796445](https://github.com/ymind/maven-semantic-gitlog/commit/83796445681c0c0d22b2c21c22a757301efef470))
 
 
 ### Documentation
@@ -22,6 +27,11 @@
 ### Chores
 
 - **deps**: bump `lombok` to `1.18.12` ([0caae3b3](https://github.com/ymind/maven-semantic-gitlog/commit/0caae3b3b3da0d8fbb1bfd3a3b5ee9149468976f))
+
+
+### Continuous Integration
+
+- **travis**: add push-back file `CHANGELOG.json` ([c3a30910](https://github.com/ymind/maven-semantic-gitlog/commit/c3a30910d13977960b4e24172ee1cd5c9fdf78dc))
 
 
 ## 0.12.0 (2020-02-06)
