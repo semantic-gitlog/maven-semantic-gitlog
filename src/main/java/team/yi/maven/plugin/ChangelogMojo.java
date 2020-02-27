@@ -6,9 +6,9 @@ import org.apache.maven.plugins.annotations.Parameter;
 import se.bjurr.gitchangelog.api.GitChangelogApi;
 import se.bjurr.gitchangelog.api.exceptions.GitChangelogIntegrationException;
 import se.bjurr.gitchangelog.api.exceptions.GitChangelogRepositoryException;
-import team.yi.maven.plugin.config.FileSet;
-import team.yi.maven.plugin.config.ReleaseLogSettings;
-import team.yi.maven.plugin.service.ReleaseLogService;
+import team.yi.maven.plugin.config.GitlogPluginSettings;
+import team.yi.tools.semanticgitlog.GitlogService;
+import team.yi.tools.semanticgitlog.config.FileSet;
 
 import java.io.File;
 import java.io.IOException;
@@ -20,6 +20,9 @@ import static org.apache.maven.plugins.annotations.LifecyclePhase.PROCESS_SOURCE
 
 @Mojo(name = "changelog", defaultPhase = PROCESS_SOURCES)
 public class ChangelogMojo extends GitChangelogMojo {
+    public static final String DEFAULT_TEMPLATE_FILE = "config/gitlog/CHANGELOG.md.mustache";
+    public static final String DEFAULT_TARGET_FILE = "CHANGELOG.md";
+
     @Parameter(property = "gitlog.fileSets")
     protected Set<FileSet> fileSets;
 
@@ -66,18 +69,18 @@ public class ChangelogMojo extends GitChangelogMojo {
 
         if (fileSets.isEmpty() && !this.isSupplied(this.mediaWikiUrl)) {
             if (log.isInfoEnabled()) {
-                log.info("No output set, using file " + ReleaseLogSettings.DEFAULT_TARGET_FILE);
+                log.info("No output set, using file " + DEFAULT_TARGET_FILE);
             }
 
-            final File template = new File(ReleaseLogSettings.DEFAULT_TEMPLATE_FILE);
-            final File target = new File(ReleaseLogSettings.DEFAULT_TARGET_FILE);
+            final File template = new File(DEFAULT_TEMPLATE_FILE);
+            final File target = new File(DEFAULT_TARGET_FILE);
 
             fileSets.add(new FileSet(template, target));
         }
 
         if (fileSets.isEmpty()) return;
 
-        final ReleaseLogSettings releaseLogSettings = this.getReleaseLogSettings();
+        final GitlogPluginSettings releaseLogSettings = this.getReleaseLogSettings();
 
         if (releaseLogSettings.getDisabled()) {
             for (final FileSet fileSet : fileSets) {
@@ -95,8 +98,8 @@ public class ChangelogMojo extends GitChangelogMojo {
                 }
             }
         } else {
-            final ReleaseLogService releaseLogService = new ReleaseLogService(releaseLogSettings, builder, log);
-            releaseLogService.loadLocales();
+            final GitlogService releaseLogService = new GitlogService(releaseLogSettings, builder);
+
             releaseLogService.saveToFiles(fileSets);
         }
     }

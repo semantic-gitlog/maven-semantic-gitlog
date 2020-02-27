@@ -6,7 +6,7 @@
 
   <groupId>team.yi.maven.plugin</groupId>
   <artifactId>maven-semantic-gitlog</artifactId>
-  <version>0.12.0</version>
+  <version>0.16.0-SNAPSHOT</version>
   <packaging>maven-plugin</packaging>
   <inceptionYear>2020</inceptionYear>
 
@@ -88,18 +88,11 @@
       <scope>provided</scope>
     </dependency>
 
-    <!-- https://github.com/tomasbjerre/git-changelog-lib -->
+    <!-- https://github.com/ymind/semantic-gitlog -->
     <dependency>
-      <groupId>se.bjurr.gitchangelog</groupId>
-      <artifactId>git-changelog-lib</artifactId>
-      <version>1.91</version>
-    </dependency>
-
-    <!-- https://github.com/skuzzle/semantic-version -->
-    <dependency>
-      <groupId>de.skuzzle</groupId>
-      <artifactId>semantic-version</artifactId>
-      <version>2.1.0</version>
+      <groupId>team.yi.tools</groupId>
+      <artifactId>semantic-gitlog</artifactId>
+      <version>0.1.2</version>
     </dependency>
 
     <dependency>
@@ -270,7 +263,7 @@
 
   <profiles>
     <profile>
-      <id>release-plugin</id>
+      <id>mvn-release</id>
 
       <properties>
         <gitlog.toRef>dev</gitlog.toRef>
@@ -304,16 +297,16 @@
           <plugin>
             <groupId>team.yi.maven.plugin</groupId>
             <artifactId>maven-semantic-gitlog</artifactId>
-            <version>0.12.0</version>
+            <version>0.16.0-SNAPSHOT</version>
             <configuration>
               <fileSets>
                 <fileSet>
                   <target>${project.basedir}/CHANGELOG.md</target>
-                  <template>${project.basedir}/config/gitlog/CHANGELOG.tpl.md</template>
+                  <template>${project.basedir}/config/gitlog/CHANGELOG.md.mustache</template>
                 </fileSet>
                 <fileSet>
                   <target>${project.basedir}/CHANGELOG_zh-cn.md</target>
-                  <template>${project.basedir}/config/gitlog/CHANGELOG_zh-cn.tpl.md</template>
+                  <template>${project.basedir}/config/gitlog/CHANGELOG_zh-cn.md.mustache</template>
                 </fileSet>
               </fileSets>
 
@@ -321,6 +314,8 @@
                 <isPreRelease>true</isPreRelease>
                 <strategy>${gitlog.releaseStrategy}</strategy>
                 <forceNextVersion>${gitlog.forceNextVersion}</forceNextVersion>
+
+                <jsonFile>${project.basedir}/CHANGELOG.json</jsonFile>
 
                 <repoBaseUrl>https://github.com/</repoBaseUrl>
                 <repoName>ymind/maven-semantic-gitlog</repoName>
@@ -333,6 +328,7 @@
                 <preRelease>${gitlog.preRelease}</preRelease>
 
                 <commitLocales>
+                  <en>${project.basedir}/config/gitlog/commit-locales.md</en>
                   <zh-cn>${project.basedir}/config/gitlog/commit-locales.zh-cn.md</zh-cn>
                 </commitLocales>
               </releaseLogSettings>

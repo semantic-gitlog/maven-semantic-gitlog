@@ -10,7 +10,7 @@ import se.bjurr.gitchangelog.api.GitChangelogApi;
 import se.bjurr.gitchangelog.api.exceptions.GitChangelogIntegrationException;
 import se.bjurr.gitchangelog.api.exceptions.GitChangelogRepositoryException;
 import team.yi.maven.plugin.config.CustomIssue;
-import team.yi.maven.plugin.config.ReleaseLogSettings;
+import team.yi.maven.plugin.config.GitlogPluginSettings;
 
 import java.io.File;
 import java.io.IOException;
@@ -103,11 +103,10 @@ public abstract class GitChangelogMojo extends AbstractMojo {
     @Parameter(property = "gitlog.skip")
     protected Boolean skip;
 
-    @Parameter
-    private ReleaseLogSettings releaseLogSettings;
+    private GitlogPluginSettings releaseLogSettings;
 
-    protected ReleaseLogSettings getReleaseLogSettings() {
-        if (releaseLogSettings == null) releaseLogSettings = new ReleaseLogSettings();
+    protected GitlogPluginSettings getReleaseLogSettings() {
+        if (releaseLogSettings == null) releaseLogSettings = new GitlogPluginSettings();
 
         return releaseLogSettings;
     }

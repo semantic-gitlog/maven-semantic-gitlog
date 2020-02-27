@@ -7,16 +7,16 @@ import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 import se.bjurr.gitchangelog.api.GitChangelogApi;
 import se.bjurr.gitchangelog.api.exceptions.GitChangelogRepositoryException;
-import team.yi.maven.plugin.config.ReleaseLogSettings;
-import team.yi.maven.plugin.model.ReleaseLog;
-import team.yi.maven.plugin.service.ReleaseLogService;
+import team.yi.maven.plugin.config.GitlogPluginSettings;
+import team.yi.tools.semanticgitlog.GitlogService;
+import team.yi.tools.semanticgitlog.model.ReleaseLog;
 
 @Mojo(name = "derive", defaultPhase = LifecyclePhase.VALIDATE)
 public class DeriveMojo extends GitChangelogMojo {
     @Override
     public void execute(final GitChangelogApi builder) throws GitChangelogRepositoryException {
         final Log log = this.getLog();
-        final ReleaseLogSettings releaseLogSettings = this.getReleaseLogSettings();
+        final GitlogPluginSettings releaseLogSettings = this.getReleaseLogSettings();
 
         if (log.isDebugEnabled()) {
             final Gson gson = new Gson();
@@ -31,7 +31,7 @@ public class DeriveMojo extends GitChangelogMojo {
             return;
         }
 
-        final ReleaseLogService releaseLogService = new ReleaseLogService(releaseLogSettings, builder, log);
+        final GitlogService releaseLogService = new GitlogService(releaseLogSettings, builder);
         final ReleaseLog releaseLog = releaseLogService.generate();
 
         if (releaseLog == null) return;

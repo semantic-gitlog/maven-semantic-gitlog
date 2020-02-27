@@ -69,4 +69,4 @@ chmod +x ./mvnw .travis/*.sh
 git add ./CHANGELOG.md
 git add ./CHANGELOG_*.md
 git add ./pom.xml
-git commit -m "${gitCommit}" && git push origin || true
+git commit --amend -m "${gitCommit}" && git push -f || true

@@ -1,5 +1,29 @@
 # Changelog
 
+## 0.16.0 (Unreleased, 2020-02-27)
+
+### Features
+
+- **mojo**: add `commitLocales` configuration, support for localization of commit messages ([37ffa021](https://github.com/ymind/maven-semantic-gitlog/commit/37ffa02133cb474bdb3023b87663364eedce6154))
+- **mojo**: add `isPreRelease` configuration ([24b145ff](https://github.com/ymind/maven-semantic-gitlog/commit/24b145ff0a1c78fa1297fe0f8b933b762fe084d1))
+- support `commitType override` from locale profiles ([da45f7f1](https://github.com/ymind/maven-semantic-gitlog/commit/da45f7f1e0a93181cae363d8a0d43829e84071b6))
+
+
+### Documentation
+
+- add `organization` information ([6c8107da](https://github.com/ymind/maven-semantic-gitlog/commit/6c8107da5d7c2ab6ec4a13e4d5e0165287ca360c))
+
+
+### BREAKING CHANGES
+
+- **parser**: refactor commit message parser ([5a912bf0](https://github.com/ymind/maven-semantic-gitlog/commit/5a912bf0b52692bc7301713dafabd71e2e7698f1))
+
+
+### Chores
+
+- **deps**: bump `lombok` to `1.18.12` ([0caae3b3](https://github.com/ymind/maven-semantic-gitlog/commit/0caae3b3b3da0d8fbb1bfd3a3b5ee9149468976f))
+
+
 ## 0.12.0 (2020-02-06)
 
 ### Bug Fixes
@@ -44,6 +68,11 @@
 - adjust the indent size of `.xml` and `.json` files ([6750c9ef](https://github.com/ymind/maven-semantic-gitlog/commit/6750c9ef5cec141c61defe3d63570b8b4a824de5))
 
 
+### Chores
+
+- fix PMD issues ([6c87eabd](https://github.com/ymind/maven-semantic-gitlog/commit/6c87eabd7745045ac08f7a529f304bdc5d2c54cc))
+
+
 ### Continuous Integration
 
 - **travis**: fix ci ([e6d39850](https://github.com/ymind/maven-semantic-gitlog/commit/e6d39850936933f5f08f253ae314fa0e78ae749c))
@@ -52,11 +81,6 @@
 - update ci ([0b8cc345](https://github.com/ymind/maven-semantic-gitlog/commit/0b8cc345aed9454846f445206aa3fe564151b9f9))
 - update ci ([88cf4838](https://github.com/ymind/maven-semantic-gitlog/commit/88cf483884819310ceeb12560852fcf2b15c8905))
 - add `ciManagement` info ([111ce4fe](https://github.com/ymind/maven-semantic-gitlog/commit/111ce4fe4e0de7464aefe070c9a20c04ae72e83f))
-
-
-### Others
-
-- fix PMD issues ([6c87eabd](https://github.com/ymind/maven-semantic-gitlog/commit/6c87eabd7745045ac08f7a529f304bdc5d2c54cc))
 
 
 ## 0.2.0 (2020-01-29)
@@ -79,7 +103,7 @@
 - **checkstyle**: update checkstyle.xml ([a131dcf6](https://github.com/ymind/maven-semantic-gitlog/commit/a131dcf6e3b92af8048e5c7d2dc2546b86633ce2))
 
 
-### Others
+### Chores
 
 - update pom.xml ([3eb99c35](https://github.com/ymind/maven-semantic-gitlog/commit/3eb99c357e7c2736771a1081aa29f38e62f89885))
 
@@ -97,7 +121,7 @@
 - **docs**: add docs ([1978d19b](https://github.com/ymind/maven-semantic-gitlog/commit/1978d19b1c381784153787fa6a0f5673bdab8336))
 
 
-### Others
+### Chores
 
 - **deps**: bump pmdVersion from 6.20.0 to 6.21.0 ([2a69b52d](https://github.com/ymind/maven-semantic-gitlog/commit/2a69b52d9052b60c4a515063bcb2c39d6a4f9511))
 - **deps**: bump checkstyle from 8.27 to 8.29 ([a6bc1482](https://github.com/ymind/maven-semantic-gitlog/commit/a6bc148222fe161f8a5315f4378c97964df6057d))
