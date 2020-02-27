@@ -67,5 +67,6 @@ git show-ref
 
 git add ./CHANGELOG.md
 git add ./CHANGELOG_*.md
+git add ./CHANGELOG.json
 git add ./pom.xml
 git commit -m "${gitCommit}" && git push -f || true
