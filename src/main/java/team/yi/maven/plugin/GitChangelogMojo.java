@@ -103,6 +103,7 @@ public abstract class GitChangelogMojo extends AbstractMojo {
     @Parameter(property = "gitlog.skip")
     protected Boolean skip;
 
+    @Parameter
     private GitlogPluginSettings releaseLogSettings;
 
     protected GitlogPluginSettings getReleaseLogSettings() {
