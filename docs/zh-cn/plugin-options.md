@@ -14,7 +14,7 @@
 | `buildMetaData` | 设置 `buildMetaData` 的初始值。默认为 `null`([Understand buildMetaData](https://github.com/skuzzle/semantic-version#usage))。 |
 | `majorTypes` | 当匹配到这些提交类型时增加主版本号（major）。默认仅当发现了 **BREAKING CHANGE** 时才生效。 |
 | `minorTypes` | 当匹配到这些提交类型时增加次版本号（minor）。默认为 `feat`。 |
-| `patchTypes` | 当匹配到这些提交类型时增加修订版本号（patch）。默认为 `fix,perf,revert,refactor,chore`。 |
+| `patchTypes` | 当匹配到这些提交类型时增加修订版本号（patch）。默认为 `refactor,perf,fix,chore,revert,docs,build`。 |
 | `preReleaseTypes` | 当匹配到这些提交类型时增加预发布版本号（preRelease）。默认为 `null`。 |
 | `buildMetaDataTypes` | 当匹配到这些提交类型时增加构建（元数据）版本号（buildMetaData）。默认为 `null`。 |
 | `hiddenTypes` | 这些提交类型将在更新日志中隐藏。默认为 `release`。 |
@@ -23,6 +23,7 @@
 | `mentionUrlTemplate` | 用于构建提名链接的包含 `:username` 占位符的字符串。默认为 `null`。 |
 | `commitLocales` | 包含本地化提交消息的文件集。默认为 `null`。 |
 | `closeIssueActions` | 用于匹配已关闭议题的快捷动作类型。默认为 `close,closes,closed,fix,fixes,fixed,resolve,resolves,resolved`。 |
+| `updateProjectVersion` | 打开或关闭自动更新 `pom.xml` 中 `${project.version}` 的值。 默认为 `false`。 |
 
 > [!TIP]
 > 当 `majorTypes`、`minorTypes`、`patchTypes`、`preReleaseTypes`和`buildMetaDataTypes` 配置了无法匹配的值， 那么对应的版本号将不会有任何变更。

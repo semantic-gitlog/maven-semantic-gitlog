@@ -14,7 +14,7 @@
 | `buildMetaData` | Set the initial value of `buildMetaData`. Default is `null`([Understand buildMetaData](https://github.com/skuzzle/semantic-version#usage)). |
 | `majorTypes` | Increase major version when these commit types are matched. By default only when **BREAKING CHANGE** is discovered. |
 | `minorTypes` | Increase minor version when these commit types are matched. Default is `feat`. |
-| `patchTypes` | Increase patch version when these commit types are matched. Default is `fix,perf,revert,refactor,chore`. |
+| `patchTypes` | Increase patch version when these commit types are matched. Default is `refactor,perf,fix,chore,revert,docs,build`. |
 | `preReleaseTypes` | Increase preRelease version when these commit types are matched. Default is `null`. |
 | `buildMetaDataTypes` | Increase buildMetaData version when these commit types are matched. Default is `null`. |
 | `hiddenTypes` | These commit types are hidden in the changelog. Default is `release`. |
@@ -23,6 +23,7 @@
 | `mentionUrlTemplate` | An url string contains placeholder `:username` to construct mention link. |
 | `commitLocales` | A file set with localized commit messages. Default is `null`. |
 | `closeIssueActions` | A string list that detecting close quick actions. Default is `close,closes,closed,fix,fixes,fixed,resolve,resolves,resolved`. |
+| `updateProjectVersion` | Enable or disable automatic update the `${project.version}` value in `pom.xml`. Default is `false`. |
 
 > [!TIP]
 > When `majorTypes`, `minorTypes`, `patchTypes`, `preReleaseTypes` and `buildMetaDataTypes` set a value that dose not match any commit, the corresponding version number dose not change.

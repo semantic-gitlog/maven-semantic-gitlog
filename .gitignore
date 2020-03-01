@@ -33,6 +33,7 @@ build/
 ### PROJECT ###
 logs/
 pom.xml.versionsBackup
+pom.xml.gitlogBackup
 
 ### CUSTOM CONFIG ###
 .okhttpcache
