@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.17.0-SNAPSHOT (Unreleased, 2020-03-06)
+## 0.18.0 (Unreleased, 2020-03-06)
 
 ### Bug Fixes
 
@@ -9,6 +9,7 @@
 
 ### Features
 
+- **:**: The `git-change-change-lib` dependency has been abandoned. ([7817616b](https://github.com/ymind/maven-semantic-gitlog/commit/7817616b3d4180e5a4a37b273318a29dbbe41d3c))
 - **mojo**: add `updateProjectVersion` configuration ([105f9c25](https://github.com/ymind/maven-semantic-gitlog/commit/105f9c25bc121966b31bc3ea15ca5f3be793727e))
 - **mojo**: add `commitLocales` configuration, support for localization of commit messages ([37ffa021](https://github.com/ymind/maven-semantic-gitlog/commit/37ffa02133cb474bdb3023b87663364eedce6154))
 - **mojo**: add `isPreRelease` configuration ([24b145ff](https://github.com/ymind/maven-semantic-gitlog/commit/24b145ff0a1c78fa1297fe0f8b933b762fe084d1))
