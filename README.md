@@ -10,8 +10,6 @@
 A simple [Semantic Versioning](https://semver.org/) management tool based on [Conventional Commits](https://conventionalcommits.org).
 It automatically derive and manage version numbers and generate [angular-style](https://github.com/angular/angular/blob/master/CONTRIBUTING.md) change logs.
 
-This plugin extended from [git-changelog-lib](https://github.com/tomasbjerre/git-changelog-lib). 
-
 > The [CHANGELOG.md](https://github.com/ymind/maven-semantic-gitlog/blob/master/CHANGELOG.md) of this project is automatically generated with this [template](https://github.com/ymind/maven-semantic-gitlog/blob/master/config/gitlog/CHANGELOG.md.mustache).
 
 ## Usage

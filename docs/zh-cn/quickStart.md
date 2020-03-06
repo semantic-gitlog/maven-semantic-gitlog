@@ -6,7 +6,7 @@
 <plugin>
     <groupId>team.yi.maven.plugin</groupId>
     <artifactId>maven-semantic-gitlog</artifactId>
-    <version>0.1-SNAPSHOT</version>
+    <version>0.17.0</version>
     <configuration>
         <fileSets>
             <fileSet>
@@ -19,20 +19,25 @@
             </fileSet>
         </fileSets>
 
-        <releaseLogSettings>
-            <lastVersion>0.1.0</lastVersion>
-            <strategy>strict</strategy>
+        <updateProjectVersion>false</updateProjectVersion>
+        <isPreRelease>true</isPreRelease>
+        <strategy>${gitlog.releaseStrategy}</strategy>
+        <forceNextVersion>${gitlog.forceNextVersion}</forceNextVersion>
 
-            <commitUrlTemplate>https://github.com/${YOUR_ACCOUNT}/${YOUR_PROJECT_NAME}/commit/:commitId</commitUrlTemplate>
-            <issueUrlTemplate>https://github.com/${YOUR_ACCOUNT}/${YOUR_PROJECT_NAME}/issues/:issueId</issueUrlTemplate>
-            <mentionUrlTemplate>https://github.com/:username</mentionUrlTemplate>
+        <jsonFile>${project.basedir}/CHANGELOG.json</jsonFile>
 
-            <derivedVersionMark>NEXT_VERSION:==</derivedVersionMark>
+        <issueUrlTemplate>${project.scm.url}/issues/:issueId</issueUrlTemplate>
+        <commitUrlTemplate>${project.scm.url}/commit/:commitId</commitUrlTemplate>
+        <mentionUrlTemplate>https://github.com/:username</mentionUrlTemplate>
 
-            <commitLocales>
-                <zh-cn>${project.basedir}/config/gitlog/commit-locales.zh-cn.md</zh-cn>
-            </commitLocales>
-        </releaseLogSettings>
+        <derivedVersionMark>NEXT_VERSION:==</derivedVersionMark>
+
+        <preRelease>${gitlog.preRelease}</preRelease>
+
+        <commitLocales>
+            <en>${project.basedir}/config/gitlog/commit-locales.md</en>
+            <zh-cn>${project.basedir}/config/gitlog/commit-locales.zh-cn.md</zh-cn>
+        </commitLocales>
     </configuration>
 </plugin>
 ```
@@ -43,19 +48,16 @@
 
 ```markdown
 # 更新日志
+# 更新日志
 {{#tags}}
 
-{{#version}}## {{version}} ({{#releaseDate}}{{releaseDate.shortDate}}{{/releaseDate}}{{^releaseDate}}{{now.shortDate}}{{/releaseDate}}){{/version}}{{^version}}## {{nextVersion}} (Unreleased, {{#releaseDate}}{{releaseDate.shortDate}}{{/releaseDate}}{{^releaseDate}}{{now.shortDate}}{{/releaseDate}}){{/version}}
-{{#description}}
-
-{{description}}
-{{/description}}
+{{#version}}## {{version}} ({{#releaseDate}}{{#formatDate}}{{releaseDate}}|yyyy-MM-dd{{/formatDate}}{{/releaseDate}}{{^releaseDate}}{{#formatDate}}{{now}}|yyyy-MM-dd{{/formatDate}}{{/releaseDate}}){{/version}}{{^version}}## {{nextVersion}} (Unreleased, {{#releaseDate}}{{#formatDate}}{{releaseDate}}|yyyy-MM-dd{{/formatDate}}{{/releaseDate}}{{^releaseDate}}{{#formatDate}}{{now}}|yyyy-MM-dd{{/formatDate}}{{/releaseDate}}){{/version}}
 {{#sections}}
 
 ### {{title}}
 
 {{#commits}}
-- {{#commitScope}}**{{commitPackage}}{{commitScope}}**: {{/commitScope}}{{#localeMap}}{{zh-cn.subject}}{{/localeMap}}{{^localeMap}}{{commitSubject}}{{/localeMap}}{{#subjectIssues}} ([#{{id}}]({{url}})){{/subjectIssues}} ([{{hash8}}]({{commitUrl}})){{#hasCloseIssues}}, closes{{#closeIssues}} [#{{id}}]({{url}}){{/closeIssues}}{{/hasCloseIssues}}
+- {{#commitScope}}**{{commitPackage}}{{commitScope}}**: {{/commitScope}}{{#localeMap}}{{& zh-cn.subject}}{{/localeMap}}{{^localeMap}}{{commitSubject}}{{/localeMap}}{{#subjectIssues}} ([#{{id}}]({{url}})){{/subjectIssues}} ([{{hash8}}]({{commitUrl}})){{#hasCloseIssues}}, closes{{#closeIssues}} [#{{id}}]({{url}}){{/closeIssues}}{{/hasCloseIssues}}
 {{/commits}}
 
 {{/sections}}

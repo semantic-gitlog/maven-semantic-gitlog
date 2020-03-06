@@ -4,17 +4,15 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.maven.plugin.logging.Log;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
-import org.apache.maven.project.MavenProject;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-import se.bjurr.gitchangelog.api.GitChangelogApi;
-import se.bjurr.gitchangelog.api.exceptions.GitChangelogIntegrationException;
-import se.bjurr.gitchangelog.api.exceptions.GitChangelogRepositoryException;
-import team.yi.maven.plugin.config.GitlogPluginSettings;
 import team.yi.tools.semanticgitlog.GitlogService;
 import team.yi.tools.semanticgitlog.config.FileSet;
+import team.yi.tools.semanticgitlog.config.GitlogSettings;
+import team.yi.tools.semanticgitlog.git.GitRepo;
 import team.yi.tools.semanticgitlog.model.ReleaseLog;
+import team.yi.tools.semanticgitlog.render.MustacheGitlogRender;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -41,20 +39,11 @@ public class ChangelogMojo extends GitChangelogMojo {
     public static final String DEFAULT_TEMPLATE_FILE = "config/gitlog/CHANGELOG.md.mustache";
     public static final String DEFAULT_TARGET_FILE = "CHANGELOG.md";
 
-    @Parameter(defaultValue = "${project}", readonly = true)
-    private MavenProject project;
     @Parameter(property = "gitlog.fileSets")
-    private Set<FileSet> fileSets;
-    @Parameter(property = "gitlog.mediaWikiUrl")
-    private String mediaWikiUrl;
-    @Parameter(property = "gitlog.mediaWikiTitle")
-    private String mediaWikiTitle;
-    @Parameter(property = "gitlog.mediaWikiUsername")
-    private String mediaWikiUsername;
-    @Parameter(property = "gitlog.mediaWikiPassword")
-    private String mediaWikiPassword;
-    @Parameter(property = "gitlog.updatePomVersion")
-    private Boolean updatePomVersion;
+    protected Set<FileSet> fileSets;
+
+    @Parameter(property = "gitlog.updateProjectVersion")
+    protected Boolean updateProjectVersion;
 
     public Set<FileSet> getFileSets() {
         if (this.fileSets == null || this.fileSets.isEmpty()) return fileSets;
@@ -66,26 +55,18 @@ public class ChangelogMojo extends GitChangelogMojo {
     }
 
     @Override
-    public void execute(final GitChangelogApi builder)
-        throws IOException,
-        GitChangelogRepositoryException,
-        GitChangelogIntegrationException {
-
+    public void execute(final GitRepo gitRepo) throws IOException {
         final Log log = this.getLog();
 
-        this.saveToFile(log, builder);
-        this.saveToMediaWiki(log, builder);
+        this.saveToFile(log, gitRepo);
     }
 
-    private void saveToFile(final Log log, final GitChangelogApi builder)
-        throws IOException,
-        GitChangelogRepositoryException {
-
+    private void saveToFile(final Log log, final GitRepo gitRepo) throws IOException {
         Set<FileSet> fileSets = this.getFileSets();
 
         if (fileSets == null) fileSets = new HashSet<>();
 
-        if (fileSets.isEmpty() && !this.isSupplied(this.mediaWikiUrl)) {
+        if (fileSets.isEmpty()) {
             if (log.isInfoEnabled()) {
                 log.info("No output set, using file " + DEFAULT_TARGET_FILE);
             }
@@ -98,35 +79,30 @@ public class ChangelogMojo extends GitChangelogMojo {
 
         if (fileSets.isEmpty()) return;
 
-        final GitlogPluginSettings releaseLogSettings = this.getReleaseLogSettings();
+        final GitlogSettings gitlogSettings = this.getGitlogSettings();
 
-        if (releaseLogSettings.getDisabled()) {
-            for (final FileSet fileSet : fileSets) {
-                final File target = fileSet.getTarget();
-                final File template = fileSet.getTemplate();
+        final GitlogService gitlogService = new GitlogService(gitlogSettings, gitRepo);
+        final ReleaseLog releaseLog = gitlogService.generate();
 
-                builder.withTemplatePath(template.getPath());
-                builder.toFile(target);
+        this.saveToFiles(releaseLog, fileSets);
+        this.updatePom(releaseLog);
+        this.exportJson(releaseLog);
+    }
 
-                if (log.isInfoEnabled()) {
-                    log.info("#");
-                    log.info("#    template: " + template.getPath());
-                    log.info("#      target: " + target.getPath());
-                    log.info("#");
-                }
-            }
-        } else {
-            // TODO refactor `semantic-gitlog`
-            final GitlogService releaseLogService = new GitlogService(releaseLogSettings, builder);
+    private void saveToFiles(final ReleaseLog releaseLog, final Set<FileSet> fileSets) throws IOException {
+        if (fileSets == null || fileSets.isEmpty()) return;
 
-            releaseLogService.saveToFiles(fileSets);
+        for (final FileSet fileSet : fileSets) {
+            final File target = fileSet.getTarget();
+            final File template = fileSet.getTemplate();
+            final MustacheGitlogRender render = new MustacheGitlogRender(releaseLog, template);
 
-            this.updatePom(releaseLogService.generate());
+            render.render(target);
         }
     }
 
     protected void updatePom(final ReleaseLog releaseLog) {
-        if (this.updatePomVersion == null || !this.updatePomVersion) return;
+        if (this.updateProjectVersion == null || !this.updateProjectVersion) return;
         if (releaseLog == null || releaseLog.getNextVersion() == null) return;
 
         final File baseDir = this.project.getBasedir();
@@ -154,23 +130,8 @@ public class ChangelogMojo extends GitChangelogMojo {
             final Transformer tr = TransformerFactory.newInstance().newTransformer();
             tr.setOutputProperty(OutputKeys.INDENT, "yes");
             tr.transform(new DOMSource(doc), new StreamResult(pomPath.toFile()));
-        } catch (Exception e) {
+        } catch (final Exception e) {
             log.debug(e.getMessage(), e);
-        }
-    }
-
-    private void saveToMediaWiki(final Log log, final GitChangelogApi builder)
-        throws GitChangelogRepositoryException,
-        GitChangelogIntegrationException {
-
-        if (!isSupplied(mediaWikiUrl)) return;
-
-        builder.toMediaWiki(mediaWikiUsername, mediaWikiPassword, mediaWikiUrl, mediaWikiTitle);
-
-        if (log.isInfoEnabled()) {
-            log.info("#");
-            log.info("#     created: " + mediaWikiUrl + "/index.php/" + mediaWikiTitle);
-            log.info("#");
         }
     }
 }

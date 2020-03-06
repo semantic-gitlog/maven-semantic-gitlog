@@ -1,43 +1,32 @@
 package team.yi.maven.plugin;
 
-import com.google.gson.Gson;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.maven.plugin.logging.Log;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
-import se.bjurr.gitchangelog.api.GitChangelogApi;
-import se.bjurr.gitchangelog.api.exceptions.GitChangelogRepositoryException;
-import team.yi.maven.plugin.config.GitlogPluginSettings;
 import team.yi.tools.semanticgitlog.GitlogService;
+import team.yi.tools.semanticgitlog.config.GitlogSettings;
+import team.yi.tools.semanticgitlog.git.GitRepo;
 import team.yi.tools.semanticgitlog.model.ReleaseLog;
+
+import java.io.IOException;
 
 @Mojo(name = "derive", defaultPhase = LifecyclePhase.VALIDATE)
 public class DeriveMojo extends GitChangelogMojo {
     @Override
-    public void execute(final GitChangelogApi builder) throws GitChangelogRepositoryException {
+    public void execute(final GitRepo gitRepo) throws IOException {
         final Log log = this.getLog();
-        final GitlogPluginSettings releaseLogSettings = this.getReleaseLogSettings();
-
-        if (log.isDebugEnabled()) {
-            final Gson gson = new Gson();
-            final String json = gson.toJson(releaseLogSettings);
-
-            log.debug(json);
-        }
-
-        if (releaseLogSettings == null || releaseLogSettings.getDisabled()) {
-            log.warn("derive is disabled.");
-
-            return;
-        }
-
-        final GitlogService releaseLogService = new GitlogService(releaseLogSettings, builder);
-        final ReleaseLog releaseLog = releaseLogService.generate();
+        final GitlogSettings gitlogSettings = this.getGitlogSettings();
+        final GitlogService gitlogService = new GitlogService(gitlogSettings, gitRepo);
+        final ReleaseLog releaseLog = gitlogService.generate();
 
         if (releaseLog == null) return;
+
+        this.exportJson(releaseLog);
+
         if (releaseLog.getNextVersion() == null) return;
 
-        final String derivedVersionMark = releaseLogSettings.getDerivedVersionMark();
+        final String derivedVersionMark = gitlogSettings.getDerivedVersionMark();
 
         if (StringUtils.isEmpty(derivedVersionMark)) {
             if (log.isInfoEnabled()) {

@@ -1,6 +1,6 @@
 # 更新日志
 
-## 0.16.1 (2020-02-27)
+## 0.17.0-SNAPSHOT (Unreleased, 2020-03-06)
 
 ### Bug Fixes
 
@@ -9,6 +9,7 @@
 
 ### Features
 
+- **mojo**: 添加 `updateProjectVersion` 配置项 ([105f9c25](https://github.com/ymind/maven-semantic-gitlog/commit/105f9c25bc121966b31bc3ea15ca5f3be793727e))
 - **mojo**: 添加 `commitLocales` 配置项，支持提交消息的本地化 ([37ffa021](https://github.com/ymind/maven-semantic-gitlog/commit/37ffa02133cb474bdb3023b87663364eedce6154))
 - **mojo**: 添加 `isPreRelease` 配置项 ([24b145ff](https://github.com/ymind/maven-semantic-gitlog/commit/24b145ff0a1c78fa1297fe0f8b933b762fe084d1))
 - 支持从本地化配置文件覆盖提交类型 ([83796445](https://github.com/ymind/maven-semantic-gitlog/commit/83796445681c0c0d22b2c21c22a757301efef470))
@@ -17,6 +18,12 @@
 ### Documentation
 
 - 添加 `organization` 信息 ([6c8107da](https://github.com/ymind/maven-semantic-gitlog/commit/6c8107da5d7c2ab6ec4a13e4d5e0165287ca360c))
+
+
+### Styles
+
+- **checkstyle**: 更新 checkstyle 至 8.30 ([9c1d27b2](https://github.com/ymind/maven-semantic-gitlog/commit/9c1d27b24aa6bbf7bc4a6633d098f86f506d0f9a))
+- **pmd**: 更新 PMD 规则 ([c5e66bca](https://github.com/ymind/maven-semantic-gitlog/commit/c5e66bca7ad229006a30df87387269a28aa97ed9))
 
 
 ### BREAKING CHANGES

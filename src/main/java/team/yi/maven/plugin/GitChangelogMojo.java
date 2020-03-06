@@ -1,115 +1,139 @@
 package team.yi.maven.plugin;
 
-import org.apache.commons.lang3.StringUtils;
+import de.skuzzle.semantic.Version;
 import org.apache.maven.plugin.AbstractMojo;
-import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugin.logging.Log;
 import org.apache.maven.plugins.annotations.Parameter;
-import se.bjurr.gitchangelog.api.GitChangelogApi;
-import se.bjurr.gitchangelog.api.exceptions.GitChangelogIntegrationException;
-import se.bjurr.gitchangelog.api.exceptions.GitChangelogRepositoryException;
-import team.yi.maven.plugin.config.CustomIssue;
-import team.yi.maven.plugin.config.GitlogPluginSettings;
+import org.apache.maven.project.MavenProject;
+import team.yi.tools.semanticgitlog.GitlogConstants;
+import team.yi.tools.semanticgitlog.config.GitlogSettings;
+import team.yi.tools.semanticgitlog.config.ReleaseStrategy;
+import team.yi.tools.semanticgitlog.git.GitRepo;
+import team.yi.tools.semanticgitlog.model.ReleaseLog;
+import team.yi.tools.semanticgitlog.render.JsonGitlogRender;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.MalformedURLException;
-import java.util.Date;
-import java.util.List;
-
-import static se.bjurr.gitchangelog.api.GitChangelogApi.gitChangelogApiBuilder;
+import java.nio.charset.StandardCharsets;
+import java.util.Map;
 
 @SuppressWarnings("PMD.TooManyFields")
 public abstract class GitChangelogMojo extends AbstractMojo {
-    @Parameter(property = "gitlog.toRef")
-    protected String toRef;
+    // @Parameter(property = "gitlog.ignoreCommitsIfMessageMatches")
+    // protected String ignoreCommitsIfMessageMatches;
+    //
+    // @Parameter(property = "gitlog.ignoreCommitsOlderThan")
+    // protected Date ignoreCommitsOlderThan;
 
-    @Parameter(property = "gitlog.toCommit")
-    protected String toCommit;
-
-    @Parameter(property = "gitlog.fromRef")
-    protected String fromRef;
-
-    @Parameter(property = "gitlog.fromCommit")
-    protected String fromCommit;
-
-    @Parameter(property = "gitlog.settingsFile")
-    protected String settingsFile;
-
-    @Parameter(property = "gitlog.readableTagName")
-    protected String readableTagName;
-
-    @Parameter(property = "gitlog.ignoreTagsIfNameMatches")
-    protected String ignoreTagsIfNameMatches;
-
-    @Parameter(property = "gitlog.dateFormat")
-    protected String dateFormat;
-
-    @Parameter(property = "gitlog.timeZone")
-    protected String timeZone;
-
-    @Parameter(property = "gitlog.removeIssueFromMessage")
-    protected boolean removeIssueFromMessage;
-
-    @Parameter(property = "gitlog.ignoreCommitsIfMessageMatches")
-    protected String ignoreCommitsIfMessageMatches;
-
-    @Parameter(property = "gitlog.ignoreCommitsOlderThan")
-    protected Date ignoreCommitsOlderThan;
-
-    @Parameter(property = "gitlog.untaggedName")
-    protected String untaggedName;
-
-    @Parameter(property = "gitlog.noIssueName")
-    protected String noIssueName;
-
-    @Parameter(property = "gitlog.gitHubApi")
-    protected String gitHubApi;
-
-    @Parameter(property = "gitlog.gitHubToken")
-    protected String gitHubToken;
-
-    @Parameter(property = "gitlog.gitHubIssuePattern")
-    protected String gitHubIssuePattern;
-
-    @Parameter(property = "gitlog.gitLabServer")
-    protected String gitLabServer;
-
-    @Parameter(property = "gitlog.gitLabProjectName")
-    protected String gitLabProjectName;
-
-    @Parameter(property = "gitlog.gitLabToken")
-    protected String gitLabToken;
-
-    @Parameter(property = "gitlog.jiraIssuePattern")
-    protected String jiraIssuePattern;
-
-    @Parameter(property = "gitlog.jiraPassword")
-    protected String jiraPassword;
-
-    @Parameter(property = "gitlog.jiraServer")
-    protected String jiraServer;
-
-    @Parameter(property = "gitlog.jiraUsername")
-    protected String jiraUsername;
-
-    @Parameter(property = "gitlog.ignoreCommitsWithoutIssue")
-    protected Boolean ignoreCommitsWithoutIssue;
-
-    @Parameter(property = "gitlog.customIssues")
-    protected List<CustomIssue> customIssues;
+    @Parameter(defaultValue = "${project}", readonly = true)
+    protected MavenProject project;
 
     @Parameter(property = "gitlog.skip")
     protected Boolean skip;
 
-    @Parameter
-    private GitlogPluginSettings releaseLogSettings;
+    @Parameter(property = "gitlog.defaultLang")
+    protected String defaultLang;
+    @Parameter(property = "gitlog.skip")
+    protected Map<String, File> commitLocales;
 
-    protected GitlogPluginSettings getReleaseLogSettings() {
-        if (releaseLogSettings == null) releaseLogSettings = new GitlogPluginSettings();
+    @Parameter(property = "gitlog.repoName", defaultValue = "https://github.com/")
+    protected String repoName;
+    @Parameter(property = "gitlog.repoBaseUrl")
+    protected String repoBaseUrl;
+    @Parameter(property = "gitlog.closeIssueActions")
+    protected String closeIssueActions;
+    @Parameter(property = "gitlog.issueUrlTemplate", defaultValue = "${project.scm.url}/issues/:issueId")
+    protected String issueUrlTemplate;
+    @Parameter(property = "gitlog.commitUrlTemplate", defaultValue = "${project.scm.url}/commit/:commitId")
+    protected String commitUrlTemplate;
+    @Parameter(property = "gitlog.mentionUrlTemplate", defaultValue = "https://github.com/:username")
+    protected String mentionUrlTemplate;
 
-        return releaseLogSettings;
+    @Parameter(property = "gitlog.fromRef")
+    protected String fromRef;
+    @Parameter(property = "gitlog.fromCommit")
+    protected String fromCommit;
+    @Parameter(property = "gitlog.toRef")
+    protected String toRef;
+    @Parameter(property = "gitlog.toCommit")
+    protected String toCommit;
+
+    @Parameter(property = "gitlog.strategy", defaultValue = "strict")
+    protected ReleaseStrategy strategy;
+    @Parameter(property = "gitlog.untaggedName", defaultValue = GitlogConstants.DEFAULT_UNTAGGED_NAME)
+    protected String untaggedName;
+    @Parameter(property = "gitlog.isPreRelease")
+    protected Boolean isPreRelease;
+    @Parameter(property = "gitlog.forceNextVersion")
+    protected Boolean forceNextVersion;
+    // @Parameter(property = "gitlog.dateFormat")
+    // protected String dateFormat;
+    // @Parameter(property = "gitlog.timeZone")
+    // protected String timeZone;
+
+    @Parameter(property = "gitlog.lastVersion")
+    protected String lastVersion;
+    @Parameter(property = "gitlog.derivedVersionMark", defaultValue = "NEXT_VERSION:==")
+    protected String derivedVersionMark;
+    @Parameter(property = "gitlog.preRelease")
+    protected String preRelease;
+    @Parameter(property = "gitlog.buildMetaData")
+    protected String buildMetaData;
+    @Parameter(property = "gitlog.majorTypes")
+    protected String majorTypes;
+    @Parameter(property = "gitlog.minorTypes")
+    protected String minorTypes;
+    @Parameter(property = "gitlog.patchTypes")
+    protected String patchTypes;
+    @Parameter(property = "gitlog.preReleaseTypes")
+    protected String preReleaseTypes;
+    @Parameter(property = "gitlog.buildMetaDataTypes")
+    protected String buildMetaDataTypes;
+    @Parameter(property = "gitlog.hiddenTypes")
+    protected String hiddenTypes;
+
+    @Parameter(property = "gitlog.jsonFile")
+    protected File jsonFile;
+
+    protected GitlogSettings getGitlogSettings() {
+        final Version lastVersion = Version.isValidVersion(this.lastVersion) ? Version.parseVersion(this.lastVersion) : null;
+
+        return GitlogSettings.builder()
+            .defaultLang(this.defaultLang)
+            .commitLocales(this.commitLocales)
+
+            .repoName(this.repoName)
+            .repoBaseUrl(this.repoBaseUrl)
+            .closeIssueActions(this.closeIssueActions)
+            .issueUrlTemplate(this.issueUrlTemplate)
+            .commitUrlTemplate(this.commitUrlTemplate)
+            .mentionUrlTemplate(this.mentionUrlTemplate)
+
+            .fromRef(this.fromRef)
+            .fromCommit(this.fromCommit)
+            .toRef(this.toRef)
+            .toCommit(this.toCommit)
+
+            .strategy(this.strategy)
+            .untaggedName(this.untaggedName)
+            .isPreRelease(this.isPreRelease)
+            .forceNextVersion(this.forceNextVersion)
+            // .dateFormat(this.dateFormat)
+            // .timeZone(this.timeZone)
+
+            .lastVersion(lastVersion)
+            .derivedVersionMark(this.derivedVersionMark)
+            .preRelease(this.preRelease)
+            .buildMetaData(this.buildMetaData)
+            .majorTypes(this.majorTypes)
+            .minorTypes(this.minorTypes)
+            .patchTypes(this.patchTypes)
+            .preReleaseTypes(this.preReleaseTypes)
+            .buildMetaDataTypes(this.buildMetaDataTypes)
+            .hiddenTypes(this.hiddenTypes)
+
+            .build();
     }
 
     @Override
@@ -122,10 +146,10 @@ public abstract class GitChangelogMojo extends AbstractMojo {
             return;
         }
 
-        try {
-            final GitChangelogApi builder = this.createGitChangelogApi();
+        final File baseDir = this.project.getBasedir();
 
-            this.execute(builder);
+        try (final GitRepo gitRepo = GitRepo.open(baseDir)) {
+            this.execute(gitRepo);
         } catch (final Exception e) {
             log.debug(e);
 
@@ -133,59 +157,13 @@ public abstract class GitChangelogMojo extends AbstractMojo {
         }
     }
 
-    protected abstract void execute(final GitChangelogApi builder) throws MojoExecutionException,
-        MojoFailureException,
-        IOException,
-        GitChangelogRepositoryException,
-        GitChangelogIntegrationException;
+    protected abstract void execute(final GitRepo gitRepo) throws IOException;
 
-    @SuppressWarnings("PMD.NPathComplexity")
-    private GitChangelogApi createGitChangelogApi() throws MalformedURLException {
-        final GitChangelogApi builder = gitChangelogApiBuilder();
+    protected void exportJson(final ReleaseLog releaseLog) throws IOException {
+        if (this.jsonFile == null) return;
 
-        if (isSupplied(settingsFile)) builder.withSettings(new File(settingsFile).toURI().toURL());
-        if (isSupplied(toRef)) builder.withToRef(toRef);
-        if (isSupplied(fromCommit)) builder.withFromCommit(fromCommit);
-        if (isSupplied(fromRef)) builder.withFromRef(fromRef);
-        if (isSupplied(toCommit)) builder.withToCommit(toCommit);
-        if (isSupplied(ignoreTagsIfNameMatches)) builder.withIgnoreTagsIfNameMatches(ignoreTagsIfNameMatches);
-        if (isSupplied(readableTagName)) builder.withReadableTagName(readableTagName);
-        if (isSupplied(dateFormat)) builder.withDateFormat(dateFormat);
-        if (isSupplied(timeZone)) builder.withTimeZone(timeZone);
+        final JsonGitlogRender render = new JsonGitlogRender(releaseLog, StandardCharsets.UTF_8);
 
-        builder.withRemoveIssueFromMessageArgument(removeIssueFromMessage);
-
-        if (isSupplied(ignoreCommitsIfMessageMatches)) builder.withIgnoreCommitsWithMessage(ignoreCommitsIfMessageMatches);
-        if (ignoreCommitsOlderThan != null) builder.withIgnoreCommitsOlderThan(ignoreCommitsOlderThan);
-        if (isSupplied(untaggedName)) builder.withUntaggedName(untaggedName);
-        if (isSupplied(noIssueName)) builder.withNoIssueName(noIssueName);
-        if (ignoreCommitsWithoutIssue != null) builder.withIgnoreCommitsWithoutIssue(ignoreCommitsWithoutIssue);
-
-        for (final CustomIssue customIssue : customIssues) {
-            builder.withCustomIssue(
-                customIssue.getName(),
-                customIssue.getPattern(),
-                customIssue.getLink(),
-                customIssue.getTitle());
-        }
-
-        if (isSupplied(gitHubApi)) builder.withGitHubApi(gitHubApi);
-        if (isSupplied(gitHubToken)) builder.withGitHubToken(gitHubToken);
-        if (isSupplied(gitHubIssuePattern)) builder.withGitHubIssuePattern(gitHubIssuePattern);
-
-        if (isSupplied(gitLabProjectName)) builder.withGitLabProjectName(gitLabProjectName);
-        if (isSupplied(gitLabServer)) builder.withGitLabServer(gitLabServer);
-        if (isSupplied(gitLabToken)) builder.withGitLabToken(gitLabToken);
-
-        if (isSupplied(jiraUsername)) builder.withJiraUsername(jiraUsername);
-        if (isSupplied(jiraPassword)) builder.withJiraPassword(jiraPassword);
-        if (isSupplied(jiraIssuePattern)) builder.withJiraIssuePattern(jiraIssuePattern);
-        if (isSupplied(jiraServer)) builder.withJiraServer(jiraServer);
-
-        return builder;
-    }
-
-    protected boolean isSupplied(final String parameter) {
-        return StringUtils.isNotEmpty(parameter);
+        render.render(this.jsonFile);
     }
 }

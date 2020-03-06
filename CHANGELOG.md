@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.16.1 (2020-02-27)
+## 0.17.0-SNAPSHOT (Unreleased, 2020-03-06)
 
 ### Bug Fixes
 
@@ -9,6 +9,7 @@
 
 ### Features
 
+- **mojo**: add `updateProjectVersion` configuration ([105f9c25](https://github.com/ymind/maven-semantic-gitlog/commit/105f9c25bc121966b31bc3ea15ca5f3be793727e))
 - **mojo**: add `commitLocales` configuration, support for localization of commit messages ([37ffa021](https://github.com/ymind/maven-semantic-gitlog/commit/37ffa02133cb474bdb3023b87663364eedce6154))
 - **mojo**: add `isPreRelease` configuration ([24b145ff](https://github.com/ymind/maven-semantic-gitlog/commit/24b145ff0a1c78fa1297fe0f8b933b762fe084d1))
 - support `commitType override` from locale profiles ([83796445](https://github.com/ymind/maven-semantic-gitlog/commit/83796445681c0c0d22b2c21c22a757301efef470))
@@ -17,6 +18,12 @@
 ### Documentation
 
 - add `organization` information ([6c8107da](https://github.com/ymind/maven-semantic-gitlog/commit/6c8107da5d7c2ab6ec4a13e4d5e0165287ca360c))
+
+
+### Styles
+
+- **checkstyle**: bumped checkstyle to 8.30 ([9c1d27b2](https://github.com/ymind/maven-semantic-gitlog/commit/9c1d27b24aa6bbf7bc4a6633d098f86f506d0f9a))
+- **pmd**: update PMD rules ([c5e66bca](https://github.com/ymind/maven-semantic-gitlog/commit/c5e66bca7ad229006a30df87387269a28aa97ed9))
 
 
 ### BREAKING CHANGES
@@ -38,7 +45,7 @@
 
 ### Bug Fixes
 
-- **mojo**: goal `changelog` failed when &quot;fileSets&quot; is empty or invalid ([d8524b78](https://github.com/ymind/maven-semantic-gitlog/commit/d8524b78ab1ee1a44581a6a809233caa06960311))
+- **mojo**: goal `changelog` failed when "fileSets" is empty or invalid ([d8524b78](https://github.com/ymind/maven-semantic-gitlog/commit/d8524b78ab1ee1a44581a6a809233caa06960311))
 - **service**: Fix commits outside the Tag scope ([3e73ed67](https://github.com/ymind/maven-semantic-gitlog/commit/3e73ed67d73d781474eddf50bfe2a170ba35ce9b))
 
 
