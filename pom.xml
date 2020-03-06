@@ -147,6 +147,8 @@
           <skip>${checkstyle.skip}</skip>
           <consoleOutput>true</consoleOutput>
           <enableRSS>false</enableRSS>
+          <failOnViolation>true</failOnViolation>
+          <failsOnError>true</failsOnError>
         </configuration>
         <executions>
           <execution>
@@ -160,7 +162,7 @@
           <dependency>
             <groupId>com.puppycrawl.tools</groupId>
             <artifactId>checkstyle</artifactId>
-            <version>8.29</version>
+            <version>8.30</version>
           </dependency>
         </dependencies>
       </plugin>

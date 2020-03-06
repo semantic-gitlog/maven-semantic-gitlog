@@ -18,10 +18,11 @@
 
 <module name="Checker">
   <property name="charset" value="UTF-8"/>
-
   <property name="severity" value="warning"/>
-
   <property name="fileExtensions" value="java, properties, xml"/>
+
+  <module name="SuppressWarningsFilter"/>
+
   <!-- Excludes all 'module-info.java' files              -->
   <!-- See https://checkstyle.org/config_filefilters.html -->
   <module name="BeforeExecutionExclusionFileFilter">
@@ -186,7 +187,6 @@
                value="Catch parameter name ''{0}'' must match pattern ''{1}''."/>
     </module>
     <module name="LocalVariableName">
-      <property name="tokens" value="VARIABLE_DEF"/>
       <property name="format" value="^[a-z]([a-z0-9][a-zA-Z0-9]*)?$"/>
       <message key="name.invalidPattern"
                value="Local variable name ''{0}'' must match pattern ''{1}''."/>
@@ -232,14 +232,15 @@
       <property name="tokens"
                 value="CLASS_DEF, INTERFACE_DEF, ENUM_DEF, ANNOTATION_DEF, ANNOTATION_FIELD_DEF,
                     PARAMETER_DEF, VARIABLE_DEF, METHOD_DEF"/>
+      <property name="allowedAbbreviations" value="XML,URL,URI,UUID"/>
     </module>
     <module name="OverloadMethodsDeclarationOrder"/>
     <module name="VariableDeclarationUsageDistance"/>
     <!--<module name="CustomImportOrder">-->
-    <!--    <property name="sortImportsInGroupAlphabetically" value="false"/>-->
-    <!--    <property name="separateLineBetweenGroups" value="true"/>-->
-    <!--    <property name="customImportOrderRules" value="THIRD_PARTY_PACKAGE###STATIC"/>-->
-    <!--    <property name="tokens" value="IMPORT, STATIC_IMPORT, PACKAGE_DEF"/>-->
+    <!--  <property name="sortImportsInGroupAlphabetically" value="true"/>-->
+    <!--  <property name="separateLineBetweenGroups" value="true"/>-->
+    <!--  <property name="customImportOrderRules" value="STATIC###THIRD_PARTY_PACKAGE"/>-->
+    <!--  <property name="tokens" value="IMPORT, STATIC_IMPORT, PACKAGE_DEF"/>-->
     <!--</module>-->
     <module name="MethodParamPad">
       <property name="tokens"
@@ -295,10 +296,10 @@
       <property name="tokens" value="METHOD_DEF, CTOR_DEF, ANNOTATION_FIELD_DEF"/>
     </module>
     <!--<module name="MissingJavadocMethod">-->
-    <!--    <property name="scope" value="public"/>-->
-    <!--    <property name="minLineCount" value="2"/>-->
-    <!--    <property name="allowedAnnotations" value="Override, Test"/>-->
-    <!--    <property name="tokens" value="METHOD_DEF, CTOR_DEF, ANNOTATION_FIELD_DEF"/>-->
+    <!--  <property name="scope" value="public"/>-->
+    <!--  <property name="minLineCount" value="2"/>-->
+    <!--  <property name="allowedAnnotations" value="Override, Test"/>-->
+    <!--  <property name="tokens" value="METHOD_DEF, CTOR_DEF, ANNOTATION_FIELD_DEF"/>-->
     <!--</module>-->
     <module name="MethodName">
       <property name="format" value="^[a-z][a-z0-9][a-zA-Z0-9_]*$"/>
