@@ -178,6 +178,9 @@
           <skip>${pmd.skip}</skip>
           <skipPmdError>false</skipPmdError>
           <skipEmptyReport>false</skipEmptyReport>
+          <failOnViolation>true</failOnViolation>
+          <printFailingErrors>true</printFailingErrors>
+          <includeTests>true</includeTests>
         </configuration>
         <executions>
           <execution>

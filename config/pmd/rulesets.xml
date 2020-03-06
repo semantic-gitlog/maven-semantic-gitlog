@@ -15,6 +15,8 @@
     <exclude name="OnlyOneReturn"/>
     <exclude name="ClassNamingConventions"/>
     <exclude name="AtLeastOneConstructor"/>
+    <exclude name="UnnecessaryModifier"/>
+    <exclude name="UseUnderscoresInNumericLiterals"/>
   </rule>
   <rule ref="category/java/codestyle.xml/LongVariable">
     <properties>
