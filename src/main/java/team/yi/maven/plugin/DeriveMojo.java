@@ -4,6 +4,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.maven.plugin.logging.Log;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
+import org.apache.maven.plugins.annotations.Parameter;
 import team.yi.tools.semanticgitlog.GitlogService;
 import team.yi.tools.semanticgitlog.config.GitlogSettings;
 import team.yi.tools.semanticgitlog.git.GitRepo;
@@ -13,9 +14,11 @@ import java.io.IOException;
 
 @Mojo(name = "derive", defaultPhase = LifecyclePhase.VALIDATE)
 public class DeriveMojo extends GitChangelogMojo {
+    @Parameter(property = "gitlog.derivedVersionMark", defaultValue = "NEXT_VERSION:==")
+    protected String derivedVersionMark;
+
     @Override
     public void execute(final GitRepo gitRepo) throws IOException {
-        final Log log = this.getLog();
         final GitlogSettings gitlogSettings = this.getGitlogSettings();
         final GitlogService gitlogService = new GitlogService(gitlogSettings, gitRepo);
         final ReleaseLog releaseLog = gitlogService.generate();
@@ -26,15 +29,17 @@ public class DeriveMojo extends GitChangelogMojo {
 
         if (releaseLog.getNextVersion() == null) return;
 
-        final String derivedVersionMark = gitlogSettings.getDerivedVersionMark();
+        final Log log = this.getLog();
 
-        if (StringUtils.isEmpty(derivedVersionMark)) {
+        if (log == null) return;
+
+        if (StringUtils.isEmpty(this.derivedVersionMark)) {
             if (log.isInfoEnabled()) {
                 log.info(releaseLog.getNextVersion().toString());
             }
         } else {
             if (log.isInfoEnabled()) {
-                log.info(derivedVersionMark + releaseLog.getNextVersion().toString());
+                log.info(this.derivedVersionMark + releaseLog.getNextVersion().toString());
             }
         }
     }

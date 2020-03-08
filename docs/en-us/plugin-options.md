@@ -15,7 +15,7 @@
 | `toCommit` | Specify the end of `git-commit`. Default is `null`. |
 | `strategy` | Release strategy. Optional values: `strict`, `slow`. Default is `strict`. |
 | `untaggedName` | Specify a default title for untagged commits. Default is `Unreleased`. |
-| `isPreRelease` | Enable `development-phase`, breaking changes only increases the minor version number. Default is `false`. |
+| `isUnstable` | Enable `unstable-period`, breaking changes only increases the minor version number. Default is `false`. |
 | `forceNextVersion` | Allow force increase `nextVersion` when the version dose not grow. Default is `true`. |
 | `lastVersion` | `Tag` as version by default. This option allows you to manually specify the value of `lastVersion`. Default is `0.1.0`. |
 | `derivedVersionMark` | The value will output as a prefix with the version number when `semantic-gitlog:derive` execute. Default is `null`. |

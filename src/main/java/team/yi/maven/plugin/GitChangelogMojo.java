@@ -20,12 +20,6 @@ import java.util.Map;
 
 @SuppressWarnings("PMD.TooManyFields")
 public abstract class GitChangelogMojo extends AbstractMojo {
-    // @Parameter(property = "gitlog.ignoreCommitsIfMessageMatches")
-    // protected String ignoreCommitsIfMessageMatches;
-    //
-    // @Parameter(property = "gitlog.ignoreCommitsOlderThan")
-    // protected Date ignoreCommitsOlderThan;
-
     @Parameter(defaultValue = "${project}", readonly = true)
     protected MavenProject project;
 
@@ -37,10 +31,6 @@ public abstract class GitChangelogMojo extends AbstractMojo {
     @Parameter(property = "gitlog.skip")
     protected Map<String, File> commitLocales;
 
-    @Parameter(property = "gitlog.repoName", defaultValue = "https://github.com/")
-    protected String repoName;
-    @Parameter(property = "gitlog.repoBaseUrl")
-    protected String repoBaseUrl;
     @Parameter(property = "gitlog.closeIssueActions")
     protected String closeIssueActions;
     @Parameter(property = "gitlog.issueUrlTemplate", defaultValue = "${project.scm.url}/issues/:issueId")
@@ -63,19 +53,13 @@ public abstract class GitChangelogMojo extends AbstractMojo {
     protected ReleaseStrategy strategy;
     @Parameter(property = "gitlog.untaggedName", defaultValue = GitlogConstants.DEFAULT_UNTAGGED_NAME)
     protected String untaggedName;
-    @Parameter(property = "gitlog.isPreRelease")
-    protected Boolean isPreRelease;
+    @Parameter(property = "gitlog.isUnstable")
+    protected Boolean isUnstable;
     @Parameter(property = "gitlog.forceNextVersion")
     protected Boolean forceNextVersion;
-    // @Parameter(property = "gitlog.dateFormat")
-    // protected String dateFormat;
-    // @Parameter(property = "gitlog.timeZone")
-    // protected String timeZone;
 
     @Parameter(property = "gitlog.lastVersion")
     protected String lastVersion;
-    @Parameter(property = "gitlog.derivedVersionMark", defaultValue = "NEXT_VERSION:==")
-    protected String derivedVersionMark;
     @Parameter(property = "gitlog.preRelease")
     protected String preRelease;
     @Parameter(property = "gitlog.buildMetaData")
@@ -103,8 +87,6 @@ public abstract class GitChangelogMojo extends AbstractMojo {
             .defaultLang(this.defaultLang)
             .commitLocales(this.commitLocales)
 
-            .repoName(this.repoName)
-            .repoBaseUrl(this.repoBaseUrl)
             .closeIssueActions(this.closeIssueActions)
             .issueUrlTemplate(this.issueUrlTemplate)
             .commitUrlTemplate(this.commitUrlTemplate)
@@ -117,13 +99,10 @@ public abstract class GitChangelogMojo extends AbstractMojo {
 
             .strategy(this.strategy)
             .untaggedName(this.untaggedName)
-            .isPreRelease(this.isPreRelease)
+            .isUnstable(this.isUnstable)
             .forceNextVersion(this.forceNextVersion)
-            // .dateFormat(this.dateFormat)
-            // .timeZone(this.timeZone)
 
             .lastVersion(lastVersion)
-            .derivedVersionMark(this.derivedVersionMark)
             .preRelease(this.preRelease)
             .buildMetaData(this.buildMetaData)
             .majorTypes(this.majorTypes)

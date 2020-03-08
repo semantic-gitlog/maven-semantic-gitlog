@@ -15,7 +15,7 @@
 | `toCommit` | 指定 `git-commit` 的结束位置。 Default is `null`。 |
 | `strategy` | 发布策略。可选值：`strict`、`slow`。默认为 `strict`。 |
 | `untaggedName` | 为未标记的提交指定默认标题。默认为 `Unreleased`。 |
-| `isPreRelease` | 打开 `development-phase`，使得中断性变更仅递增次版本号。默认为 `false`。 |
+| `isUnstable` | 打开 `unstable-period`，使得中断性变更仅递增次版本号。默认为 `false`。 |
 | `forceNextVersion` | 当版本号未增长时强制递增 `nextVersion`。默认为 `true`。 |
 | `lastVersion` | 默认尝试将 `Tag` 转换为版本号。该选项允许您手工指定 `lastVersion` 的值。默认为 `0.1.0`。 |
 | `derivedVersionMark` | 执行 `semantic-gitlog:derive` 时，该值作为前缀与版本号一起输出。默认为 `null`。 |

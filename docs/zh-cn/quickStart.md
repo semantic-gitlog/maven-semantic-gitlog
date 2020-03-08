@@ -20,8 +20,7 @@
         </fileSets>
 
         <updateProjectVersion>false</updateProjectVersion>
-        <isPreRelease>true</isPreRelease>
-        <strategy>${gitlog.releaseStrategy}</strategy>
+        <isUnstable>true</isUnstable>
         <forceNextVersion>${gitlog.forceNextVersion}</forceNextVersion>
 
         <jsonFile>${project.basedir}/CHANGELOG.json</jsonFile>

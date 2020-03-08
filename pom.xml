@@ -97,7 +97,7 @@
     <dependency>
       <groupId>team.yi.tools</groupId>
       <artifactId>semantic-gitlog</artifactId>
-      <version>0.2.0</version>
+      <version>0.2.2</version>
     </dependency>
   </dependencies>
 
@@ -270,7 +270,6 @@
 
       <properties>
         <gitlog.toRef>dev</gitlog.toRef>
-        <gitlog.releaseStrategy>strict</gitlog.releaseStrategy>
         <gitlog.forceNextVersion>true</gitlog.forceNextVersion>
         <gitlog.preRelease>SNAPSHOT</gitlog.preRelease>
       </properties>
@@ -314,14 +313,11 @@
               </fileSets>
 
               <updateProjectVersion>false</updateProjectVersion>
-              <isPreRelease>true</isPreRelease>
-              <strategy>${gitlog.releaseStrategy}</strategy>
+              <isUnstable>true</isUnstable>
               <forceNextVersion>${gitlog.forceNextVersion}</forceNextVersion>
 
               <jsonFile>${project.basedir}/CHANGELOG.json</jsonFile>
 
-              <repoBaseUrl>https://github.com/</repoBaseUrl>
-              <repoName>ymind/maven-semantic-gitlog</repoName>
               <issueUrlTemplate>${project.scm.url}/issues/:issueId</issueUrlTemplate>
               <commitUrlTemplate>${project.scm.url}/commit/:commitId</commitUrlTemplate>
               <mentionUrlTemplate>https://github.com/:username</mentionUrlTemplate>
