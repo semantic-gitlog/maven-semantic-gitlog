@@ -1,6 +1,6 @@
 # 更新日志
 
-## 0.18.0 (Unreleased, 2020-03-06)
+## 0.19.0 (2020-03-08)
 
 ### Bug Fixes
 
@@ -9,6 +9,7 @@
 
 ### Features
 
+- **:**: 升级 `semantic-gitlog` 到 0.2.2 ([cc648429](https://github.com/ymind/maven-semantic-gitlog/commit/cc648429488ae5dccf22c8a788c69370681f359e))
 - **:**: 升级 `semantic-gitlog` 到 0.2.0 ([7817616b](https://github.com/ymind/maven-semantic-gitlog/commit/7817616b3d4180e5a4a37b273318a29dbbe41d3c))
 - **mojo**: 添加 `updateProjectVersion` 配置项 ([105f9c25](https://github.com/ymind/maven-semantic-gitlog/commit/105f9c25bc121966b31bc3ea15ca5f3be793727e))
 - **mojo**: 添加 `commitLocales` 配置项，支持提交消息的本地化 ([37ffa021](https://github.com/ymind/maven-semantic-gitlog/commit/37ffa02133cb474bdb3023b87663364eedce6154))

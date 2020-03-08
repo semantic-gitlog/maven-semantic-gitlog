@@ -1,7 +1,7 @@
 {
   "nextVersion" : {
     "major" : 0,
-    "minor" : 18,
+    "minor" : 20,
     "patch" : 0,
     "preReleaseParts" : [ ],
     "buildMetaDataParts" : [ ],
@@ -12,7 +12,7 @@
   },
   "lastVersion" : {
     "major" : 0,
-    "minor" : 12,
+    "minor" : 19,
     "patch" : 0,
     "preReleaseParts" : [ ],
     "buildMetaDataParts" : [ ],
@@ -22,8 +22,18 @@
     "stable" : true
   },
   "tags" : [ {
-    "version" : null,
-    "releaseDate" : null,
+    "version" : {
+      "major" : 0,
+      "minor" : 19,
+      "patch" : 0,
+      "preReleaseParts" : [ ],
+      "buildMetaDataParts" : [ ],
+      "preRelease" : "",
+      "buildMetaData" : "",
+      "initialDevelopment" : true,
+      "stable" : true
+    },
+    "releaseDate" : "2020-03-08 14:41:40.000 +0000",
     "sections" : [ {
       "title" : "Bug Fixes",
       "commits" : [ {
@@ -84,6 +94,60 @@
     }, {
       "title" : "Features",
       "commits" : [ {
+        "commitTime" : "2020-03-08 14:32:29.000 +0000",
+        "commitTimeLong" : 1583677949,
+        "hash" : "cc648429488ae5d",
+        "hash7" : "cc64842",
+        "hash8" : "cc648429",
+        "hashFull" : "cc648429488ae5dccf22c8a788c69370681f359e",
+        "merge" : false,
+        "message" : "feat!: upgrade `semantic-gitlog` to 0.2.2\n\nBREAKING CHANGE: The `isPreRelease` option has been renamed to `isUnstable`.\n\n------------\n# Locales\n- **[zh-cn]** 升级 `semantic-gitlog` 到 0.2.2\n",
+        "authorIdent" : {
+          "name" : "ymind",
+          "email" : "ymind@yi.team",
+          "when" : "2020-03-08 14:32:29.000 +0000"
+        },
+        "committerIdent" : {
+          "name" : "ymind",
+          "email" : "ymind@yi.team",
+          "when" : "2020-03-08 14:32:29.000 +0000"
+        },
+        "quickActions" : { },
+        "closeIssues" : [ ],
+        "subjectIssues" : [ ],
+        "bodyIssues" : [ ],
+        "mentions" : [ ],
+        "locales" : [ {
+          "commitHash" : "cc648429488ae5dccf22c8a788c69370681f359e",
+          "lang" : "zh-cn",
+          "commitType" : null,
+          "subject" : "升级 `semantic-gitlog` 到 0.2.2"
+        } ],
+        "defaultLang" : "en",
+        "commitUrl" : "https://github.com/ymind/maven-semantic-gitlog/commit/cc648429488ae5dccf22c8a788c69370681f359e",
+        "commitType" : "feat",
+        "commitPackage" : null,
+        "commitScope" : ":",
+        "commitSubject" : "The `isPreRelease` option has been renamed to `isUnstable`.",
+        "commitBody" : null,
+        "attention" : true,
+        "breakingChange" : false,
+        "deprecated" : false,
+        "commitIssue" : null,
+        "localeMap" : {
+          "zh-cn" : {
+            "commitHash" : "cc648429488ae5dccf22c8a788c69370681f359e",
+            "lang" : "zh-cn",
+            "commitType" : null,
+            "subject" : "升级 `semantic-gitlog` 到 0.2.2"
+          }
+        },
+        "firstLocaleCommitType" : null,
+        "rawCommitType" : "feat",
+        "rawCommitSubject" : "The `isPreRelease` option has been renamed to `isUnstable`.",
+        "messageTitle" : "feat!: upgrade `semantic-gitlog` to 0.2.2",
+        "messageBody" : "BREAKING CHANGE: The `isPreRelease` option has been renamed to `isUnstable`.\n\n------------\n# Locales\n- **[zh-cn]** 升级 `semantic-gitlog` 到 0.2.2"
+      }, {
         "commitTime" : "2020-03-06 07:24:00.000 +0000",
         "commitTimeLong" : 1583479440,
         "hash" : "7817616b3d4180e",
