@@ -39,7 +39,7 @@ public class ChangelogMojo extends GitChangelogMojo {
     public static final String DEFAULT_TEMPLATE_FILE = "config/gitlog/CHANGELOG.md.mustache";
     public static final String DEFAULT_TARGET_FILE = "CHANGELOG.md";
 
-    @Parameter(property = "gitlog.fileSets")
+    @Parameter
     protected Set<FileSet> fileSets;
 
     @Parameter(property = "gitlog.updateProjectVersion")

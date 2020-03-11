@@ -28,7 +28,7 @@ public abstract class GitChangelogMojo extends AbstractMojo {
 
     @Parameter(property = "gitlog.defaultLang")
     protected String defaultLang;
-    @Parameter(property = "gitlog.skip")
+    @Parameter
     protected Map<String, File> commitLocales;
 
     @Parameter(property = "gitlog.closeIssueActions")
