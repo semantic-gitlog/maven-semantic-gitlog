@@ -1,10 +1,12 @@
 package team.yi.maven.plugin;
 
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.maven.plugin.logging.Log;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import team.yi.tools.semanticgitlog.GitlogService;
@@ -30,6 +32,7 @@ import java.nio.file.StandardCopyOption;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import static org.apache.maven.plugins.annotations.LifecyclePhase.PROCESS_SOURCES;
 
@@ -118,13 +121,32 @@ public class ChangelogMojo extends GitChangelogMojo {
             final DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
             final DocumentBuilder db = dbf.newDocumentBuilder();
             final Document doc = db.parse(pomPath.toFile());
-            final NodeList nodes = doc.getElementsByTagName("version");
+            final NodeList childNodes = doc.getDocumentElement().getChildNodes();
 
-            if (nodes == null || nodes.getLength() == 0) return;
+            if (childNodes == null || childNodes.getLength() == 0) {
+                log.error("pom.xml has no nodes.");
+
+                return;
+            }
+
+            final Node versionNode = IntStream.range(0, childNodes.getLength())
+                .mapToObj(childNodes::item)
+                .filter(childNode -> childNode instanceof Element)
+                .filter(childNode -> StringUtils.equals(childNode.getNodeName(), "version"))
+                .findFirst()
+                .orElse(null);
+
+            if (versionNode == null) {
+                log.error("The version node was not found in pom.xml.");
+
+                return;
+            }
 
             final String nextVersion = releaseLog.getNextVersion().toString();
-            final Node version = nodes.item(0);
-            version.setTextContent(nextVersion);
+
+            versionNode.setTextContent(nextVersion);
+
+            log.info("The version was updated to: {}", nextVersion);
 
             // write pom
             final Transformer tr = TransformerFactory.newInstance().newTransformer();
