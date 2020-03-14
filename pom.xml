@@ -97,7 +97,7 @@
     <dependency>
       <groupId>team.yi.tools</groupId>
       <artifactId>semantic-gitlog</artifactId>
-      <version>0.2.2</version>
+      <version>0.3.2</version>
     </dependency>
   </dependencies>
 
