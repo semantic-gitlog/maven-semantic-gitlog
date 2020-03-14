@@ -42,7 +42,7 @@ echo "not on a tag -> derive version and keep snapshot"
 newVersion=`./mvnw ${PLUGIN_CLI_OPTS} \
     -D gitlog.toRef=${TRAVIS_BRANCH} \
     -D gitlog.preRelease='SNAPSHOT' \
-    semantic-gitlog:derive -U | grep 'NEXT_VERSION:==' | sed 's/.\+NEXT_VERSION:==//g'`
+    semantic-gitlog:derive -U | grep 'NEXT_VERSION:==' | sed 's/^.*NEXT_VERSION:==//g'`
 gitCommit="bumped version to ${newVersion}"
 
 # Print newVersion
