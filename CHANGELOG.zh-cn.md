@@ -1,6 +1,6 @@
 # 更新日志
 
-## 0.19.5-SNAPSHOT (Unreleased, 2020-03-18)
+## 0.20.0 (2020-03-18)
 
 ### Bug Fixes
 
@@ -18,6 +18,11 @@
 - **PMD**: 更新 PMD 规则 ([11603d48](https://github.com/ymind/maven-semantic-gitlog/commit/11603d4884256b2006dffcc6d221e7c1ca32aff4))
 
 
+### BREAKING CHANGES
+
+- **依赖项**: 升级 `semantic-gitlog` 到 0.4.0 ([9de5fc90](https://github.com/ymind/maven-semantic-gitlog/commit/9de5fc90b921b0cb60bf92ab585e2518c544d397))
+
+
 ### Chores
 
 - **配置**: 规范化文件命名 ([097c092c](https://github.com/ymind/maven-semantic-gitlog/commit/097c092c0753dba1940f8d1849e1f66417231da9))
@@ -27,6 +32,7 @@
 ### Continuous Integration
 
 - **Travis CI**: 更新 CI ([2084e7dd](https://github.com/ymind/maven-semantic-gitlog/commit/2084e7dd60984592b058b872d74cfccf04416966))
+- **Travis CI**: 更新 CI ([5cbc9f4f](https://github.com/ymind/maven-semantic-gitlog/commit/5cbc9f4fcc3f2ca4623159c97ececf0433684914))
 
 
 ## 0.19.0 (2020-03-08)
