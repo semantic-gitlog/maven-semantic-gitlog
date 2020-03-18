@@ -1,18 +1,21 @@
 # 之前的提交
+- [7817616b] chore(deps): 升级 `semantic-gitlog` 到 0.2.0
+- [83796445] feat(mojo): 支持从本地化配置文件覆盖提交类型
+- [6c8107da] chore(config): 添加 `organization` 信息
 - [4ef660df] 添加 `forceNextVersion` 配置项
-- [0b8cc345] 更新 CI
+- [0b8cc345] ci(travis): 更新 CI
 - [3a27b663] 当版本不增长时，从早期版本自动递增
 - [f478ce35] 为 `ReleaseLog.tags` 字段添加排序支持
-- [88cf4838] 更新 CI
+- [88cf4838] ci(travis): 更新 CI
 - [db48c20a] 代码优化
 - [d8524b78] 修复当 `fileSets` 为空或无效时 `changelog` 目标执行失败的问题
 - [bae9f5af] 添加 `hiddenTypes` 配置项
-- [1d37706f] 更新 `DEFAULT_MESSAGE_PATTERN`
-- [5925f369] 添加 `hasQuickActions`、`hasSubjectIssues` 和 `hasBodyIssues`
-- [111ce4fe] 添加 `ciManagement` 信息
+- [1d37706f] refactor(mojo): 更新 `DEFAULT_MESSAGE_PATTERN`
+- [5925f369] feat(mojo): 添加 `hasQuickActions`、`hasSubjectIssues` 和 `hasBodyIssues`
+- [111ce4fe] chore(config): 添加 `ciManagement` 信息
 - [bb1da529] 添加 `preRelease` 和 `buildMetaData` 配置项
 - [32953c83] 添加 favicon
-- [e6d39850] 修正 CI
+- [e6d39850] ci(travis): 修正 CI
 - [3eaf171f] 添加 `CHANGELOG_*.md` 文件回推
 - [34f7d437] 更新文档
 - [5fd40d4e] 将配置项 `useCrazyGrowing` 重命名为 `ReleaseStrategy`
@@ -20,24 +23,24 @@
 - [8671b566] 添加 `closeIssueActions` 配置项
 - [1b4efac7] 兼容 `angular-style` 的最新格式
 - [bc1609f3] 项目重构
-- [edd55e47] 添加 `commitIssuePattern` 配置项
-- [6750c9ef] 调整 `.xml` 和 `.json` 的缩进
-- [3d957eda] 添加 `quickActionPattern` 配置项
-- [2b80de94] 将字段 `newVersion` 重命名为 `nextVersion`
+- [edd55e47] fix(mojo): 添加 `commitIssuePattern` 配置项
+- [6750c9ef] style(config): 调整 `.xml` 和 `.json` 的缩进
+- [3d957eda] fix(mojo): 添加 `quickActionPattern` 配置项
+- [2b80de94] fix(mojo): 将字段 `newVersion` 重命名为 `nextVersion`
 - [83e42818] 更新 `Conventional Commits` 徽标
 - [0116a713] 添加 `travis` 配置
-- [3e73ed67] 修复标记范围外的提交
-- [6c87eabd] 修复 PMD 问题事项
-- [3eb99c35] 更新 `pom.xml`
-- [545aa511] 修复 `releaseDate` 数据类型
+- [3e73ed67] fix(mojo): 修复标记范围外的提交
+- [6c87eabd] chore(pmd): 修复 PMD 问题事项
+- [3eb99c35] chore(config): 更新 `pom.xml`
+- [545aa511] fix(mojo): 修复 `releaseDate` 数据类型
 - [a131dcf6] 更新 `checkstyle.xml`
-- [f765dbb9] 修正提交记录的 `fullHash` 属性
+- [f765dbb9] fix(mojo): 修正提交记录的 `fullHash` 属性
 - [fcfe57ae] 添加更新日志页
 - [92909a16] 更新 `README.md`
 - [630a1a33] 添加或更新徽标
 - [2a69b52d] 更新 `pmd` 版本
 - [a6bc1482] 更新 `checkstyle` 版本
-- [b3f41bd4] 添加 `CHANGELOG.md`
+- [b3f41bd4] docs(docs): 添加 `CHANGELOG.md`
 - [1978d19b] 添加文档
-- [4367c63d] 添加 `semantic-gitlog:derive` 目标
-- [8d964149] 实现主要功能
+- [4367c63d] feat(mojo): 添加 `semantic-gitlog:derive` 目标
+- [8d964149] feat(mojo): 实现主要功能

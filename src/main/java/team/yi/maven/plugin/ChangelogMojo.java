@@ -9,11 +9,13 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-import team.yi.tools.semanticgitlog.GitlogService;
 import team.yi.tools.semanticgitlog.config.GitlogSettings;
 import team.yi.tools.semanticgitlog.git.GitRepo;
 import team.yi.tools.semanticgitlog.model.ReleaseLog;
 import team.yi.tools.semanticgitlog.render.MustacheGitlogRender;
+import team.yi.tools.semanticgitlog.service.CommitLocaleService;
+import team.yi.tools.semanticgitlog.service.GitlogService;
+import team.yi.tools.semanticgitlog.service.ScopeProfileService;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -83,21 +85,27 @@ public class ChangelogMojo extends GitChangelogMojo {
 
         final GitlogSettings gitlogSettings = this.getGitlogSettings();
 
-        final GitlogService gitlogService = new GitlogService(gitlogSettings, gitRepo);
+        final CommitLocaleService commitLocaleProvider = new CommitLocaleService(gitlogSettings.getDefaultLang());
+        commitLocaleProvider.load(gitlogSettings.getCommitLocales());
+
+        final GitlogService gitlogService = new GitlogService(gitlogSettings, gitRepo, commitLocaleProvider);
         final ReleaseLog releaseLog = gitlogService.generate();
 
-        this.saveToFiles(releaseLog, fileSets);
+        final ScopeProfileService scopeProfileService = new ScopeProfileService(gitlogSettings.getDefaultLang());
+        scopeProfileService.load(gitlogSettings.getScopeProfiles());
+
+        this.saveToFiles(releaseLog, fileSets, scopeProfileService);
         this.updatePom(releaseLog);
         this.exportJson(releaseLog);
     }
 
-    private void saveToFiles(final ReleaseLog releaseLog, final Set<FileSet> fileSets) throws IOException {
+    private void saveToFiles(final ReleaseLog releaseLog, final Set<FileSet> fileSets, final ScopeProfileService scopeProfileService) throws IOException {
         if (fileSets == null || fileSets.isEmpty()) return;
 
         for (final FileSet fileSet : fileSets) {
             final File target = fileSet.getTarget();
             final File template = fileSet.getTemplate();
-            final MustacheGitlogRender render = new MustacheGitlogRender(releaseLog, template);
+            final MustacheGitlogRender render = new MustacheGitlogRender(releaseLog, template, scopeProfileService);
 
             render.render(target);
         }

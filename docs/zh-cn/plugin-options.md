@@ -13,7 +13,6 @@
 | `fromCommit` | 指定 `git-commit` 的开始位置。 Default is `null`。 |
 | `toRef` | 指定 `git-refs` 的结束位置。 Default is `null`。 |
 | `toCommit` | 指定 `git-commit` 的结束位置。 Default is `null`。 |
-| `strategy` | 发布策略。可选值：`strict`、`slow`。默认为 `strict`。 |
 | `untaggedName` | 为未标记的提交指定默认标题。默认为 `Unreleased`。 |
 | `isUnstable` | 打开 `unstable-period`，使得中断性变更仅递增次版本号。默认为 `false`。 |
 | `forceNextVersion` | 当版本号未增长时强制递增 `nextVersion`。默认为 `true`。 |

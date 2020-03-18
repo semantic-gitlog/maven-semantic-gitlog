@@ -13,7 +13,6 @@
 | `fromCommit` | Specify the starting of `git-commit`. Default is `null`. |
 | `toRef` | Specify the end of `git-refs`. Default is `null`. |
 | `toCommit` | Specify the end of `git-commit`. Default is `null`. |
-| `strategy` | Release strategy. Optional values: `strict`, `slow`. Default is `strict`. |
 | `untaggedName` | Specify a default title for untagged commits. Default is `Unreleased`. |
 | `isUnstable` | Enable `unstable-period`, breaking changes only increases the minor version number. Default is `false`. |
 | `forceNextVersion` | Allow force increase `nextVersion` when the version dose not grow. Default is `true`. |

@@ -8,7 +8,6 @@ import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
 import team.yi.tools.semanticgitlog.GitlogConstants;
 import team.yi.tools.semanticgitlog.config.GitlogSettings;
-import team.yi.tools.semanticgitlog.config.ReleaseStrategy;
 import team.yi.tools.semanticgitlog.git.GitRepo;
 import team.yi.tools.semanticgitlog.model.ReleaseLog;
 import team.yi.tools.semanticgitlog.render.JsonGitlogRender;
@@ -28,8 +27,11 @@ public abstract class GitChangelogMojo extends AbstractMojo {
 
     @Parameter(property = "gitlog.defaultLang")
     protected String defaultLang;
+
     @Parameter
     protected Map<String, File> commitLocales;
+    @Parameter
+    protected Map<String, File> scopeProfiles;
 
     @Parameter(property = "gitlog.closeIssueActions")
     protected String closeIssueActions;
@@ -49,8 +51,6 @@ public abstract class GitChangelogMojo extends AbstractMojo {
     @Parameter(property = "gitlog.toCommit")
     protected String toCommit;
 
-    @Parameter(property = "gitlog.strategy", defaultValue = "strict")
-    protected ReleaseStrategy strategy;
     @Parameter(property = "gitlog.untaggedName", defaultValue = GitlogConstants.DEFAULT_UNTAGGED_NAME)
     protected String untaggedName;
     @Parameter(property = "gitlog.isUnstable")
@@ -85,7 +85,9 @@ public abstract class GitChangelogMojo extends AbstractMojo {
 
         return GitlogSettings.builder()
             .defaultLang(this.defaultLang)
+
             .commitLocales(this.commitLocales)
+            .scopeProfiles(this.scopeProfiles)
 
             .closeIssueActions(this.closeIssueActions)
             .issueUrlTemplate(this.issueUrlTemplate)
@@ -97,7 +99,6 @@ public abstract class GitChangelogMojo extends AbstractMojo {
             .toRef(this.toRef)
             .toCommit(this.toCommit)
 
-            .strategy(this.strategy)
             .untaggedName(this.untaggedName)
             .isUnstable(this.isUnstable)
             .forceNextVersion(this.forceNextVersion)
