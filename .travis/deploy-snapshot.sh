@@ -65,8 +65,6 @@ git show-ref
 # Generate and push CHANGELOG.md
 ./mvnw ${PLUGIN_CLI_OPTS} -D gitlog.toRef=master semantic-gitlog:changelog -U
 
-git add ./CHANGELOG.md
-git add ./CHANGELOG_*.md
-git add ./CHANGELOG.json
-git add ./pom.xml
+git add ./CHANGELOG* || true
+git add ./pom.xml || true
 git commit -m "${gitCommit}" && git push -f || true

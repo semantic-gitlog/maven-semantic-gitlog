@@ -66,8 +66,6 @@ chmod +x ./mvnw .travis/*.sh
 ./mvnw ${PLUGIN_CLI_OPTS} -D "newVersion=${newVersion}" versions:set 1>/dev/null 2>/dev/null
 ./mvnw ${PLUGIN_CLI_OPTS} -D gitlog.toRef=master semantic-gitlog:changelog -U
 
-git add ./CHANGELOG.md
-git add ./CHANGELOG_*.md
-git add ./CHANGELOG.json
-git add ./pom.xml
+git add ./CHANGELOG* || true
+git add ./pom.xml || true
 git commit --amend -m "${gitCommit}" && git push -f || true
