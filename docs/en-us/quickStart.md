@@ -14,8 +14,8 @@
                 <template>${project.basedir}/config/gitlog/CHANGELOG.md.mustache</template>
             </fileSet>
             <fileSet>
-                <target>${project.basedir}/CHANGELOG_zh-cn.md</target>
-                <template>${project.basedir}/config/gitlog/CHANGELOG_zh-cn.md.mustache</template>
+                <target>${project.basedir}/CHANGELOG.zh-cn.md</target>
+                <template>${project.basedir}/config/gitlog/CHANGELOG.zh-cn.md.mustache</template>
             </fileSet>
         </fileSets>
 
