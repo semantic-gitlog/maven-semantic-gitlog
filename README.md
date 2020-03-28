@@ -14,12 +14,14 @@ It automatically derive and manage version numbers and generate [angular-style](
 
 ## Usage
 
-* [Quick Start](https://ymind.github.io/maven-semantic-gitlog/#/en-us/quickStart)
-* [Plugin Goals](https://ymind.github.io/maven-semantic-gitlog/#/en-us/plugin-goals)
-* [Plugin Options](https://ymind.github.io/maven-semantic-gitlog/#/en-us/plugin-options)
+* [Quick Start](https://ymind.github.io/semantic-gitlog/#/en-us/with-maven)
+* [Plugin Options](https://ymind.github.io/semantic-gitlog/#/en-us/components/maven-semantic-gitlog/)
 
 ## Related community projects
 
+* [semantic-commit](https://github.com/ymind/semantic-commit)
+* [semantic-gitlog](https://github.com/ymind/semantic-gitlog)
+* [gradle-semantic-gitlog](https://github.com/ymind/gradle-semantic-gitlog)
 * [semantic-version](https://github.com/skuzzle/semantic-version)
 * [git-changelog-lib](https://github.com/tomasbjerre/git-changelog-lib)
 

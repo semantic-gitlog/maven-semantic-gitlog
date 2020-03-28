@@ -7,7 +7,7 @@ insert_final_newline = true
 max_line_length = 180
 tab_width = 4
 
-[{*.sh, mvnw}]
+[{*.sh, mvnw, gradlew}]
 end_of_line = lf
 
 [{*.yml, *.yaml}]
@@ -16,5 +16,8 @@ indent_size = 2
 [*.xml]
 indent_size = 2
 
-[{*.json, *.json5}]
+[*.json]
 indent_size = 2
+
+[*.mustache]
+insert_final_newline = false

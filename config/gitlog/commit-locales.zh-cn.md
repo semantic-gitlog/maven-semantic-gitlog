@@ -1,4 +1,7 @@
 # 之前的提交
+
+> 这对重写历史提交信息非常有用。
+
 - [7817616b] chore(deps): 升级 `semantic-gitlog` 到 0.2.0
 - [83796445] feat(mojo): 支持从本地化配置文件覆盖提交类型
 - [6c8107da] chore(config): 添加 `organization` 信息
