@@ -1,7 +1,7 @@
 {
   "nextVersion" : {
     "major" : 0,
-    "minor" : 21,
+    "minor" : 22,
     "patch" : 0,
     "preReleaseParts" : [ ],
     "buildMetaDataParts" : [ ],
@@ -12,7 +12,7 @@
   },
   "lastVersion" : {
     "major" : 0,
-    "minor" : 20,
+    "minor" : 21,
     "patch" : 0,
     "preReleaseParts" : [ ],
     "buildMetaDataParts" : [ ],
@@ -24,7 +24,7 @@
   "tags" : [ {
     "version" : {
       "major" : 0,
-      "minor" : 20,
+      "minor" : 21,
       "patch" : 0,
       "preReleaseParts" : [ ],
       "buildMetaDataParts" : [ ],
@@ -33,7 +33,7 @@
       "initialDevelopment" : true,
       "stable" : true
     },
-    "releaseDate" : "2020-03-18 10:43:37.000 +0000",
+    "releaseDate" : "2020-03-28 15:48:07.000 +0000",
     "sections" : [ {
       "title" : "Bug Fixes",
       "commits" : [ {
@@ -213,6 +213,67 @@
         "rawCommitSubject" : "fix `@Parameter` config",
         "messageTitle" : "refactor(mojo): fix `@Parameter` config",
         "messageBody" : "------------\n# Locales\n- **[zh-cn]** 修正 `@Parameter` 配置"
+      } ]
+    }, {
+      "title" : "Features",
+      "commits" : [ {
+        "hashFull" : "85da8ff997b14c8479fb37c9c0e9a0a9309e7d74",
+        "hash" : "85da8ff997b14c8",
+        "hash7" : "85da8ff",
+        "hash8" : "85da8ff9",
+        "commitTime" : "2020-03-28 15:41:46.000 +0000",
+        "commitTimeLong" : 1585410106,
+        "message" : "feat(deps): upgrade `semantic-gitlog` to 0.5.0\n\n------------\n# Locales\n- **[zh-cn]** 升级 `semantic-gitlog` 到 0.5.0\n",
+        "merge" : false,
+        "authorIdent" : {
+          "when" : "2020-03-28 15:41:46.000 +0000",
+          "name" : "ymind",
+          "email" : "ymind@yi.team"
+        },
+        "committerIdent" : {
+          "when" : "2020-03-28 15:41:46.000 +0000",
+          "name" : "ymind",
+          "email" : "ymind@yi.team"
+        },
+        "quickActions" : { },
+        "closeIssues" : [ ],
+        "subjectIssues" : [ ],
+        "bodyIssues" : [ ],
+        "mentions" : [ ],
+        "locales" : [ {
+          "commitHash" : "85da8ff997b14c8479fb37c9c0e9a0a9309e7d74",
+          "lang" : "zh-cn",
+          "commitType" : null,
+          "commitScope" : null,
+          "subject" : "升级 `semantic-gitlog` 到 0.5.0"
+        } ],
+        "defaultLang" : "en",
+        "commitUrl" : "https://github.com/ymind/maven-semantic-gitlog/commit/85da8ff997b14c8479fb37c9c0e9a0a9309e7d74",
+        "commitType" : "feat",
+        "commitPackage" : null,
+        "commitScope" : "deps",
+        "commitSubject" : "upgrade `semantic-gitlog` to 0.5.0",
+        "commitBody" : null,
+        "attention" : false,
+        "breakingChange" : false,
+        "deprecated" : false,
+        "commitIssue" : null,
+        "localeMap" : {
+          "zh-cn" : {
+            "commitHash" : "85da8ff997b14c8479fb37c9c0e9a0a9309e7d74",
+            "lang" : "zh-cn",
+            "commitType" : null,
+            "commitScope" : null,
+            "subject" : "升级 `semantic-gitlog` 到 0.5.0"
+          }
+        },
+        "firstLocaleCommitType" : null,
+        "firstLocaleCommitScope" : null,
+        "rawCommitType" : "feat",
+        "rawCommitScope" : "deps",
+        "rawCommitSubject" : "upgrade `semantic-gitlog` to 0.5.0",
+        "messageTitle" : "feat(deps): upgrade `semantic-gitlog` to 0.5.0",
+        "messageBody" : "------------\n# Locales\n- **[zh-cn]** 升级 `semantic-gitlog` 到 0.5.0"
       } ]
     }, {
       "title" : "Styles",

@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.20.0 (2020-03-18)
+## 0.21.0 (2020-03-28)
 
 ### Bug Fixes
 
@@ -11,6 +11,11 @@
 ### Code Refactoring
 
 - **mojo**: fix `@Parameter` config ([dfb9fa6f](https://github.com/ymind/maven-semantic-gitlog/commit/dfb9fa6f590e9ed3034409e33d69acc3f6b24e37))
+
+
+### Features
+
+- **deps**: upgrade `semantic-gitlog` to 0.5.0 ([85da8ff9](https://github.com/ymind/maven-semantic-gitlog/commit/85da8ff997b14c8479fb37c9c0e9a0a9309e7d74))
 
 
 ### Styles
