@@ -18,7 +18,9 @@
 
 <module name="Checker">
   <property name="charset" value="UTF-8"/>
+
   <property name="severity" value="warning"/>
+
   <property name="fileExtensions" value="java, properties, xml"/>
 
   <module name="SuppressWarningsFilter"/>
@@ -48,6 +50,8 @@
   </module>
 
   <module name="TreeWalker">
+    <module name="SuppressWarningsHolder"/>
+
     <module name="OuterTypeFilename"/>
     <module name="IllegalTokenText">
       <property name="tokens" value="STRING_LITERAL, CHAR_LITERAL"/>
@@ -61,7 +65,7 @@
       <property name="allowByTailComment" value="true"/>
       <property name="allowNonPrintableEscapes" value="true"/>
     </module>
-    <module name="AvoidStarImport"/>
+    <!--<module name="AvoidStarImport"/>-->
     <module name="OneTopLevelClass"/>
     <module name="NoLineWrap">
       <property name="tokens" value="PACKAGE_DEF, IMPORT, STATIC_IMPORT"/>
@@ -96,6 +100,17 @@
       <property name="tokens"
                 value="CLASS_DEF, METHOD_DEF, CTOR_DEF, LITERAL_FOR, LITERAL_WHILE, STATIC_INIT,
                     INSTANCE_INIT, ANNOTATION_DEF, ENUM_DEF"/>
+    </module>
+    <module name="SuppressionXpathSingleFilter">
+      <!-- suppresion is required till https://github.com/checkstyle/checkstyle/issues/7541 -->
+      <property name="id" value="RightCurlyAlone"/>
+      <property name="query" value="//RCURLY[parent::SLIST[count(./*)=1]
+                                     or preceding-sibling::*[last()][self::LCURLY]]"/>
+    </module>
+    <module name="WhitespaceAfter">
+      <property name="tokens"
+                value="COMMA, SEMI, TYPECAST, LITERAL_IF, LITERAL_ELSE,
+                    LITERAL_WHILE, LITERAL_DO, LITERAL_FOR, DO_WHILE"/>
     </module>
     <module name="WhitespaceAround">
       <property name="allowEmptyConstructors" value="true"/>
@@ -191,6 +206,11 @@
       <message key="name.invalidPattern"
                value="Local variable name ''{0}'' must match pattern ''{1}''."/>
     </module>
+    <!--<module name="PatternVariableName">-->
+    <!--  <property name="format" value="^[a-z]([a-z0-9][a-zA-Z0-9]*)?$"/>-->
+    <!--  <message key="name.invalidPattern"-->
+    <!--           value="Pattern variable name ''{0}'' must match pattern ''{1}''."/>-->
+    <!--</module>-->
     <module name="ClassTypeParameterName">
       <property name="format" value="(^[A-Z][0-9]?)$|([A-Z][a-zA-Z0-9]*[T]?$)"/>
       <message key="name.invalidPattern"
@@ -231,10 +251,12 @@
       <property name="allowedAbbreviationLength" value="1"/>
       <property name="tokens"
                 value="CLASS_DEF, INTERFACE_DEF, ENUM_DEF, ANNOTATION_DEF, ANNOTATION_FIELD_DEF,
-                    PARAMETER_DEF, VARIABLE_DEF, METHOD_DEF"/>
-      <property name="allowedAbbreviations" value="XML,URL,URI,UUID"/>
+                    PARAMETER_DEF, VARIABLE_DEF, METHOD_DEF, PATTERN_VARIABLE_DEF"/>
+      <property name="allowedAbbreviations" value="XML,URL,URI,UUID,JSON"/>
     </module>
-    <module name="OverloadMethodsDeclarationOrder"/>
+    <module name="OverloadMethodsDeclarationOrder">
+      <property name="id" value="OverloadMethodsDeclarationOrder"/>
+    </module>
     <module name="VariableDeclarationUsageDistance"/>
     <!--<module name="CustomImportOrder">-->
     <!--  <property name="sortImportsInGroupAlphabetically" value="true"/>-->
@@ -249,7 +271,8 @@
     </module>
     <module name="NoWhitespaceBefore">
       <property name="tokens"
-                value="COMMA, SEMI, POST_INC, POST_DEC, DOT, ELLIPSIS, METHOD_REF"/>
+                value="COMMA, SEMI, POST_INC, POST_DEC, DOT,
+                    LABELED_STAT, METHOD_REF"/>
       <property name="allowLineBreaks" value="true"/>
     </module>
     <module name="ParenPad">
