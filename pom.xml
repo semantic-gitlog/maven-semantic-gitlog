@@ -59,7 +59,7 @@
     <checkstyle.skip>false</checkstyle.skip>
     <pmd.skip>false</pmd.skip>
     <pmdVersion>6.26.0</pmdVersion>
-    <junit.jupiter.version>5.6.1</junit.jupiter.version>
+    <junit.jupiter.version>5.6.2</junit.jupiter.version>
   </properties>
 
   <dependencies>
@@ -97,7 +97,7 @@
     <dependency>
       <groupId>team.yi.tools</groupId>
       <artifactId>semantic-gitlog</artifactId>
-      <version>0.5.0</version>
+      <version>0.5.11</version>
     </dependency>
   </dependencies>
 
@@ -269,9 +269,7 @@
       <id>mvn-release</id>
 
       <properties>
-        <gitlog.toRef>dev</gitlog.toRef>
-        <gitlog.forceNextVersion>true</gitlog.forceNextVersion>
-        <gitlog.preRelease>SNAPSHOT</gitlog.preRelease>
+        <gitlog.toRef>master</gitlog.toRef>
       </properties>
 
       <distributionManagement>
@@ -313,7 +311,6 @@
               </fileSets>
 
               <updateProjectVersion>false</updateProjectVersion>
-              <isUnstable>true</isUnstable>
               <forceNextVersion>${gitlog.forceNextVersion}</forceNextVersion>
 
               <jsonFile>${project.basedir}/CHANGELOG.json</jsonFile>
@@ -323,8 +320,6 @@
               <mentionUrlTemplate>https://github.com/:username</mentionUrlTemplate>
 
               <derivedVersionMark>NEXT_VERSION:==</derivedVersionMark>
-
-              <preRelease>${gitlog.preRelease}</preRelease>
 
               <commitLocales>
                 <en>${project.basedir}/config/gitlog/commit-locales.md</en>
