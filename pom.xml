@@ -11,7 +11,7 @@
 
   <name>maven-semantic-gitlog</name>
   <description>A simple `Semantic Versioning` management tool based on `Conventional Commits`.</description>
-  <url>https://github.com/ymind/maven-semantic-gitlog</url>
+  <url>https://github.com/semantic-gitlog/maven-semantic-gitlog</url>
 
   <organization>
     <name>Yi.Team</name>
@@ -29,19 +29,19 @@
   </developers>
 
   <scm>
-    <connection>scm:git:git@github.com:ymind/maven-semantic-gitlog.git</connection>
-    <developerConnection>scm:git:git@github.com:ymind/maven-semantic-gitlog.git</developerConnection>
-    <url>https://github.com/ymind/maven-semantic-gitlog</url>
+    <connection>scm:git:git@github.com:semantic-gitlog/maven-semantic-gitlog.git</connection>
+    <developerConnection>scm:git:git@github.com:semantic-gitlog/maven-semantic-gitlog.git</developerConnection>
+    <url>https://github.com/semantic-gitlog/maven-semantic-gitlog</url>
   </scm>
 
   <issueManagement>
     <system>GitHub</system>
-    <url>https://github.com/ymind/maven-semantic-gitlog/issues</url>
+    <url>https://github.com/semantic-gitlog/maven-semantic-gitlog/issues</url>
   </issueManagement>
 
   <ciManagement>
-    <system>Travis-CI</system>
-    <url>https://travis-ci.org/ymind/maven-semantic-gitlog</url>
+    <system>GitHub</system>
+    <url>https://github.com/semantic-gitlog/semantic-gitlog/actions</url>
   </ciManagement>
 
   <licenses>
@@ -93,7 +93,7 @@
       <scope>provided</scope>
     </dependency>
 
-    <!-- https://github.com/ymind/semantic-gitlog -->
+    <!-- https://github.com/semantic-gitlog/semantic-gitlog -->
     <dependency>
       <groupId>team.yi.tools</groupId>
       <artifactId>semantic-gitlog</artifactId>
