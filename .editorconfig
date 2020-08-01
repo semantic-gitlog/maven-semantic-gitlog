@@ -13,11 +13,12 @@ end_of_line = lf
 [{*.yml, *.yaml}]
 indent_size = 2
 
-[*.xml]
+[{*.html, *.xml}]
 indent_size = 2
 
-[*.json]
+[{*.json, *.json5}]
 indent_size = 2
 
-[*.mustache]
+[*.md.mustache]
+indent_size = 0
 insert_final_newline = false
