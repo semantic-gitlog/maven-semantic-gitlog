@@ -1,0 +1,150 @@
+name: semantic-gitlog
+
+on: [push, pull_request]
+
+env:
+  OSSRH_USERNAME: ${{ secrets.OSSRH_USERNAME }}
+  OSSRH_TOKEN: ${{ secrets.OSSRH_TOKEN }}
+  OSSRH_GPG_SECRET_ID: ${{ secrets.OSSRH_GPG_SECRET_ID }}
+  OSSRH_GPG_SECRET_PASSWORD: ${{ secrets.OSSRH_GPG_SECRET_PASSWORD }}
+
+  MAVEN_LOG_OPTS: -D org.slf4j.simpleLogger.showDateTime=true -D org.slf4j.simpleLogger.dateTimeFormat=HH:mm:ss.SSS
+  MAVEN_CLI_OPTS: -B -V -e -ff ${MAVEN_LOG_OPTS}
+  DEPLOY_CLI_OPTS: -B -V -e -ff ${MAVEN_LOG_OPTS} --settings .mvn/mvn-settings.xml -P mvn-release
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    if: startsWith(github.event.head_commit.message, 'bumped version to ') != true
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+
+    - name: Set up JDK 1.8
+      uses: actions/setup-java@v1
+      with:
+        java-version: 1.8
+
+    - name: Cache dependencies
+      uses: actions/cache@v1
+      with:
+        path: ~/.m2
+        key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+        restore-keys: ${{ runner.os }}-m2-
+
+    - name: Prepare to build
+      run: |
+        chmod +x ./mvnw
+        git show-ref
+        git log --graph --full-history --all --color --date=short --pretty=format:"%Cred%x09%h %Creset%ad%Cgreen%d %Creset %s %C(bold)(%an)%Creset" || true
+
+    - name: Build project
+      run: ./mvnw ${{env.MAVEN_CLI_OPTS}} clean install -DskipTests=true
+
+  test:
+    needs: [build]
+    runs-on: ubuntu-latest
+
+    if: startsWith(github.event.head_commit.message, 'bumped version to ') != true
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+
+    - name: Set up JDK 1.8
+      uses: actions/setup-java@v1
+      with:
+        java-version: 1.8
+
+    - name: Cache dependencies
+      uses: actions/cache@v1
+      with:
+        path: ~/.m2
+        key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+        restore-keys: ${{ runner.os }}-m2-
+
+    - name: Prepare to build
+      run: chmod +x ./mvnw
+
+    - name: Run tests
+      run: ./mvnw ${{env.MAVEN_CLI_OPTS}} clean test
+
+  deploy_snapshot:
+    needs: [build, test]
+    runs-on: ubuntu-latest
+
+    if: (github.ref == 'refs/heads/master') && startsWith(github.event.head_commit.message, 'bumped version to ') != true && startsWith(github.event.head_commit.message, 'release:') != true
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+
+    - name: Set up JDK 1.8
+      uses: actions/setup-java@v1
+      with:
+        java-version: 1.8
+
+    - name: Cache dependencies
+      uses: actions/cache@v1
+      with:
+        path: ~/.m2
+        key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+        restore-keys: ${{ runner.os }}-m2-
+
+    - name: Prepare to build
+      run: chmod +x ./mvnw
+
+    - id: install-secret-key
+      name: Install gpg secret key
+      run: |
+        echo "${{ secrets.OSSRH_GPG_SECRET_KEY }}" | base64 -d | gpg --batch --import
+
+    - id: publish
+      name: Publish snapshot
+      run: |
+        newVersion=`./mvnw ${{env.DEPLOY_CLI_OPTS}} -D gitlog.toRef=${{github.ref}} -D gitlog.preRelease='' semantic-gitlog:derive -U | grep 'NEXT_VERSION:==' | sed 's/^.*NEXT_VERSION:==//g'`
+
+        echo "newVersion: ${newVersion}"
+
+        ./mvnw ${{env.DEPLOY_CLI_OPTS}} -D "newVersion=${newVersion}" versions:set 1>/dev/null 2>/dev/null
+        ./mvnw ${{env.DEPLOY_CLI_OPTS}} -D skipTests=true clean deploy
+
+  deploy_release:
+    needs: [build]
+    runs-on: ubuntu-latest
+
+    if: startsWith(github.ref, 'refs/tags/') && startsWith(github.event.head_commit.message, 'release')
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+
+    - name: Set up JDK 1.8
+      uses: actions/setup-java@v1
+      with:
+        java-version: 1.8
+
+    - name: Cache dependencies
+      uses: actions/cache@v1
+      with:
+        path: ~/.m2
+        key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+        restore-keys: ${{ runner.os }}-m2-
+
+    - name: Prepare to build
+      run: chmod +x ./mvnw
+
+    - id: install-secret-key
+      name: Install gpg secret key
+      run: |
+        echo "${{ secrets.OSSRH_GPG_SECRET_KEY }}" | base64 -d | gpg --batch --import
+        gpg --list-secret-keys --keyid-format LONG
+
+    - name: Publish release
+      run: ./mvnw ${{env.DEPLOY_CLI_OPTS}} -D skipTests=true clean deploy
