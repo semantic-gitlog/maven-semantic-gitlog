@@ -2,9 +2,7 @@ package team.yi.maven.plugin;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.maven.plugin.logging.Log;
-import org.apache.maven.plugins.annotations.LifecyclePhase;
-import org.apache.maven.plugins.annotations.Mojo;
-import org.apache.maven.plugins.annotations.Parameter;
+import org.apache.maven.plugins.annotations.*;
 import team.yi.tools.semanticgitlog.config.GitlogSettings;
 import team.yi.tools.semanticgitlog.git.GitRepo;
 import team.yi.tools.semanticgitlog.model.ReleaseLog;
@@ -30,6 +28,7 @@ public class DeriveMojo extends GitChangelogMojo {
 
         if (releaseLog == null) return;
 
+        this.updatePom(releaseLog);
         this.exportJson(releaseLog);
 
         if (releaseLog.getNextVersion() == null) return;

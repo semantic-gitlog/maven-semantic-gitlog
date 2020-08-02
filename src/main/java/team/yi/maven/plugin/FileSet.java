@@ -1,8 +1,6 @@
 package team.yi.maven.plugin;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.io.File;
 import java.io.Serializable;
