@@ -1,4 +1,4 @@
-[![Build Status](https://github.com/semantic-gitlog/semantic-gitlog/workflows/maven-semantic-gitlog/badge.svg?branch=master)](https://github.com/semantic-gitlog/maven-semantic-gitlog/actions)
+[![Build Status](https://github.com/semantic-gitlog/maven-semantic-gitlog/workflows/semantic-gitlog/badge.svg?branch=master)](https://github.com/semantic-gitlog/maven-semantic-gitlog/actions)
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/semantic-gitlog/maven-semantic-gitlog)](https://github.com/semantic-gitlog/maven-semantic-gitlog/releases)
 [![Maven Central](https://img.shields.io/maven-central/v/team.yi.maven.plugin/maven-semantic-gitlog)](https://search.maven.org/artifact/team.yi.maven.plugin/maven-semantic-gitlog)
 [![Semantic Versioning 2.0.0](https://img.shields.io/badge/Semantic%20Versioning-2.0.0-brightgreen)](https://semver.org/)

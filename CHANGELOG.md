@@ -1,6 +1,11 @@
 # Changelog
 
-## 0.21.9 (2020-08-01)
+## 0.22.0 (2020-08-02)
+
+### Features
+
+- **mojo**: support update project version for derive mojo ([5f6e4a74](https://github.com/semantic-gitlog/maven-semantic-gitlog/commit/5f6e4a74259fd67844614001c26e41d50f2c4b83))
+
 
 ### Documentation
 
@@ -21,26 +26,22 @@
 - **deps**: bump maven-site-plugin from 3.8.2 to 3.9.1 ([e42b94ed](https://github.com/semantic-gitlog/maven-semantic-gitlog/commit/e42b94ed27a6ca1960ff3384a00157d24023c6f3))
 - **deps**: bump pmdVersion from 6.22.0 to 6.26.0 ([5eae09b6](https://github.com/semantic-gitlog/maven-semantic-gitlog/commit/5eae09b687d08e63efb239822feb83781f204f3b))
 - **deps**: bump checkstyle from 8.30 to 8.35 ([5c8f033d](https://github.com/semantic-gitlog/maven-semantic-gitlog/commit/5c8f033d52eceec6ca014b39a9545981969cc8ad))
-- **deps**: bump `semantic-gitlog` to `0.5.11` ([7f23ca9b](https://github.com/semantic-gitlog/maven-semantic-gitlog/commit/7f23ca9b4f1e2dfaa7b1c98dd227e254ca40f1a9))
+- **deps**: bump `semantic-gitlog` to `0.5.11` ([f01b4657](https://github.com/semantic-gitlog/maven-semantic-gitlog/commit/f01b465727193f90f4edcda6c01ea215719cdac8))
+
+
+### Continuous Integration
+
+- **github**: add github workflows ([d21d2ff4](https://github.com/semantic-gitlog/maven-semantic-gitlog/commit/d21d2ff43a437390baaabf8285752f0e7fe343bd))
 
 
 ## 0.21.0 (2020-03-28)
-
-### Bug Fixes
-
-- **mojo**: fix `ChangelogMojo.updatePom` ([21093e4a](https://github.com/semantic-gitlog/maven-semantic-gitlog/commit/21093e4aa4fed0f85b9552278fd86cde8f117ce2))
-- fix `CHANGELOG_zh-cn.md.mustache` defects ([33f0c7e4](https://github.com/semantic-gitlog/maven-semantic-gitlog/commit/33f0c7e4e396ca675679c0eded2b4a6ee9d2fa5a))
-
-
-### Code Refactoring
-
-- **mojo**: fix `@Parameter` config ([dfb9fa6f](https://github.com/semantic-gitlog/maven-semantic-gitlog/commit/dfb9fa6f590e9ed3034409e33d69acc3f6b24e37))
-
 
 ### Features
 
 - **deps**: upgrade `semantic-gitlog` to 0.5.0 ([85da8ff9](https://github.com/semantic-gitlog/maven-semantic-gitlog/commit/85da8ff997b14c8479fb37c9c0e9a0a9309e7d74))
 
+
+## 0.20.0 (2020-03-18)
 
 ### Styles
 
@@ -55,13 +56,34 @@
 ### Chores
 
 - **config**: normalizing file naming ([097c092c](https://github.com/semantic-gitlog/maven-semantic-gitlog/commit/097c092c0753dba1940f8d1849e1f66417231da9))
+
+
+### Continuous Integration
+
+- **travis**: update ci ([5cbc9f4f](https://github.com/semantic-gitlog/maven-semantic-gitlog/commit/5cbc9f4fcc3f2ca4623159c97ececf0433684914))
+
+
+## 0.19.4 (2020-03-14)
+
+### Bug Fixes
+
+- **mojo**: fix `ChangelogMojo.updatePom` ([21093e4a](https://github.com/semantic-gitlog/maven-semantic-gitlog/commit/21093e4aa4fed0f85b9552278fd86cde8f117ce2))
+- fix `CHANGELOG_zh-cn.md.mustache` defects ([33f0c7e4](https://github.com/semantic-gitlog/maven-semantic-gitlog/commit/33f0c7e4e396ca675679c0eded2b4a6ee9d2fa5a))
+
+
+### Code Refactoring
+
+- **mojo**: fix `@Parameter` config ([dfb9fa6f](https://github.com/semantic-gitlog/maven-semantic-gitlog/commit/dfb9fa6f590e9ed3034409e33d69acc3f6b24e37))
+
+
+### Chores
+
 - **deps**: bump `semantic-gitlog` to `0.3.2` ([b3b5fa65](https://github.com/semantic-gitlog/maven-semantic-gitlog/commit/b3b5fa65bbc54d4092fcce9a5ad2b409fcf425d3))
 
 
 ### Continuous Integration
 
 - **travis**: update ci ([2084e7dd](https://github.com/semantic-gitlog/maven-semantic-gitlog/commit/2084e7dd60984592b058b872d74cfccf04416966))
-- **travis**: update ci ([5cbc9f4f](https://github.com/semantic-gitlog/maven-semantic-gitlog/commit/5cbc9f4fcc3f2ca4623159c97ececf0433684914))
 
 
 ## 0.19.0 (2020-03-08)
