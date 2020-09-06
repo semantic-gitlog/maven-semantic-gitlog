@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.22.0 (2020-08-02)
+## 0.22.1 (2020-09-06)
 
 ### Features
 
@@ -27,6 +27,7 @@
 - **deps**: bump pmdVersion from 6.22.0 to 6.26.0 ([5eae09b6](https://github.com/semantic-gitlog/maven-semantic-gitlog/commit/5eae09b687d08e63efb239822feb83781f204f3b))
 - **deps**: bump checkstyle from 8.30 to 8.35 ([5c8f033d](https://github.com/semantic-gitlog/maven-semantic-gitlog/commit/5c8f033d52eceec6ca014b39a9545981969cc8ad))
 - **deps**: bump `semantic-gitlog` to `0.5.11` ([f01b4657](https://github.com/semantic-gitlog/maven-semantic-gitlog/commit/f01b465727193f90f4edcda6c01ea215719cdac8))
+- **deps**: bump `semantic-gitlog` to `0.6.1` ([6bc0f79e](https://github.com/semantic-gitlog/maven-semantic-gitlog/commit/6bc0f79ec7d67585bab6fb6f10bd1d470fa5ab5f))
 
 
 ### Continuous Integration
