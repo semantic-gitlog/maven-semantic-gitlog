@@ -9,6 +9,7 @@ import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
 import org.w3c.dom.*;
 import team.yi.tools.semanticgitlog.GitlogConstants;
+import team.yi.tools.semanticgitlog.VersionStrategies;
 import team.yi.tools.semanticgitlog.config.GitlogSettings;
 import team.yi.tools.semanticgitlog.git.GitRepo;
 import team.yi.tools.semanticgitlog.model.ReleaseLog;
@@ -64,6 +65,8 @@ public abstract class GitChangelogMojo extends AbstractMojo {
     protected String untaggedName;
     @Parameter(property = "gitlog.isUnstable")
     protected Boolean isUnstable;
+    @Parameter(property = "gitlog.strategy")
+    protected VersionStrategies strategy;
     @Parameter(property = "gitlog.forceNextVersion")
     protected Boolean forceNextVersion;
 
@@ -113,6 +116,7 @@ public abstract class GitChangelogMojo extends AbstractMojo {
 
             .untaggedName(this.untaggedName)
             .isUnstable(this.isUnstable)
+            .strategy(this.strategy)
             .forceNextVersion(this.forceNextVersion)
 
             .lastVersion(lastVersion)
