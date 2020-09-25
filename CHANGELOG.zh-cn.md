@@ -1,5 +1,12 @@
 # 更新日志
 
+## 0.22.2 (2020-09-25)
+
+### Build System
+
+- **依赖项**: bumped `semantic-gitlog` version from 0.6.1 to 0.7.0 ([a5106ef2](https://github.com/semantic-gitlog/maven-semantic-gitlog/commit/a5106ef2388f946f23512d79804d01ef3ad02d38))
+
+
 ## 0.22.1 (2020-09-06)
 
 ### Features

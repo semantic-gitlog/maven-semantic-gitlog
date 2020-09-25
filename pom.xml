@@ -5,7 +5,7 @@
 
   <groupId>team.yi.maven.plugin</groupId>
   <artifactId>maven-semantic-gitlog</artifactId>
-  <version>0.22.1</version>
+  <version>0.22.2</version>
   <packaging>maven-plugin</packaging>
   <inceptionYear>2020</inceptionYear>
 
