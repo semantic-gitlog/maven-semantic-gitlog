@@ -210,7 +210,7 @@ public abstract class GitChangelogMojo extends AbstractMojo {
 
             // write pom
             final Transformer tr = TransformerFactory.newInstance().newTransformer();
-            tr.setOutputProperty(OutputKeys.INDENT, "yes");
+            tr.setOutputProperty(OutputKeys.INDENT, "no");
             tr.transform(new DOMSource(doc), new StreamResult(pomPath.toFile()));
         } catch (final Exception e) {
             log.debug(e.getMessage(), e);
