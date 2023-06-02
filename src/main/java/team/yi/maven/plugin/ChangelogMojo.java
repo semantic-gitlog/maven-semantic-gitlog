@@ -8,7 +8,9 @@ import team.yi.tools.semanticgitlog.config.GitlogSettings;
 import team.yi.tools.semanticgitlog.git.GitRepo;
 import team.yi.tools.semanticgitlog.model.ReleaseLog;
 import team.yi.tools.semanticgitlog.render.MustacheGitlogRender;
-import team.yi.tools.semanticgitlog.service.*;
+import team.yi.tools.semanticgitlog.service.CommitLocaleService;
+import team.yi.tools.semanticgitlog.service.GitlogService;
+import team.yi.tools.semanticgitlog.service.ScopeProfileService;
 
 import java.io.File;
 import java.io.IOException;
@@ -44,9 +46,7 @@ public class ChangelogMojo extends GitChangelogMojo {
     }
 
     private void saveToFile(final Log log, final GitRepo gitRepo) throws IOException {
-        Set<FileSet> fileSets = this.getFileSets();
-
-        if (fileSets == null) fileSets = new HashSet<>();
+        final Set<FileSet> fileSets = new HashSet<>(this.getFileSets());
 
         if (fileSets.isEmpty()) {
             if (log.isInfoEnabled()) {
@@ -58,8 +58,6 @@ public class ChangelogMojo extends GitChangelogMojo {
 
             fileSets.add(new FileSet(template, target));
         }
-
-        if (fileSets.isEmpty()) return;
 
         final GitlogSettings gitlogSettings = this.getGitlogSettings();
 

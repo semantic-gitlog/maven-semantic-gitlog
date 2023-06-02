@@ -7,7 +7,10 @@ import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugin.logging.Log;
 import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
-import org.w3c.dom.*;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 import team.yi.tools.semanticgitlog.GitlogConstants;
 import team.yi.tools.semanticgitlog.VersionStrategy;
 import team.yi.tools.semanticgitlog.config.GitlogSettings;
@@ -17,13 +20,18 @@ import team.yi.tools.semanticgitlog.render.JsonGitlogRender;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.transform.*;
+import javax.xml.transform.OutputKeys;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.Map;
 import java.util.stream.IntStream;
 
@@ -183,7 +191,7 @@ public abstract class GitChangelogMojo extends AbstractMojo {
             final Document doc = db.parse(pomPath.toFile());
             final NodeList childNodes = doc.getDocumentElement().getChildNodes();
 
-            if (childNodes == null || childNodes.getLength() == 0) {
+            if (childNodes.getLength() == 0) {
                 log.error("pom.xml has no nodes.");
 
                 return;
@@ -206,7 +214,7 @@ public abstract class GitChangelogMojo extends AbstractMojo {
 
             versionNode.setTextContent(nextVersion);
 
-            log.info("The version was updated to: " + nextVersion + "");
+            log.info("The version was updated to: " + nextVersion);
 
             // write pom
             final Transformer tr = TransformerFactory.newInstance().newTransformer();
