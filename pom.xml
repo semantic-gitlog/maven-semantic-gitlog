@@ -92,13 +92,13 @@
             <scope>provided</scope>
         </dependency>
 
-    <!-- https://github.com/semantic-gitlog/semantic-gitlog -->
-    <dependency>
-      <groupId>team.yi.tools</groupId>
-      <artifactId>semantic-gitlog</artifactId>
-      <version>0.7.0</version>
-    </dependency>
-  </dependencies>
+        <!-- https://github.com/semantic-gitlog/semantic-gitlog -->
+        <dependency>
+            <groupId>team.yi.tools</groupId>
+            <artifactId>semantic-gitlog</artifactId>
+            <version>0.8.8</version>
+        </dependency>
+    </dependencies>
 
   <build>
     <plugins>
