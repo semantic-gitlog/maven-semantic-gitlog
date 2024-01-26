@@ -176,10 +176,11 @@
                 <version>3.3.2</version>
             </plugin>
 
+            <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-project-info-reports-plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-project-info-reports-plugin</artifactId>
-                <version>3.1.0</version>
+                <version>3.5.0</version>
             </plugin>
         </plugins>
     </reporting>
