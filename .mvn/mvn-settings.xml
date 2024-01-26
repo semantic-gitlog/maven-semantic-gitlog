@@ -2,26 +2,26 @@
           xmlns="http://maven.apache.org/SETTINGS/1.0.0"
           xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 https://maven.apache.org/xsd/settings-1.0.0.xsd">
 
-  <servers>
-    <server>
-      <id>ossrh</id>
-      <username>${env.OSSRH_USERNAME}</username>
-      <password>${env.OSSRH_TOKEN}</password>
-    </server>
-  </servers>
+    <servers>
+        <server>
+            <id>ossrh</id>
+            <username>${env.OSSRH_USERNAME}</username>
+            <password>${env.OSSRH_TOKEN}</password>
+        </server>
+    </servers>
 
-  <profiles>
-    <profile>
-      <id>mvn-release</id>
+    <profiles>
+        <profile>
+            <id>mvn-release</id>
 
-      <properties>
-        <gpg.executable>gpg</gpg.executable>
-        <gpg.keyname>${env.OSSRH_GPG_SECRET_ID}</gpg.keyname>
-        <gpg.passphrase>${env.OSSRH_GPG_SECRET_PASSWORD}</gpg.passphrase>
-        <gitlog.toRef>master</gitlog.toRef>
-        <gitlog.preRelease/>
-      </properties>
-    </profile>
-  </profiles>
+            <properties>
+                <gpg.executable>gpg</gpg.executable>
+                <gpg.keyname>${env.OSSRH_GPG_SECRET_ID}</gpg.keyname>
+                <gpg.passphrase>${env.OSSRH_GPG_SECRET_PASSWORD}</gpg.passphrase>
+                <gitlog.toRef>master</gitlog.toRef>
+                <gitlog.preRelease/>
+            </properties>
+        </profile>
+    </profiles>
 
 </settings>
