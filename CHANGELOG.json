@@ -2,28 +2,884 @@
   "nextVersion" : {
     "major" : 0,
     "minor" : 22,
+    "patch" : 27,
+    "preReleaseParts" : [ ],
+    "buildMetaDataParts" : [ ],
+    "preRelease" : "",
+    "buildMetaData" : "",
+    "stable" : true,
+    "initialDevelopment" : true
+  },
+  "lastVersion" : {
+    "major" : 0,
+    "minor" : 22,
     "patch" : 8,
     "preReleaseParts" : [ ],
     "buildMetaDataParts" : [ ],
     "preRelease" : "",
     "buildMetaData" : "",
-    "initialDevelopment" : true,
-    "stable" : true
-  },
-  "lastVersion" : {
-    "major" : 0,
-    "minor" : 22,
-    "patch" : 2,
-    "preReleaseParts" : [ ],
-    "buildMetaDataParts" : [ ],
-    "preRelease" : "",
-    "buildMetaData" : "",
-    "initialDevelopment" : true,
-    "stable" : true
+    "stable" : true,
+    "initialDevelopment" : true
   },
   "tags" : [ {
     "version" : null,
     "releaseDate" : null,
+    "sections" : [ {
+      "title" : "Chores",
+      "commits" : [ {
+        "hashFull" : "f1fb465b3289c11ae707ec64fa1d6ff27091791a",
+        "hash" : "f1fb465b3289c11",
+        "hash7" : "f1fb465",
+        "hash8" : "f1fb465b",
+        "commitTime" : "2024-01-26 14:32:16.000 +0800",
+        "commitTimeLong" : 1706250736,
+        "message" : "chore(deps): bump maven-core to 3.9.6\n",
+        "merge" : false,
+        "authorIdent" : {
+          "when" : "2024-01-26 14:32:16.000 +0800",
+          "name" : "oc",
+          "email" : "oc@yi.team"
+        },
+        "committerIdent" : {
+          "when" : "2024-01-26 14:32:16.000 +0800",
+          "name" : "oc",
+          "email" : "oc@yi.team"
+        },
+        "quickActions" : { },
+        "closeIssues" : [ ],
+        "subjectIssues" : [ ],
+        "bodyIssues" : [ ],
+        "mentions" : [ ],
+        "locales" : [ ],
+        "defaultLang" : "en",
+        "commitUrl" : "https://github.com/semantic-gitlog/maven-semantic-gitlog/commit/f1fb465b3289c11ae707ec64fa1d6ff27091791a",
+        "commitType" : "chore",
+        "commitPackage" : null,
+        "commitScope" : "deps",
+        "commitSubject" : "bump maven-core to 3.9.6",
+        "commitBody" : null,
+        "attention" : false,
+        "breakingChange" : false,
+        "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : "deps",
+        "localeMap" : null,
+        "rawCommitType" : "chore",
+        "firstLocaleCommitType" : null,
+        "firstLocaleCommitScope" : null,
+        "rawCommitSubject" : "bump maven-core to 3.9.6",
+        "messageBody" : "",
+        "messageTitle" : "chore(deps): bump maven-core to 3.9.6"
+      }, {
+        "hashFull" : "e412fe7212f5e7cbfdb8884eb97c8a4dffd6ecc7",
+        "hash" : "e412fe7212f5e7c",
+        "hash7" : "e412fe7",
+        "hash8" : "e412fe72",
+        "commitTime" : "2024-01-26 14:32:36.000 +0800",
+        "commitTimeLong" : 1706250756,
+        "message" : "chore(deps): bump maven-plugin-api to 3.9.6\n",
+        "merge" : false,
+        "authorIdent" : {
+          "when" : "2024-01-26 14:32:36.000 +0800",
+          "name" : "oc",
+          "email" : "oc@yi.team"
+        },
+        "committerIdent" : {
+          "when" : "2024-01-26 14:32:36.000 +0800",
+          "name" : "oc",
+          "email" : "oc@yi.team"
+        },
+        "quickActions" : { },
+        "closeIssues" : [ ],
+        "subjectIssues" : [ ],
+        "bodyIssues" : [ ],
+        "mentions" : [ ],
+        "locales" : [ ],
+        "defaultLang" : "en",
+        "commitUrl" : "https://github.com/semantic-gitlog/maven-semantic-gitlog/commit/e412fe7212f5e7cbfdb8884eb97c8a4dffd6ecc7",
+        "commitType" : "chore",
+        "commitPackage" : null,
+        "commitScope" : "deps",
+        "commitSubject" : "bump maven-plugin-api to 3.9.6",
+        "commitBody" : null,
+        "attention" : false,
+        "breakingChange" : false,
+        "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : "deps",
+        "localeMap" : null,
+        "rawCommitType" : "chore",
+        "firstLocaleCommitType" : null,
+        "firstLocaleCommitScope" : null,
+        "rawCommitSubject" : "bump maven-plugin-api to 3.9.6",
+        "messageBody" : "",
+        "messageTitle" : "chore(deps): bump maven-plugin-api to 3.9.6"
+      }, {
+        "hashFull" : "2eef2ab7b74b52a030644b27a40de83dcf7561e6",
+        "hash" : "2eef2ab7b74b52a",
+        "hash7" : "2eef2ab",
+        "hash8" : "2eef2ab7",
+        "commitTime" : "2024-01-26 14:33:00.000 +0800",
+        "commitTimeLong" : 1706250780,
+        "message" : "chore(deps): bump maven-plugin-annotations to 3.11.0\n",
+        "merge" : false,
+        "authorIdent" : {
+          "when" : "2024-01-26 14:33:00.000 +0800",
+          "name" : "oc",
+          "email" : "oc@yi.team"
+        },
+        "committerIdent" : {
+          "when" : "2024-01-26 14:33:00.000 +0800",
+          "name" : "oc",
+          "email" : "oc@yi.team"
+        },
+        "quickActions" : { },
+        "closeIssues" : [ ],
+        "subjectIssues" : [ ],
+        "bodyIssues" : [ ],
+        "mentions" : [ ],
+        "locales" : [ ],
+        "defaultLang" : "en",
+        "commitUrl" : "https://github.com/semantic-gitlog/maven-semantic-gitlog/commit/2eef2ab7b74b52a030644b27a40de83dcf7561e6",
+        "commitType" : "chore",
+        "commitPackage" : null,
+        "commitScope" : "deps",
+        "commitSubject" : "bump maven-plugin-annotations to 3.11.0",
+        "commitBody" : null,
+        "attention" : false,
+        "breakingChange" : false,
+        "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : "deps",
+        "localeMap" : null,
+        "rawCommitType" : "chore",
+        "firstLocaleCommitType" : null,
+        "firstLocaleCommitScope" : null,
+        "rawCommitSubject" : "bump maven-plugin-annotations to 3.11.0",
+        "messageBody" : "",
+        "messageTitle" : "chore(deps): bump maven-plugin-annotations to 3.11.0"
+      }, {
+        "hashFull" : "19c929038c67f07363e4a75eadf07a87da2740c8",
+        "hash" : "19c929038c67f07",
+        "hash7" : "19c9290",
+        "hash8" : "19c92903",
+        "commitTime" : "2024-01-26 14:33:22.000 +0800",
+        "commitTimeLong" : 1706250802,
+        "message" : "chore(deps): bump lombok to 1.18.30\n",
+        "merge" : false,
+        "authorIdent" : {
+          "when" : "2024-01-26 14:33:22.000 +0800",
+          "name" : "oc",
+          "email" : "oc@yi.team"
+        },
+        "committerIdent" : {
+          "when" : "2024-01-26 14:33:22.000 +0800",
+          "name" : "oc",
+          "email" : "oc@yi.team"
+        },
+        "quickActions" : { },
+        "closeIssues" : [ ],
+        "subjectIssues" : [ ],
+        "bodyIssues" : [ ],
+        "mentions" : [ ],
+        "locales" : [ ],
+        "defaultLang" : "en",
+        "commitUrl" : "https://github.com/semantic-gitlog/maven-semantic-gitlog/commit/19c929038c67f07363e4a75eadf07a87da2740c8",
+        "commitType" : "chore",
+        "commitPackage" : null,
+        "commitScope" : "deps",
+        "commitSubject" : "bump lombok to 1.18.30",
+        "commitBody" : null,
+        "attention" : false,
+        "breakingChange" : false,
+        "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : "deps",
+        "localeMap" : null,
+        "rawCommitType" : "chore",
+        "firstLocaleCommitType" : null,
+        "firstLocaleCommitScope" : null,
+        "rawCommitSubject" : "bump lombok to 1.18.30",
+        "messageBody" : "",
+        "messageTitle" : "chore(deps): bump lombok to 1.18.30"
+      }, {
+        "hashFull" : "7633b601662502aa0f70d5cd13ff931bbd0c6e90",
+        "hash" : "7633b601662502a",
+        "hash7" : "7633b60",
+        "hash8" : "7633b601",
+        "commitTime" : "2024-01-26 14:33:43.000 +0800",
+        "commitTimeLong" : 1706250823,
+        "message" : "chore(deps): bump semantic-gitlog to 0.8.20\n",
+        "merge" : false,
+        "authorIdent" : {
+          "when" : "2024-01-26 14:33:43.000 +0800",
+          "name" : "oc",
+          "email" : "oc@yi.team"
+        },
+        "committerIdent" : {
+          "when" : "2024-01-26 14:33:43.000 +0800",
+          "name" : "oc",
+          "email" : "oc@yi.team"
+        },
+        "quickActions" : { },
+        "closeIssues" : [ ],
+        "subjectIssues" : [ ],
+        "bodyIssues" : [ ],
+        "mentions" : [ ],
+        "locales" : [ ],
+        "defaultLang" : "en",
+        "commitUrl" : "https://github.com/semantic-gitlog/maven-semantic-gitlog/commit/7633b601662502aa0f70d5cd13ff931bbd0c6e90",
+        "commitType" : "chore",
+        "commitPackage" : null,
+        "commitScope" : "deps",
+        "commitSubject" : "bump semantic-gitlog to 0.8.20",
+        "commitBody" : null,
+        "attention" : false,
+        "breakingChange" : false,
+        "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : "deps",
+        "localeMap" : null,
+        "rawCommitType" : "chore",
+        "firstLocaleCommitType" : null,
+        "firstLocaleCommitScope" : null,
+        "rawCommitSubject" : "bump semantic-gitlog to 0.8.20",
+        "messageBody" : "",
+        "messageTitle" : "chore(deps): bump semantic-gitlog to 0.8.20"
+      }, {
+        "hashFull" : "9a7014b668ef333d9b2b9209f4cb00804a49447a",
+        "hash" : "9a7014b668ef333",
+        "hash7" : "9a7014b",
+        "hash8" : "9a7014b6",
+        "commitTime" : "2024-01-26 14:34:09.000 +0800",
+        "commitTimeLong" : 1706250849,
+        "message" : "chore(deps): bump maven-compiler-plugin to 3.12.1\n",
+        "merge" : false,
+        "authorIdent" : {
+          "when" : "2024-01-26 14:34:09.000 +0800",
+          "name" : "oc",
+          "email" : "oc@yi.team"
+        },
+        "committerIdent" : {
+          "when" : "2024-01-26 14:34:09.000 +0800",
+          "name" : "oc",
+          "email" : "oc@yi.team"
+        },
+        "quickActions" : { },
+        "closeIssues" : [ ],
+        "subjectIssues" : [ ],
+        "bodyIssues" : [ ],
+        "mentions" : [ ],
+        "locales" : [ ],
+        "defaultLang" : "en",
+        "commitUrl" : "https://github.com/semantic-gitlog/maven-semantic-gitlog/commit/9a7014b668ef333d9b2b9209f4cb00804a49447a",
+        "commitType" : "chore",
+        "commitPackage" : null,
+        "commitScope" : "deps",
+        "commitSubject" : "bump maven-compiler-plugin to 3.12.1",
+        "commitBody" : null,
+        "attention" : false,
+        "breakingChange" : false,
+        "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : "deps",
+        "localeMap" : null,
+        "rawCommitType" : "chore",
+        "firstLocaleCommitType" : null,
+        "firstLocaleCommitScope" : null,
+        "rawCommitSubject" : "bump maven-compiler-plugin to 3.12.1",
+        "messageBody" : "",
+        "messageTitle" : "chore(deps): bump maven-compiler-plugin to 3.12.1"
+      }, {
+        "hashFull" : "2f2d362c90aab1e86a291b60b56e35f4cfb0dde3",
+        "hash" : "2f2d362c90aab1e",
+        "hash7" : "2f2d362",
+        "hash8" : "2f2d362c",
+        "commitTime" : "2024-01-26 14:34:30.000 +0800",
+        "commitTimeLong" : 1706250870,
+        "message" : "chore(deps): bump versions-maven-plugin to 2.16.2\n",
+        "merge" : false,
+        "authorIdent" : {
+          "when" : "2024-01-26 14:34:30.000 +0800",
+          "name" : "oc",
+          "email" : "oc@yi.team"
+        },
+        "committerIdent" : {
+          "when" : "2024-01-26 14:34:30.000 +0800",
+          "name" : "oc",
+          "email" : "oc@yi.team"
+        },
+        "quickActions" : { },
+        "closeIssues" : [ ],
+        "subjectIssues" : [ ],
+        "bodyIssues" : [ ],
+        "mentions" : [ ],
+        "locales" : [ ],
+        "defaultLang" : "en",
+        "commitUrl" : "https://github.com/semantic-gitlog/maven-semantic-gitlog/commit/2f2d362c90aab1e86a291b60b56e35f4cfb0dde3",
+        "commitType" : "chore",
+        "commitPackage" : null,
+        "commitScope" : "deps",
+        "commitSubject" : "bump versions-maven-plugin to 2.16.2",
+        "commitBody" : null,
+        "attention" : false,
+        "breakingChange" : false,
+        "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : "deps",
+        "localeMap" : null,
+        "rawCommitType" : "chore",
+        "firstLocaleCommitType" : null,
+        "firstLocaleCommitScope" : null,
+        "rawCommitSubject" : "bump versions-maven-plugin to 2.16.2",
+        "messageBody" : "",
+        "messageTitle" : "chore(deps): bump versions-maven-plugin to 2.16.2"
+      }, {
+        "hashFull" : "0e19ceefcd8c0af615f409150588a7e32318fe73",
+        "hash" : "0e19ceefcd8c0af",
+        "hash7" : "0e19cee",
+        "hash8" : "0e19ceef",
+        "commitTime" : "2024-01-26 14:34:51.000 +0800",
+        "commitTimeLong" : 1706250891,
+        "message" : "chore(deps): bump maven-plugin-plugin to 3.11.0\n",
+        "merge" : false,
+        "authorIdent" : {
+          "when" : "2024-01-26 14:34:51.000 +0800",
+          "name" : "oc",
+          "email" : "oc@yi.team"
+        },
+        "committerIdent" : {
+          "when" : "2024-01-26 14:34:51.000 +0800",
+          "name" : "oc",
+          "email" : "oc@yi.team"
+        },
+        "quickActions" : { },
+        "closeIssues" : [ ],
+        "subjectIssues" : [ ],
+        "bodyIssues" : [ ],
+        "mentions" : [ ],
+        "locales" : [ ],
+        "defaultLang" : "en",
+        "commitUrl" : "https://github.com/semantic-gitlog/maven-semantic-gitlog/commit/0e19ceefcd8c0af615f409150588a7e32318fe73",
+        "commitType" : "chore",
+        "commitPackage" : null,
+        "commitScope" : "deps",
+        "commitSubject" : "bump maven-plugin-plugin to 3.11.0",
+        "commitBody" : null,
+        "attention" : false,
+        "breakingChange" : false,
+        "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : "deps",
+        "localeMap" : null,
+        "rawCommitType" : "chore",
+        "firstLocaleCommitType" : null,
+        "firstLocaleCommitScope" : null,
+        "rawCommitSubject" : "bump maven-plugin-plugin to 3.11.0",
+        "messageBody" : "",
+        "messageTitle" : "chore(deps): bump maven-plugin-plugin to 3.11.0"
+      }, {
+        "hashFull" : "cb4c3e24e235a815fe01e61f16dbdce09e2816ef",
+        "hash" : "cb4c3e24e235a81",
+        "hash7" : "cb4c3e2",
+        "hash8" : "cb4c3e24",
+        "commitTime" : "2024-01-26 14:35:18.000 +0800",
+        "commitTimeLong" : 1706250918,
+        "message" : "chore(deps): bump maven-javadoc-plugin to 3.6.3\n",
+        "merge" : false,
+        "authorIdent" : {
+          "when" : "2024-01-26 14:35:18.000 +0800",
+          "name" : "oc",
+          "email" : "oc@yi.team"
+        },
+        "committerIdent" : {
+          "when" : "2024-01-26 14:35:18.000 +0800",
+          "name" : "oc",
+          "email" : "oc@yi.team"
+        },
+        "quickActions" : { },
+        "closeIssues" : [ ],
+        "subjectIssues" : [ ],
+        "bodyIssues" : [ ],
+        "mentions" : [ ],
+        "locales" : [ ],
+        "defaultLang" : "en",
+        "commitUrl" : "https://github.com/semantic-gitlog/maven-semantic-gitlog/commit/cb4c3e24e235a815fe01e61f16dbdce09e2816ef",
+        "commitType" : "chore",
+        "commitPackage" : null,
+        "commitScope" : "deps",
+        "commitSubject" : "bump maven-javadoc-plugin to 3.6.3",
+        "commitBody" : null,
+        "attention" : false,
+        "breakingChange" : false,
+        "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : "deps",
+        "localeMap" : null,
+        "rawCommitType" : "chore",
+        "firstLocaleCommitType" : null,
+        "firstLocaleCommitScope" : null,
+        "rawCommitSubject" : "bump maven-javadoc-plugin to 3.6.3",
+        "messageBody" : "",
+        "messageTitle" : "chore(deps): bump maven-javadoc-plugin to 3.6.3"
+      }, {
+        "hashFull" : "e1ead862ccb8893c26e85191dfe65c5b88d7fc3c",
+        "hash" : "e1ead862ccb8893",
+        "hash7" : "e1ead86",
+        "hash8" : "e1ead862",
+        "commitTime" : "2024-01-26 14:35:39.000 +0800",
+        "commitTimeLong" : 1706250939,
+        "message" : "chore(deps): bump maven-source-plugin to 3.3.0\n",
+        "merge" : false,
+        "authorIdent" : {
+          "when" : "2024-01-26 14:35:39.000 +0800",
+          "name" : "oc",
+          "email" : "oc@yi.team"
+        },
+        "committerIdent" : {
+          "when" : "2024-01-26 14:35:39.000 +0800",
+          "name" : "oc",
+          "email" : "oc@yi.team"
+        },
+        "quickActions" : { },
+        "closeIssues" : [ ],
+        "subjectIssues" : [ ],
+        "bodyIssues" : [ ],
+        "mentions" : [ ],
+        "locales" : [ ],
+        "defaultLang" : "en",
+        "commitUrl" : "https://github.com/semantic-gitlog/maven-semantic-gitlog/commit/e1ead862ccb8893c26e85191dfe65c5b88d7fc3c",
+        "commitType" : "chore",
+        "commitPackage" : null,
+        "commitScope" : "deps",
+        "commitSubject" : "bump maven-source-plugin to 3.3.0",
+        "commitBody" : null,
+        "attention" : false,
+        "breakingChange" : false,
+        "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : "deps",
+        "localeMap" : null,
+        "rawCommitType" : "chore",
+        "firstLocaleCommitType" : null,
+        "firstLocaleCommitScope" : null,
+        "rawCommitSubject" : "bump maven-source-plugin to 3.3.0",
+        "messageBody" : "",
+        "messageTitle" : "chore(deps): bump maven-source-plugin to 3.3.0"
+      }, {
+        "hashFull" : "13d80a82c763de1460b31e09d0573057d8cf8cce",
+        "hash" : "13d80a82c763de1",
+        "hash7" : "13d80a8",
+        "hash8" : "13d80a82",
+        "commitTime" : "2024-01-26 14:36:02.000 +0800",
+        "commitTimeLong" : 1706250962,
+        "message" : "chore(deps): bump maven-site-plugin to 3.12.1\n",
+        "merge" : false,
+        "authorIdent" : {
+          "when" : "2024-01-26 14:36:02.000 +0800",
+          "name" : "oc",
+          "email" : "oc@yi.team"
+        },
+        "committerIdent" : {
+          "when" : "2024-01-26 14:36:02.000 +0800",
+          "name" : "oc",
+          "email" : "oc@yi.team"
+        },
+        "quickActions" : { },
+        "closeIssues" : [ ],
+        "subjectIssues" : [ ],
+        "bodyIssues" : [ ],
+        "mentions" : [ ],
+        "locales" : [ ],
+        "defaultLang" : "en",
+        "commitUrl" : "https://github.com/semantic-gitlog/maven-semantic-gitlog/commit/13d80a82c763de1460b31e09d0573057d8cf8cce",
+        "commitType" : "chore",
+        "commitPackage" : null,
+        "commitScope" : "deps",
+        "commitSubject" : "bump maven-site-plugin to 3.12.1",
+        "commitBody" : null,
+        "attention" : false,
+        "breakingChange" : false,
+        "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : "deps",
+        "localeMap" : null,
+        "rawCommitType" : "chore",
+        "firstLocaleCommitType" : null,
+        "firstLocaleCommitScope" : null,
+        "rawCommitSubject" : "bump maven-site-plugin to 3.12.1",
+        "messageBody" : "",
+        "messageTitle" : "chore(deps): bump maven-site-plugin to 3.12.1"
+      }, {
+        "hashFull" : "d8829f7004efddbd2d1d909e14716c16e29b1550",
+        "hash" : "d8829f7004efddb",
+        "hash7" : "d8829f7",
+        "hash8" : "d8829f70",
+        "commitTime" : "2024-01-26 14:36:23.000 +0800",
+        "commitTimeLong" : 1706250983,
+        "message" : "chore(deps): bump maven-jxr-plugin to 3.3.2\n",
+        "merge" : false,
+        "authorIdent" : {
+          "when" : "2024-01-26 14:36:23.000 +0800",
+          "name" : "oc",
+          "email" : "oc@yi.team"
+        },
+        "committerIdent" : {
+          "when" : "2024-01-26 14:36:23.000 +0800",
+          "name" : "oc",
+          "email" : "oc@yi.team"
+        },
+        "quickActions" : { },
+        "closeIssues" : [ ],
+        "subjectIssues" : [ ],
+        "bodyIssues" : [ ],
+        "mentions" : [ ],
+        "locales" : [ ],
+        "defaultLang" : "en",
+        "commitUrl" : "https://github.com/semantic-gitlog/maven-semantic-gitlog/commit/d8829f7004efddbd2d1d909e14716c16e29b1550",
+        "commitType" : "chore",
+        "commitPackage" : null,
+        "commitScope" : "deps",
+        "commitSubject" : "bump maven-jxr-plugin to 3.3.2",
+        "commitBody" : null,
+        "attention" : false,
+        "breakingChange" : false,
+        "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : "deps",
+        "localeMap" : null,
+        "rawCommitType" : "chore",
+        "firstLocaleCommitType" : null,
+        "firstLocaleCommitScope" : null,
+        "rawCommitSubject" : "bump maven-jxr-plugin to 3.3.2",
+        "messageBody" : "",
+        "messageTitle" : "chore(deps): bump maven-jxr-plugin to 3.3.2"
+      }, {
+        "hashFull" : "2f8db03e8bbb54ec7e847ef7a5066751316b4974",
+        "hash" : "2f8db03e8bbb54e",
+        "hash7" : "2f8db03",
+        "hash8" : "2f8db03e",
+        "commitTime" : "2024-01-26 14:36:46.000 +0800",
+        "commitTimeLong" : 1706251006,
+        "message" : "chore(deps): bump maven-project-info-reports-plugin to 3.5.0\n",
+        "merge" : false,
+        "authorIdent" : {
+          "when" : "2024-01-26 14:36:46.000 +0800",
+          "name" : "oc",
+          "email" : "oc@yi.team"
+        },
+        "committerIdent" : {
+          "when" : "2024-01-26 14:36:46.000 +0800",
+          "name" : "oc",
+          "email" : "oc@yi.team"
+        },
+        "quickActions" : { },
+        "closeIssues" : [ ],
+        "subjectIssues" : [ ],
+        "bodyIssues" : [ ],
+        "mentions" : [ ],
+        "locales" : [ ],
+        "defaultLang" : "en",
+        "commitUrl" : "https://github.com/semantic-gitlog/maven-semantic-gitlog/commit/2f8db03e8bbb54ec7e847ef7a5066751316b4974",
+        "commitType" : "chore",
+        "commitPackage" : null,
+        "commitScope" : "deps",
+        "commitSubject" : "bump maven-project-info-reports-plugin to 3.5.0",
+        "commitBody" : null,
+        "attention" : false,
+        "breakingChange" : false,
+        "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : "deps",
+        "localeMap" : null,
+        "rawCommitType" : "chore",
+        "firstLocaleCommitType" : null,
+        "firstLocaleCommitScope" : null,
+        "rawCommitSubject" : "bump maven-project-info-reports-plugin to 3.5.0",
+        "messageBody" : "",
+        "messageTitle" : "chore(deps): bump maven-project-info-reports-plugin to 3.5.0"
+      }, {
+        "hashFull" : "84a909a5658099cfb777c344ddd181411c8bdaa3",
+        "hash" : "84a909a5658099c",
+        "hash7" : "84a909a",
+        "hash8" : "84a909a5",
+        "commitTime" : "2024-01-26 14:37:08.000 +0800",
+        "commitTimeLong" : 1706251028,
+        "message" : "chore(deps): bump maven-gpg-plugin to 3.1.0\n",
+        "merge" : false,
+        "authorIdent" : {
+          "when" : "2024-01-26 14:37:08.000 +0800",
+          "name" : "oc",
+          "email" : "oc@yi.team"
+        },
+        "committerIdent" : {
+          "when" : "2024-01-26 14:37:08.000 +0800",
+          "name" : "oc",
+          "email" : "oc@yi.team"
+        },
+        "quickActions" : { },
+        "closeIssues" : [ ],
+        "subjectIssues" : [ ],
+        "bodyIssues" : [ ],
+        "mentions" : [ ],
+        "locales" : [ ],
+        "defaultLang" : "en",
+        "commitUrl" : "https://github.com/semantic-gitlog/maven-semantic-gitlog/commit/84a909a5658099cfb777c344ddd181411c8bdaa3",
+        "commitType" : "chore",
+        "commitPackage" : null,
+        "commitScope" : "deps",
+        "commitSubject" : "bump maven-gpg-plugin to 3.1.0",
+        "commitBody" : null,
+        "attention" : false,
+        "breakingChange" : false,
+        "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : "deps",
+        "localeMap" : null,
+        "rawCommitType" : "chore",
+        "firstLocaleCommitType" : null,
+        "firstLocaleCommitScope" : null,
+        "rawCommitSubject" : "bump maven-gpg-plugin to 3.1.0",
+        "messageBody" : "",
+        "messageTitle" : "chore(deps): bump maven-gpg-plugin to 3.1.0"
+      }, {
+        "hashFull" : "880d0818ef9249bf9f13823ce686d44c0516e695",
+        "hash" : "880d0818ef9249b",
+        "hash7" : "880d081",
+        "hash8" : "880d0818",
+        "commitTime" : "2024-01-26 14:37:29.000 +0800",
+        "commitTimeLong" : 1706251049,
+        "message" : "chore(deps): bump nexus-staging-maven-plugin to 1.6.13\n",
+        "merge" : false,
+        "authorIdent" : {
+          "when" : "2024-01-26 14:37:29.000 +0800",
+          "name" : "oc",
+          "email" : "oc@yi.team"
+        },
+        "committerIdent" : {
+          "when" : "2024-01-26 14:37:29.000 +0800",
+          "name" : "oc",
+          "email" : "oc@yi.team"
+        },
+        "quickActions" : { },
+        "closeIssues" : [ ],
+        "subjectIssues" : [ ],
+        "bodyIssues" : [ ],
+        "mentions" : [ ],
+        "locales" : [ ],
+        "defaultLang" : "en",
+        "commitUrl" : "https://github.com/semantic-gitlog/maven-semantic-gitlog/commit/880d0818ef9249bf9f13823ce686d44c0516e695",
+        "commitType" : "chore",
+        "commitPackage" : null,
+        "commitScope" : "deps",
+        "commitSubject" : "bump nexus-staging-maven-plugin to 1.6.13",
+        "commitBody" : null,
+        "attention" : false,
+        "breakingChange" : false,
+        "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : "deps",
+        "localeMap" : null,
+        "rawCommitType" : "chore",
+        "firstLocaleCommitType" : null,
+        "firstLocaleCommitScope" : null,
+        "rawCommitSubject" : "bump nexus-staging-maven-plugin to 1.6.13",
+        "messageBody" : "",
+        "messageTitle" : "chore(deps): bump nexus-staging-maven-plugin to 1.6.13"
+      } ]
+    }, {
+      "title" : "Build System",
+      "commits" : [ {
+        "hashFull" : "d57c8e880ffecea116d9bcccb06a5a26f0e79a1b",
+        "hash" : "d57c8e880ffecea",
+        "hash7" : "d57c8e8",
+        "hash8" : "d57c8e88",
+        "commitTime" : "2024-01-26 14:00:28.000 +0800",
+        "commitTimeLong" : 1706248828,
+        "message" : "build(deps): remove checkstyle\n",
+        "merge" : false,
+        "authorIdent" : {
+          "when" : "2024-01-26 14:00:28.000 +0800",
+          "name" : "oc",
+          "email" : "oc@yi.team"
+        },
+        "committerIdent" : {
+          "when" : "2024-01-26 14:00:28.000 +0800",
+          "name" : "oc",
+          "email" : "oc@yi.team"
+        },
+        "quickActions" : { },
+        "closeIssues" : [ ],
+        "subjectIssues" : [ ],
+        "bodyIssues" : [ ],
+        "mentions" : [ ],
+        "locales" : [ ],
+        "defaultLang" : "en",
+        "commitUrl" : "https://github.com/semantic-gitlog/maven-semantic-gitlog/commit/d57c8e880ffecea116d9bcccb06a5a26f0e79a1b",
+        "commitType" : "build",
+        "commitPackage" : null,
+        "commitScope" : "deps",
+        "commitSubject" : "remove checkstyle",
+        "commitBody" : null,
+        "attention" : false,
+        "breakingChange" : false,
+        "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : "deps",
+        "localeMap" : null,
+        "rawCommitType" : "build",
+        "firstLocaleCommitType" : null,
+        "firstLocaleCommitScope" : null,
+        "rawCommitSubject" : "remove checkstyle",
+        "messageBody" : "",
+        "messageTitle" : "build(deps): remove checkstyle"
+      }, {
+        "hashFull" : "eba8f6998018ac8db7dc867bf9a02fdc350b3f0a",
+        "hash" : "eba8f6998018ac8",
+        "hash7" : "eba8f69",
+        "hash8" : "eba8f699",
+        "commitTime" : "2024-01-26 14:01:40.000 +0800",
+        "commitTimeLong" : 1706248900,
+        "message" : "build(deps): remove pmd\n",
+        "merge" : false,
+        "authorIdent" : {
+          "when" : "2024-01-26 14:01:40.000 +0800",
+          "name" : "oc",
+          "email" : "oc@yi.team"
+        },
+        "committerIdent" : {
+          "when" : "2024-01-26 14:01:40.000 +0800",
+          "name" : "oc",
+          "email" : "oc@yi.team"
+        },
+        "quickActions" : { },
+        "closeIssues" : [ ],
+        "subjectIssues" : [ ],
+        "bodyIssues" : [ ],
+        "mentions" : [ ],
+        "locales" : [ ],
+        "defaultLang" : "en",
+        "commitUrl" : "https://github.com/semantic-gitlog/maven-semantic-gitlog/commit/eba8f6998018ac8db7dc867bf9a02fdc350b3f0a",
+        "commitType" : "build",
+        "commitPackage" : null,
+        "commitScope" : "deps",
+        "commitSubject" : "remove pmd",
+        "commitBody" : null,
+        "attention" : false,
+        "breakingChange" : false,
+        "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : "deps",
+        "localeMap" : null,
+        "rawCommitType" : "build",
+        "firstLocaleCommitType" : null,
+        "firstLocaleCommitScope" : null,
+        "rawCommitSubject" : "remove pmd",
+        "messageBody" : "",
+        "messageTitle" : "build(deps): remove pmd"
+      }, {
+        "hashFull" : "69536d35ce646564dbe79860b62d94bc2d59c9f6",
+        "hash" : "69536d35ce64656",
+        "hash7" : "69536d3",
+        "hash8" : "69536d35",
+        "commitTime" : "2024-01-26 14:30:25.000 +0800",
+        "commitTimeLong" : 1706250625,
+        "message" : "build(deps): bump maven wrapper to 3.2.0\n",
+        "merge" : false,
+        "authorIdent" : {
+          "when" : "2024-01-26 14:30:25.000 +0800",
+          "name" : "oc",
+          "email" : "oc@yi.team"
+        },
+        "committerIdent" : {
+          "when" : "2024-01-26 14:30:25.000 +0800",
+          "name" : "oc",
+          "email" : "oc@yi.team"
+        },
+        "quickActions" : { },
+        "closeIssues" : [ ],
+        "subjectIssues" : [ ],
+        "bodyIssues" : [ ],
+        "mentions" : [ ],
+        "locales" : [ ],
+        "defaultLang" : "en",
+        "commitUrl" : "https://github.com/semantic-gitlog/maven-semantic-gitlog/commit/69536d35ce646564dbe79860b62d94bc2d59c9f6",
+        "commitType" : "build",
+        "commitPackage" : null,
+        "commitScope" : "deps",
+        "commitSubject" : "bump maven wrapper to 3.2.0",
+        "commitBody" : null,
+        "attention" : false,
+        "breakingChange" : false,
+        "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : "deps",
+        "localeMap" : null,
+        "rawCommitType" : "build",
+        "firstLocaleCommitType" : null,
+        "firstLocaleCommitScope" : null,
+        "rawCommitSubject" : "bump maven wrapper to 3.2.0",
+        "messageBody" : "",
+        "messageTitle" : "build(deps): bump maven wrapper to 3.2.0"
+      }, {
+        "hashFull" : "82c00675e1662116cf5145b5637ea54712602a91",
+        "hash" : "82c00675e166211",
+        "hash7" : "82c0067",
+        "hash8" : "82c00675",
+        "commitTime" : "2024-01-26 14:31:19.000 +0800",
+        "commitTimeLong" : 1706250679,
+        "message" : "build(deps): bump jdk to 11\n",
+        "merge" : false,
+        "authorIdent" : {
+          "when" : "2024-01-26 14:31:19.000 +0800",
+          "name" : "oc",
+          "email" : "oc@yi.team"
+        },
+        "committerIdent" : {
+          "when" : "2024-01-26 14:31:19.000 +0800",
+          "name" : "oc",
+          "email" : "oc@yi.team"
+        },
+        "quickActions" : { },
+        "closeIssues" : [ ],
+        "subjectIssues" : [ ],
+        "bodyIssues" : [ ],
+        "mentions" : [ ],
+        "locales" : [ ],
+        "defaultLang" : "en",
+        "commitUrl" : "https://github.com/semantic-gitlog/maven-semantic-gitlog/commit/82c00675e1662116cf5145b5637ea54712602a91",
+        "commitType" : "build",
+        "commitPackage" : null,
+        "commitScope" : "deps",
+        "commitSubject" : "bump jdk to 11",
+        "commitBody" : null,
+        "attention" : false,
+        "breakingChange" : false,
+        "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : "deps",
+        "localeMap" : null,
+        "rawCommitType" : "build",
+        "firstLocaleCommitType" : null,
+        "firstLocaleCommitScope" : null,
+        "rawCommitSubject" : "bump jdk to 11",
+        "messageBody" : "",
+        "messageTitle" : "build(deps): bump jdk to 11"
+      } ]
+    } ]
+  }, {
+    "version" : {
+      "major" : 0,
+      "minor" : 22,
+      "patch" : 8,
+      "preReleaseParts" : [ ],
+      "buildMetaDataParts" : [ ],
+      "preRelease" : "",
+      "buildMetaData" : "",
+      "stable" : true,
+      "initialDevelopment" : true
+    },
+    "releaseDate" : "2023-06-02 13:34:44.000 +0800",
     "sections" : [ {
       "title" : "Bug Fixes",
       "commits" : [ {
@@ -61,15 +917,15 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
-        "localeMap" : null,
         "commitIssue" : null,
-        "rawCommitType" : "fix",
         "rawCommitScope" : null,
+        "localeMap" : null,
+        "rawCommitType" : "fix",
         "firstLocaleCommitType" : null,
-        "rawCommitSubject" : "updateProjectVersion (updatePom) adds newline between every node on each run",
         "firstLocaleCommitScope" : null,
-        "messageTitle" : "fix: updateProjectVersion (updatePom) adds newline between every node on each run",
-        "messageBody" : "Refs: https://github.com/semantic-gitlog/maven-semantic-gitlog/issues/16"
+        "rawCommitSubject" : "updateProjectVersion (updatePom) adds newline between every node on each run",
+        "messageBody" : "Refs: https://github.com/semantic-gitlog/maven-semantic-gitlog/issues/16",
+        "messageTitle" : "fix: updateProjectVersion (updatePom) adds newline between every node on each run"
       } ]
     }, {
       "title" : "Chores",
@@ -108,15 +964,15 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
-        "localeMap" : null,
         "commitIssue" : null,
-        "rawCommitType" : "chore",
         "rawCommitScope" : "deps",
+        "localeMap" : null,
+        "rawCommitType" : "chore",
         "firstLocaleCommitType" : null,
-        "rawCommitSubject" : "bump maven-plugin-api from 3.6.3 to 3.9.2",
         "firstLocaleCommitScope" : null,
-        "messageTitle" : "chore(deps): bump maven-plugin-api from 3.6.3 to 3.9.2",
-        "messageBody" : ""
+        "rawCommitSubject" : "bump maven-plugin-api from 3.6.3 to 3.9.2",
+        "messageBody" : "",
+        "messageTitle" : "chore(deps): bump maven-plugin-api from 3.6.3 to 3.9.2"
       }, {
         "hashFull" : "a131ea79038a4fcc19f92218c62e3a53c84f6d92",
         "hash" : "a131ea79038a4fc",
@@ -152,15 +1008,15 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
-        "localeMap" : null,
         "commitIssue" : null,
-        "rawCommitType" : "chore",
         "rawCommitScope" : "deps",
+        "localeMap" : null,
+        "rawCommitType" : "chore",
         "firstLocaleCommitType" : null,
-        "rawCommitSubject" : "bump maven-plugin-annotations from 3.6.0 to 3.9.0",
         "firstLocaleCommitScope" : null,
-        "messageTitle" : "chore(deps): bump maven-plugin-annotations from 3.6.0 to 3.9.0",
-        "messageBody" : ""
+        "rawCommitSubject" : "bump maven-plugin-annotations from 3.6.0 to 3.9.0",
+        "messageBody" : "",
+        "messageTitle" : "chore(deps): bump maven-plugin-annotations from 3.6.0 to 3.9.0"
       }, {
         "hashFull" : "1e8a97f6de63cd8e9f76f8c7958aa9a8d9e3ff81",
         "hash" : "1e8a97f6de63cd8",
@@ -196,15 +1052,15 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
-        "localeMap" : null,
         "commitIssue" : null,
-        "rawCommitType" : "chore",
         "rawCommitScope" : "deps",
+        "localeMap" : null,
+        "rawCommitType" : "chore",
         "firstLocaleCommitType" : null,
-        "rawCommitSubject" : "bump lombok from 1.18.12 to 1.18.28",
         "firstLocaleCommitScope" : null,
-        "messageTitle" : "chore(deps): bump lombok from 1.18.12 to 1.18.28",
-        "messageBody" : ""
+        "rawCommitSubject" : "bump lombok from 1.18.12 to 1.18.28",
+        "messageBody" : "",
+        "messageTitle" : "chore(deps): bump lombok from 1.18.12 to 1.18.28"
       }, {
         "hashFull" : "b4cb710d5dac68d5f50a58a086b5bbb1f302724d",
         "hash" : "b4cb710d5dac68d",
@@ -240,15 +1096,15 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
-        "localeMap" : null,
         "commitIssue" : null,
-        "rawCommitType" : "chore",
         "rawCommitScope" : "deps",
+        "localeMap" : null,
+        "rawCommitType" : "chore",
         "firstLocaleCommitType" : null,
-        "rawCommitSubject" : "bump semantic-gitlog from 0.7.0 to 0.8.8",
         "firstLocaleCommitScope" : null,
-        "messageTitle" : "chore(deps): bump semantic-gitlog from 0.7.0 to 0.8.8",
-        "messageBody" : ""
+        "rawCommitSubject" : "bump semantic-gitlog from 0.7.0 to 0.8.8",
+        "messageBody" : "",
+        "messageTitle" : "chore(deps): bump semantic-gitlog from 0.7.0 to 0.8.8"
       }, {
         "hashFull" : "d92705ed56ece5ba09f4b4567a6fac940062b25f",
         "hash" : "d92705ed56ece5b",
@@ -284,15 +1140,15 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
-        "localeMap" : null,
         "commitIssue" : null,
-        "rawCommitType" : "chore",
         "rawCommitScope" : "deps",
+        "localeMap" : null,
+        "rawCommitType" : "chore",
         "firstLocaleCommitType" : null,
-        "rawCommitSubject" : "bump maven-semantic-gitlog from 0.22.0 to 0.22.2",
         "firstLocaleCommitScope" : null,
-        "messageTitle" : "chore(deps): bump maven-semantic-gitlog from 0.22.0 to 0.22.2",
-        "messageBody" : ""
+        "rawCommitSubject" : "bump maven-semantic-gitlog from 0.22.0 to 0.22.2",
+        "messageBody" : "",
+        "messageTitle" : "chore(deps): bump maven-semantic-gitlog from 0.22.0 to 0.22.2"
       } ]
     }, {
       "title" : "Styles",
@@ -331,15 +1187,15 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
-        "localeMap" : null,
         "commitIssue" : null,
-        "rawCommitType" : "style",
         "rawCommitScope" : null,
+        "localeMap" : null,
+        "rawCommitType" : "style",
         "firstLocaleCommitType" : null,
-        "rawCommitSubject" : "code cleanup",
         "firstLocaleCommitScope" : null,
-        "messageTitle" : "style: code cleanup",
-        "messageBody" : ""
+        "rawCommitSubject" : "code cleanup",
+        "messageBody" : "",
+        "messageTitle" : "style: code cleanup"
       } ]
     } ]
   }, {
@@ -351,8 +1207,8 @@
       "buildMetaDataParts" : [ ],
       "preRelease" : "",
       "buildMetaData" : "",
-      "initialDevelopment" : true,
-      "stable" : true
+      "stable" : true,
+      "initialDevelopment" : true
     },
     "releaseDate" : "2020-09-25 16:24:10.000 +0800",
     "sections" : [ {
@@ -392,15 +1248,15 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
-        "localeMap" : null,
         "commitIssue" : null,
-        "rawCommitType" : "build",
         "rawCommitScope" : "deps",
+        "localeMap" : null,
+        "rawCommitType" : "build",
         "firstLocaleCommitType" : null,
-        "rawCommitSubject" : "bumped `semantic-gitlog` version from 0.6.1 to 0.7.0",
         "firstLocaleCommitScope" : null,
-        "messageTitle" : "build(deps): bumped `semantic-gitlog` version from 0.6.1 to 0.7.0",
-        "messageBody" : ""
+        "rawCommitSubject" : "bumped `semantic-gitlog` version from 0.6.1 to 0.7.0",
+        "messageBody" : "",
+        "messageTitle" : "build(deps): bumped `semantic-gitlog` version from 0.6.1 to 0.7.0"
       } ]
     } ]
   }, {
@@ -412,8 +1268,8 @@
       "buildMetaDataParts" : [ ],
       "preRelease" : "",
       "buildMetaData" : "",
-      "initialDevelopment" : true,
-      "stable" : true
+      "stable" : true,
+      "initialDevelopment" : true
     },
     "releaseDate" : "2020-09-06 23:11:53.000 +0800",
     "sections" : [ {
@@ -459,6 +1315,8 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : "deps",
         "localeMap" : {
           "zh-cn" : {
             "commitHash" : "6bc0f79ec7d67585bab6fb6f10bd1d470fa5ab5f",
@@ -468,14 +1326,12 @@
             "subject" : "更新 `semantic-gitlog` 至 `0.6.1`"
           }
         },
-        "commitIssue" : null,
         "rawCommitType" : "chore",
-        "rawCommitScope" : "deps",
         "firstLocaleCommitType" : null,
-        "rawCommitSubject" : "bump `semantic-gitlog` to `0.6.1`",
         "firstLocaleCommitScope" : null,
-        "messageTitle" : "chore(deps): bump `semantic-gitlog` to `0.6.1`",
-        "messageBody" : "------------\n# Locales\n- **[zh-cn]** 更新 `semantic-gitlog` 至 `0.6.1`"
+        "rawCommitSubject" : "bump `semantic-gitlog` to `0.6.1`",
+        "messageBody" : "------------\n# Locales\n- **[zh-cn]** 更新 `semantic-gitlog` 至 `0.6.1`",
+        "messageTitle" : "chore(deps): bump `semantic-gitlog` to `0.6.1`"
       } ]
     } ]
   }, {
@@ -487,8 +1343,8 @@
       "buildMetaDataParts" : [ ],
       "preRelease" : "",
       "buildMetaData" : "",
-      "initialDevelopment" : true,
-      "stable" : true
+      "stable" : true,
+      "initialDevelopment" : true
     },
     "releaseDate" : "2020-08-02 11:25:57.000 +0800",
     "sections" : [ {
@@ -534,6 +1390,8 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : "mojo",
         "localeMap" : {
           "zh-cn" : {
             "commitHash" : "5f6e4a74259fd67844614001c26e41d50f2c4b83",
@@ -543,14 +1401,12 @@
             "subject" : "为 derive 目标添加更新项目版本号的支持"
           }
         },
-        "commitIssue" : null,
         "rawCommitType" : "feat",
-        "rawCommitScope" : "mojo",
         "firstLocaleCommitType" : null,
-        "rawCommitSubject" : "support update project version for derive mojo",
         "firstLocaleCommitScope" : null,
-        "messageTitle" : "feat(mojo): support update project version for derive mojo",
-        "messageBody" : "------------\n# Locales\n- **[zh-cn]** 为 derive 目标添加更新项目版本号的支持"
+        "rawCommitSubject" : "support update project version for derive mojo",
+        "messageBody" : "------------\n# Locales\n- **[zh-cn]** 为 derive 目标添加更新项目版本号的支持",
+        "messageTitle" : "feat(mojo): support update project version for derive mojo"
       } ]
     }, {
       "title" : "Chores",
@@ -589,15 +1445,15 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
-        "localeMap" : null,
         "commitIssue" : null,
-        "rawCommitType" : "chore",
         "rawCommitScope" : "deps",
+        "localeMap" : null,
+        "rawCommitType" : "chore",
         "firstLocaleCommitType" : null,
-        "rawCommitSubject" : "bump maven-pmd-plugin from 3.12.0 to 3.13.0",
         "firstLocaleCommitScope" : null,
-        "messageTitle" : "chore(deps): bump maven-pmd-plugin from 3.12.0 to 3.13.0",
-        "messageBody" : "Bumps [maven-pmd-plugin](https://github.com/apache/maven-pmd-plugin) from 3.12.0 to 3.13.0.\n- [Release notes](https://github.com/apache/maven-pmd-plugin/releases)\n- [Commits](https://github.com/apache/maven-pmd-plugin/compare/maven-pmd-plugin-3.12.0...maven-pmd-plugin-3.13.0)\n\nSigned-off-by: dependabot-preview[bot] <support@dependabot.com>"
+        "rawCommitSubject" : "bump maven-pmd-plugin from 3.12.0 to 3.13.0",
+        "messageBody" : "Bumps [maven-pmd-plugin](https://github.com/apache/maven-pmd-plugin) from 3.12.0 to 3.13.0.\n- [Release notes](https://github.com/apache/maven-pmd-plugin/releases)\n- [Commits](https://github.com/apache/maven-pmd-plugin/compare/maven-pmd-plugin-3.12.0...maven-pmd-plugin-3.13.0)\n\nSigned-off-by: dependabot-preview[bot] <support@dependabot.com>",
+        "messageTitle" : "chore(deps): bump maven-pmd-plugin from 3.12.0 to 3.13.0"
       }, {
         "hashFull" : "81ed8ebe2b1f5620488382a38073bf877c225061",
         "hash" : "81ed8ebe2b1f562",
@@ -633,15 +1489,15 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
-        "localeMap" : null,
         "commitIssue" : null,
-        "rawCommitType" : "chore",
         "rawCommitScope" : "deps",
+        "localeMap" : null,
+        "rawCommitType" : "chore",
         "firstLocaleCommitType" : null,
-        "rawCommitSubject" : "bump maven-checkstyle-plugin from 3.1.0 to 3.1.1",
         "firstLocaleCommitScope" : null,
-        "messageTitle" : "chore(deps): bump maven-checkstyle-plugin from 3.1.0 to 3.1.1",
-        "messageBody" : "Bumps [maven-checkstyle-plugin](https://github.com/apache/maven-checkstyle-plugin) from 3.1.0 to 3.1.1.\n- [Release notes](https://github.com/apache/maven-checkstyle-plugin/releases)\n- [Commits](https://github.com/apache/maven-checkstyle-plugin/compare/maven-checkstyle-plugin-3.1.0...maven-checkstyle-plugin-3.1.1)\n\nSigned-off-by: dependabot-preview[bot] <support@dependabot.com>"
+        "rawCommitSubject" : "bump maven-checkstyle-plugin from 3.1.0 to 3.1.1",
+        "messageBody" : "Bumps [maven-checkstyle-plugin](https://github.com/apache/maven-checkstyle-plugin) from 3.1.0 to 3.1.1.\n- [Release notes](https://github.com/apache/maven-checkstyle-plugin/releases)\n- [Commits](https://github.com/apache/maven-checkstyle-plugin/compare/maven-checkstyle-plugin-3.1.0...maven-checkstyle-plugin-3.1.1)\n\nSigned-off-by: dependabot-preview[bot] <support@dependabot.com>",
+        "messageTitle" : "chore(deps): bump maven-checkstyle-plugin from 3.1.0 to 3.1.1"
       }, {
         "hashFull" : "66a515f1a74ddf4491c3342b1c6bb8db729a0a5b",
         "hash" : "66a515f1a74ddf4",
@@ -677,15 +1533,15 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
-        "localeMap" : null,
         "commitIssue" : null,
-        "rawCommitType" : "chore",
         "rawCommitScope" : "deps",
+        "localeMap" : null,
+        "rawCommitType" : "chore",
         "firstLocaleCommitType" : null,
-        "rawCommitSubject" : "bump maven-javadoc-plugin from 3.1.1 to 3.2.0",
         "firstLocaleCommitScope" : null,
-        "messageTitle" : "chore(deps): bump maven-javadoc-plugin from 3.1.1 to 3.2.0",
-        "messageBody" : "Bumps [maven-javadoc-plugin](https://github.com/apache/maven-javadoc-plugin) from 3.1.1 to 3.2.0.\n- [Release notes](https://github.com/apache/maven-javadoc-plugin/releases)\n- [Commits](https://github.com/apache/maven-javadoc-plugin/compare/maven-javadoc-plugin-3.1.1...maven-javadoc-plugin-3.2.0)\n\nSigned-off-by: dependabot-preview[bot] <support@dependabot.com>"
+        "rawCommitSubject" : "bump maven-javadoc-plugin from 3.1.1 to 3.2.0",
+        "messageBody" : "Bumps [maven-javadoc-plugin](https://github.com/apache/maven-javadoc-plugin) from 3.1.1 to 3.2.0.\n- [Release notes](https://github.com/apache/maven-javadoc-plugin/releases)\n- [Commits](https://github.com/apache/maven-javadoc-plugin/compare/maven-javadoc-plugin-3.1.1...maven-javadoc-plugin-3.2.0)\n\nSigned-off-by: dependabot-preview[bot] <support@dependabot.com>",
+        "messageTitle" : "chore(deps): bump maven-javadoc-plugin from 3.1.1 to 3.2.0"
       }, {
         "hashFull" : "39315cb2d621ed1e694ab92bbb56c23b3eabdb4d",
         "hash" : "39315cb2d621ed1",
@@ -721,15 +1577,15 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
-        "localeMap" : null,
         "commitIssue" : null,
-        "rawCommitType" : "chore",
         "rawCommitScope" : "deps",
+        "localeMap" : null,
+        "rawCommitType" : "chore",
         "firstLocaleCommitType" : null,
-        "rawCommitSubject" : "bump maven-project-info-reports-plugin from 3.0.0 to 3.1.0",
         "firstLocaleCommitScope" : null,
-        "messageTitle" : "chore(deps): bump maven-project-info-reports-plugin from 3.0.0 to 3.1.0",
-        "messageBody" : "Bumps [maven-project-info-reports-plugin](https://github.com/apache/maven-project-info-reports-plugin) from 3.0.0 to 3.1.0.\n- [Release notes](https://github.com/apache/maven-project-info-reports-plugin/releases)\n- [Commits](https://github.com/apache/maven-project-info-reports-plugin/compare/maven-project-info-reports-plugin-3.0.0...maven-project-info-reports-plugin-3.1.0)\n\nSigned-off-by: dependabot-preview[bot] <support@dependabot.com>"
+        "rawCommitSubject" : "bump maven-project-info-reports-plugin from 3.0.0 to 3.1.0",
+        "messageBody" : "Bumps [maven-project-info-reports-plugin](https://github.com/apache/maven-project-info-reports-plugin) from 3.0.0 to 3.1.0.\n- [Release notes](https://github.com/apache/maven-project-info-reports-plugin/releases)\n- [Commits](https://github.com/apache/maven-project-info-reports-plugin/compare/maven-project-info-reports-plugin-3.0.0...maven-project-info-reports-plugin-3.1.0)\n\nSigned-off-by: dependabot-preview[bot] <support@dependabot.com>",
+        "messageTitle" : "chore(deps): bump maven-project-info-reports-plugin from 3.0.0 to 3.1.0"
       }, {
         "hashFull" : "e42b94ed27a6ca1960ff3384a00157d24023c6f3",
         "hash" : "e42b94ed27a6ca1",
@@ -765,15 +1621,15 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
-        "localeMap" : null,
         "commitIssue" : null,
-        "rawCommitType" : "chore",
         "rawCommitScope" : "deps",
+        "localeMap" : null,
+        "rawCommitType" : "chore",
         "firstLocaleCommitType" : null,
-        "rawCommitSubject" : "bump maven-site-plugin from 3.8.2 to 3.9.1",
         "firstLocaleCommitScope" : null,
-        "messageTitle" : "chore(deps): bump maven-site-plugin from 3.8.2 to 3.9.1",
-        "messageBody" : "Bumps [maven-site-plugin](https://github.com/apache/maven-site-plugin) from 3.8.2 to 3.9.1.\n- [Release notes](https://github.com/apache/maven-site-plugin/releases)\n- [Commits](https://github.com/apache/maven-site-plugin/compare/maven-site-plugin-3.8.2...maven-site-plugin-3.9.1)\n\nSigned-off-by: dependabot-preview[bot] <support@dependabot.com>"
+        "rawCommitSubject" : "bump maven-site-plugin from 3.8.2 to 3.9.1",
+        "messageBody" : "Bumps [maven-site-plugin](https://github.com/apache/maven-site-plugin) from 3.8.2 to 3.9.1.\n- [Release notes](https://github.com/apache/maven-site-plugin/releases)\n- [Commits](https://github.com/apache/maven-site-plugin/compare/maven-site-plugin-3.8.2...maven-site-plugin-3.9.1)\n\nSigned-off-by: dependabot-preview[bot] <support@dependabot.com>",
+        "messageTitle" : "chore(deps): bump maven-site-plugin from 3.8.2 to 3.9.1"
       }, {
         "hashFull" : "5eae09b687d08e63efb239822feb83781f204f3b",
         "hash" : "5eae09b687d08e6",
@@ -809,15 +1665,15 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
-        "localeMap" : null,
         "commitIssue" : null,
-        "rawCommitType" : "chore",
         "rawCommitScope" : "deps",
+        "localeMap" : null,
+        "rawCommitType" : "chore",
         "firstLocaleCommitType" : null,
-        "rawCommitSubject" : "bump pmdVersion from 6.22.0 to 6.26.0",
         "firstLocaleCommitScope" : null,
-        "messageTitle" : "chore(deps): bump pmdVersion from 6.22.0 to 6.26.0",
-        "messageBody" : "Bumps `pmdVersion` from 6.22.0 to 6.26.0.\n\nUpdates `pmd-core` from 6.22.0 to 6.26.0\n- [Release notes](https://github.com/pmd/pmd/releases)\n- [Commits](https://github.com/pmd/pmd/compare/pmd_releases/6.22.0...pmd_releases/6.26.0)\n\nUpdates `pmd-java` from 6.22.0 to 6.26.0\n- [Release notes](https://github.com/pmd/pmd/releases)\n- [Commits](https://github.com/pmd/pmd/compare/pmd_releases/6.22.0...pmd_releases/6.26.0)\n\nUpdates `pmd-javascript` from 6.22.0 to 6.26.0\n- [Release notes](https://github.com/pmd/pmd/releases)\n- [Commits](https://github.com/pmd/pmd/compare/pmd_releases/6.22.0...pmd_releases/6.26.0)\n\nUpdates `pmd-jsp` from 6.22.0 to 6.26.0\n- [Release notes](https://github.com/pmd/pmd/releases)\n- [Commits](https://github.com/pmd/pmd/compare/pmd_releases/6.22.0...pmd_releases/6.26.0)\n\nSigned-off-by: dependabot-preview[bot] <support@dependabot.com>"
+        "rawCommitSubject" : "bump pmdVersion from 6.22.0 to 6.26.0",
+        "messageBody" : "Bumps `pmdVersion` from 6.22.0 to 6.26.0.\n\nUpdates `pmd-core` from 6.22.0 to 6.26.0\n- [Release notes](https://github.com/pmd/pmd/releases)\n- [Commits](https://github.com/pmd/pmd/compare/pmd_releases/6.22.0...pmd_releases/6.26.0)\n\nUpdates `pmd-java` from 6.22.0 to 6.26.0\n- [Release notes](https://github.com/pmd/pmd/releases)\n- [Commits](https://github.com/pmd/pmd/compare/pmd_releases/6.22.0...pmd_releases/6.26.0)\n\nUpdates `pmd-javascript` from 6.22.0 to 6.26.0\n- [Release notes](https://github.com/pmd/pmd/releases)\n- [Commits](https://github.com/pmd/pmd/compare/pmd_releases/6.22.0...pmd_releases/6.26.0)\n\nUpdates `pmd-jsp` from 6.22.0 to 6.26.0\n- [Release notes](https://github.com/pmd/pmd/releases)\n- [Commits](https://github.com/pmd/pmd/compare/pmd_releases/6.22.0...pmd_releases/6.26.0)\n\nSigned-off-by: dependabot-preview[bot] <support@dependabot.com>",
+        "messageTitle" : "chore(deps): bump pmdVersion from 6.22.0 to 6.26.0"
       }, {
         "hashFull" : "5c8f033d52eceec6ca014b39a9545981969cc8ad",
         "hash" : "5c8f033d52eceec",
@@ -853,15 +1709,15 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
-        "localeMap" : null,
         "commitIssue" : null,
-        "rawCommitType" : "chore",
         "rawCommitScope" : "deps",
+        "localeMap" : null,
+        "rawCommitType" : "chore",
         "firstLocaleCommitType" : null,
-        "rawCommitSubject" : "bump checkstyle from 8.30 to 8.35",
         "firstLocaleCommitScope" : null,
-        "messageTitle" : "chore(deps): bump checkstyle from 8.30 to 8.35",
-        "messageBody" : "Bumps [checkstyle](https://github.com/checkstyle/checkstyle) from 8.30 to 8.35.\n- [Release notes](https://github.com/checkstyle/checkstyle/releases)\n- [Commits](https://github.com/checkstyle/checkstyle/compare/checkstyle-8.30...checkstyle-8.35)\n\nSigned-off-by: dependabot-preview[bot] <support@dependabot.com>"
+        "rawCommitSubject" : "bump checkstyle from 8.30 to 8.35",
+        "messageBody" : "Bumps [checkstyle](https://github.com/checkstyle/checkstyle) from 8.30 to 8.35.\n- [Release notes](https://github.com/checkstyle/checkstyle/releases)\n- [Commits](https://github.com/checkstyle/checkstyle/compare/checkstyle-8.30...checkstyle-8.35)\n\nSigned-off-by: dependabot-preview[bot] <support@dependabot.com>",
+        "messageTitle" : "chore(deps): bump checkstyle from 8.30 to 8.35"
       }, {
         "hashFull" : "f01b465727193f90f4edcda6c01ea215719cdac8",
         "hash" : "f01b465727193f9",
@@ -903,6 +1759,8 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : "deps",
         "localeMap" : {
           "zh-cn" : {
             "commitHash" : "f01b465727193f90f4edcda6c01ea215719cdac8",
@@ -912,14 +1770,12 @@
             "subject" : "更新 `semantic-gitlog` 至 `0.5.11`"
           }
         },
-        "commitIssue" : null,
         "rawCommitType" : "chore",
-        "rawCommitScope" : "deps",
         "firstLocaleCommitType" : null,
-        "rawCommitSubject" : "bump `semantic-gitlog` to `0.5.11`",
         "firstLocaleCommitScope" : null,
-        "messageTitle" : "chore(deps): bump `semantic-gitlog` to `0.5.11`",
-        "messageBody" : "------------\n# Locales\n- **[zh-cn]** 更新 `semantic-gitlog` 至 `0.5.11`"
+        "rawCommitSubject" : "bump `semantic-gitlog` to `0.5.11`",
+        "messageBody" : "------------\n# Locales\n- **[zh-cn]** 更新 `semantic-gitlog` 至 `0.5.11`",
+        "messageTitle" : "chore(deps): bump `semantic-gitlog` to `0.5.11`"
       } ]
     }, {
       "title" : "Styles",
@@ -958,15 +1814,15 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
-        "localeMap" : null,
         "commitIssue" : null,
-        "rawCommitType" : "style",
         "rawCommitScope" : "editorconfig",
+        "localeMap" : null,
+        "rawCommitType" : "style",
         "firstLocaleCommitType" : null,
-        "rawCommitSubject" : "update .editorconfig, disable .mustache file indent",
         "firstLocaleCommitScope" : null,
-        "messageTitle" : "style(editorconfig): update .editorconfig, disable .mustache file indent",
-        "messageBody" : ""
+        "rawCommitSubject" : "update .editorconfig, disable .mustache file indent",
+        "messageBody" : "",
+        "messageTitle" : "style(editorconfig): update .editorconfig, disable .mustache file indent"
       } ]
     }, {
       "title" : "Documentation",
@@ -1011,6 +1867,8 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : "docs",
         "localeMap" : {
           "zh-cn" : {
             "commitHash" : "d6ac7d9dd94a3f120fa8e91b25a022cb52267c4d",
@@ -1020,14 +1878,12 @@
             "subject" : "更新说明文档"
           }
         },
-        "commitIssue" : null,
         "rawCommitType" : "docs",
-        "rawCommitScope" : "docs",
         "firstLocaleCommitType" : null,
-        "rawCommitSubject" : "update docs",
         "firstLocaleCommitScope" : null,
-        "messageTitle" : "docs(docs): update docs",
-        "messageBody" : "------------\n# Locales\n- **[zh-cn]** 更新说明文档"
+        "rawCommitSubject" : "update docs",
+        "messageBody" : "------------\n# Locales\n- **[zh-cn]** 更新说明文档",
+        "messageTitle" : "docs(docs): update docs"
       } ]
     }, {
       "title" : "Continuous Integration",
@@ -1066,15 +1922,15 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
-        "localeMap" : null,
         "commitIssue" : null,
-        "rawCommitType" : "ci",
         "rawCommitScope" : "github",
+        "localeMap" : null,
+        "rawCommitType" : "ci",
         "firstLocaleCommitType" : null,
-        "rawCommitSubject" : "add github workflows",
         "firstLocaleCommitScope" : null,
-        "messageTitle" : "ci(github): add github workflows",
-        "messageBody" : ""
+        "rawCommitSubject" : "add github workflows",
+        "messageBody" : "",
+        "messageTitle" : "ci(github): add github workflows"
       } ]
     } ]
   }, {
@@ -1086,8 +1942,8 @@
       "buildMetaDataParts" : [ ],
       "preRelease" : "",
       "buildMetaData" : "",
-      "initialDevelopment" : true,
-      "stable" : true
+      "stable" : true,
+      "initialDevelopment" : true
     },
     "releaseDate" : "2020-03-28 23:51:28.000 +0800",
     "sections" : [ {
@@ -1133,6 +1989,8 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : "deps",
         "localeMap" : {
           "zh-cn" : {
             "commitHash" : "85da8ff997b14c8479fb37c9c0e9a0a9309e7d74",
@@ -1142,14 +2000,12 @@
             "subject" : "升级 `semantic-gitlog` 到 0.5.0"
           }
         },
-        "commitIssue" : null,
         "rawCommitType" : "feat",
-        "rawCommitScope" : "deps",
         "firstLocaleCommitType" : null,
-        "rawCommitSubject" : "upgrade `semantic-gitlog` to 0.5.0",
         "firstLocaleCommitScope" : null,
-        "messageTitle" : "feat(deps): upgrade `semantic-gitlog` to 0.5.0",
-        "messageBody" : "------------\n# Locales\n- **[zh-cn]** 升级 `semantic-gitlog` 到 0.5.0"
+        "rawCommitSubject" : "upgrade `semantic-gitlog` to 0.5.0",
+        "messageBody" : "------------\n# Locales\n- **[zh-cn]** 升级 `semantic-gitlog` 到 0.5.0",
+        "messageTitle" : "feat(deps): upgrade `semantic-gitlog` to 0.5.0"
       } ]
     } ]
   }, {
@@ -1161,8 +2017,8 @@
       "buildMetaDataParts" : [ ],
       "preRelease" : "",
       "buildMetaData" : "",
-      "initialDevelopment" : true,
-      "stable" : true
+      "stable" : true,
+      "initialDevelopment" : true
     },
     "releaseDate" : "2020-03-18 18:52:43.000 +0800",
     "sections" : [ {
@@ -1208,6 +2064,8 @@
         "attention" : true,
         "breakingChange" : true,
         "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : "deps",
         "localeMap" : {
           "zh-cn" : {
             "commitHash" : "9de5fc90b921b0cb60bf92ab585e2518c544d397",
@@ -1217,14 +2075,12 @@
             "subject" : "升级 `semantic-gitlog` 到 0.4.0"
           }
         },
-        "commitIssue" : null,
         "rawCommitType" : "feat",
-        "rawCommitScope" : "deps",
         "firstLocaleCommitType" : null,
-        "rawCommitSubject" : "upgrade `semantic-gitlog` to 0.4.0",
         "firstLocaleCommitScope" : null,
-        "messageTitle" : "feat!(deps): upgrade `semantic-gitlog` to 0.4.0",
-        "messageBody" : "New Features:\n- support scope-mapping\n\nBREAKING CHANGE: The `strategy` option has been removed.\n\n------------\n# Locales\n- **[zh-cn]** 升级 `semantic-gitlog` 到 0.4.0"
+        "rawCommitSubject" : "upgrade `semantic-gitlog` to 0.4.0",
+        "messageBody" : "New Features:\n- support scope-mapping\n\nBREAKING CHANGE: The `strategy` option has been removed.\n\n------------\n# Locales\n- **[zh-cn]** 升级 `semantic-gitlog` 到 0.4.0",
+        "messageTitle" : "feat!(deps): upgrade `semantic-gitlog` to 0.4.0"
       } ]
     }, {
       "title" : "Chores",
@@ -1269,6 +2125,8 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : "config",
         "localeMap" : {
           "zh-cn" : {
             "commitHash" : "097c092c0753dba1940f8d1849e1f66417231da9",
@@ -1278,14 +2136,12 @@
             "subject" : "规范化文件命名"
           }
         },
-        "commitIssue" : null,
         "rawCommitType" : "chore",
-        "rawCommitScope" : "config",
         "firstLocaleCommitType" : null,
-        "rawCommitSubject" : "normalizing file naming",
         "firstLocaleCommitScope" : null,
-        "messageTitle" : "chore(config): normalizing file naming",
-        "messageBody" : "------------\n# Locales\n- **[zh-cn]** 规范化文件命名"
+        "rawCommitSubject" : "normalizing file naming",
+        "messageBody" : "------------\n# Locales\n- **[zh-cn]** 规范化文件命名",
+        "messageTitle" : "chore(config): normalizing file naming"
       } ]
     }, {
       "title" : "Styles",
@@ -1330,6 +2186,8 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : "pmd",
         "localeMap" : {
           "zh-cn" : {
             "commitHash" : "11603d4884256b2006dffcc6d221e7c1ca32aff4",
@@ -1339,14 +2197,12 @@
             "subject" : "更新 PMD 规则"
           }
         },
-        "commitIssue" : null,
         "rawCommitType" : "style",
-        "rawCommitScope" : "pmd",
         "firstLocaleCommitType" : null,
-        "rawCommitSubject" : "update PMD rules",
         "firstLocaleCommitScope" : null,
-        "messageTitle" : "style(pmd): update PMD rules",
-        "messageBody" : "------------\n# Locales\n- **[zh-cn]** 更新 PMD 规则"
+        "rawCommitSubject" : "update PMD rules",
+        "messageBody" : "------------\n# Locales\n- **[zh-cn]** 更新 PMD 规则",
+        "messageTitle" : "style(pmd): update PMD rules"
       } ]
     }, {
       "title" : "Continuous Integration",
@@ -1391,6 +2247,8 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : "travis",
         "localeMap" : {
           "zh-cn" : {
             "commitHash" : "5cbc9f4fcc3f2ca4623159c97ececf0433684914",
@@ -1400,14 +2258,12 @@
             "subject" : "更新 CI"
           }
         },
-        "commitIssue" : null,
         "rawCommitType" : "ci",
-        "rawCommitScope" : "travis",
         "firstLocaleCommitType" : null,
-        "rawCommitSubject" : "update ci",
         "firstLocaleCommitScope" : null,
-        "messageTitle" : "ci(travis): update ci",
-        "messageBody" : "------------\n# Locales\n- **[zh-cn]** 更新 CI"
+        "rawCommitSubject" : "update ci",
+        "messageBody" : "------------\n# Locales\n- **[zh-cn]** 更新 CI",
+        "messageTitle" : "ci(travis): update ci"
       } ]
     } ]
   }, {
@@ -1419,8 +2275,8 @@
       "buildMetaDataParts" : [ ],
       "preRelease" : "",
       "buildMetaData" : "",
-      "initialDevelopment" : true,
-      "stable" : true
+      "stable" : true,
+      "initialDevelopment" : true
     },
     "releaseDate" : "2020-03-14 22:01:01.000 +0800",
     "sections" : [ {
@@ -1466,6 +2322,8 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : "mojo",
         "localeMap" : {
           "zh-cn" : {
             "commitHash" : "21093e4aa4fed0f85b9552278fd86cde8f117ce2",
@@ -1475,14 +2333,12 @@
             "subject" : "修复 `ChangelogMojo.updatePom`"
           }
         },
-        "commitIssue" : null,
         "rawCommitType" : "fix",
-        "rawCommitScope" : "mojo",
         "firstLocaleCommitType" : null,
-        "rawCommitSubject" : "fix `ChangelogMojo.updatePom`",
         "firstLocaleCommitScope" : null,
-        "messageTitle" : "fix(mojo): fix `ChangelogMojo.updatePom`",
-        "messageBody" : "------------\n# Locales\n- **[zh-cn]** 修复 `ChangelogMojo.updatePom`"
+        "rawCommitSubject" : "fix `ChangelogMojo.updatePom`",
+        "messageBody" : "------------\n# Locales\n- **[zh-cn]** 修复 `ChangelogMojo.updatePom`",
+        "messageTitle" : "fix(mojo): fix `ChangelogMojo.updatePom`"
       }, {
         "hashFull" : "33f0c7e4e396ca675679c0eded2b4a6ee9d2fa5a",
         "hash" : "33f0c7e4e396ca6",
@@ -1524,6 +2380,8 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : null,
         "localeMap" : {
           "zh-cn" : {
             "commitHash" : "33f0c7e4e396ca675679c0eded2b4a6ee9d2fa5a",
@@ -1533,14 +2391,12 @@
             "subject" : "修正 `CHANGELOG_zh-cn.md.mustache` 瑕疵"
           }
         },
-        "commitIssue" : null,
         "rawCommitType" : "fix",
-        "rawCommitScope" : null,
         "firstLocaleCommitType" : null,
-        "rawCommitSubject" : "fix `CHANGELOG_zh-cn.md.mustache` defects",
         "firstLocaleCommitScope" : null,
-        "messageTitle" : "fix: fix `CHANGELOG_zh-cn.md.mustache` defects",
-        "messageBody" : "------------\n# Locales\n- **[zh-cn]** 修正 `CHANGELOG_zh-cn.md.mustache` 瑕疵"
+        "rawCommitSubject" : "fix `CHANGELOG_zh-cn.md.mustache` defects",
+        "messageBody" : "------------\n# Locales\n- **[zh-cn]** 修正 `CHANGELOG_zh-cn.md.mustache` 瑕疵",
+        "messageTitle" : "fix: fix `CHANGELOG_zh-cn.md.mustache` defects"
       } ]
     }, {
       "title" : "Code Refactoring",
@@ -1585,6 +2441,8 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : "mojo",
         "localeMap" : {
           "zh-cn" : {
             "commitHash" : "dfb9fa6f590e9ed3034409e33d69acc3f6b24e37",
@@ -1594,14 +2452,12 @@
             "subject" : "修正 `@Parameter` 配置"
           }
         },
-        "commitIssue" : null,
         "rawCommitType" : "refactor",
-        "rawCommitScope" : "mojo",
         "firstLocaleCommitType" : null,
-        "rawCommitSubject" : "fix `@Parameter` config",
         "firstLocaleCommitScope" : null,
-        "messageTitle" : "refactor(mojo): fix `@Parameter` config",
-        "messageBody" : "------------\n# Locales\n- **[zh-cn]** 修正 `@Parameter` 配置"
+        "rawCommitSubject" : "fix `@Parameter` config",
+        "messageBody" : "------------\n# Locales\n- **[zh-cn]** 修正 `@Parameter` 配置",
+        "messageTitle" : "refactor(mojo): fix `@Parameter` config"
       } ]
     }, {
       "title" : "Chores",
@@ -1646,6 +2502,8 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : "deps",
         "localeMap" : {
           "zh-cn" : {
             "commitHash" : "b3b5fa65bbc54d4092fcce9a5ad2b409fcf425d3",
@@ -1655,14 +2513,12 @@
             "subject" : "更新 `semantic-gitlog` 至 `0.3.2`"
           }
         },
-        "commitIssue" : null,
         "rawCommitType" : "chore",
-        "rawCommitScope" : "deps",
         "firstLocaleCommitType" : null,
-        "rawCommitSubject" : "bump `semantic-gitlog` to `0.3.2`",
         "firstLocaleCommitScope" : null,
-        "messageTitle" : "chore(deps): bump `semantic-gitlog` to `0.3.2`",
-        "messageBody" : "------------\n# Locales\n- **[zh-cn]** 更新 `semantic-gitlog` 至 `0.3.2`"
+        "rawCommitSubject" : "bump `semantic-gitlog` to `0.3.2`",
+        "messageBody" : "------------\n# Locales\n- **[zh-cn]** 更新 `semantic-gitlog` 至 `0.3.2`",
+        "messageTitle" : "chore(deps): bump `semantic-gitlog` to `0.3.2`"
       } ]
     }, {
       "title" : "Continuous Integration",
@@ -1707,6 +2563,8 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : "travis",
         "localeMap" : {
           "zh-cn" : {
             "commitHash" : "2084e7dd60984592b058b872d74cfccf04416966",
@@ -1716,14 +2574,12 @@
             "subject" : "更新 CI"
           }
         },
-        "commitIssue" : null,
         "rawCommitType" : "ci",
-        "rawCommitScope" : "travis",
         "firstLocaleCommitType" : null,
-        "rawCommitSubject" : "update ci",
         "firstLocaleCommitScope" : null,
-        "messageTitle" : "ci(travis): update ci",
-        "messageBody" : "------------\n# Locales\n- **[zh-cn]** 更新 CI"
+        "rawCommitSubject" : "update ci",
+        "messageBody" : "------------\n# Locales\n- **[zh-cn]** 更新 CI",
+        "messageTitle" : "ci(travis): update ci"
       } ]
     } ]
   }, {
@@ -1735,8 +2591,8 @@
       "buildMetaDataParts" : [ ],
       "preRelease" : "",
       "buildMetaData" : "",
-      "initialDevelopment" : true,
-      "stable" : true
+      "stable" : true,
+      "initialDevelopment" : true
     },
     "releaseDate" : "2020-03-08 22:48:20.000 +0800",
     "sections" : [ {
@@ -1788,6 +2644,8 @@
         "attention" : true,
         "breakingChange" : true,
         "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : null,
         "localeMap" : {
           "zh-cn" : {
             "commitHash" : "7817616b",
@@ -1797,14 +2655,12 @@
             "subject" : "升级 `semantic-gitlog` 到 0.2.0"
           }
         },
-        "commitIssue" : null,
         "rawCommitType" : "feat",
-        "rawCommitScope" : null,
         "firstLocaleCommitType" : "chore",
-        "rawCommitSubject" : "upgrade `semantic-gitlog` to 0.2.0",
         "firstLocaleCommitScope" : "deps",
-        "messageTitle" : "feat!: upgrade `semantic-gitlog` to 0.2.0",
-        "messageBody" : "BREAKING CHANGE: The `git-change-change-lib` dependency has been abandoned.\n\n------------\n# Locales\n- **[zh-cn]** 升级 `semantic-gitlog` 到 0.2.0"
+        "rawCommitSubject" : "upgrade `semantic-gitlog` to 0.2.0",
+        "messageBody" : "BREAKING CHANGE: The `git-change-change-lib` dependency has been abandoned.\n\n------------\n# Locales\n- **[zh-cn]** 升级 `semantic-gitlog` 到 0.2.0",
+        "messageTitle" : "feat!: upgrade `semantic-gitlog` to 0.2.0"
       }, {
         "hashFull" : "cc648429488ae5dccf22c8a788c69370681f359e",
         "hash" : "cc648429488ae5d",
@@ -1846,6 +2702,8 @@
         "attention" : true,
         "breakingChange" : true,
         "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : null,
         "localeMap" : {
           "zh-cn" : {
             "commitHash" : "cc648429488ae5dccf22c8a788c69370681f359e",
@@ -1855,14 +2713,12 @@
             "subject" : "升级 `semantic-gitlog` 到 0.2.2"
           }
         },
-        "commitIssue" : null,
         "rawCommitType" : "feat",
-        "rawCommitScope" : null,
         "firstLocaleCommitType" : null,
-        "rawCommitSubject" : "upgrade `semantic-gitlog` to 0.2.2",
         "firstLocaleCommitScope" : null,
-        "messageTitle" : "feat!: upgrade `semantic-gitlog` to 0.2.2",
-        "messageBody" : "BREAKING CHANGE: The `isPreRelease` option has been renamed to `isUnstable`.\n\n------------\n# Locales\n- **[zh-cn]** 升级 `semantic-gitlog` 到 0.2.2"
+        "rawCommitSubject" : "upgrade `semantic-gitlog` to 0.2.2",
+        "messageBody" : "BREAKING CHANGE: The `isPreRelease` option has been renamed to `isUnstable`.\n\n------------\n# Locales\n- **[zh-cn]** 升级 `semantic-gitlog` 到 0.2.2",
+        "messageTitle" : "feat!: upgrade `semantic-gitlog` to 0.2.2"
       } ]
     }, {
       "title" : "Features",
@@ -1907,6 +2763,8 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : "mojo",
         "localeMap" : {
           "zh-cn" : {
             "commitHash" : "105f9c25bc121966b31bc3ea15ca5f3be793727e",
@@ -1916,14 +2774,12 @@
             "subject" : "添加 `updateProjectVersion` 配置项"
           }
         },
-        "commitIssue" : null,
         "rawCommitType" : "feat",
-        "rawCommitScope" : "mojo",
         "firstLocaleCommitType" : null,
-        "rawCommitSubject" : "add `updateProjectVersion` configuration",
         "firstLocaleCommitScope" : null,
-        "messageTitle" : "feat(mojo): add `updateProjectVersion` configuration",
-        "messageBody" : "------------\n# Locales\n- **[zh-cn]** 添加 `updateProjectVersion` 配置项"
+        "rawCommitSubject" : "add `updateProjectVersion` configuration",
+        "messageBody" : "------------\n# Locales\n- **[zh-cn]** 添加 `updateProjectVersion` 配置项",
+        "messageTitle" : "feat(mojo): add `updateProjectVersion` configuration"
       } ]
     }, {
       "title" : "Styles",
@@ -1968,6 +2824,8 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : "checkstyle",
         "localeMap" : {
           "zh-cn" : {
             "commitHash" : "9c1d27b24aa6bbf7bc4a6633d098f86f506d0f9a",
@@ -1977,14 +2835,12 @@
             "subject" : "更新 checkstyle 至 8.30"
           }
         },
-        "commitIssue" : null,
         "rawCommitType" : "style",
-        "rawCommitScope" : "checkstyle",
         "firstLocaleCommitType" : null,
-        "rawCommitSubject" : "bumped checkstyle to 8.30",
         "firstLocaleCommitScope" : null,
-        "messageTitle" : "style(checkstyle): bumped checkstyle to 8.30",
-        "messageBody" : "------------\n# Locales\n- **[zh-cn]** 更新 checkstyle 至 8.30"
+        "rawCommitSubject" : "bumped checkstyle to 8.30",
+        "messageBody" : "------------\n# Locales\n- **[zh-cn]** 更新 checkstyle 至 8.30",
+        "messageTitle" : "style(checkstyle): bumped checkstyle to 8.30"
       }, {
         "hashFull" : "c5e66bca7ad229006a30df87387269a28aa97ed9",
         "hash" : "c5e66bca7ad2290",
@@ -2026,6 +2882,8 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : "pmd",
         "localeMap" : {
           "zh-cn" : {
             "commitHash" : "c5e66bca7ad229006a30df87387269a28aa97ed9",
@@ -2035,14 +2893,12 @@
             "subject" : "更新 PMD 规则"
           }
         },
-        "commitIssue" : null,
         "rawCommitType" : "style",
-        "rawCommitScope" : "pmd",
         "firstLocaleCommitType" : null,
-        "rawCommitSubject" : "update PMD rules",
         "firstLocaleCommitScope" : null,
-        "messageTitle" : "style(pmd): update PMD rules",
-        "messageBody" : "------------\n# Locales\n- **[zh-cn]** 更新 PMD 规则"
+        "rawCommitSubject" : "update PMD rules",
+        "messageBody" : "------------\n# Locales\n- **[zh-cn]** 更新 PMD 规则",
+        "messageTitle" : "style(pmd): update PMD rules"
       } ]
     } ]
   }, {
@@ -2054,8 +2910,8 @@
       "buildMetaDataParts" : [ ],
       "preRelease" : "",
       "buildMetaData" : "",
-      "initialDevelopment" : true,
-      "stable" : true
+      "stable" : true,
+      "initialDevelopment" : true
     },
     "releaseDate" : "2020-02-27 14:46:46.000 +0800",
     "sections" : [ {
@@ -2101,6 +2957,8 @@
         "attention" : false,
         "breakingChange" : true,
         "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : "parser",
         "localeMap" : {
           "zh-cn" : {
             "commitHash" : "5a912bf0b52692bc7301713dafabd71e2e7698f1",
@@ -2110,14 +2968,12 @@
             "subject" : "重构提交消息解析器"
           }
         },
-        "commitIssue" : null,
         "rawCommitType" : "refactor",
-        "rawCommitScope" : "parser",
         "firstLocaleCommitType" : null,
-        "rawCommitSubject" : "refactor commit message parser",
         "firstLocaleCommitScope" : null,
-        "messageTitle" : "refactor(parser): refactor commit message parser",
-        "messageBody" : "BREAKING CHANGE: regex-based parser already removed.\n\n------------\n# Locales\n- **[zh-cn]** 重构提交消息解析器"
+        "rawCommitSubject" : "refactor commit message parser",
+        "messageBody" : "BREAKING CHANGE: regex-based parser already removed.\n\n------------\n# Locales\n- **[zh-cn]** 重构提交消息解析器",
+        "messageTitle" : "refactor(parser): refactor commit message parser"
       } ]
     }, {
       "title" : "Bug Fixes",
@@ -2162,6 +3018,8 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : "mojo",
         "localeMap" : {
           "zh-cn" : {
             "commitHash" : "ef908f95f9d41917b9b7d4bf4b15698ae4a1e952",
@@ -2171,14 +3029,12 @@
             "subject" : "修复插件配置"
           }
         },
-        "commitIssue" : null,
         "rawCommitType" : "fix",
-        "rawCommitScope" : "mojo",
         "firstLocaleCommitType" : null,
-        "rawCommitSubject" : "fix mojo settings",
         "firstLocaleCommitScope" : null,
-        "messageTitle" : "fix(mojo): fix mojo settings",
-        "messageBody" : "------------\n# Locales\n- **[zh-cn]** 修复插件配置"
+        "rawCommitSubject" : "fix mojo settings",
+        "messageBody" : "------------\n# Locales\n- **[zh-cn]** 修复插件配置",
+        "messageTitle" : "fix(mojo): fix mojo settings"
       } ]
     }, {
       "title" : "Features",
@@ -2223,6 +3079,8 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : "mojo",
         "localeMap" : {
           "zh-cn" : {
             "commitHash" : "24b145ff0a1c78fa1297fe0f8b933b762fe084d1",
@@ -2232,14 +3090,12 @@
             "subject" : "添加 `isPreRelease` 配置项"
           }
         },
-        "commitIssue" : null,
         "rawCommitType" : "feat",
-        "rawCommitScope" : "mojo",
         "firstLocaleCommitType" : null,
-        "rawCommitSubject" : "add `isPreRelease` configuration",
         "firstLocaleCommitScope" : null,
-        "messageTitle" : "feat(mojo): add `isPreRelease` configuration",
-        "messageBody" : "This option allow you enable or disable the `Pre-release Mode`. In `Pre-release Mode` breaking changes only increases the minor version number. Default is `false`.\n\n------------\n# Locales\n- **[zh-cn]** 添加 `isPreRelease` 配置项"
+        "rawCommitSubject" : "add `isPreRelease` configuration",
+        "messageBody" : "This option allow you enable or disable the `Pre-release Mode`. In `Pre-release Mode` breaking changes only increases the minor version number. Default is `false`.\n\n------------\n# Locales\n- **[zh-cn]** 添加 `isPreRelease` 配置项",
+        "messageTitle" : "feat(mojo): add `isPreRelease` configuration"
       }, {
         "hashFull" : "37ffa02133cb474bdb3023b87663364eedce6154",
         "hash" : "37ffa02133cb474",
@@ -2281,6 +3137,8 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : "mojo",
         "localeMap" : {
           "zh-cn" : {
             "commitHash" : "37ffa02133cb474bdb3023b87663364eedce6154",
@@ -2290,14 +3148,12 @@
             "subject" : "添加 `commitLocales` 配置项，支持提交消息的本地化"
           }
         },
-        "commitIssue" : null,
         "rawCommitType" : "feat",
-        "rawCommitScope" : "mojo",
         "firstLocaleCommitType" : null,
-        "rawCommitSubject" : "add `commitLocales` configuration, support for localization of commit messages",
         "firstLocaleCommitScope" : null,
-        "messageTitle" : "feat(mojo): add `commitLocales` configuration, support for localization of commit messages",
-        "messageBody" : "locale profile format:\n```md\n- [db48c20a] message\n- [bae9f5af] demo message\n```\n\n------------\n# Locales\n- **[zh-cn]** 添加 `commitLocales` 配置项，支持提交消息的本地化"
+        "rawCommitSubject" : "add `commitLocales` configuration, support for localization of commit messages",
+        "messageBody" : "locale profile format:\n```md\n- [db48c20a] message\n- [bae9f5af] demo message\n```\n\n------------\n# Locales\n- **[zh-cn]** 添加 `commitLocales` 配置项，支持提交消息的本地化",
+        "messageTitle" : "feat(mojo): add `commitLocales` configuration, support for localization of commit messages"
       }, {
         "hashFull" : "83796445681c0c0d22b2c21c22a757301efef470",
         "hash" : "83796445681c0c0",
@@ -2345,6 +3201,8 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : null,
         "localeMap" : {
           "zh-cn" : {
             "commitHash" : "83796445",
@@ -2354,14 +3212,12 @@
             "subject" : "支持从本地化配置文件覆盖提交类型"
           }
         },
-        "commitIssue" : null,
         "rawCommitType" : "feat",
-        "rawCommitScope" : null,
         "firstLocaleCommitType" : "feat",
-        "rawCommitSubject" : "support `commitType override` from locale profiles",
         "firstLocaleCommitScope" : "mojo",
-        "messageTitle" : "feat: support `commitType override` from locale profiles",
-        "messageBody" : "------------\n# Locales\n- **[zh-cn]** 支持从本地化配置文件覆盖提交类型"
+        "rawCommitSubject" : "support `commitType override` from locale profiles",
+        "messageBody" : "------------\n# Locales\n- **[zh-cn]** 支持从本地化配置文件覆盖提交类型",
+        "messageTitle" : "feat: support `commitType override` from locale profiles"
       } ]
     }, {
       "title" : "Chores",
@@ -2412,6 +3268,8 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : null,
         "localeMap" : {
           "zh-cn" : {
             "commitHash" : "6c8107da",
@@ -2421,14 +3279,12 @@
             "subject" : "添加 `organization` 信息"
           }
         },
-        "commitIssue" : null,
         "rawCommitType" : "docs",
-        "rawCommitScope" : null,
         "firstLocaleCommitType" : "chore",
-        "rawCommitSubject" : "add `organization` information",
         "firstLocaleCommitScope" : "config",
-        "messageTitle" : "docs: add `organization` information",
-        "messageBody" : "------------\n# Locales\n- **[zh-cn]** 添加 `organization` 信息"
+        "rawCommitSubject" : "add `organization` information",
+        "messageBody" : "------------\n# Locales\n- **[zh-cn]** 添加 `organization` 信息",
+        "messageTitle" : "docs: add `organization` information"
       }, {
         "hashFull" : "0caae3b3b3da0d8fbb1bfd3a3b5ee9149468976f",
         "hash" : "0caae3b3b3da0d8",
@@ -2476,6 +3332,8 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : "deps",
         "localeMap" : {
           "en" : {
             "commitHash" : "0caae3b3",
@@ -2492,14 +3350,12 @@
             "subject" : "更新 `lombok` 至 `1.18.12`"
           }
         },
-        "commitIssue" : null,
         "rawCommitType" : "chore",
-        "rawCommitScope" : "deps",
         "firstLocaleCommitType" : "chore",
-        "rawCommitSubject" : "bump `lombok` to `1.18.12`",
         "firstLocaleCommitScope" : null,
-        "messageTitle" : "chore(deps): bump `lombok` to `1.18.12`",
-        "messageBody" : "------------\n# Locales\n- **[zh-cn]** 更新 `lombok` 至 `1.18.12`"
+        "rawCommitSubject" : "bump `lombok` to `1.18.12`",
+        "messageBody" : "------------\n# Locales\n- **[zh-cn]** 更新 `lombok` 至 `1.18.12`",
+        "messageTitle" : "chore(deps): bump `lombok` to `1.18.12`"
       } ]
     }, {
       "title" : "Continuous Integration",
@@ -2544,6 +3400,8 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : "travis",
         "localeMap" : {
           "zh-cn" : {
             "commitHash" : "c3a30910d13977960b4e24172ee1cd5c9fdf78dc",
@@ -2553,14 +3411,12 @@
             "subject" : "添加 `CHANGELOG.json` 文件回推"
           }
         },
-        "commitIssue" : null,
         "rawCommitType" : "ci",
-        "rawCommitScope" : "travis",
         "firstLocaleCommitType" : null,
-        "rawCommitSubject" : "add push-back file `CHANGELOG.json`",
         "firstLocaleCommitScope" : null,
-        "messageTitle" : "ci(travis): add push-back file `CHANGELOG.json`",
-        "messageBody" : "------------\n# Locales\n- **[zh-cn]** 添加 `CHANGELOG.json` 文件回推"
+        "rawCommitSubject" : "add push-back file `CHANGELOG.json`",
+        "messageBody" : "------------\n# Locales\n- **[zh-cn]** 添加 `CHANGELOG.json` 文件回推",
+        "messageTitle" : "ci(travis): add push-back file `CHANGELOG.json`"
       } ]
     } ]
   }, {
@@ -2572,8 +3428,8 @@
       "buildMetaDataParts" : [ ],
       "preRelease" : "",
       "buildMetaData" : "",
-      "initialDevelopment" : true,
-      "stable" : true
+      "stable" : true,
+      "initialDevelopment" : true
     },
     "releaseDate" : "2020-02-06 21:12:38.000 +0800",
     "sections" : [ {
@@ -2619,6 +3475,8 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : "service",
         "localeMap" : {
           "zh-cn" : {
             "commitHash" : "3e73ed67",
@@ -2628,14 +3486,12 @@
             "subject" : "修复标记范围外的提交"
           }
         },
-        "commitIssue" : null,
         "rawCommitType" : "fix",
-        "rawCommitScope" : "service",
         "firstLocaleCommitType" : "fix",
-        "rawCommitSubject" : "Fix commits outside the Tag scope",
         "firstLocaleCommitScope" : "mojo",
-        "messageTitle" : "fix(service): Fix commits outside the Tag scope",
-        "messageBody" : ""
+        "rawCommitSubject" : "Fix commits outside the Tag scope",
+        "messageBody" : "",
+        "messageTitle" : "fix(service): Fix commits outside the Tag scope"
       }, {
         "hashFull" : "2b80de941ef1bc245a47f9a1c0920b106b847936",
         "hash" : "2b80de941ef1bc2",
@@ -2677,6 +3533,8 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : "git-changelog",
         "localeMap" : {
           "zh-cn" : {
             "commitHash" : "2b80de94",
@@ -2686,14 +3544,12 @@
             "subject" : "将字段 `newVersion` 重命名为 `nextVersion`"
           }
         },
-        "commitIssue" : null,
         "rawCommitType" : "refactor",
-        "rawCommitScope" : "git-changelog",
         "firstLocaleCommitType" : "fix",
-        "rawCommitSubject" : "change field name `newVersion` to `nextVersion`",
         "firstLocaleCommitScope" : "mojo",
-        "messageTitle" : "refactor(git-changelog): change field name `newVersion` to `nextVersion`",
-        "messageBody" : ""
+        "rawCommitSubject" : "change field name `newVersion` to `nextVersion`",
+        "messageBody" : "",
+        "messageTitle" : "refactor(git-changelog): change field name `newVersion` to `nextVersion`"
       }, {
         "hashFull" : "3d957edab53e1f50d95cac6d3b0b19b0719efcf6",
         "hash" : "3d957edab53e1f5",
@@ -2735,6 +3591,8 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : "git-changelog",
         "localeMap" : {
           "zh-cn" : {
             "commitHash" : "3d957eda",
@@ -2744,14 +3602,12 @@
             "subject" : "添加 `quickActionPattern` 配置项"
           }
         },
-        "commitIssue" : null,
         "rawCommitType" : "feat",
-        "rawCommitScope" : "git-changelog",
         "firstLocaleCommitType" : "fix",
-        "rawCommitSubject" : "add `quickActionPattern` configuration",
         "firstLocaleCommitScope" : "mojo",
-        "messageTitle" : "feat(git-changelog): add `quickActionPattern` configuration",
-        "messageBody" : "see more:\n- github:\n  - https://help.github.com/en/github/managing-your-work-on-github/closing-issues-using-keywords\n  - https://regex101.com/r/8Ri0cJ/1/\n- gitlab:\n  - https://docs.gitlab.com/ee/user/project/quick_actions.html\n  - https://regex101.com/r/8FopGS/1/"
+        "rawCommitSubject" : "add `quickActionPattern` configuration",
+        "messageBody" : "see more:\n- github:\n  - https://help.github.com/en/github/managing-your-work-on-github/closing-issues-using-keywords\n  - https://regex101.com/r/8Ri0cJ/1/\n- gitlab:\n  - https://docs.gitlab.com/ee/user/project/quick_actions.html\n  - https://regex101.com/r/8FopGS/1/",
+        "messageTitle" : "feat(git-changelog): add `quickActionPattern` configuration"
       }, {
         "hashFull" : "edd55e47eba382f91e3d79dbb0ff3a6b9cfea905",
         "hash" : "edd55e47eba382f",
@@ -2793,6 +3649,8 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : "git-changelog",
         "localeMap" : {
           "zh-cn" : {
             "commitHash" : "edd55e47",
@@ -2802,14 +3660,12 @@
             "subject" : "添加 `commitIssuePattern` 配置项"
           }
         },
-        "commitIssue" : null,
         "rawCommitType" : "feat",
-        "rawCommitScope" : "git-changelog",
         "firstLocaleCommitType" : "fix",
-        "rawCommitSubject" : "add `commitIssuePattern` configuration",
         "firstLocaleCommitScope" : "mojo",
-        "messageTitle" : "feat(git-changelog): add `commitIssuePattern` configuration",
-        "messageBody" : "Removed:\n- GitReleaseCommit.getFirstIssue()\n- GitReleaseCommit.getFirstIssueId()\n- GitReleaseCommit.getFirstIssueUrl()\n- GitReleaseCommit.getFirstIssueAction()"
+        "rawCommitSubject" : "add `commitIssuePattern` configuration",
+        "messageBody" : "Removed:\n- GitReleaseCommit.getFirstIssue()\n- GitReleaseCommit.getFirstIssueId()\n- GitReleaseCommit.getFirstIssueUrl()\n- GitReleaseCommit.getFirstIssueAction()",
+        "messageTitle" : "feat(git-changelog): add `commitIssuePattern` configuration"
       }, {
         "hashFull" : "d8524b78ab1ee1a44581a6a809233caa06960311",
         "hash" : "d8524b78ab1ee1a",
@@ -2851,6 +3707,8 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : "mojo",
         "localeMap" : {
           "zh-cn" : {
             "commitHash" : "d8524b78",
@@ -2860,14 +3718,12 @@
             "subject" : "修复当 `fileSets` 为空或无效时 `changelog` 目标执行失败的问题"
           }
         },
-        "commitIssue" : null,
         "rawCommitType" : "fix",
-        "rawCommitScope" : "mojo",
         "firstLocaleCommitType" : null,
-        "rawCommitSubject" : "goal `changelog` failed when \"fileSets\" is empty or invalid",
         "firstLocaleCommitScope" : null,
-        "messageTitle" : "fix(mojo): goal `changelog` failed when \"fileSets\" is empty or invalid",
-        "messageBody" : ""
+        "rawCommitSubject" : "goal `changelog` failed when \"fileSets\" is empty or invalid",
+        "messageBody" : "",
+        "messageTitle" : "fix(mojo): goal `changelog` failed when \"fileSets\" is empty or invalid"
       } ]
     }, {
       "title" : "Features",
@@ -2912,6 +3768,8 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : "mojo",
         "localeMap" : {
           "zh-cn" : {
             "commitHash" : "1b4efac7",
@@ -2921,14 +3779,12 @@
             "subject" : "兼容 `angular-style` 的最新格式"
           }
         },
-        "commitIssue" : null,
         "rawCommitType" : "feat",
-        "rawCommitScope" : "mojo",
         "firstLocaleCommitType" : null,
-        "rawCommitSubject" : "compatible with new `angular-style` commit message format",
         "firstLocaleCommitScope" : null,
-        "messageTitle" : "feat(mojo): compatible with new `angular-style` commit message format",
-        "messageBody" : "more info: https://github.com/angular/components/blob/master/CONTRIBUTING.md"
+        "rawCommitSubject" : "compatible with new `angular-style` commit message format",
+        "messageBody" : "more info: https://github.com/angular/components/blob/master/CONTRIBUTING.md",
+        "messageTitle" : "feat(mojo): compatible with new `angular-style` commit message format"
       }, {
         "hashFull" : "8671b5665f1e12a758be474d0f68b5c22fdf8371",
         "hash" : "8671b5665f1e12a",
@@ -2970,6 +3826,8 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : "mojo",
         "localeMap" : {
           "zh-cn" : {
             "commitHash" : "8671b566",
@@ -2979,14 +3837,12 @@
             "subject" : "添加 `closeIssueActions` 配置项"
           }
         },
-        "commitIssue" : null,
         "rawCommitType" : "feat",
-        "rawCommitScope" : "mojo",
         "firstLocaleCommitType" : null,
-        "rawCommitSubject" : "add `closeIssueActions` configuration",
         "firstLocaleCommitScope" : null,
-        "messageTitle" : "feat(mojo): add `closeIssueActions` configuration",
-        "messageBody" : ""
+        "rawCommitSubject" : "add `closeIssueActions` configuration",
+        "messageBody" : "",
+        "messageTitle" : "feat(mojo): add `closeIssueActions` configuration"
       }, {
         "hashFull" : "24ff4b29d63e9fa78f5677bc067fbc9a6d5d485c",
         "hash" : "24ff4b29d63e9fa",
@@ -3028,6 +3884,8 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : "mojo",
         "localeMap" : {
           "zh-cn" : {
             "commitHash" : "24ff4b29",
@@ -3037,14 +3895,12 @@
             "subject" : "添加多模板支持"
           }
         },
-        "commitIssue" : null,
         "rawCommitType" : "feat",
-        "rawCommitScope" : "mojo",
         "firstLocaleCommitType" : null,
-        "rawCommitSubject" : "add multi-template filesets support",
         "firstLocaleCommitScope" : null,
-        "messageTitle" : "feat(mojo): add multi-template filesets support",
-        "messageBody" : ""
+        "rawCommitSubject" : "add multi-template filesets support",
+        "messageBody" : "",
+        "messageTitle" : "feat(mojo): add multi-template filesets support"
       }, {
         "hashFull" : "bb1da529c03b0dd572669b127aa4ca056851245a",
         "hash" : "bb1da529c03b0dd",
@@ -3086,6 +3942,8 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : "mojo",
         "localeMap" : {
           "zh-cn" : {
             "commitHash" : "bb1da529",
@@ -3095,14 +3953,12 @@
             "subject" : "添加 `preRelease` 和 `buildMetaData` 配置项"
           }
         },
-        "commitIssue" : null,
         "rawCommitType" : "feat",
-        "rawCommitScope" : "mojo",
         "firstLocaleCommitType" : null,
-        "rawCommitSubject" : "add `preRelease` and `buildMetaData` configuration",
         "firstLocaleCommitScope" : null,
-        "messageTitle" : "feat(mojo): add `preRelease` and `buildMetaData` configuration",
-        "messageBody" : ""
+        "rawCommitSubject" : "add `preRelease` and `buildMetaData` configuration",
+        "messageBody" : "",
+        "messageTitle" : "feat(mojo): add `preRelease` and `buildMetaData` configuration"
       }, {
         "hashFull" : "5925f369d1e90cc3a0be8eba663eaa7c0e988d24",
         "hash" : "5925f369d1e90cc",
@@ -3144,6 +4000,8 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : null,
         "localeMap" : {
           "zh-cn" : {
             "commitHash" : "5925f369",
@@ -3153,14 +4011,12 @@
             "subject" : "添加 `hasQuickActions`、`hasSubjectIssues` 和 `hasBodyIssues`"
           }
         },
-        "commitIssue" : null,
         "rawCommitType" : "refactor",
-        "rawCommitScope" : null,
         "firstLocaleCommitType" : "feat",
-        "rawCommitSubject" : "add `hasQuickActions`, `hasSubjectIssues` and `hasBodyIssues`",
         "firstLocaleCommitScope" : "mojo",
-        "messageTitle" : "refactor: add `hasQuickActions`, `hasSubjectIssues` and `hasBodyIssues`",
-        "messageBody" : ""
+        "rawCommitSubject" : "add `hasQuickActions`, `hasSubjectIssues` and `hasBodyIssues`",
+        "messageBody" : "",
+        "messageTitle" : "refactor: add `hasQuickActions`, `hasSubjectIssues` and `hasBodyIssues`"
       }, {
         "hashFull" : "bae9f5afaba467f599e5c8a8f4d103853c00dc8a",
         "hash" : "bae9f5afaba467f",
@@ -3202,6 +4058,8 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : "mojo",
         "localeMap" : {
           "zh-cn" : {
             "commitHash" : "bae9f5af",
@@ -3211,14 +4069,12 @@
             "subject" : "添加 `hiddenTypes` 配置项"
           }
         },
-        "commitIssue" : null,
         "rawCommitType" : "feat",
-        "rawCommitScope" : "mojo",
         "firstLocaleCommitType" : null,
-        "rawCommitSubject" : "add `hiddenTypes` configuration",
         "firstLocaleCommitScope" : null,
-        "messageTitle" : "feat(mojo): add `hiddenTypes` configuration",
-        "messageBody" : ""
+        "rawCommitSubject" : "add `hiddenTypes` configuration",
+        "messageBody" : "",
+        "messageTitle" : "feat(mojo): add `hiddenTypes` configuration"
       }, {
         "hashFull" : "f478ce3509f4cddbfb3494e6c4ca2175d1aadcea",
         "hash" : "f478ce3509f4cdd",
@@ -3260,6 +4116,8 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : "mojo",
         "localeMap" : {
           "zh-cn" : {
             "commitHash" : "f478ce35",
@@ -3269,14 +4127,12 @@
             "subject" : "为 `ReleaseLog.tags` 字段添加排序支持"
           }
         },
-        "commitIssue" : null,
         "rawCommitType" : "feat",
-        "rawCommitScope" : "mojo",
         "firstLocaleCommitType" : null,
-        "rawCommitSubject" : "sorted `ReleaseLog.tags`",
         "firstLocaleCommitScope" : null,
-        "messageTitle" : "feat(mojo): sorted `ReleaseLog.tags`",
-        "messageBody" : ""
+        "rawCommitSubject" : "sorted `ReleaseLog.tags`",
+        "messageBody" : "",
+        "messageTitle" : "feat(mojo): sorted `ReleaseLog.tags`"
       }, {
         "hashFull" : "3a27b663dc20658afcf02eca8957b0290d50d0ee",
         "hash" : "3a27b663dc20658",
@@ -3318,6 +4174,8 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : "mojo",
         "localeMap" : {
           "zh-cn" : {
             "commitHash" : "3a27b663",
@@ -3327,14 +4185,12 @@
             "subject" : "当版本不增长时，从早期版本自动递增"
           }
         },
-        "commitIssue" : null,
         "rawCommitType" : "feat",
-        "rawCommitScope" : "mojo",
         "firstLocaleCommitType" : null,
-        "rawCommitSubject" : "automatically increments from the previous version when the version does not grow",
         "firstLocaleCommitScope" : null,
-        "messageTitle" : "feat(mojo): automatically increments from the previous version when the version does not grow",
-        "messageBody" : "---\n**:cn: [zh-cn] feat(mojo): 当版本不增长时，从早期版本自动递增**\n\n---\n**:hk: [zh-hk] feat(mojo): 當版本不增長時，從早期版本自動遞增**"
+        "rawCommitSubject" : "automatically increments from the previous version when the version does not grow",
+        "messageBody" : "---\n**:cn: [zh-cn] feat(mojo): 当版本不增长时，从早期版本自动递增**\n\n---\n**:hk: [zh-hk] feat(mojo): 當版本不增長時，從早期版本自動遞增**",
+        "messageTitle" : "feat(mojo): automatically increments from the previous version when the version does not grow"
       }, {
         "hashFull" : "4ef660df87a484458ed92c1f31eab5a4abfd4408",
         "hash" : "4ef660df87a4844",
@@ -3376,6 +4232,8 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : "mojo",
         "localeMap" : {
           "zh-cn" : {
             "commitHash" : "4ef660df",
@@ -3385,14 +4243,12 @@
             "subject" : "添加 `forceNextVersion` 配置项"
           }
         },
-        "commitIssue" : null,
         "rawCommitType" : "feat",
-        "rawCommitScope" : "mojo",
         "firstLocaleCommitType" : null,
-        "rawCommitSubject" : "add `forceNextVersion` configuration",
         "firstLocaleCommitScope" : null,
-        "messageTitle" : "feat(mojo): add `forceNextVersion` configuration",
-        "messageBody" : ""
+        "rawCommitSubject" : "add `forceNextVersion` configuration",
+        "messageBody" : "",
+        "messageTitle" : "feat(mojo): add `forceNextVersion` configuration"
       } ]
     }, {
       "title" : "Code Refactoring",
@@ -3437,6 +4293,8 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : "mojo",
         "localeMap" : {
           "zh-cn" : {
             "commitHash" : "5fd40d4e",
@@ -3446,14 +4304,12 @@
             "subject" : "将配置项 `useCrazyGrowing` 重命名为 `ReleaseStrategy`"
           }
         },
-        "commitIssue" : null,
         "rawCommitType" : "refactor",
-        "rawCommitScope" : "mojo",
         "firstLocaleCommitType" : null,
-        "rawCommitSubject" : "replace `useCrazyGrowing` configuration with `ReleaseStrategy`",
         "firstLocaleCommitScope" : null,
-        "messageTitle" : "refactor(mojo): replace `useCrazyGrowing` configuration with `ReleaseStrategy`",
-        "messageBody" : ""
+        "rawCommitSubject" : "replace `useCrazyGrowing` configuration with `ReleaseStrategy`",
+        "messageBody" : "",
+        "messageTitle" : "refactor(mojo): replace `useCrazyGrowing` configuration with `ReleaseStrategy`"
       }, {
         "hashFull" : "1d37706fb04541ef7a2738c23861f158a36ce6cc",
         "hash" : "1d37706fb04541e",
@@ -3495,6 +4351,8 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : null,
         "localeMap" : {
           "zh-cn" : {
             "commitHash" : "1d37706f",
@@ -3504,14 +4362,12 @@
             "subject" : "更新 `DEFAULT_MESSAGE_PATTERN`"
           }
         },
-        "commitIssue" : null,
         "rawCommitType" : "refactor",
-        "rawCommitScope" : null,
         "firstLocaleCommitType" : "refactor",
-        "rawCommitSubject" : "update `DEFAULT_MESSAGE_PATTERN`",
         "firstLocaleCommitScope" : "mojo",
-        "messageTitle" : "refactor: update `DEFAULT_MESSAGE_PATTERN`",
-        "messageBody" : ""
+        "rawCommitSubject" : "update `DEFAULT_MESSAGE_PATTERN`",
+        "messageBody" : "",
+        "messageTitle" : "refactor: update `DEFAULT_MESSAGE_PATTERN`"
       }, {
         "hashFull" : "bc1609f3755c8613e02fddb57a1d674ded373d47",
         "hash" : "bc1609f3755c861",
@@ -3553,6 +4409,8 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : null,
         "localeMap" : {
           "zh-cn" : {
             "commitHash" : "bc1609f3",
@@ -3562,14 +4420,12 @@
             "subject" : "项目重构"
           }
         },
-        "commitIssue" : null,
         "rawCommitType" : "refactor",
-        "rawCommitScope" : null,
         "firstLocaleCommitType" : null,
-        "rawCommitSubject" : "refactor project",
         "firstLocaleCommitScope" : null,
-        "messageTitle" : "refactor: refactor project",
-        "messageBody" : ""
+        "rawCommitSubject" : "refactor project",
+        "messageBody" : "",
+        "messageTitle" : "refactor: refactor project"
       }, {
         "hashFull" : "db48c20abca14fce4d5610b0252b519a93214647",
         "hash" : "db48c20abca14fc",
@@ -3611,6 +4467,8 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : null,
         "localeMap" : {
           "zh-cn" : {
             "commitHash" : "db48c20a",
@@ -3620,14 +4478,12 @@
             "subject" : "代码优化"
           }
         },
-        "commitIssue" : null,
         "rawCommitType" : "refactor",
-        "rawCommitScope" : null,
         "firstLocaleCommitType" : null,
-        "rawCommitSubject" : "code optimize",
         "firstLocaleCommitScope" : null,
-        "messageTitle" : "refactor: code optimize",
-        "messageBody" : ""
+        "rawCommitSubject" : "code optimize",
+        "messageBody" : "",
+        "messageTitle" : "refactor: code optimize"
       } ]
     }, {
       "title" : "Chores",
@@ -3672,6 +4528,8 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : null,
         "localeMap" : {
           "zh-cn" : {
             "commitHash" : "111ce4fe",
@@ -3681,14 +4539,12 @@
             "subject" : "添加 `ciManagement` 信息"
           }
         },
-        "commitIssue" : null,
         "rawCommitType" : "ci",
-        "rawCommitScope" : null,
         "firstLocaleCommitType" : "chore",
-        "rawCommitSubject" : "add `ciManagement` info",
         "firstLocaleCommitScope" : "config",
-        "messageTitle" : "ci: add `ciManagement` info",
-        "messageBody" : ""
+        "rawCommitSubject" : "add `ciManagement` info",
+        "messageBody" : "",
+        "messageTitle" : "ci: add `ciManagement` info"
       }, {
         "hashFull" : "6c87eabd7745045ac08f7a529f304bdc5d2c54cc",
         "hash" : "6c87eabd7745045",
@@ -3730,6 +4586,8 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : null,
         "localeMap" : {
           "zh-cn" : {
             "commitHash" : "6c87eabd",
@@ -3739,14 +4597,12 @@
             "subject" : "修复 PMD 问题事项"
           }
         },
-        "commitIssue" : null,
         "rawCommitType" : "chore",
-        "rawCommitScope" : null,
         "firstLocaleCommitType" : "chore",
-        "rawCommitSubject" : "fix PMD issues",
         "firstLocaleCommitScope" : "pmd",
-        "messageTitle" : "chore: fix PMD issues",
-        "messageBody" : ""
+        "rawCommitSubject" : "fix PMD issues",
+        "messageBody" : "",
+        "messageTitle" : "chore: fix PMD issues"
       } ]
     }, {
       "title" : "Styles",
@@ -3791,6 +4647,8 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : null,
         "localeMap" : {
           "zh-cn" : {
             "commitHash" : "6750c9ef",
@@ -3800,14 +4658,12 @@
             "subject" : "调整 `.xml` 和 `.json` 的缩进"
           }
         },
-        "commitIssue" : null,
         "rawCommitType" : "style",
-        "rawCommitScope" : null,
         "firstLocaleCommitType" : "style",
-        "rawCommitSubject" : "adjust the indent size of `.xml` and `.json` files",
         "firstLocaleCommitScope" : "config",
-        "messageTitle" : "style: adjust the indent size of `.xml` and `.json` files",
-        "messageBody" : ""
+        "rawCommitSubject" : "adjust the indent size of `.xml` and `.json` files",
+        "messageBody" : "",
+        "messageTitle" : "style: adjust the indent size of `.xml` and `.json` files"
       } ]
     }, {
       "title" : "Documentation",
@@ -3852,6 +4708,8 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : "docs",
         "localeMap" : {
           "zh-cn" : {
             "commitHash" : "83e42818",
@@ -3861,14 +4719,12 @@
             "subject" : "更新 `Conventional Commits` 徽标"
           }
         },
-        "commitIssue" : null,
         "rawCommitType" : "docs",
-        "rawCommitScope" : "docs",
         "firstLocaleCommitType" : null,
-        "rawCommitSubject" : "update `Conventional Commits` badge",
         "firstLocaleCommitScope" : null,
-        "messageTitle" : "docs(docs): update `Conventional Commits` badge",
-        "messageBody" : ""
+        "rawCommitSubject" : "update `Conventional Commits` badge",
+        "messageBody" : "",
+        "messageTitle" : "docs(docs): update `Conventional Commits` badge"
       }, {
         "hashFull" : "34f7d4379fc69e0d3ba0dfc7d065a8e4c859d7d8",
         "hash" : "34f7d4379fc69e0",
@@ -3910,6 +4766,8 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : "docs",
         "localeMap" : {
           "zh-cn" : {
             "commitHash" : "34f7d437",
@@ -3919,14 +4777,12 @@
             "subject" : "更新文档"
           }
         },
-        "commitIssue" : null,
         "rawCommitType" : "docs",
-        "rawCommitScope" : "docs",
         "firstLocaleCommitType" : null,
-        "rawCommitSubject" : "update docs",
         "firstLocaleCommitScope" : null,
-        "messageTitle" : "docs(docs): update docs",
-        "messageBody" : ""
+        "rawCommitSubject" : "update docs",
+        "messageBody" : "",
+        "messageTitle" : "docs(docs): update docs"
       }, {
         "hashFull" : "32953c8327ed12f99d04a3e64acf57d0095d4bc0",
         "hash" : "32953c8327ed12f",
@@ -3968,6 +4824,8 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : "docs",
         "localeMap" : {
           "zh-cn" : {
             "commitHash" : "32953c83",
@@ -3977,14 +4835,12 @@
             "subject" : "添加 favicon"
           }
         },
-        "commitIssue" : null,
         "rawCommitType" : "docs",
-        "rawCommitScope" : "docs",
         "firstLocaleCommitType" : null,
-        "rawCommitSubject" : "add favicon",
         "firstLocaleCommitScope" : null,
-        "messageTitle" : "docs(docs): add favicon",
-        "messageBody" : ""
+        "rawCommitSubject" : "add favicon",
+        "messageBody" : "",
+        "messageTitle" : "docs(docs): add favicon"
       } ]
     }, {
       "title" : "Continuous Integration",
@@ -4029,6 +4885,8 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : "travis",
         "localeMap" : {
           "zh-cn" : {
             "commitHash" : "0116a713",
@@ -4038,14 +4896,12 @@
             "subject" : "添加 `travis` 配置"
           }
         },
-        "commitIssue" : null,
         "rawCommitType" : "ci",
-        "rawCommitScope" : "travis",
         "firstLocaleCommitType" : null,
-        "rawCommitSubject" : "add travis CI configuration",
         "firstLocaleCommitScope" : null,
-        "messageTitle" : "ci(travis): add travis CI configuration",
-        "messageBody" : ""
+        "rawCommitSubject" : "add travis CI configuration",
+        "messageBody" : "",
+        "messageTitle" : "ci(travis): add travis CI configuration"
       }, {
         "hashFull" : "3eaf171f44e52eb174ba17ea1fb8bb99853adfb8",
         "hash" : "3eaf171f44e52eb",
@@ -4087,6 +4943,8 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : "travis",
         "localeMap" : {
           "zh-cn" : {
             "commitHash" : "3eaf171f",
@@ -4096,14 +4954,12 @@
             "subject" : "添加 `CHANGELOG_*.md` 文件回推"
           }
         },
-        "commitIssue" : null,
         "rawCommitType" : "ci",
-        "rawCommitScope" : "travis",
         "firstLocaleCommitType" : null,
-        "rawCommitSubject" : "add push-back file `CHANGELOG_*.md`",
         "firstLocaleCommitScope" : null,
-        "messageTitle" : "ci(travis): add push-back file `CHANGELOG_*.md`",
-        "messageBody" : ""
+        "rawCommitSubject" : "add push-back file `CHANGELOG_*.md`",
+        "messageBody" : "",
+        "messageTitle" : "ci(travis): add push-back file `CHANGELOG_*.md`"
       }, {
         "hashFull" : "e6d39850936933f5f08f253ae314fa0e78ae749c",
         "hash" : "e6d39850936933f",
@@ -4145,6 +5001,8 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : "travis",
         "localeMap" : {
           "zh-cn" : {
             "commitHash" : "e6d39850",
@@ -4154,14 +5012,12 @@
             "subject" : "修正 CI"
           }
         },
-        "commitIssue" : null,
         "rawCommitType" : "ci",
-        "rawCommitScope" : "travis",
         "firstLocaleCommitType" : "ci",
-        "rawCommitSubject" : "fix ci",
         "firstLocaleCommitScope" : "travis",
-        "messageTitle" : "ci(travis): fix ci",
-        "messageBody" : ""
+        "rawCommitSubject" : "fix ci",
+        "messageBody" : "",
+        "messageTitle" : "ci(travis): fix ci"
       }, {
         "hashFull" : "88cf483884819310ceeb12560852fcf2b15c8905",
         "hash" : "88cf48388481931",
@@ -4203,6 +5059,8 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : null,
         "localeMap" : {
           "zh-cn" : {
             "commitHash" : "88cf4838",
@@ -4212,14 +5070,12 @@
             "subject" : "更新 CI"
           }
         },
-        "commitIssue" : null,
         "rawCommitType" : "ci",
-        "rawCommitScope" : null,
         "firstLocaleCommitType" : "ci",
-        "rawCommitSubject" : "update ci",
         "firstLocaleCommitScope" : "travis",
-        "messageTitle" : "ci: update ci",
-        "messageBody" : ""
+        "rawCommitSubject" : "update ci",
+        "messageBody" : "",
+        "messageTitle" : "ci: update ci"
       }, {
         "hashFull" : "0b8cc345aed9454846f445206aa3fe564151b9f9",
         "hash" : "0b8cc345aed9454",
@@ -4261,6 +5117,8 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : null,
         "localeMap" : {
           "zh-cn" : {
             "commitHash" : "0b8cc345",
@@ -4270,14 +5128,12 @@
             "subject" : "更新 CI"
           }
         },
-        "commitIssue" : null,
         "rawCommitType" : "ci",
-        "rawCommitScope" : null,
         "firstLocaleCommitType" : "ci",
-        "rawCommitSubject" : "update ci",
         "firstLocaleCommitScope" : "travis",
-        "messageTitle" : "ci: update ci",
-        "messageBody" : ""
+        "rawCommitSubject" : "update ci",
+        "messageBody" : "",
+        "messageTitle" : "ci: update ci"
       } ]
     } ]
   }, {
@@ -4289,8 +5145,8 @@
       "buildMetaDataParts" : [ ],
       "preRelease" : "",
       "buildMetaData" : "",
-      "initialDevelopment" : true,
-      "stable" : true
+      "stable" : true,
+      "initialDevelopment" : true
     },
     "releaseDate" : "2020-01-29 13:21:37.000 +0800",
     "sections" : [ {
@@ -4336,6 +5192,8 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : "gitReleaseCommit",
         "localeMap" : {
           "zh-cn" : {
             "commitHash" : "f765dbb9",
@@ -4345,14 +5203,12 @@
             "subject" : "修正提交记录的 `fullHash` 属性"
           }
         },
-        "commitIssue" : null,
         "rawCommitType" : "fix",
-        "rawCommitScope" : "gitReleaseCommit",
         "firstLocaleCommitType" : "fix",
-        "rawCommitSubject" : "fix commit fullHash property",
         "firstLocaleCommitScope" : "mojo",
-        "messageTitle" : "fix(gitReleaseCommit): fix commit fullHash property",
-        "messageBody" : ""
+        "rawCommitSubject" : "fix commit fullHash property",
+        "messageBody" : "",
+        "messageTitle" : "fix(gitReleaseCommit): fix commit fullHash property"
       }, {
         "hashFull" : "545aa511aefb5bbd02b78b73fa37a6f69cf6d1e7",
         "hash" : "545aa511aefb5bb",
@@ -4394,6 +5250,8 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : "git-changelog",
         "localeMap" : {
           "zh-cn" : {
             "commitHash" : "545aa511",
@@ -4403,14 +5261,12 @@
             "subject" : "修复 `releaseDate` 数据类型"
           }
         },
-        "commitIssue" : null,
         "rawCommitType" : "fix",
-        "rawCommitScope" : "git-changelog",
         "firstLocaleCommitType" : "fix",
-        "rawCommitSubject" : "fix releaseDate data type error",
         "firstLocaleCommitScope" : "mojo",
-        "messageTitle" : "fix(git-changelog): fix releaseDate data type error",
-        "messageBody" : ""
+        "rawCommitSubject" : "fix releaseDate data type error",
+        "messageBody" : "",
+        "messageTitle" : "fix(git-changelog): fix releaseDate data type error"
       } ]
     }, {
       "title" : "Chores",
@@ -4455,6 +5311,8 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : null,
         "localeMap" : {
           "zh-cn" : {
             "commitHash" : "3eb99c35",
@@ -4464,14 +5322,12 @@
             "subject" : "更新 `pom.xml`"
           }
         },
-        "commitIssue" : null,
         "rawCommitType" : "chore",
-        "rawCommitScope" : null,
         "firstLocaleCommitType" : "chore",
-        "rawCommitSubject" : "update pom.xml",
         "firstLocaleCommitScope" : "config",
-        "messageTitle" : "chore: update pom.xml",
-        "messageBody" : ""
+        "rawCommitSubject" : "update pom.xml",
+        "messageBody" : "",
+        "messageTitle" : "chore: update pom.xml"
       } ]
     }, {
       "title" : "Styles",
@@ -4516,6 +5372,8 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : "checkstyle",
         "localeMap" : {
           "zh-cn" : {
             "commitHash" : "a131dcf6",
@@ -4525,14 +5383,12 @@
             "subject" : "更新 `checkstyle.xml`"
           }
         },
-        "commitIssue" : null,
         "rawCommitType" : "style",
-        "rawCommitScope" : "checkstyle",
         "firstLocaleCommitType" : null,
-        "rawCommitSubject" : "update checkstyle.xml",
         "firstLocaleCommitScope" : null,
-        "messageTitle" : "style(checkstyle): update checkstyle.xml",
-        "messageBody" : ""
+        "rawCommitSubject" : "update checkstyle.xml",
+        "messageBody" : "",
+        "messageTitle" : "style(checkstyle): update checkstyle.xml"
       } ]
     }, {
       "title" : "Documentation",
@@ -4577,6 +5433,8 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : "docs",
         "localeMap" : {
           "zh-cn" : {
             "commitHash" : "630a1a33",
@@ -4586,14 +5444,12 @@
             "subject" : "添加或更新徽标"
           }
         },
-        "commitIssue" : null,
         "rawCommitType" : "docs",
-        "rawCommitScope" : "docs",
         "firstLocaleCommitType" : null,
-        "rawCommitSubject" : "add or update badges",
         "firstLocaleCommitScope" : null,
-        "messageTitle" : "docs(docs): add or update badges",
-        "messageBody" : ""
+        "rawCommitSubject" : "add or update badges",
+        "messageBody" : "",
+        "messageTitle" : "docs(docs): add or update badges"
       }, {
         "hashFull" : "92909a164b611c242721b2ad0643f5549aabd32e",
         "hash" : "92909a164b611c2",
@@ -4635,6 +5491,8 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : "docs",
         "localeMap" : {
           "zh-cn" : {
             "commitHash" : "92909a16",
@@ -4644,14 +5502,12 @@
             "subject" : "更新 `README.md`"
           }
         },
-        "commitIssue" : null,
         "rawCommitType" : "docs",
-        "rawCommitScope" : "docs",
         "firstLocaleCommitType" : null,
-        "rawCommitSubject" : "update README.md",
         "firstLocaleCommitScope" : null,
-        "messageTitle" : "docs(docs): update README.md",
-        "messageBody" : ""
+        "rawCommitSubject" : "update README.md",
+        "messageBody" : "",
+        "messageTitle" : "docs(docs): update README.md"
       }, {
         "hashFull" : "fcfe57ae6ba5f79ef132446c55460af582940895",
         "hash" : "fcfe57ae6ba5f79",
@@ -4693,6 +5549,8 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : "docs",
         "localeMap" : {
           "zh-cn" : {
             "commitHash" : "fcfe57ae",
@@ -4702,14 +5560,12 @@
             "subject" : "添加更新日志页"
           }
         },
-        "commitIssue" : null,
         "rawCommitType" : "docs",
-        "rawCommitScope" : "docs",
         "firstLocaleCommitType" : null,
-        "rawCommitSubject" : "add changelog page",
         "firstLocaleCommitScope" : null,
-        "messageTitle" : "docs(docs): add changelog page",
-        "messageBody" : ""
+        "rawCommitSubject" : "add changelog page",
+        "messageBody" : "",
+        "messageTitle" : "docs(docs): add changelog page"
       } ]
     } ]
   }, {
@@ -4721,8 +5577,8 @@
       "buildMetaDataParts" : [ ],
       "preRelease" : "",
       "buildMetaData" : "",
-      "initialDevelopment" : true,
-      "stable" : true
+      "stable" : true,
+      "initialDevelopment" : true
     },
     "releaseDate" : "2020-01-28 20:24:32.000 +0800",
     "sections" : [ {
@@ -4768,6 +5624,8 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : "git-changelog",
         "localeMap" : {
           "zh-cn" : {
             "commitHash" : "8d964149",
@@ -4777,14 +5635,12 @@
             "subject" : "实现主要功能"
           }
         },
-        "commitIssue" : null,
         "rawCommitType" : "feat",
-        "rawCommitScope" : "git-changelog",
         "firstLocaleCommitType" : "feat",
-        "rawCommitSubject" : "implement main features and challenges",
         "firstLocaleCommitScope" : "mojo",
-        "messageTitle" : "feat(git-changelog): implement main features and challenges",
-        "messageBody" : ""
+        "rawCommitSubject" : "implement main features and challenges",
+        "messageBody" : "",
+        "messageTitle" : "feat(git-changelog): implement main features and challenges"
       }, {
         "hashFull" : "4367c63de29e56fa40044341ac0273a622a4b6b8",
         "hash" : "4367c63de29e56f",
@@ -4826,6 +5682,8 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : "derive",
         "localeMap" : {
           "zh-cn" : {
             "commitHash" : "4367c63d",
@@ -4835,14 +5693,12 @@
             "subject" : "添加 `semantic-gitlog:derive` 目标"
           }
         },
-        "commitIssue" : null,
         "rawCommitType" : "feat",
-        "rawCommitScope" : "derive",
         "firstLocaleCommitType" : "feat",
-        "rawCommitSubject" : "add `semantic-gitlog:derive` goal",
         "firstLocaleCommitScope" : "mojo",
-        "messageTitle" : "feat(derive): add `semantic-gitlog:derive` goal",
-        "messageBody" : ""
+        "rawCommitSubject" : "add `semantic-gitlog:derive` goal",
+        "messageBody" : "",
+        "messageTitle" : "feat(derive): add `semantic-gitlog:derive` goal"
       } ]
     }, {
       "title" : "Chores",
@@ -4887,6 +5743,8 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : "deps",
         "localeMap" : {
           "zh-cn" : {
             "commitHash" : "a6bc1482",
@@ -4896,14 +5754,12 @@
             "subject" : "更新 `checkstyle` 版本"
           }
         },
-        "commitIssue" : null,
         "rawCommitType" : "chore",
-        "rawCommitScope" : "deps",
         "firstLocaleCommitType" : null,
-        "rawCommitSubject" : "bump checkstyle from 8.27 to 8.29",
         "firstLocaleCommitScope" : null,
-        "messageTitle" : "chore(deps): bump checkstyle from 8.27 to 8.29",
-        "messageBody" : "Bumps [checkstyle](https://github.com/checkstyle/checkstyle) from 8.27 to 8.29.\n- [Release notes](https://github.com/checkstyle/checkstyle/releases)\n- [Commits](https://github.com/checkstyle/checkstyle/compare/checkstyle-8.27...checkstyle-8.29)\n\nSigned-off-by: dependabot-preview[bot] <support@dependabot.com>"
+        "rawCommitSubject" : "bump checkstyle from 8.27 to 8.29",
+        "messageBody" : "Bumps [checkstyle](https://github.com/checkstyle/checkstyle) from 8.27 to 8.29.\n- [Release notes](https://github.com/checkstyle/checkstyle/releases)\n- [Commits](https://github.com/checkstyle/checkstyle/compare/checkstyle-8.27...checkstyle-8.29)\n\nSigned-off-by: dependabot-preview[bot] <support@dependabot.com>",
+        "messageTitle" : "chore(deps): bump checkstyle from 8.27 to 8.29"
       }, {
         "hashFull" : "2a69b52d9052b60c4a515063bcb2c39d6a4f9511",
         "hash" : "2a69b52d9052b60",
@@ -4945,6 +5801,8 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : "deps",
         "localeMap" : {
           "zh-cn" : {
             "commitHash" : "2a69b52d",
@@ -4954,14 +5812,12 @@
             "subject" : "更新 `pmd` 版本"
           }
         },
-        "commitIssue" : null,
         "rawCommitType" : "chore",
-        "rawCommitScope" : "deps",
         "firstLocaleCommitType" : null,
-        "rawCommitSubject" : "bump pmdVersion from 6.20.0 to 6.21.0",
         "firstLocaleCommitScope" : null,
-        "messageTitle" : "chore(deps): bump pmdVersion from 6.20.0 to 6.21.0",
-        "messageBody" : "Bumps `pmdVersion` from 6.20.0 to 6.21.0.\n\nUpdates `pmd-core` from 6.20.0 to 6.21.0\n- [Release notes](https://github.com/pmd/pmd/releases)\n- [Commits](https://github.com/pmd/pmd/compare/pmd_releases/6.20.0...pmd_releases/6.21.0)\n\nUpdates `pmd-java` from 6.20.0 to 6.21.0\n- [Release notes](https://github.com/pmd/pmd/releases)\n- [Commits](https://github.com/pmd/pmd/compare/pmd_releases/6.20.0...pmd_releases/6.21.0)\n\nUpdates `pmd-javascript` from 6.20.0 to 6.21.0\n- [Release notes](https://github.com/pmd/pmd/releases)\n- [Commits](https://github.com/pmd/pmd/compare/pmd_releases/6.20.0...pmd_releases/6.21.0)\n\nUpdates `pmd-jsp` from 6.20.0 to 6.21.0\n- [Release notes](https://github.com/pmd/pmd/releases)\n- [Commits](https://github.com/pmd/pmd/compare/pmd_releases/6.20.0...pmd_releases/6.21.0)\n\nSigned-off-by: dependabot-preview[bot] <support@dependabot.com>"
+        "rawCommitSubject" : "bump pmdVersion from 6.20.0 to 6.21.0",
+        "messageBody" : "Bumps `pmdVersion` from 6.20.0 to 6.21.0.\n\nUpdates `pmd-core` from 6.20.0 to 6.21.0\n- [Release notes](https://github.com/pmd/pmd/releases)\n- [Commits](https://github.com/pmd/pmd/compare/pmd_releases/6.20.0...pmd_releases/6.21.0)\n\nUpdates `pmd-java` from 6.20.0 to 6.21.0\n- [Release notes](https://github.com/pmd/pmd/releases)\n- [Commits](https://github.com/pmd/pmd/compare/pmd_releases/6.20.0...pmd_releases/6.21.0)\n\nUpdates `pmd-javascript` from 6.20.0 to 6.21.0\n- [Release notes](https://github.com/pmd/pmd/releases)\n- [Commits](https://github.com/pmd/pmd/compare/pmd_releases/6.20.0...pmd_releases/6.21.0)\n\nUpdates `pmd-jsp` from 6.20.0 to 6.21.0\n- [Release notes](https://github.com/pmd/pmd/releases)\n- [Commits](https://github.com/pmd/pmd/compare/pmd_releases/6.20.0...pmd_releases/6.21.0)\n\nSigned-off-by: dependabot-preview[bot] <support@dependabot.com>",
+        "messageTitle" : "chore(deps): bump pmdVersion from 6.20.0 to 6.21.0"
       } ]
     }, {
       "title" : "Documentation",
@@ -5006,6 +5862,8 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : "docs",
         "localeMap" : {
           "zh-cn" : {
             "commitHash" : "1978d19b",
@@ -5015,14 +5873,12 @@
             "subject" : "添加文档"
           }
         },
-        "commitIssue" : null,
         "rawCommitType" : "docs",
-        "rawCommitScope" : "docs",
         "firstLocaleCommitType" : null,
-        "rawCommitSubject" : "add docs",
         "firstLocaleCommitScope" : null,
-        "messageTitle" : "docs(docs): add docs",
-        "messageBody" : ""
+        "rawCommitSubject" : "add docs",
+        "messageBody" : "",
+        "messageTitle" : "docs(docs): add docs"
       }, {
         "hashFull" : "b3f41bd49b6b7d02a2ae33f7a8833524e072d590",
         "hash" : "b3f41bd49b6b7d0",
@@ -5064,6 +5920,8 @@
         "attention" : false,
         "breakingChange" : false,
         "deprecated" : false,
+        "commitIssue" : null,
+        "rawCommitScope" : null,
         "localeMap" : {
           "zh-cn" : {
             "commitHash" : "b3f41bd4",
@@ -5073,14 +5931,12 @@
             "subject" : "添加 `CHANGELOG.md`"
           }
         },
-        "commitIssue" : null,
         "rawCommitType" : "chore",
-        "rawCommitScope" : null,
         "firstLocaleCommitType" : "docs",
-        "rawCommitSubject" : "add `CHANGELOG.md`",
         "firstLocaleCommitScope" : "docs",
-        "messageTitle" : "chore: add `CHANGELOG.md`",
-        "messageBody" : ""
+        "rawCommitSubject" : "add `CHANGELOG.md`",
+        "messageBody" : "",
+        "messageTitle" : "chore: add `CHANGELOG.md`"
       } ]
     } ]
   } ]

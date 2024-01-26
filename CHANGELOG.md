@@ -1,5 +1,34 @@
 # Changelog
 
+## 0.22.27 (2024-01-26)
+
+### Chores
+
+- **deps**: bump maven-core to 3.9.6 ([f1fb465b](https://github.com/semantic-gitlog/maven-semantic-gitlog/commit/f1fb465b3289c11ae707ec64fa1d6ff27091791a))
+- **deps**: bump maven-plugin-api to 3.9.6 ([e412fe72](https://github.com/semantic-gitlog/maven-semantic-gitlog/commit/e412fe7212f5e7cbfdb8884eb97c8a4dffd6ecc7))
+- **deps**: bump maven-plugin-annotations to 3.11.0 ([2eef2ab7](https://github.com/semantic-gitlog/maven-semantic-gitlog/commit/2eef2ab7b74b52a030644b27a40de83dcf7561e6))
+- **deps**: bump lombok to 1.18.30 ([19c92903](https://github.com/semantic-gitlog/maven-semantic-gitlog/commit/19c929038c67f07363e4a75eadf07a87da2740c8))
+- **deps**: bump semantic-gitlog to 0.8.20 ([7633b601](https://github.com/semantic-gitlog/maven-semantic-gitlog/commit/7633b601662502aa0f70d5cd13ff931bbd0c6e90))
+- **deps**: bump maven-compiler-plugin to 3.12.1 ([9a7014b6](https://github.com/semantic-gitlog/maven-semantic-gitlog/commit/9a7014b668ef333d9b2b9209f4cb00804a49447a))
+- **deps**: bump versions-maven-plugin to 2.16.2 ([2f2d362c](https://github.com/semantic-gitlog/maven-semantic-gitlog/commit/2f2d362c90aab1e86a291b60b56e35f4cfb0dde3))
+- **deps**: bump maven-plugin-plugin to 3.11.0 ([0e19ceef](https://github.com/semantic-gitlog/maven-semantic-gitlog/commit/0e19ceefcd8c0af615f409150588a7e32318fe73))
+- **deps**: bump maven-javadoc-plugin to 3.6.3 ([cb4c3e24](https://github.com/semantic-gitlog/maven-semantic-gitlog/commit/cb4c3e24e235a815fe01e61f16dbdce09e2816ef))
+- **deps**: bump maven-source-plugin to 3.3.0 ([e1ead862](https://github.com/semantic-gitlog/maven-semantic-gitlog/commit/e1ead862ccb8893c26e85191dfe65c5b88d7fc3c))
+- **deps**: bump maven-site-plugin to 3.12.1 ([13d80a82](https://github.com/semantic-gitlog/maven-semantic-gitlog/commit/13d80a82c763de1460b31e09d0573057d8cf8cce))
+- **deps**: bump maven-jxr-plugin to 3.3.2 ([d8829f70](https://github.com/semantic-gitlog/maven-semantic-gitlog/commit/d8829f7004efddbd2d1d909e14716c16e29b1550))
+- **deps**: bump maven-project-info-reports-plugin to 3.5.0 ([2f8db03e](https://github.com/semantic-gitlog/maven-semantic-gitlog/commit/2f8db03e8bbb54ec7e847ef7a5066751316b4974))
+- **deps**: bump maven-gpg-plugin to 3.1.0 ([84a909a5](https://github.com/semantic-gitlog/maven-semantic-gitlog/commit/84a909a5658099cfb777c344ddd181411c8bdaa3))
+- **deps**: bump nexus-staging-maven-plugin to 1.6.13 ([880d0818](https://github.com/semantic-gitlog/maven-semantic-gitlog/commit/880d0818ef9249bf9f13823ce686d44c0516e695))
+
+
+### Build System
+
+- **deps**: remove checkstyle ([d57c8e88](https://github.com/semantic-gitlog/maven-semantic-gitlog/commit/d57c8e880ffecea116d9bcccb06a5a26f0e79a1b))
+- **deps**: remove pmd ([eba8f699](https://github.com/semantic-gitlog/maven-semantic-gitlog/commit/eba8f6998018ac8db7dc867bf9a02fdc350b3f0a))
+- **deps**: bump maven wrapper to 3.2.0 ([69536d35](https://github.com/semantic-gitlog/maven-semantic-gitlog/commit/69536d35ce646564dbe79860b62d94bc2d59c9f6))
+- **deps**: bump jdk to 11 ([82c00675](https://github.com/semantic-gitlog/maven-semantic-gitlog/commit/82c00675e1662116cf5145b5637ea54712602a91))
+
+
 ## 0.22.8 (2023-06-02)
 
 ### Bug Fixes
