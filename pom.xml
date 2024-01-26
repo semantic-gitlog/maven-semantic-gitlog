@@ -62,7 +62,7 @@
         <dependency>
             <groupId>org.apache.maven</groupId>
             <artifactId>maven-core</artifactId>
-            <version>3.9.2</version>
+            <version>3.9.6</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.apache.maven/maven-plugin-api -->
