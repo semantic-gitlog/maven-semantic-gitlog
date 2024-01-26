@@ -35,7 +35,6 @@ import java.nio.file.StandardCopyOption;
 import java.util.Map;
 import java.util.stream.IntStream;
 
-@SuppressWarnings("PMD.TooManyFields")
 public abstract class GitChangelogMojo extends AbstractMojo {
     @Parameter(defaultValue = "${project}", readonly = true)
     protected MavenProject project;
